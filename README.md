@@ -1,2 +1,2 @@
-# documentation
-This is where we host all MOC documentation
+# Documentation
+This is where we host all MOC documentation.
