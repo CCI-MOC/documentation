@@ -9,7 +9,7 @@ Welcome to MOC's documentation!
 .. toctree::
    :maxdepth: 2
    
-   home
+   Home <home.md>
 
 Indices and tables
 ==================
