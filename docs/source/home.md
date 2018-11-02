@@ -17,7 +17,7 @@ This is the Massachusetts Open Cloud private wiki; we mostly use it to document 
 ### Knowledge base/Trainings
 * [Brocade  VCS training - lab session](https://github.com/CCI-MOC/moc/wiki/VCS_Lab.pptx.pdf)
 * [Brocade training - instruction session](https://github.com/CCI-MOC/moc/wiki/VCS_Training_01.pdf)
-* [Ceph Tutorials](/docs/source/Ceph-Tutorials.html)
+* [Ceph Tutorials](/en/latest/Ceph-Tutorials.html)
 
 ### Clusters
 * [[MOC VLAN Distribution]]
