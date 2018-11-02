@@ -10,7 +10,7 @@ Welcome to MOC's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   Home: home.md
 
 Indices and tables
 ==================
