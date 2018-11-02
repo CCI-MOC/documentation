@@ -35,7 +35,7 @@ This is the Massachusetts Open Cloud private wiki; we mostly use it to document 
 ### HIL
 * [[Haas meeting minutes]]
 * [Github link](https://github.com/CCI-MOC/hil)
-* [Meeting Information](https://github.com/CCI-MOC/moc/wiki/HIL-Meeting-Information)
+* [Meeting Information](/en/latest/HIL-Meeting-Information.html)
 
 ### M2
 * [Github link](https://github.com/CCI-MOC/m2)
@@ -45,16 +45,16 @@ This is the Massachusetts Open Cloud private wiki; we mostly use it to document 
 * [[Midonet Kilo Release]]
 * [[Keystone to Keystone Federation]]
 * [[Mix and Match Federation]] federation work
-* [Debugging-the-installed-version-of-Horizon](https://github.com/CCI-MOC/moc-public/wiki/Debugging-the-installed-version-of-Horizon)
+* [Debugging-the-installed-version-of-Horizon](/en/latest/Debugging-the-installed-version-of-Horizon.html)
 * [[Jon Jozwiak's basic Openstack validation testing]]
 
 ### Monitoring (Definitely outdated)
-* [Resolving Sensu Email Alerts](https://github.com/CCI-MOC/moc/wiki/Email-Alerting-in-Sensu)
+* [Resolving Sensu Email Alerts](/en/latest/Email-Alerting-in-Sensu.html)
 * [[Viewing the Monitoring Dashboards in NEU Env]]
 * [[SNMP: CISCO switch monitoring]]
 * [[Influxdb & Grafana]]
 * [[Use InfluxDB handler in Sensu]]
-* [Logging IPMI sensor data into Sensu + Influxdb](https://github.com/CCI-MOC/moc/wiki/Logging-IPMI-sensor-data-into-Sensu---Influxdb)
+* [Logging IPMI sensor data into Sensu + Influxdb](/en/latest/Logging-IPMI-sensor-data-into-Sensu---Influxdb.html)
 * [[Where to find the IPMI checks]]
 * [[Ceilometer Installation in NE Env.]]
 * [[InfluxDB Crash Course: Querying Data]]
@@ -64,10 +64,10 @@ This is the Massachusetts Open Cloud private wiki; we mostly use it to document 
 
 ### HPC
 * [[Minutes from Meetings]]
-* [Slurm](https://github.com/CCI-MOC/moc/wiki/Slurm)
-* [Open MPI on Slurm cluster](https://github.com/CCI-MOC/moc/wiki/Open MPI on Slurm cluster)
-* [Current Slurm system](https://github.com/CCI-MOC/moc/wiki/Current-Slurm-deployment-system)
-* [Saltstack](https://github.com/CCI-MOC/moc/wiki/Salt)
+* [Slurm](/en/latest/Slurm.html)
+* [Open MPI on Slurm cluster](/en/latest/Open\ MPI\ on\ Slurm\ cluster.html)
+* [Current Slurm system](/en/latest/Current-Slurm-deployment-system.html)
+* [Saltstack](/en/latest/Salt.html)
 
 ### Sahara
 * [[Sahara End User Guide]]
@@ -85,24 +85,23 @@ This is the Massachusetts Open Cloud private wiki; we mostly use it to document 
 
 ### ELK stack
 To install the ELK stack always refer to Elastic's documentation first. This [tutorial](https://www.elastic.co/guide/en/beats/libbeat/current/getting-started.html#getting-started) was used when the ELK stack was most recently installed. This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html) was used when Filebeat was most recently installed.
-* [Elasticsearch](https://github.com/CCI-MOC/moc/wiki/Elasticsearch)
-* [Logstash](https://github.com/CCI-MOC/moc/wiki/Logstash)
-* [Logstash Filter](https://github.com/CCI-MOC/moc/wiki/Logstash\ Filter)
-* [Kibana](https://github.com/CCI-MOC/moc/wiki/Kibana)
-* [How to Use Kibana](https://github.com/CCI-MOC/moc/wiki/How\ to\ Use\ Production\ Kibana)
-* [Filebeat](https://github.com/CCI-MOC/moc/wiki/Filebeat)
+* [Elasticsearch](/en/latest/Elasticsearch.html)
+* [Logstash](/en/latest/Logstash.html)
+* [Logstash Filter](/en/latest/Logstash\ Filter.html)
+* [Kibana](/en/latest/Kibana.html)
+* [How to Use Kibana](/en/latest/How\ to\ Use\ Production\ Kibana.html)
+* [Filebeat](/en/latest/Filebeat.html)
 
 
 ### Hardware
 * [[Optiplex BIOS Settings]]
 
 ### Openshift
-* [Openshift Setup ](https://github.com/CCI-MOC/moc/wiki/Openshift-Setup)
-* [Spark on OpenShift](https://github.com/CCI-MOC/moc/wiki/Openshift-Spark)
+* [Openshift Setup ](/en/latest/Openshift-Setup.html)
+* [Spark on OpenShift](/en/latest/Openshift-Spark.html)
 
 ### Website
-* [MOC Website](https://github.com/CCI-MOC/moc/wiki/MOC-Website)
-* [MOC Website Backup](https://github.com/CCI-MOC/moc/wiki/MOC-Website-Backup)
+* [MOC Website](/en/latest/MOC-Website)
 
 ### Archives. Keep this last !
 Items that are known to be under utilized will be archived at the [[Archives page]].
