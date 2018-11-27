@@ -96,4 +96,4 @@ Then you should be able to enter your hours to be approved to received your comp
 **A user account for accessing the production environment.**
 If you asked to register as a Kaizen user, go to this [URL](https://massopen.cloud/blog/user-account-request-form/) and follow instruction at the page to register for a new account in Kaizen - MOC OpenStack cloud.
 
-NOTE : Previous version of this wiki can be found [here](https://github.com/CCI-MOC/moc/wiki/Outdated-To-do-list-for-New-MOC-Intern-Member)
+NOTE : Previous version of this wiki can be found [here](Outdated-To-do-list-for-New-MOC-Intern-Member.html)
