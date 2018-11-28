@@ -146,8 +146,8 @@ On 10G Cisco switches
 
 ## Diagrams
 
-![](NUManagementNetworkTopology.png)
-![](NUclusterNetworkTopology.png)
+![](_static/NUManagementNetworkTopology.png)
+![](_static/NUclusterNetworkTopology.png)
 
 
 ### 1G Switches

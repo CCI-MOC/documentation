@@ -134,6 +134,6 @@ You will need a small narrow tool to push the button.  It is recommended to use 
 
 #### More info
 
-* [Manual](301-0429-1_SWITCHED_POPS_CDU_v6-1_Sept12.pdf)<br>*Note: the units pictured in the manual are a different model, but the same document also covers our model which is CWG-48VD.*
+* [Manual]<!--(301-0429-1_SWITCHED_POPS_CDU_v6-1_Sept12.pdf)--> *Note: the units pictured in the manual are a different model, but the same document also covers our model which is CWG-48VD.*
 * [Manufacturer's product page](https://www.servertech.com/products/pops-per-outlet-power-sensing/pops-switched-cwg-48vd-vy-3ph-20-30a-with-pips)
 * MOC owns a 3-prong to C13 adapter which is useful for plugging in your laptop while working inside the datacenter.  It is located in the red crate stored at MGHPCC.

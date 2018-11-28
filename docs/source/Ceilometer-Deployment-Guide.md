@@ -3,7 +3,7 @@ This guide will show you how to deploy ceilometer in a staging environment that 
 
 ## System Overview
 We will deploy different part of ceilometer services to the openstack system as shown in the below diagram.
-![](https://raw.githubusercontent.com/Ruoyu111/images/master/ceilometer deployment chart.png)
+![](_static/ceilometer_deployment_chart.png)
 On the ceilometer node, below services are installed:
 - **openstack-ceilometer-api**: service to query and view data recorded by collector in internal full-fidelity database(MongoDB).
 - **openstack-ceilometer-collector **: daemon designed to gather and record event and metering data created by notification and polling agents.
@@ -346,7 +346,7 @@ Replace SERVICENAME with the corresponding name of each Telemetry component serv
 
 ### Finish
 If you have done every part right. Then you should have ceilometer up and running in your system. You could verify this by logging in to one of your OpenStack node as OpenStack admin. Type ```ceilometer meter-list```. This command will show all the meters currently enabled. You should get the results like below:
-![](https://raw.githubusercontent.com/Ruoyu111/images/master/ceilometer meters.png)
+![](_static/ceilometer_meters.png)
 
 You could learn more ceilometer commands by typing ```ceilometer --help```
 

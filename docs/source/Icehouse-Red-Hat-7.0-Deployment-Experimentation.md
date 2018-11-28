@@ -40,7 +40,7 @@ This happened for both Centos6.3 and its corresponding driver and Centos6.5 and 
 
 OS installation procedure gets loaded correctly.
 At the stage of selecting the location of driver, when I select the same DVD as location, it shows the following message.
-![](selectDvdFordriver.png)
+![](_static/selectDvdFordriver.png)
 
 * OS as virtual disk (.iso) and drivers burned on  a CD (only the *.img file). status: FAIL
 
@@ -56,12 +56,12 @@ The actual behaviour of CIMC does not match with the provided documentation. It 
 The current status is as follows:
 A new set of drivers 'ucs-cxxx-drivers.2.0.4a.iso' were released by Cisco for its server (UCS C220 M3 SFF) on 05 June 2015. 
 
-![](NewDriverRelease.png)
+![](_static/NewDriverRelease.png)
 
 
 The interoperability matrix shows that it supports upto RH7.1 but when I looked into the iso, it clearly mentions that there is not support for RH 7.0. 
 
-![](SupportInfo-newDriver.png)
+![](_static/SupportInfo-newDriver.png)
 
 Out idea was to install the server with the RH version that works and then upgrade it to RH7.0. 
 Procedure for installing new drivers on the server using CIMC includes adding both virtual images (OS and <driver>.img) as virtual devices. But for some reason, CIMC is not able to map the <dirver>.img as a virtual device. We tried mapping it as a virtual floppy drive which was accepted by CIMC but it seems the newer versions of RH OS no longer support floppy disks, hence we could find any way of locating and installing the driver, when it was attached as a virtual floppy disk. 
@@ -88,16 +88,16 @@ One option to consider is to remove the Raid controller from the equation altoge
 
 As shown in this back plane of the UCS servers photo provided by NU, the dedicated management ports do not have any cable plugged in. 
 
-![](UCSnetworkCabling.png)
+![](_static/UCSnetworkCabling.png)
 
 The image of the full back plane of the UCS server is also provided next. The image was taken from page 7 of the [UCS C220-M3S Spec. Sheet]( https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/C220M3_SFF_SpecSheet.pdf).
 
-![](Pg7ChassisRearViewUCS_C220-M3S.png)
+![](_static/Pg7ChassisRearViewUCS_C220-M3S.png)
 
 
 06/05/2015: (Ravi)
 
-![](RaviMegaRaidScreenShot2.png)
+![](_static/RaviMegaRaidScreenShot2.png)
 
 Issue 1:
 As of now, we are not able to install Redhat family OS on the Cisco gear. The issue could be with the Intel Embedded SW MegaRAID Controller which we are using. We tried installing MegaCLI which could identify the adapter version of Controller but it was not identifying the controller on 06 box. - WIP

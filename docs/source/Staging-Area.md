@@ -54,8 +54,6 @@ cp -r /etc/puppet/environments/production/modules/moc_openstack/files/nova /etc/
 ```
 * Puppetize the nodes.
 
-#### Setting up tempest
-https://github.com/CCI-MOC/moc/wiki/Setting-up-tempest
+[Setting up tempest](Setting-up-tempest.html)
 
-#### Midonet
-https://github.com/CCI-MOC/moc/wiki/Midonet
+[Midonet](Midonet.html)

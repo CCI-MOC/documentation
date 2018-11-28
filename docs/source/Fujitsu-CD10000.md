@@ -16,15 +16,16 @@
     * those should be accessible from haas-master after 7/13 visit
 
 ### Documentation 
+<!--
 * User guide can be found at [Link](cd10000-ug-en_v1.0SP2.pdf)
 * Spreadsheet layout of the CD10K deployment [Link](MOC_CD10K_Master_Worksheet_052915_DM.xlsx)
 * System Admin training material can be found at [Link](CD10000-MOC-Training.7z)
-
+-->
 ### How to open a support call to Fujitsu 
 ##### via phone (all high priority issues)
-![](HowToOpenAsupportCallWithFai.png)
+![](_static/HowToOpenAsupportCallWithFai.png)
 ##### via web (low priority issues only)
-* Link: https://iportal.shopfujitsu.com/portal/page/portal/EnterpriseCustomerPortal/Home
+* [Link](https://iportal.shopfujitsu.com/portal/page/portal/EnterpriseCustomerPortal/Home)
 * The first prompt will ask for serial number.  YM2D001007 is the serial number for your CD10000.  This information can be displayed with the following command when executed on the CD10000 management node:
  ```
 [root@pmgmt ~]# cd10000 ip cluster show

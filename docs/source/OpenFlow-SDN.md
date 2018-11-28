@@ -1,5 +1,6 @@
 ### Topology Diagram
-<img src=openflow_topology_color.png>
+![](_static/openflow_topology_color.png)
+
 ### Overview
 
 The SDN controller listens on port 6633.  OpenFlow enabled devices configured to know about the controller advertise their existence to it.  Control signals pass back and forth over this network. In our setup, this network exists on VLAN 4000 and is connected via the 1G management switch.  The physical host moc-sdn01h provides the network to its VMs via br4000.

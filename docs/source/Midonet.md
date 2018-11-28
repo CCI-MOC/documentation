@@ -1,8 +1,6 @@
-#### RDO installation
-https://www.rdoproject.org/networking/midonet-integration_mem-5-rhel-7-kilo-osp/
+[RDO installation](https://www.rdoproject.org/networking/midonet-integration_mem-5-rhel-7-kilo-osp)
 
-#### Midonet with MOC Kilo Openstack
-https://github.com/CCI-MOC/moc/wiki/Midonet-with-openstack-Kilo-release-(MOC-puppet-deployment)
+[Midonet with MOC Kilo Openstack](Midonet-with-openstack-Kilo-release-\(MOC-puppet-deployment\).html)
 
 #### Devstack installation
 Ubuntu/redhat with 8 GB RAM and 4+ VCPUs.
@@ -51,7 +49,7 @@ Run devstack.
 devstack$ ./stack.sh
 ```
 #### Midonet topology
-![](https://github.com/CCI-MOC/moc/blob/master/docs/images/midonet-topology.png)
+![](_static/midonet-topology.png)
 
 #### Documentation
 * [Official documents](http://docs.midokura.com/)

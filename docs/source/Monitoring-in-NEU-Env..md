@@ -9,7 +9,7 @@ We've set up a sensu on a VM that is located on Haas Master. This VM have access
 
 1. Log on to Haas Master
 
-    You can click [here](https://github.com/CCI-MOC/moc/wiki/Accessing-Northeastern-Cluster) for information about logging into Haas Master.
+    You can click [here](Accessing-Northeastern-Cluster.html) for information about logging into Haas Master.
 
 2. Log on to the VM
 
@@ -49,7 +49,7 @@ Port settings ```8086```
     Admin user: username: admin Password:MOCmonitor2#
     Guest user: username: moc_guest Password:moc_guest
 ```
-   More about sensu, influxDB, and Grafana can be viewed here: [Sensu](https://github.com/CCI-MOC/moc/wiki/Sensu),[InfluxDB & Grafana](https://github.com/CCI-MOC/moc/wiki/Influxdb-%26-Grafana)
+   More about sensu, influxDB, and Grafana can be viewed here: [Sensu](Sensu.html),[InfluxDB & Grafana](Influxdb-%26-Grafana.html)
 
 ### Logstash, ElasticSearch and Kibana
 
@@ -83,7 +83,7 @@ ssh <USERNAME>@129.10.3.56
 
     Ceilometer use MongoDB as its default database. You can access MongoDB using the following command ```mongo 10.13.37.91``` (ip address is needed)
 
-    More about Ceilometer Installation can be viewed [here](https://github.com/CCI-MOC/moc/wiki/Ceilometer-Installation-in-NE-Env.)
+    More about Ceilometer Installation can be viewed [here](Ceilometer-Installation-in-NE-Env..html)
  
 
 ### Log on to VMs through compute 39

@@ -20,11 +20,11 @@ A simple key-value store for user-defined data to be made available to a minion.
 A key-value pair which contains a fact about a system, such as its hostname, network addresses.
 
 **Next Step**    
-[Installation](https://github.com/CCI-MOC/moc/wiki/Salt#installation)   
-[Configuration](https://github.com/CCI-MOC/moc/wiki/Salt#configuration)   
-[State Execution/Node Configuration](https://github.com/CCI-MOC/moc/wiki/Salt#execution-of-sls-files)   
-[Salt-Cloud](https://github.com/CCI-MOC/moc/wiki/Salt#salt-cloud)   
-[Pillars](https://github.com/CCI-MOC/moc/wiki/Salt#pillars)  
+[Installation](Salt.html#installation)   
+[Configuration](Salt.html#configuration)   
+[State Execution/Node Configuration](Salt.html#execution-of-sls-files)   
+[Salt-Cloud](Salt.html#salt-cloud)   
+[Pillars](Salt.html#pillars)  
 
 ##Installation:
 

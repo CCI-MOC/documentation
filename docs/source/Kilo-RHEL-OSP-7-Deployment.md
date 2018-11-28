@@ -1,17 +1,14 @@
-(Up) [[ Northeastern Cluster ]]
+[Foreman/Puppet](Foreman-Puppet.html)
 
-[[ Foreman/Puppet ]]
+[RHEL-OSP-7 iso installation](RHEL-OSP-7-iso-installation.html)
 
-[[ RHEL-OSP-7 iso installation ]]
+[Kilo deployment](Kilo-deployment.html)
 
-[[ Kilo deployment ]]
+[Post-install Openstack Set-up](Post-install-Openstack-Set-up.html)
 
-[[ Post-install Openstack Set-up ]]
+[Setting up external network on RHEL7.1 nodes](Setting-up-external-network-on-RHEL7.1-nodes.html)
 
-[[ Setting up external network on RHEL7.1 nodes ]]
+[Neutron Debugging](Neutron-Debugging.html)
 
-[[ Neutron Debugging ]]
+[Large packet problem](Large-packet-problem.html)
 
-[[ Large packet problem ]]
-
-[[ Fujitsu Ceph ]]

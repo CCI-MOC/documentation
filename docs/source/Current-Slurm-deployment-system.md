@@ -14,7 +14,7 @@ The current system uses the local machine or a VM on kaizen(so forth called loca
   
 The following shows the current SLURM cluster deployment architecture:
 
-![SLURM cluster deployment architecture](https://github.com/CCI-MOC/moc/blob/master/docs/images/Slurm.jpg)  
+![SLURM cluster deployment architecture](_static/Slurm.jpg)  
   
 The deployment scripts are run on the local machine seen in the diagram, this deployment scripts installs the necessary packages and starts the particular daemon(central daemon or daemon) on the node. The SLURM cluster communicates over the internal network, whereas to install the packages the local machine communicates with the VMs using the floating ips.  
   

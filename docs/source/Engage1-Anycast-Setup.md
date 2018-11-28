@@ -9,7 +9,7 @@ Contents:
 
 The purpose of the Anycast setup is to allow compute nodes belonging to some arbitrary number of independent clusters to access their nearest Intel Cache Server via a fixed IP address.  In addition, if a cache server fails, the nodes will be redirected to a 'backup' cache server without perceiving the difference.
 
-The network was configured based on [this document](documents/Hadoop_Arch_v2_2016-11-09.docx) prepared by Rob Montgomery at Brocade.  The configuration steps below are from that document, although IP addresses and VLAN #'s have been changed to reflect the actual implementation
+The network was configured based on [this document]<!--(documents/Hadoop_Arch_v2_2016-11-09.docx)--> prepared by Rob Montgomery at Brocade.  The configuration steps below are from that document, although IP addresses and VLAN #'s have been changed to reflect the actual implementation
 
 ### VLAN Reservations
 

@@ -22,8 +22,8 @@ Cons :
 ### Work Space Photos 
 [Click here](https://goo.gl/photos/wxTsXkydQkPYuj958) to see additional photos from Sahil
 
-![](RHNeccoSt1.jpg)
-![](RHNeccoSt2.jpg)
-![](RHNeccoSt3.jpg)
-![](RHNeccoSt4.jpg)
-![](RHNeccoSt5.jpg)
+![](_static/RHNeccoSt1.jpg)
+![](_static/RHNeccoSt2.jpg)
+![](_static/RHNeccoSt3.jpg)
+![](_static/RHNeccoSt4.jpg)
+![](_static/RHNeccoSt5.jpg)

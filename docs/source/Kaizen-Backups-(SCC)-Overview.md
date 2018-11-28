@@ -1,4 +1,4 @@
-[[Kaizen_Backups_Diagram.jpg]]
+![](_static/Kaizen_Backups_Diagram.jpg)
 
 Backups of the MOC Kaizen cluster are handled by a set of lightweight bash scripts which use rsync.  The advantage of using rsync and bash is portability - it is easy to include a wide variety of nodes and instances using the same set of base scripts.
 

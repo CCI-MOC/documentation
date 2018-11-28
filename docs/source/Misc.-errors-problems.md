@@ -26,7 +26,7 @@ $ lvdisplay
 
 ### Node 39 crashes (Hua/Abesari)
 
-![](node_39_reboot_errors.png)
+![](_static/node_39_reboot_errors.png)
 
 ### Possible solution: (Yue)
 

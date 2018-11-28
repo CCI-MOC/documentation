@@ -1,6 +1,6 @@
-[[Trusted Users]]
+[Trusted Users](Trusted-Users.html)
 
-[[Kaizen Backups Overview]]
+[Kaizen Backups Overview](Kaizen-Backups-\(SCC\)-Overview.html)
 
 ### Additional IP address range from CSAIL
 VLAN 3802 128.31.24.0/22 - floating IPs and infrastructure with direct connection to Kumo/E1

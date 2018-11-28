@@ -55,9 +55,10 @@ Configuration instructions here:
 We can't uninstall foreman-discovery... foreman grrrrrrrrr... we're working around it, fixed the pxe boot menu (pxeboot global default) under hosts-> provisioning templates to have the right IP for the foreman host, so the discovery image will work.
 
 
-[https://github.com/CCI-MOC/moc/wiki/foreman---issues-faced]
+[MOC Forman Issues](foreman---issues-faced.html)
 
 Foreman IPtable rules:
+
 [root@foreman ~]# iptables -L
 Chain INPUT (policy ACCEPT)
 target     prot opt source               destination         

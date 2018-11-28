@@ -3,7 +3,7 @@
 To visualize the data --such as memory metrics, load metrics and disk metrics-- retrieved from sensu, we use 'InfluxDB v0.8' as the backend database and grafana as the visualization tool. We installed influxdb and grafana in moc-sensu server(ip:10.31.27.157). 
 ## Diagram
 This diagram shows how Sensu,InfluxDB and Grafana interact with each other. 
-![](https://github.com/qqli/Wikis/blob/master/influxdb.png)
+![](_static/influxdb.png)
 
 # Influxdb 
 

@@ -1,6 +1,6 @@
 # Diagram
 
-![](05-13-15 Sensu Diagram.png)
+![](_static/05-13-15-Sensu-Diagram.png)
 
 Sensu is composed of three Sensu parts. Sensu has a Sensu Server that distributes commands, Sensu Clients that receive those commands and send the results back to the Sensu Server, and Sensu API provides the REST-like interface for Sensu's data. 
 
@@ -14,7 +14,7 @@ Sensu API depends on RabbitMQ and Redis.
 
 # Sensu Topology
 
-![](sensu-diagram.png)
+![](_static/sensu-diagram.png)
 
 # Services
 

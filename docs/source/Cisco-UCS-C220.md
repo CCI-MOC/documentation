@@ -5,7 +5,7 @@ The stock disks on these nodes have a firmware issue that causes problems with d
 
 ## IPMI access
 
-See also [[VM Setup for Cisco IPMI Access]]
+See also [VM Setup for Cisco IPMI Access](VM-Setup-for-Cisco-IPMI-Access.html)
 
 The Cisco IPMI interfaces only support SSLv3, which is disabled by default in newer firefox versions.
 

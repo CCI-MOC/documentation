@@ -74,9 +74,9 @@ Press F2 which will take us to boot options screen.
 
 We need to change parameters at 3 locations. Please follow the screenshots below.
 
-![](BIOSSetup1.png)
-![](BIOSSetup2.png)
-![](UEFIEnabling.png)
+![](_static/BIOSSetup1.png)
+![](_static/BIOSSetup2.png)
+![](_static/UEFIEnabling.png)
 
 
 
@@ -134,13 +134,11 @@ boot: /vmlinuz-3.10.0-229.el7.x86_64 initrd=/initramfs-3.10.0-229.el7.x86_64.img
 
  We tried with GRUB as well again and it failed
 with following message.
-![](FailedGrub.png)
+![](_static/FailedGrub.png)
 
 Syslinux failure image:
 
-![](Failedsyslinux.png)
-
-![](syslinuxLogs.tar.gz)
+![](_static/Failedsyslinux.png)
 
 
 > Tuesday, June 30, 2015 12:39 AM

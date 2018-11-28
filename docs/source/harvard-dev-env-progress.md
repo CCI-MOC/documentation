@@ -13,4 +13,4 @@ Need to figure out how to attach the dev environment nodes to pxe from satellite
 
 # Diagram
 
-![](01-30-15 Diagram of Switch to Machines.png)
+![](_static/01-30-15 Diagram of Switch to Machines.png)

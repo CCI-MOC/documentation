@@ -1,5 +1,3 @@
-Project information moved to [public wiki page](https://github.com/CCI-MOC/moc-public/wiki/Mix-and-Match-Federation)
-
 # Setting up Resource Federation
 This guide assumes the installation of Mix & Match using DevStack.
 

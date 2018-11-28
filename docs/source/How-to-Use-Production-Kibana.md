@@ -1,39 +1,39 @@
 ## Discovering Data
 Click ```Discover``` in the top navigation bar to display Kibana’s data discovery functions:
-![](https://raw.githubusercontent.com/Ruoyu111/images/master/Basic Kibana Dashboard.png)
+![](_static/Basic_Kibana_Dashboard.png)
 
 ### Time Range
 You could specify the time range by clicking the clock button at the upper right corner.
-![](https://raw.githubusercontent.com/Ruoyu111/images/master/kibana time bar.png)
+![](_static/kibana_time_bar.png)
 
 ### Query Bar
 In the query bar, you can enter an [Elasticsearch query](https://www.elastic.co/guide/en/elasticsearch/reference/5.1/query-dsl-query-string-query.html#query-string-syntax) to search your data.
 
 For an example, if you want to see all log messages that contain key word "httpd" in this month. Just enter "httpd" in the search bar, select time range to be "this month" and click enter. The result is as follows:
-![](https://raw.githubusercontent.com/Ruoyu111/images/master/kibana query bar.png)
+![](_static/kibana_query_bar.png)
 
 ### Fields
 Fields let us easily find logs we want because we could search by specific field values. The kibana fields side panel is as follows:
-![](https://raw.githubusercontent.com/Ruoyu111/images/master/kibana side panel.png)
+![](_static/kibana_side_panel.png)
 
 The fields contains not only the default fields such as 'Time', 'source' and also some fields added when we parse the logs in logstash. To choose which document fields to display, hover over the Available Fields list and click the add button next to each field you want include.
 
 In our production kibana dashboard the fields are: ```Time```, ```host```, ```type```, ```source```, ```loglevel```, ```user```, ```message```.
 
 You could easily search for logs with particular field value. For an example, we want to see all nova logs. Thanks to filebeat, all logs collected from nova services are marked with a field called "type" and the value is "nova". Firstly find an nova log message in the main panel, click the small triangle located at the right side to see details of this log message. In the drop down panel, find the ```type``` field and click the ```+``` sign to filter for this value. As show in the following picture.
-![](https://raw.githubusercontent.com/Ruoyu111/images/master/kibana filter nova.png)
+![](_static/kibana_filter_nova.png)
 
 You could combine other fields together by this way to make more sophisticated search. Once you are done, you could click the save search button on the upper right corner of the page to save this search pattern.
 
 ## Visualizing Data
 To start visualize your data, click 'Visualize' in the top navigation bar.
-![](https://raw.githubusercontent.com/Ruoyu111/images/master/visualize.png)
+![](_static/visualize.png)
 
 The Visualize tools enable you to view your data in several ways. For example, Let's make a vertical bar chart for a saved search called 'nova' we made earlier. In 'Create a new visualization ' list, select 'Vertical bar chart'. Then select 'From a saved search'. In the drop down list find and select the search we made earlier which called 'nova'. You will see a window similar as the following:
-![](https://raw.githubusercontent.com/Ruoyu111/images/master/kibana nova.png)
+![](_static/kibana_nova.png)
 
 Then specify Y-axis as 'Count'. Specify 'buckets' as 'X-Axis' and 'Aggregation' as 'Date Histogram'. Click the green 'Apply changes' button to view the results. The results should be similar with follows:
-![](https://raw.githubusercontent.com/Ruoyu111/images/master/kibana nova2.png)
+![](_static/kibana_nova2.png)
 
 This diagram shows how many nova logs are collected over time.
 Click the 'Save Visualization' button located at the upper right corner of the page and give it a title like 'nova log count'. Click 'Save' and you are done!
@@ -51,5 +51,5 @@ To build a dashboard that contains the visualizations that saved before:
 * Hovering over a visualization displays the container controls that enable you to edit, move, delete, and resize the visualization.
 
 Your sample dashboard should end up looking roughly like this:
-![](https://raw.githubusercontent.com/Ruoyu111/images/master/Horizon dashboard.png)
+![](_static/Horizon_dashboard.png)
 

@@ -1,24 +1,24 @@
 # Diagram
 
-[[Harvard Equipment Sign Out]]
+[Harvard Equipment Sign Out](Harvard-Equipment-Sign-Out.html)
 
-![](Harvard-network-topology.png)
+![](_static/Harvard-network-topology.png)
 
 The R720, eosctl01, connects to sw1 over em1-em4, and to sw3 over p3p1 (p3p2 is disconnceted).  The 16 blades connect to sw1 over p3p1 and to sw3 over em1 (em2 and p3p1 are disconnected).
 
 # MOC Network Topology 
-![](MOCatHU_NetworkTopology.png)
+![](_static/MOCatHU_NetworkTopology.png)
 
 # Engagement Journal
 
-[Link](MOC OpenStack_Ceph_Satellite Engagement Journal - November 2014_v1.2.pdf)
+<!--[Link](MOC OpenStack_Ceph_Satellite Engagement Journal - November 2014_v1.2.pdf)-->
 
 # Testing Openstack
-
+<!--
 [openstack_test.sh](openstack_test.sh)
 [george.yaml](george.yaml)
-
-[[How To Test Harvard Moc Cluster]]
+-->
+[How To Test Harvard Moc Cluster](How-To-Test-Harvard-Moc-Cluster.html)
 
 # Overview
 
@@ -58,7 +58,7 @@ Physical node roles include:
 
 Second cluster set up:
 
-We carved out 4 compute nodes, computer12 to computer15 for a second Openstack deployment - without Ceph. The remaining twelve compute nodes remain as part of the existing cluster with Openstack and Ceph deployment described in the [Redhat Engagement Journal](MOC OpenStack_Ceph_Satellite Engagement Journal - November 2014_v1.2.pdf). More details on this second cluster is in the **Dev Cluster** section below. 
+We carved out 4 compute nodes, computer12 to computer15 for a second Openstack deployment - without Ceph. The remaining twelve compute nodes remain as part of the existing cluster with Openstack and Ceph deployment described in the [Redhat Engagement Journal]<!--(MOC OpenStack_Ceph_Satellite Engagement Journal - November 2014_v1.2.pdf)-->. More details on this second cluster is in the **Dev Cluster** section below. 
 
 ## Networks
 

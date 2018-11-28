@@ -19,7 +19,7 @@ Click "Build".
 
 `[ukaynar@haas-master ~]$ haas node_power_cycle cisco-11`
 
-7)Now you have to access to the IPMI console. Be sure you can access the IPMI console, possibly as described in [VM-Setup-for-Cisco-IPMI-Access](https://github.com/CCI-MOC/moc/wiki/VM-Setup-for-Cisco-IPMI-Access). To access the IPMI console you have to do a port forwarding to the haas_master.
+7)Now you have to access to the IPMI console. Be sure you can access the IPMI console, possibly as described in [VM-Setup-for-Cisco-IPMI-Access](VM-Setup-for-Cisco-IPMI-Access.html). To access the IPMI console you have to do a port forwarding to the haas_master.
 
 Screen should be look like the following:
 ![](https://github.com/CCI-MOC/moc/raw/master/docs/images/install_centos7_min_hd_step3.png)
