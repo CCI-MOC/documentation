@@ -65,6 +65,6 @@ A shortcut of the code retrieving "cpmCPUTotal1minRev", "cpmCPUMemoryFree","cpmC
 Full code can be found in MOC sensu server [repository](https://github.com/LeonLee88/moc_sensu_server/blob/master/plugins/check_switch_cpu_memory_metrics.rb).
     
 ## Citations
-* [1] http://kb.paessler.com/en/topic/653-how-do-snmp-mibs-and-oids-work
-* [2] http://arich-notes.arich-net.com:8080/?page_id=115
-* [3] http://www.rubydoc.info/gems/snmp/1.2.0
+* [1](http://kb.paessler.com/en/topic/653-how-do-snmp-mibs-and-oids-work)
+* [2](http://arich-notes.arich-net.com:8080/?page_id=115)
+* [3](http://www.rubydoc.info/gems/snmp/1.2.0)

@@ -1,1 +1,1 @@
-* [[UUID globalization]]
+* [UUID globalization](UUID-globalization.html)

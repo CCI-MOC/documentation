@@ -7,7 +7,7 @@ Welcome to MOC's documentation!
 ===============================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    
    Home <home.md>
 

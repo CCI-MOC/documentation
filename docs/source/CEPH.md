@@ -16,7 +16,7 @@
 To unblock project progress, all to focus on getting the 2nd environment being setup by Jon to function similar to the production environment. In parallel, contact to get redhat engaged in trouble shooting production with the CEPH issues listed above. 
 
 **Second Environment:** (Jon/Ian/Huy)
-More details can be found at [harvard dev env progress](https://github.com/CCI-MOC/moc/wiki/harvard-dev-env-progress) 
+More details can be found at [harvard dev env progress](harvard-dev-env-progress.html) 
 
 **Production**: 
 **Redhat engagement**

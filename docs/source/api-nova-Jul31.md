@@ -1,3 +1,4 @@
+```
 running=OS_STDOUT_CAPTURE=${OS_STDOUT_CAPTURE:-1} \
 OS_STDERR_CAPTURE=${OS_STDERR_CAPTURE:-1} \
 OS_TEST_TIMEOUT=${OS_TEST_TIMEOUT:-500} \
@@ -5153,3 +5154,4 @@ Ran 500 tests in 941.499s
 
 FAILED (failures=17)
 {OS_TOP_LEVEL:-./} ${OS_TEST_PATH:-./tempest/test_discover}  --load-list /tmp/tmpUuieUK
+```

@@ -4,9 +4,9 @@
 
 ### Accessing the cluster
 * [Engage1 Network Documentation](Engage1-Network-Documentation.html)
-<!--* [RedHat/Inktank onsite collaborated deployment report](2016-2-1BostonMOCConsultingReport.pdf)-->
+* [RedHat/Inktank onsite collaborated deployment report]<!--(2016-2-1BostonMOCConsultingReport.pdf)-->
 
 ### Engage1 Bigdata Setup
 * [Network Topology](Network-Topology.html)
-* [Anycast Setup] (Engage1-Anycast-Setup.html)
-* [Hadoop Setup] (Architecture-of-Hadoop-over-CEPH-Storage.html)
+* [Anycast Setup](Engage1-Anycast-Setup.html)
+* [Hadoop Setup](Architecture-of-Hadoop-over-CEPH-Storage.html)

@@ -9,14 +9,14 @@ This is the Massachusetts Open Cloud private wiki; we mostly use it to document 
 * [How to get involved in the OpenStack community](How-to-Get-Involved-in-the-OpenStack-Community.html)
 * [Security Install Best Practices](Security-Install-Best-Practices.html)
 * [MOC Contributors Legal Agreements version y_r201503](https://drive.google.com/folderview?id=0B3HZEpE-A8qadWVpY2piSjdYdXc&usp=sharing)
-* [Trello, burndown chart, scrum tools - what the fuss ? !!! ](Trello,-burndown-chart,-scrum-tools---what-the-fuss-?-%21%21%21.html)
+* [Trello, burndown chart, scrum tools - what the fuss ? !!! ](Trello,-burndown-chart,-scrum-tools---what-the-fuss-?-!!!.html)
 * [Kaizen Cluster User Registration](Kaizen-Cluster-User-Registration.html)
 * [Access IPMI of Nodes](Access-IPMI-of-nodes.html)
 * [Reset Password in Kaizen Openstack](Reset-Password-in-Kaizen-Openstack.html)
 
 ### Knowledge base/Trainings
-<!--* [Brocade  VCS training - lab session](VCS_Lab.pptx.pdf)-->
-<!--* [Brocade training - instruction session](VCS_Training_01.pdf)-->
+* [Brocade  VCS training - lab session]<!--(VCS_Lab.pptx.pdf)-->
+* [Brocade training - instruction session]<!--(VCS_Training_01.pdf)-->
 * [Ceph Tutorials](Ceph-Tutorials.html)
 
 ### Clusters
@@ -30,7 +30,7 @@ This is the Massachusetts Open Cloud private wiki; we mostly use it to document 
 
 ### MOC/Research/Design
 * [Cloud related conferences and proceedings](Cloud-related-Conferences-and-proceedings.html)
-* [Recommended Security plan By Jason Hennessey](Recommended-Security-plan-By-Jason-Hennessey.html)  Proposal for security in infrastructure
+* [Recommended Security plan By Jason Hennessey](Recommended-Security-plan-By-Jason-Hennessey.html) Proposal for security in infrastructure
 
 ### HIL
 * [Haas meeting minutes](Haas-meeting-minutes.html)
@@ -79,7 +79,6 @@ This is the Massachusetts Open Cloud private wiki; we mostly use it to document 
 * [Sahara interactions](Sahara-interactions.html)
 
 ### Production/Infrastructure
-<!--* [OPs log](OPs-log.html)-->
 * [Foreman](Foreman.html)
 * [Provisioning-machine-installation-instructions](Provisioning-machine-installation-instructions.html)
 

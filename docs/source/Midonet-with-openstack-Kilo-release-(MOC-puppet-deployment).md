@@ -1,6 +1,6 @@
 First, you need to deploy openstack-kilo release with 1 controller and 'n' compute nodes. Make sure that the openstack environment is fully functional. This deployment has been tested with openstack deployment in Kaizen staging environment and it works fine. Once you have full openstack deployment, run these scripts on controller and compute nodes and have midonet deployed automatically.
 
-* Github Link: https://github.com/rahulait/midonet-install
+* [Github Link](https://github.com/rahulait/midonet-install)
 
 #### Deployment design
 * Gateway residing on the controller node

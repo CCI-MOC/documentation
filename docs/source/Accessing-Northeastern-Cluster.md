@@ -1,4 +1,4 @@
-(up) [[Northeastern Cluster]]
+[Northeastern Cluster](Northeastern-Cluster.html)
 
 ###Setting public access to HaaS node
 Two ways; manually or through HaaS via setting public network through HaaS master

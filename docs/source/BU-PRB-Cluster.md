@@ -237,7 +237,7 @@ done
 
 For reference:
 * The factory default user/password for the supermicros is: ADMIN/ADMIN
-* [Supermicro IPMI Manual](http://www.supermicro.com/manuals/other/SMT_IPMI_Manual.pdf)
+* [Supermicro IPMI Manual]<!--(http://www.supermicro.com/manuals/other/SMT_IPMI_Manual.pdf)-->
 
 ******
 

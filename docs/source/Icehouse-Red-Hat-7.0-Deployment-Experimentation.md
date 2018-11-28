@@ -11,7 +11,7 @@ Three approaches we are pursuing
 
 1. using the same method as previously done by NU IT engineer who was able to deploy 6.4 on the UCS server. The record stated that combining the driver ISO and the OS ISO worked. Details on this attempt/experimentation is on this wiki page. [Sahil/Apoorve/Ravi]
 
-2. deploy using non Grub bootloader. The raid driver does not work so well with Grub. We found syslinux (instead of grub) to at least allow us to deploy Red Hat 7.1. See George's "2015-6-10 gsilvis:" note at https://github.com/CCI-MOC/moc/wiki/OPs-log [George/Ian]
+2. deploy using non Grub bootloader. The raid driver does not work so well with Grub. We found syslinux (instead of grub) to at least allow us to deploy Red Hat 7.1
 
 3. disk-less method. TBD
 
@@ -90,7 +90,7 @@ As shown in this back plane of the UCS servers photo provided by NU, the dedicat
 
 ![](_static/UCSnetworkCabling.png)
 
-The image of the full back plane of the UCS server is also provided next. The image was taken from page 7 of the [UCS C220-M3S Spec. Sheet]( https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/C220M3_SFF_SpecSheet.pdf).
+The image of the full back plane of the UCS server is also provided next. The image was taken from page 7 of the [UCS C220-M3S Spec. Sheet](https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/C220M3_SFF_SpecSheet.pdf).
 
 ![](_static/Pg7ChassisRearViewUCS_C220-M3S.png)
 
@@ -106,23 +106,16 @@ As of now, we are not able to install Redhat family OS on the Cisco gear. The is
 Issue2:
 As per the Cisco UCS install guide, we cannot install any hypervisor Operating systems on the H/W if we are using Embedded controller?
 
-Reference:
-[[http://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/C220/install/C220.pdf]]
- (check for the section - Embedded MegaRAID Controller)
+[Reference](http://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/C220/install/C220.pdf) check for the section - Embedded MegaRAID Controller
 
 So, even if we are able to upgrade the adapter driver to support RHEL, this could cause issues when we want to provision VMs on them?
 
  
 Other Links:
 
-Raid Firmware Upgrade:
-
-[[http://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/C220/install/C220/raid.pdf]]
-[[http://www.cisco.com/c/dam/en/us/td/docs/unified_computing/ucs/interoperability/matrix/m_hcl_C_rel2-03.pdf]](Certification Matrix)
+[Raid Firmware Upgrade](http://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/hw/C220/install/C220/raid.pdf)
+[Certification Matrix](http://www.cisco.com/c/dam/en/us/td/docs/unified_computing/ucs/interoperability/matrix/m_hcl_C_rel2-03.pdf)
 
 BIOS Firmware upgrade:
-HUU - Tool that could be used for firmware upgrade:(Server Level)
-
-[[http://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/sw/lomug/2-0-x/b_huu_2_0_3.html]]
-
+[HUU](http://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/c/sw/lomug/2-0-x/b_huu_2_0_3.html) - Tool that could be used for firmware upgrade:(Server Level)
 
