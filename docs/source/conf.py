@@ -156,7 +156,6 @@ texinfo_documents = [
 
 from recommonmark.parser import CommonMarkParser
 from recommonmark.transform import AutoStructify
-from sphinxcontrib.excel import PyexcelTable
 #Allows us to only use filename.html instead of full path
 github_doc_root = ''
 def setup(app):
