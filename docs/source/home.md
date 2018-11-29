@@ -1,7 +1,7 @@
 This is the Massachusetts Open Cloud private wiki; we mostly use it to document internal configuration, activities and blogging anything that is useful to team members...
 
 ### Contacts
-* [Contact Information|MOC Developers Contact Information](MOC-Developers-Contact-Information.html)
+* [MOC Developers Contact Information](MOC-Developers-Contact-Information.html)
 
 ### How Tos
 * [To do list for New MOC Intern and Member](To-do-list-for-New-MOC-Intern-and-Member.html)
@@ -9,7 +9,7 @@ This is the Massachusetts Open Cloud private wiki; we mostly use it to document 
 * [How to get involved in the OpenStack community](How-to-Get-Involved-in-the-OpenStack-Community.html)
 * [Security Install Best Practices](Security-Install-Best-Practices.html)
 * [MOC Contributors Legal Agreements version y_r201503](https://drive.google.com/folderview?id=0B3HZEpE-A8qadWVpY2piSjdYdXc&usp=sharing)
-* [Trello, burndown chart, scrum tools - what the fuss ? !!! ](Trello,-burndown-chart,-scrum-tools---what-the-fuss-?-!!!.html)
+* [Trello, burndown chart, scrum tools - what the fuss ? !!! ](Trello.html)
 * [Kaizen Cluster User Registration](Kaizen-Cluster-User-Registration.html)
 * [Access IPMI of Nodes](Access-IPMI-of-nodes.html)
 * [Reset Password in Kaizen Openstack](Reset-Password-in-Kaizen-Openstack.html)
@@ -51,14 +51,14 @@ This is the Massachusetts Open Cloud private wiki; we mostly use it to document 
 ### Monitoring (Definitely outdated)
 * [Resolving Sensu Email Alerts](Email-Alerting-in-Sensu.html)
 * [Viewing the Monitoring Dashboards in NEU Env](Viewing-the-Monitoring-Dashboards-in-NEU-Env.html)
-* [SNMP: CISCO switch monitoring](SNMP:-CISCO-switch-monitoring.html)
+* [SNMP: CISCO switch monitoring](SNMP-CISCO-switch-monitoring.html)
 * [Influxdb & Grafana](Influxdb-&-Grafana.html)
 * [Use InfluxDB handler in Sensu](Use-InfluxDB-handler-in-Sensu.html)
 * [Logging IPMI sensor data into Sensu + Influxdb](Logging-IPMI-sensor-data-into-Sensu---Influxdb.html)
 * [Where to find the IPMI checks](Where-to-find-the-IPMI-checks.html)
 * [Ceilometer Introduction](Ceilometer-Introduction.html)
 * [Ceilometer Installation in NE Env.](Ceilometer-Installation-in-NE-Env..html)
-* [InfluxDB Crash Course: Querying Data](InfluxDB-Crash-Course:-Querying-Data.html)
+* [InfluxDB Crash Course: Querying Data](InfluxDB-Crash-Course-Querying-Data.html)
 * [Aggregate Data in InfluxDB](Aggregate-Data-in-InfluxDB.html)
 * [Ceilometer Deployment Guide](Ceilometer-Deployment-Guide.html)
 
@@ -102,5 +102,5 @@ To install the ELK stack always refer to Elastic's documentation first. This [tu
 ### Website
 * [MOC Website](MOC-Website.html)
 
-### Archives. Keep this last !
-Items that are known to be under utilized will be archived at the [Archives page](Archives-page.html)
+### Archives
+Items that are known to be under utilized will be archived at the [Archives page](Archives-page.html). Keep this last!

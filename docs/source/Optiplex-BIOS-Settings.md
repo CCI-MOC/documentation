@@ -1,7 +1,5 @@
-# AMT BIOS
-
+## AMT BIOS
 The AMT BIOS on our Optiplex machines allows for remote power-cycling, which is critical for using them with the HaaS. Currently, Iron and Cesium are part of the HaaS cluster, and the AMT BIOS is set up as follows:
-
 * Small business mode
 * password is the MOC AMT BIOS Password
 * Hostnames are (it's not clear that these matter in any way, but...):
@@ -25,10 +23,9 @@ At least on the 755's (the smaller Optiplexes from Northeastern), one can reset 
 
 The current AMT configuration of the other machines is unknown; when the AMT BIOS is needed, they will have to be reset.
 
-# Standard BIOS
-
+## Standard BIOS
 The machines in the HaaS cluster need to have PXE set as their first boot option, and virtualization extension turned on. On at least the 755's, this is not the default. To fix this, press F2 to enter setup, and change the following:
-
 * Onboard Devices -> Integrated NIC -> On w/ PXE
   * If you look at System -> Boot Sequence, it will have netbooting set as the first option, but say "not present". The above is needed to remedy this, though no change needs to be made in the boot sequence. Note that even after enabling PXE, the boot sequence may still say not present.
 * Performance -> Virtualization -> turn the virtualization extensions on.
+

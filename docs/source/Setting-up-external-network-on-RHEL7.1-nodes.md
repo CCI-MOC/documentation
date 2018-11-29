@@ -1,6 +1,6 @@
-129 net connectivity - 
-
-hardware iface ifcfg script (`/etc/sysconfig/network-scripts/ifcfg-enp130s0f0`):
+## 129 net connectivity 
+### Configuration
+Hardware iface ifcfg script (`/etc/sysconfig/network-scripts/ifcfg-enp130s0f0`)
 ```
 BOOTPROTO="dhcp"
 DEVICE="enp130s0f0"
@@ -11,7 +11,7 @@ DEFROUTE=no
 PEERROUTES=no
 ```
 
-virtual tagged iface ifcfg script (`/etc/sysconfig/network-scripts/ifcfg-enp130s0f0.125`):
+Virtual tagged iface ifcfg script (`/etc/sysconfig/network-scripts/ifcfg-enp130s0f0.125`)
 ```
 VLAN=yes
 TYPE=Vlan
@@ -46,9 +46,10 @@ gpgcheck=0
 enabled=1
 ```
 
-steps to subscribe:
+### Steps to subscribe:
 ```
 # subscription-manager register
 # subscription-manager attach --auto
 # subscription-manager list
 ```
+

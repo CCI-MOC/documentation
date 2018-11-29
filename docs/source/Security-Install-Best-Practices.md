@@ -1,11 +1,9 @@
 Follow these steps on all nodes exposed to the public internet.
 
 # Do you really need to be public?
-
 Please discuss things with Rado before putting a node on the public network.  Many of our nodes don't need to be accessible in this way.  If you just need internet access from your node, used the `nat-public` network described here: [Accessing-Northeastern-Cluster](Accessing-Northeastern-Cluster.html)
 
 # Use Strong Passwords
-
 Some methods for generating passwords randomly:
 
 *Random String*
@@ -32,7 +30,6 @@ An alternative that works on Mac OSX. It only generates one word at a time:
 Also, keep the passwords a secret!  Don't send passwords via unencrypted email, post them to #MOC, or put them in a public git repository.
 
 # Log in as yourself, not root.
-
 Create a user account with your own name, and sudo when you need root permissions.  This allows disabling remote root login (see below), and also makes it easier to see who is doing what, or fix things if someone's key is compromised.
 
 
@@ -81,7 +78,6 @@ Before logging out, make sure to test that ssh works by logging in from a separa
 Once this step is complete, an admin will have to create accounts and add keys for any new users who need to log into the machine.
 
 ## Disable remote lookups for connections
-
 In order to prevent the wasting of resources as well as [lookup vulnerabilities](http://arstechnica.com/security/2016/02/extremely-severe-bug-leaves-dizzying-number-of-apps-and-devices-vulnerable/), include in sshd_config:
 
 ```
@@ -89,17 +85,14 @@ UseDNS no
 ```
 
 ## Enable sshguard or something similar
-
 sshguard is available on Ubuntu by running `apt-get install sshguard` and prevents automated brute-force attacks that can be used to attack passwords as well as vunerabilities such as defeating ASLR.
 
 # Enable the firewall
-
 For Ubuntu, this can be done using `ufw enable`.
 
 For RHEL/CentOS, one can use `system-config-firewall`
 
 # Set up NTP/Chrony/OpenNTPD
-
 Good timestamps will help debugging problems later.
 
 Ubuntu users should make use of openntpd, as it has built-in privilege
@@ -122,7 +115,6 @@ MIT has time.mit.edu.
 
 
 # Disable IPv6
-
 We don't use IPv6 for anything. Also, many firewalls don't protect against it
 by default, effectively meaning there is no firewall if it is enabled.
 
@@ -135,7 +127,6 @@ Also, one can run `sysctl -w net.ipv6.conf.all.disable_ipv6=1` to make the
 setting active on the current machine.
 
 # Enable automatic updates
-
 For CentOS/RHEL:
 * `yum install yum-cron`
 * Edit /etc/yum/yum-cron.conf with these in mind:
@@ -152,7 +143,6 @@ For CentOS/RHEL:
   * Optionally set an `Automatic-Reboot-Time` that is more to your liking that "now"
 
 # Hidepid
-
 If the system has multiple users logging in who maybe don't trust eachother completely (like a gateway system), it might be good to set hidepid, which prevents users from gathering info on other users' processes.
 
 To do this, follow [this tutorial](https://www.cyberciti.biz/faq/linux-hide-processes-from-other-users/) on adding hidepid to the proc flags in /etc/fstab.

@@ -109,7 +109,6 @@ interface Ethernet1/17
 
 * It's interface (enp67s0f1np1) is connected to Port Ethernet 1/17 to nexus
 switch.
-
 * It's interface (enp67s0f0np0) is connected to Port Ethernet 1/21 to nexus
 switch.
 
@@ -120,16 +119,13 @@ switch.
      192.168.100.231     hil-headnode (for Han and Jim)
 
 ## HIL configuration notes
-
 * HIL user:password = admin:bashrcpotatoes
-
 * HIL is running on a VM on Kumo Storage 01.
-
 * There are 2 projects for the 2 kumo environments. Don't mess with those, the
 kumo environments are still alive. Talk to Naved/Rado before moving any nodes
 out of those projects.
-
 * Root pass of HIL and BMI is `WittinglyPreconfigure`
+
 ## kumo-hil-client
 
      * Runs the HIL Client
@@ -141,23 +137,21 @@ So connect your nodes to VLAN 200 to access internet.
 
 
 ### Port mapping
-
 * dell-X's 2 ports, em1 and em2, are connected to Ethernet1/X and Ethernet1/(X+24)
 respectively. Eg; dell-10's ports are connected to Ethernet1/10 and Ethernet1/34.
 
 ## BMI Setup
-
 * Login details for the ubuntu image in `naved` project: root/hellomoc and bmi/hellmoc
-  - root login over ssh is disabled by default.
-
+  * root login over ssh is disabled by default.
 * There are 2 BMI setups in Kumo. Below is the information about the two:
 
-###### [kumo-bmi-no-seccloud] VM running on kumo-storage01.
+### [kumo-bmi-no-seccloud] VM running on kumo-storage01.
 
      Storage Network IP - 192.168.18.76 (/22)
      HIL Network IP - 192.168.100.142
 
-###### [kumo-bmi-seccloud] VM running on kumo-storage01.
+### [kumo-bmi-seccloud] VM running on kumo-storage01.
 
      Storage Network IP - 192.168.18.117 (/22)
      HIL Network IP - 192.168.100.197
+

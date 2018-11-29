@@ -1,33 +1,33 @@
-## Debugging neutron for Kilo RHOSP-7.1 RHEL 7.1 set-up
+# Debugging neutron for Kilo RHOSP-7.1 RHEL 7.1 set-up
 
-### Useful Links
+## Useful Links
 * http://docs.openstack.org/admin-guide-cloud/content/ch_networking.html
 * http://docs.openstack.org/openstack-ops/content/network_troubleshooting.html
 * https://www.rdoproject.org/Networking_in_too_much_detail
 * http://www.yet.org/2014/09/openvswitch-troubleshooting/
 
-### Useful Commands
-#### 
+## Useful Commands
 
-#### ovs-vsctl - show and modify virtual switch interfaces
+### ovs-vsctl - show and modify virtual switch interfaces
 * show commands
   * ovs-vsctl show - shows full config
   * ovs-vsctl br-show [bridge]
   * ovs-vsctl port-show [port]
 
-#### ovs-ofctl
+### ovs-ofctl
   * ovs-ofctl dump-flows [bridge]
 
-### Status on production cluster
-[7/17/15] DHCP still not working. Assigning a static IP address works, and allows pinging the router. Investigating why BigData cluster can DHCP and production can't, by comparing the two.
+## Status on production cluster
+* [7/17/15] DHCP still not working. Assigning a static IP address works, and allows pinging the router. Investigating why BigData cluster can DHCP and production can't, by comparing the two.
 
-### Status on BigData cluster
-[7/20/15] UPDATE: brought enp130s0f0.125 & enp130s0f0 down, brought back up enp130s0f0, enp130s0f0.125 was brought up with it, if fixed the issue. Apparently they have to be brought together based on http://www.linuxquestions.org/questions/linux-networking-3/rtnetlink-answers-file-exists-error-when-doing-ifup-on-alias-eth1-1-on-rhel5-710766/
-[7/20/15] Tried installing tcpdump to test interfaces. 30 and 31 can no longer ping internet.
-[7/17/15] DHCP'ing and connecting to router successfully. SSH and large pings are not getting throught. Thought to be an MTU issue.
+## Status on BigData cluster
+* [7/20/15] UPDATE: brought enp130s0f0.125 & enp130s0f0 down, brought back up enp130s0f0, enp130s0f0.125 was brought up with it, if fixed the issue. Apparently they have to be brought together based on http://www.linuxquestions.org/questions/linux-networking-3/rtnetlink-answers-file-exists-error-when-doing-ifup-on-alias-eth1-1-on-rhel5-710766/
+* [7/20/15] Tried installing tcpdump to test interfaces. 30 and 31 can no longer ping internet.
+* [7/17/15] DHCP'ing and connecting to router successfully. SSH and large pings are not getting throught. Thought to be an MTU issue.
 
-### Comparison of compute 29 (production) and compute 31 (big data)
-#### ovs-vsctl show - list of ovs bridges
+## Comparison of compute 29 (production) and compute 31 (big data)
+
+### ovs-vsctl show - list of ovs bridges
 ```
 [root@compute-29 ~]# ovs-vsctl show
 e309a501-ce92-4866-bcb8-ade421786753
@@ -136,7 +136,8 @@ d1a2649b-9908-4b40-86ff-77239f4c5f64
                 options: {peer=patch-tun}
     ovs_version: "2.3.1-git3282e51"
 ```
-#### ovs-ofctl show br-tun - more info on br-tun
+
+### ovs-ofctl show br-tun - more info on br-tun
 ```
 [root@compute-29 ~]# ovs-ofctl show br-tun
 OFPT_FEATURES_REPLY (xid=0x2): dpid:00002a89dc75b140
@@ -181,7 +182,7 @@ actions: OUTPUT SET_VLAN_VID SET_VLAN_PCP STRIP_VLAN SET_DL_SRC SET_DL_DST SET_N
      speed: 0 Mbps now, 0 Mbps max
 OFPT_GET_CONFIG_REPLY (xid=0x4): frags=normal miss_send_len=0
 ```
-#### ovs-ofctl dump-flows br-tun - show flow tables for bridges
+### ovs-ofctl dump-flows br-tun - show flow tables for bridges
 ```
 [root@compute-29 ~]# ovs-ofctl dump-flows br-tun
 NXST_FLOW reply (xid=0x4):
@@ -216,3 +217,4 @@ NXST_FLOW reply (xid=0x4):
  cookie=0x0, duration=266021.229s, table=22, n_packets=65, n_bytes=5354, idle_age=1672, hard_age=65534, priority=0 actions=drop
  cookie=0x0, duration=101991.354s, table=22, n_packets=658, n_bytes=88005, idle_age=162, hard_age=65534, dl_vlan=3 actions=strip_vlan,set_tunnel:0xc,output:2
 ```
+

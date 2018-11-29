@@ -1,7 +1,6 @@
 Filebeat is responsible for forwarding the logs on all of the clients to either Logstash or Elasticsearch. In our configuration, Filebeat is forwarding all of the logs to Logstash. Filebeat must be installed on every machine that will have their logs monitored.
 
 ## Installation
-
 Download and install Filebeat by running the following command.
 ```
 curl -L -O https://download.elastic.co/beats/filebeat/filebeat-1.1.0-x86_64.rpm
@@ -69,3 +68,4 @@ Run the following command to start Filebeat.
 ```
 sudo /etc/init.d/filebeat start
 ```
+

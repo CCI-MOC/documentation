@@ -6,8 +6,7 @@ The script also requires a TLS-capable mail server to be running.  We have
 used this code with both Sendmail and Postfix.  See 
 [below](#mail-server-config) for the Postfix config required to enable TLS.
 
-### Getting the Signed Credentials from Google
-
+# Getting the Signed Credentials from Google
 1. Goto [Google Developers Console](https://console.developers.google.com/project) and create a new project or select the existing one.
 2. In "Auth & API", enable it and create "Service account key". [Referral link](http://gspread.readthedocs.org/en/latest/oauth2.html)
 3. Place the "service account key" file in addusers directory and update the name in settings.ini file.
@@ -18,8 +17,7 @@ used this code with both Sendmail and Postfix.  See
 
 Ask infrastructure team for the url of the Google spreadsheet for User Administration and Quota. In addition, in the User Administration there are two sheets. The first sheet is for the users that submitted their application to the form. The second sheet is for the users that have been admitted to use the Kaizen clusters.
 
-### Usecase
-
+## Usecase
 These scripts simplify the process of:
 
 1. Creating users and projects in OpenStack, including defining project quotas.
@@ -29,20 +27,17 @@ These scripts simplify the process of:
 
 New user data is assumed to be in a Google Sheet. The function parse_rows in addusers.py handles parsing the spreadsheet data, you may need to modify it to work with your particular spreadsheet format.
 
-### Setup
-
+## Setup
 During initial setup, run these commands to install the required dependencies:
 ```
 **Possibly in a virtual environment** 
 $ pip install -r requirements.txt 
 ```
 
-### How to use example_settings.ini
-
+## How to use example_settings.ini
 Copy the examplee_settings.ini to settings.ini and then fill the fields required in that file.
 
-### Mail Server Config
-
+## Mail Server Config
 The mail server needs to have TLS enabled. If using postfix, add the 
 following lines to /etc/postfix/main.cf:
 
@@ -84,8 +79,7 @@ What setpass then does, is use the random admin assigned password to login to
 the OpenStack Identity service and change the password to the user-provided
 one.
 
-### Usage
-
+## Usage
 To run it:
 
 ```
@@ -94,7 +88,7 @@ $ pip install -r requirements.txt
 $ python -m setpass.api
 ```
 
-### Adding a new user:
+## Adding a new user:
 
 | URL      | /token/\<user_id\>                               |
 |----------|--------------------------------------------------|

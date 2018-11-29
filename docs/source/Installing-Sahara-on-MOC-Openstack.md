@@ -1,14 +1,11 @@
-### **These instructions are deprecated. Sahara installation is now controlled by Puppet. Check out pull requests [74](https://github.com/CCI-MOC/kilo-puppet/pull/74) and [78](https://github.com/CCI-MOC/kilo-puppet/pull/78) to find out what to add to Hiera file.**
+**These instructions are deprecated. Sahara installation is now controlled by Puppet. Check out pull requests [74](https://github.com/CCI-MOC/kilo-puppet/pull/74) and [78](https://github.com/CCI-MOC/kilo-puppet/pull/78) to find out what to add to Hiera file.**
 
-# Installing Sahara on MOC Openstack
-
+## Installing Sahara on MOC Openstack
 Instructions are based on those from https://access.redhat.com/documentation/en/red-hat-openstack-platform/8/installation-reference/chapter-11-install-the-data-processing-service  
 
 Assume that all commands are run as root. Hopefully, a script will come soon to automate this process.  
      
 The essential Sahara instructions are steps 1-13. Beyond that deals with typical extra setup needed based on what is expected in the typical MOC staging environment.
-
----
 1. Install the necesssary packages:  
 ``yum install -y openstack-sahara-api openstack-sahara-engine``
 2. Create the database (replacing PASSWORD with desired password):  
@@ -26,7 +23,6 @@ The essential Sahara instructions are steps 1-13. Beyond that deals with typical
   
     _Note that in steps 6-10, the command ``openstack-config --set [FILENAME] [SECTION] [PARAMETER] [VALUE]`` is equivalent to editing the file at FILENAME and adding/changing the value of PARAMETER in SECTION to VALUE._  
   
-
 6. Add keystone info to sahara.conf (replacing HOSTNAME with the proper hostname):  
     * ``openstack-config --set /etc/sahara/sahara.conf keystone_authtoken auth_uri http://HOSTNAME:5000/v2.0/``  
     * ``openstack-config --set /etc/sahara/sahara.conf keystone_authtoken identity_uri https://HOSTNAME:35357`` **make sure that this one is HTTPS**  
@@ -76,8 +72,3 @@ The essential Sahara instructions are steps 1-13. Beyond that deals with typical
     * ``openstack-heat-api``    
     * ``openstack-heat-engine``  
  
-
-
-
-
-

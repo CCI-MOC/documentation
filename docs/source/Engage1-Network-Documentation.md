@@ -1,4 +1,4 @@
-#### Hardware and Networking Layout
+## Hardware and Networking Layout
 Where is everything, and what is connected to what ?
 These spreadsheets will tell you:  
 <!--[Engage1_networks.xlsx](inventory_xlsx/Engage1_networks.xlsx)     
@@ -9,6 +9,7 @@ New management cable map can be found here: [Engage1 Management Cable Map](Engag
 <!--(Old document is [here](inventory_xlsx/Engage1_1G_cable_map.xlsx) just in case, but is completely outdated.)-->
 
 Following is the snapshot of what the rack layout is as of March 2015 
+
 ![](_static/MGHPCCRackLocation.png)
 
 <!--[MGHPCCRackAssignments032015.pptx]( MGHPCCRackAssignments032015.pptx)-->
@@ -20,52 +21,52 @@ Rough diagram of the Ceph storage:
 Documentation of PDU configuration etc\:   
 <!--[PDU Documentation](PDU_Documentation.html)-->
 
-*****
-### VLANs
+******
+## VLANs
  
-| VLAN ID | Used for 
-| --- | ---
-| 10 | Public Internet via CSAIL (old) 
-| 11 | ?
-| 105 | ?
-| 1602 | MRI Provisioning vlan
-| 2000-2099 | *reserved for Anycast Setup*
-| 2000 | Anycast Cache Transit
-| 2007 | Anycast Cache Node 7
-| 2008 | Anycast Cache Node 8
-| 2009 | Anycast Cache Node 9
-| 2010 | Anycast Cache Node 10
-| 2100-2699 | *reserved for Anycast Computes*
-| 2100-2109 | Anycast compute vlans actually configured 
-| 3000-3099 | HIL vlans
-| 3799 | BMI/BMI dev openstack floating IPs 172.31.0.0/22
-| 3800-3850 | *reserved for MeetMe uses*
-| 3800 | MeetMe
-| 3801 | MeetMe
-| 4001 | ?
-| 4003 | OpenFlow Vlan 1
-| 4004 | Foreman / Provisioning
-| 4005 | OpenFlow Vlan 2
-| 4025 | ?
-| 4050 | Ceph
-| 4051 | ?HAAS?
-| 4052 | Engage1 openstack private 192.168.128.0/22
-| 4053 | Engage1 BMI openstack private 192.168.132.0/22
-| 4054 | Engage1 BMI dev openstack private 192.168.136.0/22
-| 4060-4069 | Previously used by MRI nodes, should be replaced with 2100-2109
-| 4080 | ?
+| VLAN ID | Used for |
+| --- | ----------------------- | 
+| 10 | Public Internet via CSAIL (old) |
+| 11 | ? |
+| 105 | ? |
+| 1602 | MRI Provisioning vlan |
+| 2000-2099 | **reserved for Anycast Setup** |
+| 2000 | Anycast Cache Transit |
+| 2007 | Anycast Cache Node 7 |
+| 2008 | Anycast Cache Node 8 |
+| 2009 | Anycast Cache Node 9 |
+| 2010 | Anycast Cache Node 10 |
+| 2100-2699 | **reserved for Anycast Computes** |
+| 2100-2109 | Anycast compute vlans actually configured |
+| 3000-3099 | HIL vlans |
+| 3799 | BMI/BMI dev openstack floating IPs 172.31.0.0/22 |
+| 3800-3850 | **reserved for MeetMe uses** |
+| 3800 | MeetMe |
+| 3801 | MeetMe |
+| 4001 | ? |
+| 4003 | OpenFlow Vlan 1 |
+| 4004 | Foreman / Provisioning |
+| 4005 | OpenFlow Vlan 2 |
+| 4025 | ? |
+| 4050 | Ceph |
+| 4051 | HAAS? |
+| 4052 | Engage1 openstack private 192.168.128.0/22 |
+| 4053 | Engage1 BMI openstack private 192.168.132.0/22 |
+| 4054 | Engage1 BMI dev openstack private 192.168.136.0/22 |
+| 4060-4069 | Previously used by MRI nodes, should be replaced with 2100-2109 |
+| 4080 | ? |
 
-### IP addresses
+## IP addresses
 
-##### Public (via CSAIL)
+### Public (via CSAIL)
      VLAN 10 - infrastructure, DHCP
      128.52.60.97      engage1-emergency (enp4s0f0)
      128.52.62.147     moc-services (br10,eth0.10)
      128.31.20.0/22    VLAN 3801**
 
-**see details [below](#vlan-3801)
+**see details [below](#vlan-3801)**
 
-##### VLAN 3801
+### VLAN 3801
 floating IPs, infrastructure with direct connection to Kai/Kumo
 128.31.20.0/22
      
@@ -77,9 +78,10 @@ floating IPs, infrastructure with direct connection to Kai/Kumo
      # OpenStack floating IPs
      128.31.22.0 to 128.31.23.254 
 
-##### Anycast (VLANS 2000-2699) 
-See [[Engage1 Anycast Setup]]
-##### OBM (VLAN 3040)
+### Anycast (VLANS 2000-2699) 
+See [Engage1 Anycast Setup](Engage1-Anycast-Setup.html)
+
+### OBM (VLAN 3040)
 Includes OBM network for servers in MOC racks, as well as the cache servers in MIT's rack, via the Dell Switch in r5-pA-c1. Previously the two switches were on different subnets, but these have been merged into a single 10.10.10.0/24 network as of 22 Jan 2016.
 
      (.1 to .15 Network Reserved)
@@ -91,7 +93,7 @@ Includes OBM network for servers in MOC racks, as well as the cache servers in M
           10.10.10.5   e1-r4pAc04-mgmt-02 (Juniper)  (credentials: root/admin38)
           
                       
-See [Kumo documentation](https://github.com/CCI-MOC/moc/wiki/Kumo-Network-Documentation) for Kumo switches
+See [Kumo documentation](Kumo-Network-Documentation.html) for Kumo switches
 
           10.10.10.15  moc-haas01 - network managing port
 
@@ -232,7 +234,7 @@ Various virtual machines and switches for the OpenFlow researchers
           10.0.10.12  e1-openflow-02 (vm on e1-vmhost-10)
           10.0.10.16  e4-r4pAc04-oflow01 management
 
-##### OpenFlow VLANs (VLAN 4003 and 4005)
+### OpenFlow VLANs (VLAN 4003 and 4005)
 These are used to force packets traveling between the openflow research VMs to pass through the OpenFLow switch
 
           #4003
@@ -243,7 +245,7 @@ These are used to force packets traveling between the openflow research VMs to p
           192.168.156.1      moc-sdn01h br0 via enp2s0f0.4005
           192.168.156.12     e1-openflow-02
 
-##### Ceph Client Network (VLAN 4050)  192.168.64.0/22
+### Ceph Client Network (VLAN 4050)  192.168.64.0/22
     
      192.168.64.1       moc-services
      192.168.64.2       redhatvm
@@ -281,9 +283,9 @@ These are used to force packets traveling between the openflow research VMs to p
      192.168.67.10      cache-c10-01
      192.168.67.11      e1-radosgw-01 (VM on e1-emergency)
 
-*****
+*************
 
-#### IPMI Access
+### IPMI Access
 IPMI can be accessed from either moc-services or engage1-emergency.  It is recommended to use moc-services because you can use X forwarding to get a GUI.
 
         [you@your-local-box]$ ssh 128.52.62.147 -X -Y
@@ -303,12 +305,12 @@ First, connect to the emergency-box, using the port you configured in your SOCKS
 Next, open a browser window, and navigate to the appropriate IP for the server you want.
 
 
-##### Dell Switch
+### Dell Switch
 MRI Dell Switch (for cache server IPMI) - located in r5-pA-c1.  It is accessed via an MIT gateway, so please talk to Laura, Rado, or Rahul if you need something configured there.
 
 Instructions for how to log in are here: [[Accessing the MRI Dell Switch]].
 
-##### Login credentials:  
+### Login credentials:  
 (These are likely to change away from the defaults in the near future.)
 
 Quanta QSSC-S99-1U   
@@ -338,8 +340,7 @@ Credentials: admin/brocade123
 Default credentials: admin/password   
 Default console IP: none, set to DHCP
 
-#### Temporary Connections:
-
+### Temporary Connections:
 Because I didn't have 10G cables or connectors, I connected one 1G NIC on the
 each of the new dell nodes to cisco-04 management switch. dell-45 = port 21; dell-46 = port
 22; dell-47 = port 23.

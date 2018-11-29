@@ -1,12 +1,9 @@
 Logstash is an events and logs managing tool that is used to gather logging messages, convert them into json documents and store them in an Elasticsearch cluster. Kibana is used as a frontend client to search for and display messages from Elasticsearch cluster. Logstash can be used to collect, process, and forward events and log messages. 
 
-### Configuration
+## Configuration
 Logstash configuration files consists of three parts: 
-
 * Collection (Input) - accomplished via number of configurable input plugins including raw socket/packet communication, file tailing and several message bus clients.
-
 * Processing (Filters) -  Once an input plugin has collected data it can be processed by any number of filters which modify and annotate the event data.
-
 * Output - Finally events are routed to output plugins which can forward the events to a variety of external programs including Elasticsearch, local files and several message bus implementations.
 
 The next code block gives the most basic config file, using the standard input from the terminal where you run logstash and outputs the messages to standard output.
@@ -98,7 +95,6 @@ sudo /etc/init.d/logstash start
 This way you can be sure Logstash has completely stopped.
 
 ## Testing the configuration
-
 Logstash comes with a tool that allows you test your configuration. Go to the Logstash home directory and type in the following commands.
 
 ```
@@ -126,8 +122,7 @@ tail /var/log/logstash/logstash.log
 
 Logstash archives logs so if you go to the /var/log/logstash directory and view the log of your choosing. Some of the logs my be compressed, so you would need to run ```gunzip LOG_NAME``` to view it.
  
-### Generate SSL Certificates
-
+## Generate SSL Certificates
 We need SSL certificate and key pair in order to use Logstash Forwarder to ship logs from our Servers to our Logstash Server. The certificate is used by the Logstash Forwarder to verify the identity of the Logstash Server.
 
 (There's also a different way of doing this if you have a DNS setup) Here, we add the IP address of the Logstash Server to the subjectAltName (SAN) field of the SSL certificate that we are about to generate. To do so, open the OpenSSL configuration file:
@@ -157,3 +152,4 @@ input {
 }
 ```
 This specifies a lumberjack input that will listen on TCP port 5000, and it will use the SSL certificate and private key that we created earlier.
+

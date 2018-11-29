@@ -50,9 +50,7 @@ Contributor to the MOC are required to sign the [Individual Contributor Agreemen
 **Team Slack room** : For private team conversation, a good alternative channel of communication is the [massopencloud.slack.com](https://massopencloud.slack.com/). If you don't have a slack account, go to [slack.com](https://slack.com) and create one. If you do have a slack account already, you can access the **massopencloud** room as you wish. Contact msd@bu.edu if you have any problem.
 
 **MOC team email mailing list**
-Go to the following the following URL to subscribe yourself to the MOC team mailing list
-
-https://mail.massopen.cloud/mailman/listinfo/team
+Go to the following the following URL to subscribe yourself to the MOC [team mailing list](https://mail.massopen.cloud/mailman/listinfo/team)
 
 Contact msd@bu.edu if you have any question/problem.
 
@@ -62,8 +60,8 @@ We want everyone that has a strong engagement with the MOC to be visible to and 
 
 To be part of the MOC community and participate in the help desk/ticketing system,
 * send an email to admin@lists.massopen.cloud and ask to be added to both the signup sheet for the helpdesk and the MOC ticketing system.
-* signup for your help desk coverage here: http://www.signupgenius.com/go/5080444aca622abff2-help
-* subscribe to the kaizen@lists.massopen.cloud mailing list at https://mail.massopen.cloud/mailman/listinfo/kaizen
+* signup for your help desk coverage [here](http://www.signupgenius.com/go/5080444aca622abff2-help)
+* subscribe to the [kaizen mailing list](https://mail.massopen.cloud/mailman/listinfo/kaizen)
 This mailing list is where you can ask the experts or share your knowledge in anything related to the MOC infrastructure including but not limited to OpenStack, Ceph and general networking topology in our production Kaizen.
 
 For part-time interns, i.e., those that work 10-15 hours a week, this task is optional. You are encouraged to volunteer if this activity will not interfere with your class schedule.
@@ -74,7 +72,7 @@ You can expect at most a couple of questions in a day, and likely less. If you g
 
     moc-research-list@bu.edu : for those who are interested in research related activities in the MOC.
 
-If you need help subscribing to this mailing list, instruction can be found under the first part of [this wiki](https://github.com/CCI-MOC/moc/wiki/Outdated-To-do-list-for-New-MOC-Intern-Member)
+If you need help subscribing to this mailing list, instruction can be found under the first part of [this wiki](Outdated-To-do-list-for-New-MOC-Intern-Member)
 
 **Stipend**
 If you have not already done so...

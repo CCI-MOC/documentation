@@ -1,7 +1,6 @@
-# Intro
 This wiki page will introduce the reader to influxDB and explain how to query our production influxDB in its current state as of July 18, 2016.
 
-# InfluxDB quick introduction
+## InfluxDB quick introduction
 InfluxDB is a time-series database. Our sensu server collects data from our compute nodes and stores that data in influxdB. every datapoint gets a timestamp.
 
 Currently, our production influxDB is located at ip address 10.13.37.179. To query the influxDB, you need to connect to the 10.13 subnet (connect with X2Go client to node 39 or configure Firefox proxy settings) and then go to address: http://10.13.37.179:8083/ in a browser
@@ -10,9 +9,7 @@ Once you are there,to query our database, always remember: **Change the database
 
 Now, you are ready to query our database. We will start off simple and then create more complicated queries.
 
-# Queries
-
-
+## Queries
  **Good query to know**: type in **SHOW MEASUREMENTS** and press enter. This will give all the tables in the database. You will use these table names in future queries.
 
 So, now that we can see all the table names, lets pick memory_metrics and see what it looks like.
@@ -56,6 +53,4 @@ First, all hosts:
 
 Now, a few hosts:
 **SELECT mean(value) FROM Aggregated_metrics WHERE time > now() - 30m AND time < now() - 20m AND "measurement" = 'cpu_pcnt_metrics' AND "metric" = 'used_percentage' AND ("host" = 'compute-34.moc.ne.edu' OR "host" = 'compute-20.moc.ne.edu' OR "host" = 'compute-21.moc.ne.edu')**
-
-
 

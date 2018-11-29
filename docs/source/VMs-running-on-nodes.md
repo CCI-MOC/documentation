@@ -1,6 +1,6 @@
 ## Compute 16
-| Name | IP Address | Whose VM is it |
-| ---------- | -------------- | -------------- |
+| Name                  | IP Address     | Whose VM is it |
+| --------------------- | -------------- | -------------- |
 | controller-219-jeremy | 10.14.37.219 ||
 | compute-221 | 10.14.37.221 ||
 | compute-220-jeremy | 10.14.37.220 ||
@@ -10,15 +10,15 @@
 | jeremy-mm | 10.14.37.15 ||
 
 ## Compute 18
-| Name | IP Address | Whose VM is it |
-| ---------- | -------------- | -------------- |
+| Name        | IP Address     | Whose VM is it      |
+| ----------- | -------------- | ------------------- |
 | compute-69 |||
 | compute-17 |||
 | ceph-mocmon | 10.13.37.216 | Laura, Vinay, Ruoyu |
 
 ## Compute 25
-| Name | IP Address | Whose VM is it |
-| ---------- | -------------- | -------------- |
+| Name        | IP Address     | Whose VM is it |
+| ----------- | -------------- | -------------- |
 | compute-201 | 10.14.37.201 | Tammy |
 | compute-202 | 10.14.37.202 | Tammy |
 | compute-203 | 10.14.37.203 | Laura |
@@ -29,8 +29,8 @@
 | compute-208 | 10.14.37.208 | Rado |
 
 ## Compute 39
-| Name | IP Address | Primary Contact |
-| ---------- | -------------- | -------------- |
+| Name                    | IP Address     | Primary Contact    |
+| ----------------------- | -------------- | ------------------ |
 | kaizen-sensu-admin |||
 | tempest-rahul || Rahul |
 | moc-sensu |||
@@ -48,10 +48,10 @@
 
 # Compute 50
 | Name | IP Address | Whose VM is it |
-| ---------- | -------------- | -------------- |
+| ------------ | -------------- | -------------- |
 | compute-215 | 10.14.37.215 | Ruoyu |
-| compute-216 |10.14.37.216 | Ruoyu |
+| compute-216 | 10.14.37.216 | Ruoyu |
 | compute-217 | 10.14.37.217 ||
-| kolla-mitaka ||
-| ceph-ruoyu ||
+| kolla-mitaka |||
+| ceph-ruoyu |||
 

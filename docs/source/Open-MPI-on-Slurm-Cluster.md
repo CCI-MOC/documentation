@@ -1,13 +1,11 @@
 There are two ways to install Open MPI on a Slurm cluster 
- 
 1. Install and configure Open MPI libraries while installing Slurm on each node.  
 2. Install and configure Controller nodes and Compute nodes with the Open MPI libraries.  
   
 The script follows the method 1. Whereas this steps can be done manually after Slurm is 
 installed on the system.  
   
-**On the Server/Controller and Compute node:**  
-  
+## On the Server/Controller and Compute node 
 1. Download the openmpi tar file. For the example purpose openmpi-1.10.2 is used throughout.  
 
         sudo wget https://www.open-mpi.org/software/ompi/v1.10/downloads/openmpi-1.10.2.tar.gz
@@ -50,8 +48,7 @@ the compute nodes.
   
 Installing NFS on the nodes. This is to be followed in both the controller and compute node with few basic differences.  
   
-**Controller/Server node configuration:**  
-
+### Controller/Server node configuration
 1. Install NFS packages  
 
         sudo yum -y install nfs-utils libnfsidmap libnfsidmap-devel  
@@ -101,8 +98,7 @@ Installing NFS on the nodes. This is to be followed in both the controller and c
 
         sudo firewall-cmd --reload  
 
-**Compute node configuration:**  
-
+## Compute node configuration
 1. Install NFS packages  
 
         sudo yum -y install nfs-utils libnfsidmap libnfsidmap-devel  
@@ -160,7 +156,4 @@ Installing NFS on the nodes. This is to be followed in both the controller and c
         192.168.100.100:/home/centos/openmpi_shared_directory   20G  2.4G   18G  12% /home/centos/openmpi_shared_directory  
   
    The last line in the section above shows the mounted directory from the Controller/Server node.
-
-
-
 

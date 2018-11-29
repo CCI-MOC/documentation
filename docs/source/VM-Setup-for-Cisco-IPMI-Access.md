@@ -2,7 +2,7 @@ The IPMI web GUI on the 48 Cisco nodes at NEU (as well as the IPMI for Fujitsu C
 
 The best way to set up access is to configure a VM on your local machine with the correct plugins, with proxy forwarding set up for the 10.99.0.0/16 network.
 
-**Steps**
+## Steps
 * [Choose an OS for your VM](#choose-an-os-for-your-vm)
 * [Install redsocks](#install-redsocks)
     * [Configure redsocks](#configure-redsocks)
@@ -37,7 +37,7 @@ Information on packages for the supported Linux flavors is available at [redsock
      $ sudo apt-get install redsocks
 
 
-#####Configure redsocks
+#### Configure redsocks
 Going forward I will use the following placeholders for arbitrarily chosen port numbers:
 
      <PROXY_PORT> - the port you use for port forwarding when connecting to the remote server, as in 
@@ -71,7 +71,7 @@ In the section `redupd{}`:
 *Working redsocks.conf example* \: [sample_redsocks.conf](sample_redsocks.conf)    
 This sample uses 12345 for `<LOCAL_PORT>` and 9000 for `<PROXY_PORT>` 
 
-#####Configure iptables
+### Configure iptables
 
 Add the following iptables rule:
 
@@ -93,7 +93,7 @@ On my Virtualbox guest running Lubuntu, the relevant interface was eth0, which d
 
 There is more information about this step in [this guide](https://help.ubuntu.com/community/IptablesHowTo).
 
-#####Start the redsocks service
+#### Start the redsocks service
 
      $ sudo service redsocks start
 
@@ -128,7 +128,7 @@ Or, you can generate a key specifically for this VM.  You will have to append th
 
 *** 
 
-###SSL_NO_CIPHER_OVERLAP Error
+### SSL_NO_CIPHER_OVERLAP Error
 If you see this error, you should be able to bypass it by disabling some SSL security settings in Firefox.  Open Firefox and type about:config into the URL bar.  You will get a popup warning about voiding your (nonexistent) warranty, click "I accept the risk" or "I'll be careful" or whatever the agree button says.
 
 In the search bar, type: "security.tls.version" to filter the settings.  (Make note of what they were before the change so you can restore them if needed).
@@ -143,9 +143,9 @@ Note that this makes your browser less secure, so don't use this VM to visit you
 
 ***
 
-###Some alternative setups
+## Some alternative setups
 
-#####Using Firefox proxy settings
+### Using Firefox proxy settings
 
 It is possible to configure Firefox directly to use a SOCKS proxy.  This is a less recommended approach than using redsocks, because certain parts of the IPMI interface will not launch in a way that uses the proxy, and therefore won't work.
 
@@ -169,7 +169,7 @@ You should now be able to reach the 10.99.1.x addresses in Firefox.
 
 When you are done accessing the IPMI, remember to open the dialog and change it to "Automatically detect" or "No Proxy".
 
-#####Alternative Setup with Chromium
+### Alternative Setup with Chromium
 
 Here is a useful alternate setup:
 

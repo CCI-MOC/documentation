@@ -6,32 +6,31 @@ In this is a tutorial that shows two things:
 ## Email Triggers
 Emails are only sent when some Sensu check on the host is in critical condition. What constitutes as a critical condition is outlined below.
 
-#### Network Traffic
+## Network Traffic
 When the traffic is over 60 MB/s for over an hour.
 
-#### Memory
+## Memory
 When the memory on a host is over 90% utilized for over an hour.
 
-### Disk
+## Disk
 When the disk is over 90% utilized for over an hour.
 
-### Node down
+## Node down
 When a node is down for more than a hour
 
 ## Reacting to Sensu emails
 
-#### Receiving an mail from Sensu
-
+### Receiving an mail from Sensu
 You just got an email from Sensu. For this example, the subject is "The CPU Usage is more than 80%" and it's body looks something like this:
-
+```
 client name:  compute-39.moc.ne.edu
 address:  10.13.37.253
 output:  critical
+```
 
 This tells you everything you need to know about the event that triggered the email.
 
-#### Go to Uchiwa Dashboard
-
+### Go to Uchiwa Dashboard
 Click the link to go to the Uchiwa dashboard [http://129.10.5.55:3000/#/login](http://129.10.5.55:3000/#/login). The dashboard will tell you more about the event and has an intuitive UI.
 
 The credentials are as follows:
@@ -40,23 +39,19 @@ U: admin
 P: MOCmonitor2#
 ```
 
-#### Go the client
-
+### Go the client
 Click the second icon down on the navigation bar on the left to see all of the clients. You should see that a check on that client is in critical condition. Click on the client and the click on on the check in critical condition. We know that this client is in a critical condition because of the subject line. In this case the CPU Usage is more than 80%, so we need to fix that. Some how you need to make the CPU Usage decrease from 80%.
 
-#### Verify the issue has been resolved
-
+### Verify the issue has been resolved
 Once you have resolved the issue, you should verify that it has been resolved. You do this by going to the Uchiwa dashboard. 
 If the issue has been resolved, you will see the check that was red is now green. 
 
 ## Email alerting configuration
-
 An email is triggered after after a client is in a critical condition for an hour. This is to avoid sending alerts for clients that reach a critical condition, but do not sustain this critical condition. The emails will continue to send every hour that a client is in a critical condition.
 
 There are three parts to how the email infrastructure is configured, which are a check, handler and filter.
 
-#### Check
-
+### Check
 Check are what allow you to monitor services or measure resources. Below is an example of how a check is configured.
 ```
 {
@@ -79,8 +74,7 @@ This check measures CPU usage metrics in percentages. It's important to point ou
 
 If you want to learn more about checks, go to Sensu's Documentation on checks [here](https://sensuapp.org/docs/latest/checks)
 
-#### Handler
-
+### Handler
 Handlers allow Sensu to take action on event. Below is an example of how a handler is configured.
 ```
 {
@@ -101,8 +95,7 @@ This handler sends an email when a check is in critical condition. More specific
 
 If you want to learn more about checks, go to Sensu's Documentation on handlers [here](https://sensuapp.org/docs/latest/handlers) 
 
-#### Filters
-
+### Filters
 Filters allow you to filter events for one or more handlers. In this case, without the filter every time a client was in a critical condition, you would receive an email, which could be every 5 minutes. They are the reason why you only receive emails once every hour. Below is the email filter.
 
 ```
@@ -124,4 +117,5 @@ We only need one email filter, because it can be applied to one or more handlers
 
 If you want to toggle the frequency for sending emails, change the integer 12 to another integer. For example if you want to receive an email 30 minutes after a check on a client is in a critical condition, change the integer 12 to 6.
 
-If you want to learn more about checks, go to Sensu's Documentation on filters [here](https://sensuapp.org/docs/latest/filters) 
+If you want to learn more about checks, go to Sensu's Documentation on filters [here](https://sensuapp.org/docs/latest/filters)
+

@@ -5,7 +5,6 @@ There are (or will be) environment specific documents describing the networking 
 with VLAN, network and host information.
 
 # oVirt
-
 We have a 3 node oVirt setup for hosting crucial services like DHCP, DNS, FreeIPA, Foreman etc.
 All these services are highly available VMs.
 
@@ -18,7 +17,6 @@ All these services are highly available VMs.
 |ov3.massopen.cloud | 384 GB | 20/40 | 10X1TB |
 
 ## Services that will be hosted on the oVirt setup.
-
 1. FreeIPA server (one will be duplicated at BU),
 2. Foreman (might be multiple for different env)
 3. RHEL repo server, just 1 for all environemtns. Public IP with limited access.
@@ -61,7 +59,6 @@ Each environment gets around 300 to 400 VLANs which will leave room for expansio
  Total Elastic Nodes = 48 Cisco + 64 Dell SB  = 112 nodes.
 
 ### VLANs
-
 * VLAN range: 201 to 700 (total 399 VLANs)
 * 201 to 600 - 10G networks
 * 601 to 700 for IPMI/management on 1G networks.

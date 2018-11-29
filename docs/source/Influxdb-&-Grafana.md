@@ -1,8 +1,8 @@
 # Overview
-
 To visualize the data --such as memory metrics, load metrics and disk metrics-- retrieved from sensu, we use 'InfluxDB v0.8' as the backend database and grafana as the visualization tool. We installed influxdb and grafana in moc-sensu server(ip:10.31.27.157). 
-## Diagram
+
 This diagram shows how Sensu,InfluxDB and Grafana interact with each other. 
+
 ![](_static/influxdb.png)
 
 # Influxdb 
@@ -12,11 +12,9 @@ InfluxDB is a time series, metrics, and analytics database. It’s written in Go
 ## Influxdb Configuration
 
 ### Ports
-
 InfluxDB uses port 8083 as the admin server port and 8086 as the http api port by default. More configuration options can be viewed and modified at ```/opt/influxdb/shared/config.toml```.
 
 ### Configuration related to sensu
-
 All configuration files related to sensu are inside ```/etc/sensu/conf.d```.
 
 This is a .json file configuring host, port, username, password and database for influxdb. 
@@ -31,8 +29,8 @@ This is a .json file configuring host, port, username, password and database for
   }
 }
 ```
-### Handler configuration
 
+### Handler configuration
 This is a handler configuration file we use to convert data directly retrieved from sensu checks to a format that can be send to the database. The configuration .json file can be viewed at ```/etc/sensu/conf.d/handler-influxdb-metrics.json```. 
 ```
 {
@@ -51,6 +49,7 @@ You can view influxdb log in the following txt file.
 ```
 /opt/influxdb/shared/log.txt
 ```
+
 # InfluxDB Clustering
 
 ## Install  stable versions of InfluxDB
@@ -59,7 +58,6 @@ The stable version of InfluxDB for now is 0.10.1. Install InfluxDB on three sepa
 ## Cluster Node configuration
 
 ### General node configuration:
-
 * [meta] section:
 
 ```
@@ -72,8 +70,7 @@ http-bind-address="<IP address>:8091"
 bind-address="<hostname>:8086"
 ```
 
-* Note:
-Cannot replace <hostname>  with <IP address> in influxdb versioin 0.10.1. If we set up bind-address with IP address, it won't connect influxdb server.
+**Note: Cannot replace <hostname>  with <IP address> in influxdb versioin 0.10.1. If we set up bind-address with IP address, it won't connect influxdb server.**
 
 ### Node Types and Service Types
 * There are three types of nodes: consensus node, hybrid node and data node.
@@ -98,10 +95,10 @@ This <IP1> is the IP address for the first node
 On each of the two VMs, run command ```sudo service influxdb start```
 
 ### Useful links
-
-https://docs.influxdata.com/influxdb/v0.10/clustering/cluster_setup/
+* https://docs.influxdata.com/influxdb/v0.10/clustering/cluster_setup/
 
 # Grafana
+
 ## Installation
 The Grafana version we are using is v 2.0.0-beta3
 You can install Grafana using Yum directly. 
@@ -114,8 +111,10 @@ $ sudo rpm -Uvh grafana-2.0.1-1.x86_64.rpm
 ```
 
 ## Configuration
+
 ### Port
 The default port of grafana is 3000. As it is the same as port of uchiwa — sensu’s dashboard, we change the port to 3031 in the configuration file located at ```/etc/grafana/grafana.ini```.
+
 ## Start the Server
 You can start the server using: ```$ sudo service grafana-server start```
 If you would like to configure to start grafana at boot time, just do:
@@ -128,5 +127,7 @@ $ systemctl daemon-reload
 $ systemctl start grafana-server
 $ systemctl status grafana-server
 ```
+
 ### Logs
 Log files are located at ```/var/log/grafana```
+

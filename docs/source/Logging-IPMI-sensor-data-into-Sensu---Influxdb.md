@@ -31,7 +31,7 @@ The four fields of the output lines, as read from left to right are:
 4. Sensor status, indicating which thresholds have been exceeded.
 
 For example:
-
+```
 2 | /SYS/SLOTID | 0x02 | ok
 
 3 | HOSTPOWER   | 0x02 | ok
@@ -39,7 +39,7 @@ For example:
 4 | CMM/PRSNT   | 0x02 | ok
 
 5 | PEM/PRSNT   | 0x02 | ok
-
+```
 This [doc](https://docs.oracle.com/cd/E19464-01/820-6850-11/IPMItool.html) provides additional information including reading specific sensors.
 
 ## Logging sensor readings into Sensu
@@ -59,7 +59,4 @@ After parsing the sensor data into "<host.sensor-name>  <value>  <timestamp>" fo
 ```
 
 The influxdb handler stores the sensor data in inflxdb.
-
-
-
 

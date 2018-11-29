@@ -1,7 +1,6 @@
 ## SNMP basics
 **SNMP** stands for Simple Network Management Protocol and consists of three key components: managed devices, agents, and network-management systems (NMSs). A managed device is a node that has an SNMP agent and resides on a managed network. These devices can be routers and access servers, switches and bridges, hubs, computer hosts, or printers. An agent is a software module residing within a device. This agent translates information into a compatible format with SNMP. An NMS runs monitoring applications. They provide the bulk of processing and memory resources required for network management.
 
-
 **MIB** stands for **Management Information Base** and is a collection of information which is organized hierarchically. The various pieces of information are accessed by a protocol such as SNMP. There are two types of MIBs: scalar ones and tabular ones. Scalar objects define a single object instance whereas tabular objects define multiple related object instances grouped in MIB tables.
 
 **OIDs** or **Object Identifiers** uniquely identify manged objects in an MIB hierarchy. It can be depicted as a tree whose nodes are assigned by different organizations. Generally, an OID is a long sequence of numbers, coding the nodes, separated by dots. Top level MIB object IDs (OIDs) belong to different standard organizations. Vendors define private branches including managed objects for their own products.
@@ -68,3 +67,4 @@ Full code can be found in MOC sensu server [repository](https://github.com/LeonL
 * [1](http://kb.paessler.com/en/topic/653-how-do-snmp-mibs-and-oids-work)
 * [2](http://arich-notes.arich-net.com:8080/?page_id=115)
 * [3](http://www.rubydoc.info/gems/snmp/1.2.0)
+

@@ -16,7 +16,6 @@ wp_db_user: wpuser
 wp_db_pass: <password set for wpuser>
 ```
 ### How to change Wordpress Domain 
-
 When running a multisite installation as we are, wordpress also hardcodes the domain in the database. Run this [script](https://github.com/interconnectit/Search-Replace-DB) through the command line to replace all occurrences of the old domain with the new domain. (Can't be done manually as there are hundreds). [**Reference**](https://codex.wordpress.org/Moving_WordPress#Moving_WordPress_Multisite)
 
 Navigate to the wordpress directory (this is where wp-config.php is) and run:
@@ -41,7 +40,6 @@ If the script gives you a CLI error about "undefined function mb_regex_encoding(
      # systemctl restart httpd
 
 ## How to Restore from Backup
-
 The backup consists of:
 
     /var/www/html      # entire web directory
@@ -73,7 +71,6 @@ Joomla Admin user/password
 * Needed to install perl dependencies as instructed here http://twiki.org/cgi-bin/view/TWiki/HowToInstallCpanModules 
 
 ## Google Forms (Email Notification for Forms)
-
 There are two versions of google form now. Depends on your personal
 setting, you will see different versions.
 
@@ -83,4 +80,5 @@ Forms" option that you can click. And just click manage notifications.
 
 Version2: exactly the same except for the nav. menu is on the top right. 
 
-Currently, we have Kaizen Resource Request Form using version 2 and MOC OpenStack User Request Form using version 1. 
+Currently, we have Kaizen Resource Request Form using version 2 and MOC OpenStack User Request Form using version 1.
+

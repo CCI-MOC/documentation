@@ -26,8 +26,7 @@ A key-value pair which contains a fact about a system, such as its hostname, net
 [Salt-Cloud](Salt.html#salt-cloud)   
 [Pillars](Salt.html#pillars)  
 
-##Installation:
-
+## Installation:
 Run the following commands to install the SaltStack repository and key:
   ```
 1. sudo yum install http://repo.saltstack.com/yum/redhat/salt-repo-latest-2.el7.noarch.rpm
@@ -55,8 +54,7 @@ Run the following commands to install the SaltStack repository and key:
    sudo yum install salt-minion	     # to install minion
   ```
 	
-##Configuration:
-
+## Configuration:
 1. Modify "/etc/salt/minion" on the minion to specify the master for that minion.
    ```
    master: <ip or hostname of the master>
@@ -107,8 +105,7 @@ Run the following commands to install the SaltStack repository and key:
    salt '*' test.ping
    ```
 
-##Execution of sls files:
-
+## Execution of sls files:
 .sls files are used to store the state declarations written in YAML to configure the minions by running it on matser.  
 The minions can be configured either running specifc .sls files or running the hierarchy of config files defined using a "top.sls" file.   
 "top.sls" contains the target and the file system locations to be checked for "init.sls" file for execution.  
@@ -170,7 +167,6 @@ The minions can be configured either running specifc .sls files or running the h
    ```
 
 ## Salt-cloud
-
 1. Install salt-cloud by running the first two steps in the installation of salt master/minion installation.
    ```
    sudo yum install salt-cloud
@@ -258,7 +254,6 @@ The minions can be configured either running specifc .sls files or running the h
 
 
 ## Pillars
-
 These are used to store requirement specific parameters/static data as key value pairs.
 
 Go to /etc/salt/master and update/uncomment the pillar file system location under 'Pillar settings':
@@ -302,9 +297,8 @@ packages:
     {% endfor %}
 ```
 
-**Note:**   
-
-If a change is made to the pillar file, then it should be reloaded/refreshed in all the nodes
+**Note: If a change is made to the pillar file, then it should be reloaded/refreshed in all the nodes**
 ```
 salt '*' saltutil.refresh_pillar
 ```
+

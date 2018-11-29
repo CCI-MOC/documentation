@@ -4,7 +4,6 @@ Data sheet can be found [here](https://www.google.com/webhp?sourceid=chrome-inst
 The stock disks on these nodes have a firmware issue that causes problems with disk partitioning.  See [[Firmware Issue with Cisco 300GB Drive]] for an explanation and workaround.
 
 ## IPMI access
-
 See also [VM Setup for Cisco IPMI Access](VM-Setup-for-Cisco-IPMI-Access.html)
 
 The Cisco IPMI interfaces only support SSLv3, which is disabled by default in newer firefox versions.
@@ -16,7 +15,6 @@ To enable it, follow the instructions from [here](http://www.ryananddebi.com/201
 First, right-click on the setting “security.tls.version.fallback-limit” and select modify.  You’re going to change the “1” to “0”.  Then do the same thing with “security.tls.version.min”, changing the “1” to “0”.
 
 ##Enabling the Management Port
-
 The Cisco UCS C220 has a dedicated management port and two in-band ports (LOM).  The default settings allow any LOM port to be used to access the IPMI, and the dedicated management port is disabled by default.  
 
 We use the dedicated management port for these systems, so it will need to be re-enabled if the machines ever get restored to factory defaults.

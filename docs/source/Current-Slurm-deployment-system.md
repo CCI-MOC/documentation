@@ -1,11 +1,10 @@
-
 **Update Slurm cluster layout can be found [here](https://github.com/CCI-MOC/hpc/wiki/Current-Slurm-cluster)**
 
 This page talks about the current SLURM system we can deploy using the existing script. These scripts and findings from these configurations will be used to deploy SLURM cluster using BMI and HAAS on baremetal nodes. That part is yet to be worked on.    
 
 The current scripts assumes you are deploying the SLURM cluster using CentOS 7 operating system on MOC's kaizen VMs.  
   
-**Prerequisites to run these scripts:**  
+## Prerequisites to run these scripts
 1. A VM or your local machine that can SSH into the kaizen VMs(used as the Controller/Compute node).  
 2. Every kaizen VM(node) brought up should be reachable by other Nodes(i.e Controller/Compute nodes) especially by the Controller node and by the machine described in the 1st prerequisite(This is possible by assigning floating ip).  
 3. The nodes which are used by the SLURM cluster should be running CentOS 7 operating system.
@@ -30,4 +29,5 @@ After the prerequisites are met and a VM is available on kaizen, depending on sc
   
    where, floating_ip_of_the_instance is the ip address of node that the local machine uses to ssh into the node and partition_name is the name of the partition the node is to be assigned.  
   
-Running these commands takes care of installing all the packages, editing the SLURM configuration file and running the SLURM daemon on the node. The Master/Controller node should brought up first. The script keeps track of the nodes and there ip addresses from the file ip_address.txt present in the directory where the scripts are present.  
+Running these commands takes care of installing all the packages, editing the SLURM configuration file and running the SLURM daemon on the node. The Master/Controller node should brought up first. The script keeps track of the nodes and there ip addresses from the file ip_address.txt present in the directory where the scripts are present.
+

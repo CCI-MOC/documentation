@@ -1,34 +1,26 @@
-# Useful links
-
-- According to "devvesa" in #midonet IRC channel at 1:04 pm. on Aug. 6, 2015
+## Useful links
+* According to "devvesa" in #midonet IRC channel at 1:04 pm. on Aug. 6, 2015
  
-    > devvesa: devstack works in our daily tests on stackforge gates for the neutron plugin
+    devvesa: devstack works in our daily tests on stackforge gates for the neutron plugin
 
-    > devvesa: https://review.openstack.org/#/q/status:open+project:openstack/networking-midonet,n,z
+    devvesa: https://review.openstack.org/#/q/status:open+project:openstack/networking-midonet,n,z
 
-    > devvesa: click on any patch, and you will see a `gate-tempest-dsvm-networking-midonet`
+    devvesa: click on any patch, and you will see a `gate-tempest-dsvm-networking-midonet`
 
-    > devvesa: that's devstack + midonet + tempests tests
+    devvesa: that's devstack + midonet + tempests tests
 
 What devvesa meant was to click on "certain" patch such as https://review.openstack.org/#/c/207783/... 
 
-# Midonet Deployment
+## Midonet Deployment
+* According to this [page](https://github.com/midonet/midostack), Midostack is not an option for us because it is deprecated in favor of Devstack 
+* According to the instruction on this [page](https://support.software.dell.com/foglight-for-virtualization-enterprise-edition/kb/138380), the Current devstack version is kilo
+* According to this [page](http://blog.midonet.org/midonet-2015-03-release/) Current midonet version is v2015.03
 
->According to this [page](https://github.com/midonet/midostack), Midostack is not an option for us because it is deprecated in favor of Devstack 
-
->According to the instruction on this [page](https://support.software.dell.com/foglight-for-virtualization-enterprise-edition/kb/138380), the Current devstack version is kilo
-
->According to this [page](http://blog.midonet.org/midonet-2015-03-release/, Current midonet version is v2015.03
-
-###Steps for install Midonet on kilo version Devstack
+### Steps for install Midonet on kilo version Devstack
 1. Go to https://horizon.csail.mit.edu and login through horizon dashboard
-
 2. Before you create an instance, you should have your ssh public uploaded, have your ssh security group added. 
-   
    Then create an instance using the image of <b> ubuntu 14.04-LTS-i386</b>, and assign your uploaded ssh public key pair to the instance and set 'inet' as the network. Flavor should be at least have 4, recommend 8GB RAM.
-   
-   After creating the instance, it will automatically give your a floating IP address, which is the IP address of your instance. 
-
+* After creating the instance, it will automatically give your a floating IP address, which is the IP address of your instance. 
 3. ssh into the VM
 
     `$ ssh ubuntu@128.52.181.207` (the ip address here is random selected here and it should match your instance IP address )
@@ -69,5 +61,6 @@ What devvesa meant was to click on "certain" patch such as https://review.openst
    `./stack.sh` 
    It will take a while to install. After installation, type the IP address in your browser and login through Horizon dashboard see if there is a tab called Network under the Project tab. 
 
-Current Status:
-   ** Successfully Install Devstack with Midonet Plugin on the instance hosted on CSAIL Opentack  **
+### Current Status:
+**Successfully Install Devstack with Midonet Plugin on the instance hosted on CSAIL Opentack**
+

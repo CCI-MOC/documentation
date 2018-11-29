@@ -19,7 +19,6 @@ For the above example, your grok filter would look something like this:
 ```%{NUMBER:duration} %{IP:client}```
 
 ## Production Logstash filter
-
 The Production logstash filter is configured like below:
 ```
 filter {
@@ -45,3 +44,4 @@ STACKPATTERN %{TIMESTAMP_ISO8601:date} %{BASE10NUM:processID} %{LOGLEVEL:logleve
 CEPHPATTERN %{TIMESTAMP_ISO8601:date} %{GREEDYDATA:logmessage}
 ```
 As you could see above, we could extract many informations like datetime, processID, loglevel, module... from log messages. It is used for future search and visualization in Kibana.
+

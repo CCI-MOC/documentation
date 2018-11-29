@@ -1,4 +1,4 @@
-(up) [[Northeastern Cluster]]
+[Northeastern Cluster](Northeastern-Cluster.html)
 
 * [VLANs and IP Addresses](#vlans-and-ip-addresses)
 * [Haas Master Config](#haas-master-config)
@@ -18,7 +18,7 @@ On 10G Cisco switches
 * [VLAN 1004](#vlan-1004)  Foreman Provisioning 10.13.37.0/24
 * [VLAN 3802](#vlan-3802) CSAIL floating IPs
 
-###### 10.99.1.0/24:  VLAN 100  [OBM/MANAGEMENT VLAN]<a name="vlan-100"></a>
+### 10.99.1.0/24:  VLAN 100 (OBM/MANAGEMENT VLAN)
 
      10.99.1.1-4:   Kzn-osd01-04, Fujitsu servers, admin,admin, KVM works with Java 6, IE11
      10.99.1.5:     Cisco Nexus 5672 in Cabinet 17
@@ -33,7 +33,7 @@ On 10G Cisco switches
      10.99.1.253    VM on HaaS master (henn)
      10.99.1.254    kzn-h.infra.massopen.cloud (Kaizen HIL)
 
-###### 129.10.3.248/29: VLAN 101  [EXTERNALLY VISIBLE MANAGEMENT VLAN]<a name="vlan-101"></a>
+### 129.10.3.248/29: VLAN 101 (EXTERNALLY VISIBLE MANAGEMENT VLAN)
 
      129.10.3.249    Gateway
      129.10.3.250    Reserved for switch stack loopback
@@ -42,7 +42,7 @@ On 10G Cisco switches
      129.10.3.253    Fujitsu remote management ("support")
      129.10.3.254       ---available---
 
-###### 129.10.5.0/25: VLAN 127  [EXTERNALLY VISIBLE PRODUCTION VLAN]
+### 129.10.5.0/25: VLAN 127 (EXTERNALLY VISIBLE PRODUCTION VLAN)
 
      129.10.5.1         Gateway for 129.10.5.0/25
      129.10.5.2        Switch 1 Gateway (129.10.5.0/25)
@@ -71,8 +71,8 @@ On 10G Cisco switches
      129.10.5.{65-254} OpenStack Floating IPs
 
 
-###### 192.168.28.0/24: VLAN 250 [FUJITSU STORAGE VLAN]<a name="vlan-250"></a>
-*Note: Addresses on this network are all pre-assigned in /etc/hosts on the Fujitsu nodes, even though in most cases the relevant machine doesn't actually exist.  So when debugging this network, you occasionally see a weird hostname resolve on the Fujitsu end.*
+### 192.168.28.0/24: VLAN 250 (FUJITSU STORAGE VLAN)
+* Note: Addresses on this network are all pre-assigned in /etc/hosts on the Fujitsu nodes, even though in most cases the relevant machine doesn't actually exist.  So when debugging this network, you occasionally see a weird hostname resolve on the Fujitsu end.*
 
      192.168.28.{11-14} Fujitsu Storage Nodes
      192.168.28.{1-10}  reserved for compute nodes until setup script is fixed*
@@ -89,7 +89,7 @@ On 10G Cisco switches
      192.168.28.98      iscsi-hpc-gateway (VM on Haas Master, see Evan)
      192.168.28.130     BMI-Infra-VM (VM on Haas Master, see Ravi.G)
 
-###### 10.13.37.0/24: VLAN 1004 [FOREMAN PROVISIONING VLAN] <a name="vlan-1004"></a>*
+### 10.13.37.0/24: VLAN 1004 (FOREMAN PROVISIONING VLAN)
 
 	10.13.37.1     foreman
 	10.13.37.2     contr1test-71
@@ -141,7 +141,7 @@ On 10G Cisco switches
 	10.13.37.136   compute-183
 
 
-\* see [this issue](https://github.com/CCI-MOC/kilo-puppet/issues/11)
+* See [this issue](https://github.com/CCI-MOC/kilo-puppet/issues/11)
 
 
 ## Diagrams
@@ -154,6 +154,7 @@ On 10G Cisco switches
 129.10.3.249, admin, Wittinglypreconfigure
 
 IPMI vlan switchports
+
 ```
     VLAN-MOC-100 {
         description "MOC VLAN";
@@ -256,3 +257,4 @@ IPMI vlan switchports
         }
 
 ```
+

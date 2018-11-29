@@ -2,7 +2,7 @@ This guide explains the use of OpenStack Sahara as configured in the MOC. Sahara
 
 *Accessing the Sahara UI:* If your OpenStack user has been given the sahara_user role, you will see the tab "Data Processing" in the "Project" section of Horizon.
 
-## **Cluster creation**
+## Cluster creation
 
 ### Plugin selection  
 Initally, three plugins will be offered. Each is considered "simple", as there are no management consoles like in Cloudera, Hortonworks, etc. (These distributions will be supported in MOC Sahara eventually.)
@@ -49,7 +49,7 @@ Navigate to Data Processing → Cluster Templates → Launch Cluster
 * Web UIs: SOCKS proxy may come in handy; Ubuntu images support X forwarding so it may be useful to install a lightweight browser like Midori on one of your instances  
 * Usernames: "ubuntu" for Ubuntu images, "cloud-user" for CentOS 6  
 
-## **Job execution**
+## Job execution
 
 ### Swift integration  
 Jobs on Sahara clusters support Swift I/O. To be more specific, this means you can write a Swift path instead of an HDFS path in any MapReduce or Spark job. (Hive support coming soon, hopefully.) Here are some helpful hints regarding the use of Swift:  
@@ -86,4 +86,5 @@ Jobs on Sahara clusters support Swift I/O. To be more specific, this means you c
     * Storm: /usr/local/
 * Permissions  
     * Spark and Storm just have "ubuntu" user for everything
-    * Vanilla: Many Hadoop files and programs belong to "hadoop" user  
+    * Vanilla: Many Hadoop files and programs belong to "hadoop" user
+

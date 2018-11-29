@@ -1,6 +1,6 @@
-SLURM is an open-source workload manager designed for Linux clusters of all sizes. It provides three key functions. First it allocates exclusive and/or non-exclusive access to resources (computer nodes) to users for some duration of time so they can perform work. Second, it provides a framework for starting, executing, and monitoring work (typically a parallel job) on a set of allocated nodes. Finally, it arbitrates contention for resources by managing a queue of pending work.
+**SLURM** is an open-source workload manager designed for Linux clusters of all sizes. It provides three key functions. First it allocates exclusive and/or non-exclusive access to resources (computer nodes) to users for some duration of time so they can perform work. Second, it provides a framework for starting, executing, and monitoring work (typically a parallel job) on a set of allocated nodes. Finally, it arbitrates contention for resources by managing a queue of pending work.
 
-Contents:  
+## Contents:  
 1. [SLURM Installation](#slurm-installation)  
 2. [MUNGE](#munge)  
 3. [Build SLURM RPMs](#build-slurm-rpms)  
@@ -11,9 +11,10 @@ Contents:
 8. [References](#references)
 
   
-#SLURM Installation  
+## SLURM Installation  
   The first step in SLURM installation is to install [MUNGE](#Munge). Before installing MUNGE on the nodes, global user accounts needs to be created.  
-###Create global user accounts  
+
+### Create global user accounts  
 SLURM and MUNGE require consistent UID and GID across all servers and nodes in the cluster. Create the users/groups for slurm and munge, for example:  
 
     export MUNGEUSER=991  
@@ -24,15 +25,16 @@ SLURM and MUNGE require consistent UID and GID across all servers and nodes in t
     useradd  -m -c "SLURM workload manager" -d /var/lib/slurm -u $SLURMUSER -g slurm  -s /bin/bash slurm  
 These same users should be created identically on all nodes. This must be done prior to installing RPMs(which would create random UID/GID pairs if these users don't exist).
 
-#MUNGE   
-MUNGE is a authentication plugin that identifies the user originating a message. There are three functional authentication plugins available namely authd, Munge and none. Out of which Munge is used over here.  
+## MUNGE   
+**MUNGE** is a authentication plugin that identifies the user originating a message. There are three functional authentication plugins available namely authd, Munge and none. Out of which Munge is used over here.  
 The MUNGE RPM package for RHEL7 is in the EPEL repository, where you install the newest version of epel-release RPM for EL7, for example:  
 
     CentOS: yum install epel-release  
 Now install the MUNGE RPM packages from the EPEL repository:  
 
     yum install munge munge-libs munge-devel  
-###MUNGE configuration and testing  
+
+### MUNGE configuration and testing  
 Create a secret key:  
 
     /usr/sbin/create-munge-key 
@@ -158,7 +160,7 @@ Some _defaults_ may be configured for similar compute nodes, for example:
     NodeName=q002  
     ...  
 
-###Master server configuration  
+### Master server configuration  
 Create the spool directories and make them owned by the slurm user:  
 
     mkdir /var/spool/slurmctld  
@@ -181,14 +183,14 @@ Start and enable the slurmctld daemon:
     systemctl start slurmctld.service  
     systemctl status slurmctld.service  
   
-#Configure firewall for SLURM daemons  
+## Configure firewall for SLURM daemons  
 To allow the SLURM compute nodes must be allowed to connect to the central controller's _slurmctld_ daemon. In the configuration file these ports are configured:  
 
     SlurmctldPort=6817  
     SlurmdPort=6818  
     SchedulerPort=7321  
   
-###CentOS7/RHEL7  
+### CentOS7/RHEL7  
 The CentOS7/RHEL7 default firewall service is [firewalld](https://fedoraproject.org/wiki/FirewallD) and _not_ the well-known iptables service. The dynamic firewall daemon [firewalld](https://fedoraproject.org/wiki/FirewallD) provides a dynamically managed firewall with support for network “zones” to assign a level of trust to a network and its associated connections and interfaces. See [Introduction to firewalld](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Using_Firewalls.html) to learn more about firewalld.  
   
 **Install firewalld by:**    
@@ -210,7 +212,7 @@ Run the following commands on the compute nodes:
     sudo systemctl stop firewalld  
     sudo systemctl disable firewalld
 
-#Checking the SLURM daemons  
+## Checking the SLURM daemons  
 Check the configured daemons using the scontrol command:  
 
     scontrol show daemons  
@@ -227,8 +229,7 @@ To display the compute nodes:
 
     scontrol show nodes  
   
-#Testing basic functionality  
-
+## Testing basic functionality  
 From the master node try to submit an interactive job:  
 
     srun -N1 /bin/hostname  
@@ -243,10 +244,10 @@ To submit a batch job script:
 
     sbatch -N1 <script-file>  
   
-
-#References  
+## References  
 1. [SLURM Quick Start](http://www.schedmd.com/slurmdocs/quickstart_admin.html)  
 2. [SLURM Quick Start Tutorial](http://www.ceci-hpc.be/slurm_tutorial.html)  
 3. [SLURM Design](http://slurm.schedmd.com/slurm_design.pdf)  
 4. [SLURM User Guide](https://www.unila.edu.br/sites/default/files/files/user_guide_slurm.pdf)
 5. [SLURM Basic configuration and Usage](http://slurm.schedmd.com/slurm_ug_2011/Basic_Configuration_Usage.pdf)
+

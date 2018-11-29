@@ -212,3 +212,4 @@ curl -X<VERB> '<PROTOCOL>://<HOST>/<PATH>' -d '<BODY>'
 // Create an index named 'planet'
 # curl -XPUT "http:localhost:9200/planet"
 ```
+

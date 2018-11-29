@@ -1,5 +1,4 @@
 # Nodes
-
 * Node names in haas and other places  are {super,len}-\<last octet of IPMI IP\> and reflect the manufacturer.
   * Example: sun-10, super-42
 * The current ranges for nodes are: super-[36-46], dell-58 (moc01) dell(moc02),intel-[50-51], len-[60-63], think-[65-67].
@@ -41,18 +40,15 @@
 | 29 | think-65 | Lenovo ThinkPad | Unknown | - | - | - | Unknown | - | SecCloud | it's a laptop
 
 ## Notes on specific nodes
-
 * think-[65-67] are used for Heads/Secure Cloud
 * think-65 is flashed to coreboot/Heads
 * think-66 is flashed and loaned to Gerardo Ravago
 * think-67 is still running stock firmware
-
 * Cisco-200 and Cisco-204 are registered with our central freeIPA server as prb-cisco-200.infra.massopen.cloud
 and prb-cisco-204.infra.massopen.cloud respectively.
 
 
 ## KVM switch
-
 There is a Keyboard Video Mouse (KVM) switch that can be used to administer
 nodes. You can switch which node's console you are using by pressing the "Print
 Screen" button, and selecting a port. The port number corresponds to which port
@@ -68,27 +64,24 @@ down then please use the KVM switch.
 # Network
 
 ## Gateways
-
-Gateway1: moc-haas-master.bu.edu
-Gateway2: moc-haas-deploy.bu.edu
+* Gateway1: moc-haas-master.bu.edu
+* Gateway2: moc-haas-deploy.bu.edu
 
 To pass information through the gateway, you can use several methods:
 1. including "ssh -D" combined with your browser's SOCKS proxy support
 2. [sshuttle](https://sshuttle.readthedocs.io/en/stable/). A good command to transfer just traffic for the remote networks would be: `sshuttle -r user@ssh-gateway -N --dns`
 
 ## Hardware
-
 Our network is served by primarily 4 gigabit switches: dell-{0,1,2,3} (in the HIL rack with supermicros) and tp-0 (located in the other rack). dell-0 is the "hub" switch to which all other switches are connected. dell-0 has 10G connections to dell-1 and dell-2, and a regular 1G cable running to tp-0.
 
 All of the switches have Multiple STP enabled to prevent loops.
 
-### Node Cluster Assignments
+## Node Cluster Assignments
 
-#### Ceph
-
+### Ceph
 All supermicros will be used for deploying CEPH.
 
-## VLANs
+# VLANs
 VLANs 1-2500 are spanned to all switches, though on tp-0 individual VLANs may need to be made known to the switch before they can be used. 2501-4094 are not yet registered in order to preserve switch resources.
 
 HIL instances are allocated 500 or less VLANs, starting at 1000. VLANs with an id <= 1000 are for other uses.
@@ -243,8 +236,7 @@ For reference:
 
 # Physical Switches
 
-### dell-0 (beta) - core router (192.168.3.245)
-
+## dell-0 (beta) - core router (192.168.3.245)
 PowerConnect 5524
 
 Pattern:
@@ -267,8 +259,7 @@ Pattern:
 25 te1/0/1 (10G) | - | dell-1/25 ALL VLANs trunked |
 26 te1/0/2 (10G) | - | dell-2/25 ALL VLANs trunked |
 
-### dell-1 (deployment) (192.168.3.246)
-
+## dell-1 (deployment) (192.168.3.246)
 PowerConnect 5524
 
 Pattern:
@@ -306,8 +297,7 @@ Node connections in left half of ports (upper numbers)
 25 te1/0/1 (10G) | - | dell-0/25 / ALL VLANs trunked |
 26 te1/0/2 (10G) | -  | dell-3 port 49 | ALL VLANs trunked
 
-### dell-2 (dev) (192.168.3.247)
-
+## dell-2 (dev) (192.168.3.247)
 PowerConnect 5524
 
 Pattern:
@@ -345,13 +335,12 @@ Node connections in left half of ports (upper numbers)
 25 te1/0/1 (10G) | - | dell-0/26 / ALL VLANs trunked | -
 
 
-### cisco-1 (main rack) (192.168.3.230)
+## cisco-1 (main rack) (192.168.3.230)
 Cisco Nexus 3548p-10g
 
 Powered off and disconnected
 
-### tp-0 (other rack) (192.168.3.244)
-
+## tp-0 (other rack) (192.168.3.244)
 TL-SG3216
 
 Pattern:
@@ -377,8 +366,7 @@ Node connections in right half of ports (upper numbers)
 15 | - | - | -
 16 |  | moc02 nic4 | -
 
-### Unmanaged TP-Link (no ip)
-
+## Unmanaged TP-Link (no ip)
 TL-SG1016
 
 Unmanaged switch that is labelled "internet".
@@ -389,8 +377,7 @@ Has connections to:
 * another connection to moc-02
 
 
-### dell-3 (192.168.3.250)
-
+## dell-3 (192.168.3.250)
 Dell S3048-ON
 
 | Port | Cable Label | Other End | Which haas (beta, deployment or dev)
@@ -410,7 +397,6 @@ Admin Interface (Ethernet) | - | dell-1 port-9  | -
 
 
 # Equipment
-
 We have a rack in the PRB server room with hardware for development work on HaaS. Here's what's up there:
 
 * 3 Dell Powerconnect 5524 switches (24 ports each).

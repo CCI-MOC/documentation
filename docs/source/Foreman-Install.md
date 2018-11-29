@@ -1,10 +1,7 @@
-Install base centos 7 OS.
+## Install base centos 7 OS
+**NOTE: Set a dns name for foreman (foreman.moc.edu for example). This will be used in future and can't be changed.**
 
-NOTE: Set a dns name for foreman. This will be used in future and can't be changed.
-
-Example: set the hostname to foreman.moc.edu or whatever you want to use in future.
-
-Next, install foreman on the foreman vm:
+## Install foreman on the foreman vm
 ```
 http://theforeman.org/manuals/1.10/index.html#2.Quickstart
 rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
@@ -91,7 +88,7 @@ Notice: Removing file Puppet::SSL::CertificateRequest compute-25.staging.moc.edu
 puppet cert list --all;
 ```
 
-###### DNS fix
+### DNS fix
 ```
 # vi /etc/zones.conf <-------- fix the addresses in this file
 # cd /var/named/dynamic/
@@ -99,3 +96,4 @@ puppet cert list --all;
 Modify and fix the ip address in copied file
 # service named restart
 ```
+

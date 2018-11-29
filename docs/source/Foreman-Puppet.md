@@ -58,7 +58,7 @@ We can't uninstall foreman-discovery... foreman grrrrrrrrr... we're working arou
 [MOC Forman Issues](foreman---issues-faced.html)
 
 Foreman IPtable rules:
-
+```
 [root@foreman ~]# iptables -L
 Chain INPUT (policy ACCEPT)
 target     prot opt source               destination         
@@ -82,3 +82,5 @@ iptables -A INPUT -p tcp -m tcp --dport 8443 -j ACCEPT
 
 iptables-save | sudo tee /etc/sysconfig/iptables
 service iptables restart
+```
+

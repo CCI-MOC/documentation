@@ -5,14 +5,12 @@
 # Tasks
 
 ## Priorities
-
 Each task should be labeled with one of the following priorities:
 * **Phase 0**: Highest priority; Necessary to have basic levels of security.
 * **Phase 1**: Necessary, though only done after Phase 0 tasks completed.
 * **Phase 2**: Will enhance security, but are longer-term focused. May provide additional functionality.
 
 ## Policies
-
 Policies need to be written to cover:
 * MOC Users:
  * This includes such things as who can obtain accounts, how we verify their identity, default quotas, etc.
@@ -26,7 +24,6 @@ Policies need to be written to cover:
  * Who is responsible for which components
 
 ## Networks
-
 Each VLAN for now will not be routed. A *Phase 2* project would be to examine
 how we could use routing to simplify access.  With OpenStack, we are separating
 the control plane from anything user-accessible. By having separate VLANs, if
@@ -55,34 +52,27 @@ we notice that some are starving others (like Storage), we can set up QOS.
 * GAW notes: CSAIL infrastructure is providing two routed, public networks, a "client" network and a "hardware" network; all CSAIL systems are expected to be on the "hardware" network (128.52.60.0/22), but we have yet to figure out the story on the "client" network (28.52.64.0/18) and who gets access to it. My working theory is that physical nodes get IP addresses assigned by the institution that owns that hardware.
 
 ## Network services
-
 * Intrusion Detection/Prevention (Snort/[Guardian](http://www.chaotic.org/guardian/) is an open source stack) *Phase 1*
-
 * Network monitoring: need to decide *Phase 1*
  * Record port bandwidth statistics
  * Maybe record IP connections?
  * Use logstash?
 
 ### Switches
-
 * Write hardened/new switch config from scratch that disables all non-necessary services (Joe) *Phase 0*
   * GAW notes: CSAIL has a bunch of different switches, some of which are/will be integrated with CSAIL management -- the stuff OpenStack is directly connected to is weird and only our RFC1918 private network for in-band management
 
 ## Puppet/OS Management
-
 Puppet initially will be used for just the OpenStack nodes. Eventually, it
 should be used for *all* MOC nodes, since it will install several
 security-beneficial tunings.
-
 * Centrally-managed active puppet server to manage all nodes *Phase 0*
  * This should be a locked down machine since it can manage all others.
  * Server accessible from non-OpenStack networks *Phase 1*
  * Removal of modified puppet modules (like ssh) and directly using upstream *Phase 2*
  * Ubuntu support *Phase 2*
 
-
-### OS services to harden
-
+## OS services to harden
 * sshd *Phase 0*:
  * disable remote root, disable password access
  * include a restricted set of authorized keys for root
@@ -106,12 +96,10 @@ security-beneficial tunings.
  * mlocate (enables `locate` command)
 
 ## User VM visible
-
 * Share entropy with guests via [virtio-rng](http://wiki.qemu-project.org/Features-Done/VirtIORNG) after improving host entropy gathering with rngd (see above) *Phase 2*
 * Document MOC time servers and mirrors for users *Phase 2*
 
 ## Central network services
-
 * Set up network log server for OpenStack *Phase 0*
  * Make it accessible to non-OpenStack networks (IPMI(?), switches/routers, apache?) *Phase 1*
 * MOC time server *Phase 1*
@@ -119,16 +107,13 @@ security-beneficial tunings.
  * GAW notes: if you want your own time server, just buy one, they don't cost that much and will keep more stable time than any whitebox Intel server (installing the requisite add-ons to a whitebox server will cost you more than just buying the right thing from a company that makes them -- I recommend EndRun Technologies, who make time servers that can synchronize to the IS-2000 CDMA phone network and thus don't require a roof antenna for GPS)
 * RHEL/other distros, so that machines do not need external/NAT access to update *Phase 1*
 
-
 ## Updating
-
 We need procedures in place to stay up to date, patching our various softwares proactively to address security issues. This includes:
 * Cisco switches *Phase 0*
 * Cisco UCS firmwares *Phase 0*
 * RHEL OS's *Phase 0*
 
 ## Credentials
-
 * Need a credential-tracking system for when admins and users want to log into various systems: IPMI, users, routers, higher-level services like horizon, etc. *Phase 1*
  * There are two aspects of this:
   1. giving admins access to passwords when needed *Phase 0*
@@ -138,7 +123,7 @@ We need procedures in place to stay up to date, patching our various softwares p
   * GAW notes: at CSAIL we use Kerberos for everything, but sysadmins have ssh-based back door for login access (this does not give access to home directories); we have our own private-label X.509 CA for web app auth (looking to potentially migrate this to RHCS or dogtag)
   * GAW notes: we've also started thinking about SAMLv2 federation stuff (e.g., mod_auth_mellon) but it looks like an incredible PITA compared to TLS certificate auth for our in-house use cases
 
-### IPMI
+## IPMI
 * Create randomized/different admin accounts. Store in the credential-tracking system *Phase 2*
  * GAW notes: some BMCs and the Dell DRAC allow ssh keys for remote access, with weird and hard-to-program restrictions on key types and number of keys per principal
 * Create low-privilege accounts for:
@@ -146,17 +131,14 @@ We need procedures in place to stay up to date, patching our various softwares p
  * Research purposes (read-only; for looking at power stuff) *Phase 1*
 
 ## Hardware
-
 * BIOS
  * disable OS upgrades *Phase 0*
  * Can we disable local IPMI? *Phase 0*
 
 ## Pro-active security measures
-
 * Setting up [honeypots](https://en.wikipedia.org/wiki/Honeypot_%28computing%29) *Phase 2*
 
 # Other planning
-
 * Network layout going forward. Firewalls, NATs, firewall appliances, etc.
  * What should the production OpenStack look like? How do user VMs get to the Internet?
  * A system-wide firewall
@@ -165,7 +147,6 @@ We need procedures in place to stay up to date, patching our various softwares p
     * What are the core network services we plan to offer?
       * DNS, DHCP, NTP
       * Do we offer a RHEL/other distro mirrors?
-
 * Security plan
   * Managing credentials
    * Can we have a non-privileged IPMI user for most tasks
@@ -183,12 +164,11 @@ We need procedures in place to stay up to date, patching our various softwares p
     * Depending on the network layout, should we run an intrusion detection system like Snort on the gateway or through a mirror port?
     * Setting up a honeypot on non-public networks to detect breakins
     * Keeping various software up to date (switches, firmwares, OS's)
-
 * Remediation of the cluster now that we believe it's been broken into.
   * How do we clean the machines (especially BIOS, disk firmware, etc)
    * Which University's incident response group should we work with?
 
-# From Piyanai (was in _Footer):
+**From Piyanai**
 Which "broken in" are you referring to Jay ?
 
 The only security related incident I are aware of is the 2 large network packets egress traffic incidents on a particular node a few weeks back. For those incidents, we worked with the NU network folks and took steps to mitigate. And we also agreed for you to head up a security effort as a proactive measure i.e. this wiki page. 

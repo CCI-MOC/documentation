@@ -1,5 +1,4 @@
-# Identity Provider
-
+## Identity Provider
 1. Install `xmlsec1`
 2. Update `keystone.conf`
 
@@ -13,8 +12,7 @@ idp_metadata_path=/etc/keystone/saml2_idp_metadata.xml
 
 ```
 
-# Service Provider
-
+## Service Provider
 1. Install the shibboleth packages
 2. Update the Keystone WSGI file to have this outside of a virtualhost
 ```
@@ -179,3 +177,4 @@ methods = password,token,openid,saml2
 [saml2]
 remote_id_attribute=Shib-Identity-Provider
 ```
+

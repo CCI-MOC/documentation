@@ -40,3 +40,4 @@ Validation means the minimal configuration under which Sahara will launch a clus
 * _Description_: This plugin provides an ability to launch a standalone Spark installation on a Cloudera HDFS/Hadoop cluster (no management consoles).  
 * _Version_: [1.3.1](https://spark.apache.org/releases/spark-release-1-3-1.html) on Liberty, 1.6.0 on Mitaka  
 * _Node processes/validation_: namenode == 1, master == 1, datanode >= 1, slave >= 1
+

@@ -1,15 +1,13 @@
-# Prerequisites:
-
+## Prerequisites:
 In order to access openshift, we first need to login to the openshift machine in Engage1 Server.
+```ssh -A -D <port no.> khareak@128.52.62.147 -p 2244```
 
-ssh -A -D <port no.> khareak@128.52.62.147 -p 2244
-
-**NOTE:** You need to have the key set up in this system in order to use it.
+**NOTE:You need to have the key set up in this system in order to use it.**
 
 This opens up a port which we need to use to set up a manual socks proxy in our Internet browser.
 
 Enter the url:
-https://openshift.eng1.moc.edu:8443/console
+```https://openshift.eng1.moc.edu:8443/console```
 
 In order for the url to work successfully, add the IP and the hostname to the machine from which you are going to access:
 > /etc/hosts
@@ -20,7 +18,7 @@ Login with the user id you created, and start creating projects!!!
 
 Enter your user id and password and you are open to use openshift.
 
-**NOTE:** For setting up a new user name in openshift follow the [readme](https://github.com/CCI-MOC/openshift/blob/master/README.md):
+**NOTE: For setting up a new user name in openshift follow the [readme](https://github.com/CCI-MOC/openshift/blob/master/README.md)**
 
 You can login to the CLI with the commands:
 > oc login
@@ -30,7 +28,7 @@ You can create a new project using the UI or the CLI:
 > For UI, you just need to click on _Create New Projects_
 > For CLI, type in _oc new project "project-name"_
 
-## Jenkins Project configuration
+### Jenkins Project configuration
 
 By default, a jenkins image is provided by Redhat, and it comes in both Rhel and centOs.
 First the image needs to be pulled, so that openshift can recognize the image to create an app.
@@ -40,7 +38,7 @@ For Redhat:
 For CentOs:
 > docker pull openshift/jenkins-1-centos7
 
-**NOTE:** It is recommended that we use **CentOs image**, since Redhat image has a bug which does not allow it to deploy pods successfully.
+**NOTE: It is recommended that we use **CentOs image**, since Redhat image has a bug which does not allow it to deploy pods successfully.**
 
 Now that we have the image ready, we need to create an app based on this image.
 
@@ -62,7 +60,6 @@ ssh -D 6000 username@ipaddress
 Jenkins is now ready to be used.
 
 ### Using Jenkins' modified image - S2I
-
 Inorder to use S2I, first you need to install the S2I tool, which you can do from [here](https://github.com/openshift/source-to-image/releases/tag/v1.1.0).
 More information on I2I is present below:
 
@@ -76,7 +73,6 @@ There are some documentation on using s2i:
 https://github.com/openshift/jenkins
 
 Even though it looks straight forward, I'll explain the steps for using s2i.
-
 1. First of all create a private git repository since your passwords will all be visible in your jenkins' configuration.
 2. Create the directory structure as mentioned in the above links.
 3. Copy all the files from /var/lib/jenkins within the jenkins container which is running in opensfhit. into the configurations folder in git repository.
@@ -91,7 +87,6 @@ Even though it looks straight forward, I'll explain the steps for using s2i.
 A new image should be ready, and can be used after it is tagged and pushed to the docker registry.
 
 ### Creating a Slave pod for jenkins 
-
 The ideal way to use jenkins is to have a master, and then everytime there is a pull request, run the test cases on a new slave pod and delete the pod once the test cases have run successfully. This allows to use the environment of different machines to be utilized by the slaves using a single master.
 
 Complete details are given [here](https://blog.openshift.com/openshift-3-2-jenkins-s2i-slave-pods/).
@@ -111,3 +106,4 @@ In the above mentioned blog, there are two lines about Kubernetes plugin, and th
 * The label should match with the label you give in your project configuration.
 
 These configuration should enable jenkins to run a slave pod successfully.
+

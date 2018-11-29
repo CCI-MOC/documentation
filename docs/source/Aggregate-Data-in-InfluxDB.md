@@ -1,4 +1,4 @@
-# Intro - Please read
+## Intro - Please read
 This wiki page contains an explanation of how we aggregate data from different measurements (tables) in influxDB and put them into one measurement(table). 
 
 The purpose of this page will be to explain a script that I have written. The script is located on the kaizen-sensu-admin, located at 10.13.37.179 in the /root directory. You can also find the script here:
@@ -11,13 +11,10 @@ I recommend having the production influxDB open while following this guide, so y
 
 I have also written a guide on basic influxDB commands so you can figure out how to query this aggregate table and view it: https://github.com/CCI-MOC/moc/wiki/InfluxDB-Crash-Course:-Querying-Data
 
-
-# InfluxDB and measurements
-
+## InfluxDB and measurements
 InfluxDB is a time-series database that we use to store data from Sensu and Ceilometer. It contains tables of data, but refers to these tables as measurements. From here on out we will just say tables. 
 
-# InfluxDB aggregate script: The basics
-
+## InfluxDB aggregate script: The basics
 InfluxDB has a fairly limited query language at the moment, as it is relatively new. Because of this, there is not much support for merging different tables into one. So, we've had to write a script that does this.
 
 The influxdb_aggregate script is run once every minute by a cronjob.
@@ -33,8 +30,7 @@ For example, switch 19 with interface 1/1 is compute-25.moc.ne.edu. Switch 17 wi
 
 This is the basic description of how the aggregates script works. It queries tables for their data and writes that data into an aggregated table.
 
-# InfluxDB aggregate script: The code
-
+## InfluxDB aggregate script: The code
 Now that we know the general idea of how the script works, we will walk through some of the nuances of the code.
 
 the main() function of the code is pretty simple. It defines a source ("Sensu" or "Ceilometer), a category ("Memory", "CPU", etc.) a table name ("memory_metrics") and the metrics from that table we want to collect ("free", "total"). Then, it calls the aggregates script.
@@ -51,12 +47,8 @@ This differs slightly for the switch_network table, which does a triple loop (me
 
 After the script selects the data, it will write it into a file. Then, when the script is finished, it will write all points in the file into influxDB. This will speed up the script significantly and is necessary for the script to successfully run in under a minute.
 
-
-# Debugging the script
-
+## Debugging the script
 If you are editing the script and need to debug, the first thing you should do is stop the cronjob by going to /etc/crontab and commenting out the line that refers to the aggregate script.
 
 Afterwards, you can edit the script and run it and debug as you would normally. You can also comment out the lines about inserting the file into influxDB. those lines are located at the end of the script.
-
-
 
