@@ -82,7 +82,7 @@ $ pip install -r requirements.txt
 $ python -m setpass.api
 ```
 
-## #Adding a new user:
+### Adding a new user
 
 | URL      | /token/\<user_id\>                               |
 |----------|--------------------------------------------------|
@@ -100,7 +100,7 @@ to the setpass service.
 This call is idempotent, and can be repeated to set a new pin or password. In each of these cases (including the case with empty json body), a new token
 will be generated. So this can be used to renew the token if they expire.
 
-*Side-note to developer*
+*Side-note to developer
 
 Recommend using Linux Screen to run server to prevent unexpected loss of connection to the virtual machine.
 

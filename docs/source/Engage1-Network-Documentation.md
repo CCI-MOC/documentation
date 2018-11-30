@@ -22,10 +22,10 @@ Rough diagram of the Ceph storage:
 
 [Documentation of PDU configuration]<!--(PDU_Documentation.html)-->
 
-  **VLANs**
+**VLANs**
  
 | VLAN ID | Used for |
-| --------- | ------------------------------ | 
+| --------- | ------------------------------------------------- | 
 | 10 | Public Internet via CSAIL (old) |
 | 11 | ? |
 | 105 | ? |

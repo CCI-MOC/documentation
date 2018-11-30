@@ -83,7 +83,11 @@ This is the Massachusetts Open Cloud private wiki; we mostly use it to document 
 * [Provisioning-machine-installation-instructions](Provisioning-machine-installation-instructions.html)
 
 ### ELK stack
-To install the ELK stack always refer to Elastic's documentation first. This [tutorial](https://www.elastic.co/guide/en/beats/libbeat/current/getting-started.html#getting-started) was used when the ELK stack was most recently installed. This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html) was used when Filebeat was most recently installed.
+To install the ELK stack always refer to Elastic's documentation first.
+
+This [tutorial](https://www.elastic.co/guide/en/beats/libbeat/current/getting-started.html#getting-started) was used when the ELK stack was most recently installed.
+
+This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html) was used when Filebeat was most recently installed.
 * [Elasticsearch](Elasticsearch.html)
 * [Logstash](Logstash.html)
 * [Logstash Filter](Logstash-Filter.html)

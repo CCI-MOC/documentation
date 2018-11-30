@@ -2,10 +2,10 @@
 Debugging neutron for Kilo RHOSP-7.1 RHEL 7.1 set-up
 
 ### Useful Links
-* http://docs.openstack.org/admin-guide-cloud/content/ch_networking.html
-* http://docs.openstack.org/openstack-ops/content/network_troubleshooting.html
-* https://www.rdoproject.org/Networking_in_too_much_detail
-* http://www.yet.org/2014/09/openvswitch-troubleshooting/
+* [](http://docs.openstack.org/admin-guide-cloud/content/ch_networking.html)
+* [](http://docs.openstack.org/openstack-ops/content/network_troubleshooting.html)
+* [](https://www.rdoproject.org/Networking_in_too_much_detail)
+* [](http://www.yet.org/2014/09/openvswitch-troubleshooting/)
 
 ### Useful Commands
 

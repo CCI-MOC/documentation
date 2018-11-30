@@ -1,4 +1,6 @@
-## Useful links
+# Midonet Kilo Release
+
+### Useful links
 * According to "devvesa" in #midonet IRC channel at 1:04 pm. on Aug. 6, 2015
  
     devvesa: devstack works in our daily tests on stackforge gates for the neutron plugin
@@ -11,7 +13,7 @@
 
 What devvesa meant was to click on "certain" patch such as https://review.openstack.org/#/c/207783/... 
 
-## Midonet Deployment
+### Midonet Deployment
 * According to this [page](https://github.com/midonet/midostack), Midostack is not an option for us because it is deprecated in favor of Devstack 
 * According to the instruction on this [page](https://support.software.dell.com/foglight-for-virtualization-enterprise-edition/kb/138380), the Current devstack version is kilo
 * According to this [page](http://blog.midonet.org/midonet-2015-03-release/) Current midonet version is v2015.03
@@ -54,13 +56,13 @@ What devvesa meant was to click on "certain" patch such as https://review.openst
 
          enable_service horizon
    
-   In the Q_PLUGIN_CLASS, we specify the version of kilo plugin that for installing midonet. 
+   In the `Q_PLUGIN_CLASS`, we specify the version of kilo plugin that for installing midonet. 
 
    for more details, please go to [http://wiki.midonet.org/Devstack](http://wiki.midonet.org/Devstack) and [https://github.com/openstack/networking-midonet/tree/master/devstack](https://github.com/openstack/networking-midonet/tree/master/devstack)
 5. Install the Devstack 
    `./stack.sh` 
    It will take a while to install. After installation, type the IP address in your browser and login through Horizon dashboard see if there is a tab called Network under the Project tab. 
 
-### Current Status:
+### Current Status
 **Successfully Install Devstack with Midonet Plugin on the instance hosted on CSAIL Opentack**
 

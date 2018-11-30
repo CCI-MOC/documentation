@@ -1,4 +1,5 @@
-Note: according to [MS Academic](http://academic.research.microsoft.com/RankList?entitytype=3&topdomainid=2&subdomainid=0&orderby=6), all of these conferences are rated about equally, appearing in the first 100 ranked results.
+# Cloud Related Conferences and Proceedings
+*Note: according to [MS Academic](http://academic.research.microsoft.com/RankList?entitytype=3&topdomainid=2&subdomainid=0&orderby=6), all of these conferences are rated about equally, appearing in the first 100 ranked results.*
     
 | Deadline | Notification | Conference | Website |
 | ------------------------ | -------------------------- | -------------------------- | ---------------------------------- |

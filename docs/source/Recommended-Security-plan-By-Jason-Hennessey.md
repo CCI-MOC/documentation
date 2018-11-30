@@ -1,16 +1,15 @@
-# Policies
+# Recommended Security Plan
+By Jason Hennessy
 
-* As we decide on user/network/other security policies, they should go here.
-
-# Tasks
-
-## Priorities
+### Priorities
 Each task should be labeled with one of the following priorities:
 * **Phase 0**: Highest priority; Necessary to have basic levels of security.
 * **Phase 1**: Necessary, though only done after Phase 0 tasks completed.
 * **Phase 2**: Will enhance security, but are longer-term focused. May provide additional functionality.
 
-## Policies
+### Policies
+As we decide on user/network/other security policies, they should go here.
+
 Policies need to be written to cover:
 * MOC Users:
  * This includes such things as who can obtain accounts, how we verify their identity, default quotas, etc.
@@ -23,35 +22,36 @@ Policies need to be written to cover:
  * Who needs to approve what types of changes
  * Who is responsible for which components
 
-## Networks
-Each VLAN for now will not be routed. A *Phase 2* project would be to examine
-how we could use routing to simplify access.  With OpenStack, we are separating
-the control plane from anything user-accessible. By having separate VLANs, if
-we notice that some are starving others (like Storage), we can set up QOS.
+### Networks
+Each VLAN for now will not be routed. A *Phase 2* project would be to examine how we could use routing to simplify access.  With OpenStack, we are separating the control plane from anything user-accessible. 
 
-* OpenStack divided into separate VLANs *Phase 0*:
- * Control-plane:
-  * Storage
-  * Internal API
-  * External API
-  * Neutron networks/carries VXLans
-  * Non-HaaS OBMs (Fujitsu and Lenovo appliances)
- * Data-plane/User-accessible
-  * Configure default security group/OpenStack firewall to only allow incoming connections from the 5 universities *Phase 0*
-   * Have an alternative group that is world-accessible *Phase 2*
+By having separate VLANs, if we notice that some are starving others (like Storage), we can set up QOS.
 
-* Other VLANs:
- * OBM HaaS (Cisco UCS IPMI interfaces) *Phase 0*
-* Enabling DHCP Snooping to prevent ARP spoofing/Rogue DHCP servers *Phase 1*
-  * GAW notes: what is the threat model that this is intended to address?
-  * henn: preventing a compromise of one machine from enabling that machine to conduct [nasty attacks against other nodes](https://en.wikipedia.org/wiki/Arp_spoofing)
-* Discuss/implement mechanism for remote access to isolated networks *Phase 0*
- * Bonus points if it integrates with the centralized identity *Phase 1 or 2*
+OpenStack divided into separate VLANs *Phase 0*:
+* Control-plane:
+ * Storage
+ * Internal API
+ * External API
+ * Neutron networks/carries VXLans
+ * Non-HaaS OBMs (Fujitsu and Lenovo appliances)
+* Data-plane/User-accessible
+ * Configure default security group/OpenStack firewall to only allow incoming connections from the 5 universities *Phase 0*
+ * Have an alternative group that is world-accessible *Phase 2*
+
+Other VLANs:
+* OBM HaaS (Cisco UCS IPMI interfaces) *Phase 0*
+
+Enabling DHCP Snooping to prevent ARP spoofing/Rogue DHCP servers *Phase 1*
+* GAW notes: what is the threat model that this is intended to address?
+* henn: preventing a compromise of one machine from enabling that machine to conduct [nasty attacks against other nodes](https://en.wikipedia.org/wiki/Arp_spoofing)
+
+Discuss/implement mechanism for remote access to isolated networks *Phase 0*
+* Bonus points if it integrates with the centralized identity *Phase 1 or 2*
 * Mechanism to access HaaS-allocated networks  (Jason/VPN appliance) *Phase 0*
 * Mechanism to access other private networks *Phase 0*
 * GAW notes: CSAIL infrastructure is providing two routed, public networks, a "client" network and a "hardware" network; all CSAIL systems are expected to be on the "hardware" network (128.52.60.0/22), but we have yet to figure out the story on the "client" network (28.52.64.0/18) and who gets access to it. My working theory is that physical nodes get IP addresses assigned by the institution that owns that hardware.
 
-## Network services
+### Network services
 * Intrusion Detection/Prevention (Snort/[Guardian](http://www.chaotic.org/guardian/) is an open source stack) *Phase 1*
 * Network monitoring: need to decide *Phase 1*
  * Record port bandwidth statistics
@@ -60,9 +60,9 @@ we notice that some are starving others (like Storage), we can set up QOS.
 
 ### Switches
 * Write hardened/new switch config from scratch that disables all non-necessary services (Joe) *Phase 0*
-  * GAW notes: CSAIL has a bunch of different switches, some of which are/will be integrated with CSAIL management -- the stuff OpenStack is directly connected to is weird and only our RFC1918 private network for in-band management
+ * GAW notes: CSAIL has a bunch of different switches, some of which are/will be integrated with CSAIL management -- the stuff OpenStack is directly connected to is weird and only our RFC1918 private network for in-band management
 
-## Puppet/OS Management
+### Puppet/OS Management
 Puppet initially will be used for just the OpenStack nodes. Eventually, it
 should be used for *all* MOC nodes, since it will install several
 security-beneficial tunings.
@@ -72,7 +72,7 @@ security-beneficial tunings.
  * Removal of modified puppet modules (like ssh) and directly using upstream *Phase 2*
  * Ubuntu support *Phase 2*
 
-## OS services to harden
+### OS services to harden
 * sshd *Phase 0*:
  * disable remote root, disable password access
  * include a restricted set of authorized keys for root
@@ -95,11 +95,11 @@ security-beneficial tunings.
  * mtr (nice traceroute)
  * mlocate (enables `locate` command)
 
-## User VM visible
+### User VM visible
 * Share entropy with guests via [virtio-rng](http://wiki.qemu-project.org/Features-Done/VirtIORNG) after improving host entropy gathering with rngd (see above) *Phase 2*
 * Document MOC time servers and mirrors for users *Phase 2*
 
-## Central network services
+### Central network services
 * Set up network log server for OpenStack *Phase 0*
  * Make it accessible to non-OpenStack networks (IPMI(?), switches/routers, apache?) *Phase 1*
 * MOC time server *Phase 1*
@@ -107,13 +107,13 @@ security-beneficial tunings.
  * GAW notes: if you want your own time server, just buy one, they don't cost that much and will keep more stable time than any whitebox Intel server (installing the requisite add-ons to a whitebox server will cost you more than just buying the right thing from a company that makes them -- I recommend EndRun Technologies, who make time servers that can synchronize to the IS-2000 CDMA phone network and thus don't require a roof antenna for GPS)
 * RHEL/other distros, so that machines do not need external/NAT access to update *Phase 1*
 
-## Updating
+### Updating
 We need procedures in place to stay up to date, patching our various softwares proactively to address security issues. This includes:
 * Cisco switches *Phase 0*
 * Cisco UCS firmwares *Phase 0*
 * RHEL OS's *Phase 0*
 
-## Credentials
+### Credentials
 * Need a credential-tracking system for when admins and users want to log into various systems: IPMI, users, routers, higher-level services like horizon, etc. *Phase 1*
  * There are two aspects of this:
   1. giving admins access to passwords when needed *Phase 0*
@@ -123,22 +123,22 @@ We need procedures in place to stay up to date, patching our various softwares p
   * GAW notes: at CSAIL we use Kerberos for everything, but sysadmins have ssh-based back door for login access (this does not give access to home directories); we have our own private-label X.509 CA for web app auth (looking to potentially migrate this to RHCS or dogtag)
   * GAW notes: we've also started thinking about SAMLv2 federation stuff (e.g., mod_auth_mellon) but it looks like an incredible PITA compared to TLS certificate auth for our in-house use cases
 
-## IPMI
+### IPMI
 * Create randomized/different admin accounts. Store in the credential-tracking system *Phase 2*
  * GAW notes: some BMCs and the Dell DRAC allow ssh keys for remote access, with weird and hard-to-program restrictions on key types and number of keys per principal
 * Create low-privilege accounts for:
  * HaaS (needs access to just: serial console, reset, power off/on) *Phase 0*
  * Research purposes (read-only; for looking at power stuff) *Phase 1*
 
-## Hardware
+### Hardware
 * BIOS
  * disable OS upgrades *Phase 0*
  * Can we disable local IPMI? *Phase 0*
 
-## Pro-active security measures
+### Pro-active security measures
 * Setting up [honeypots](https://en.wikipedia.org/wiki/Honeypot_%28computing%29) *Phase 2*
 
-# Other planning
+### Other planning
 * Network layout going forward. Firewalls, NATs, firewall appliances, etc.
  * What should the production OpenStack look like? How do user VMs get to the Internet?
  * A system-wide firewall

@@ -1,3 +1,3 @@
-## Spinning Spark Clusters on Openshift
+# Openshift Spark
 * [Prerequisites ](Prerequisites.html)
 * [Spinning Spark on OpenShift](Spark-on-OpenShift.html)

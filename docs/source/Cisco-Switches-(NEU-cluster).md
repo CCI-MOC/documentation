@@ -16,7 +16,8 @@ Each of the two switches has the following Access List rules which only allows a
     line vty
       access-class inBandAccessList in
 
-### Disabling STP on host nodes/Preventing PXE/DHCP timeouts
+### Disabling STP on host nodes
+For preventing PXE/DHCP timeouts
 
 By default, the switches have Spanning Tree Protocol enabled on ports, causing a delay when cycling the port that can cause PXE to timeout.
 

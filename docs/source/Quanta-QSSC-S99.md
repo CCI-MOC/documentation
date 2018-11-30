@@ -3,9 +3,11 @@
 ### Firmware Upgrade to 1.04
 How to upgrade the firmware on a Quanta QSSC-S99 with the FreeDOS boot.
 
-Ensure you have inserted a USB device into the server.  The USB device should contain the image that has been created for the firmware upgrades.  The name of the image is joe_fdos11_quanta.img. [Images Directory](https://github.com/CCI-MOC/moc/tree/master/operations/images)
+Ensure you have inserted a USB device into the server. The USB device should contain the image that has been created for the firmware upgrades.
 
-Enter BIOS setup by hitting F2
+The name of the image is joe_fdos11_quanta.img. [Images Directory](https://github.com/CCI-MOC/moc/tree/master/operations/images)
+
+Enter BIOS setup by hitting `F2`
 
 ![](https://github.com/CCI-MOC/moc/blob/master/docs/images/quanta_fw_104_udpdate_01.png)
 
@@ -15,7 +17,7 @@ Ensure your first boot device is the USB flash drive.
 
 ![](https://github.com/CCI-MOC/moc/blob/master/docs/images/quanta_fw_104_udpdate_03.png)
 
-Hit F10 to save and exit.
+Hit `F10` to save and exit.
 
 ![](https://github.com/CCI-MOC/moc/blob/master/docs/images/quanta_fw_104_udpdate_04.png)
 
@@ -23,7 +25,7 @@ Select the first boot option for FreeDOS when the boot loader appears.
 
 ![](https://github.com/CCI-MOC/moc/blob/master/docs/images/quanta_fw_104_udpdate_05.png)
 
-Navigate to the directory containing the firmware which is under c:\Z99QV104\SOCFLASH.
+Navigate to the directory containing the firmware which is under `c:\Z99QV104\SOCFLASH`.
 
 ![](https://github.com/CCI-MOC/moc/blob/master/docs/images/quanta_fw_104_udpdate_07.png)
 

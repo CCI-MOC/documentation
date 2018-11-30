@@ -1,12 +1,12 @@
 # Kumo Network Documentation
 
-# IP addresses
+### IP addresses
 
-## Public (via CSAIL)
+**Public (via CSAIL)**
 
      128.31.28.11        Recursive DNS server
 
-## Public (via BU)
+**Public (via BU)**
 
      192.12.185.010-100  OSP director managed
 
@@ -20,7 +20,7 @@
      192.12.185.254      kumo-emergency ****129.10.5.126**** - publicly accessible, 192.12.185.254 is local only
 
 
-## VLANs
+**VLANs**
 
      0010(10G)      connection to engage1 Public/Csail, dhcp
      0105(10G)      Public/BU - infrastructure, 192.12.185.0/24
@@ -73,7 +73,7 @@
      4014(1G)      provisioning/foremnan, 10.13.96.0/22
 
 
-## IPMI IPs
+**IPMI IPs**
 
      10.1.11.1      Cisco Catalyst Switch, admin, cisco, wittinglypreconfigure
      10.1.11.2      Cisco Nexus Switch, admin, P@ssword1
@@ -97,12 +97,14 @@
      Dell-3,13,14,15,16 have been moved to a different subnet temporarily for Tzu-Mainn to access. Their IPs are moved
      from 10.1.10.X to 10.1.12.X. kumo-hil has the ip 10.1.12.254. 
 
-## Provisioning network static IPs, check Foreman for current hosts
+**Provisioning network static IPs**
+
+*check Foreman for current hosts*
 
      10.13.96.1        kumo-foreman
      10.19.97.47       kumo-hil
 
-## VMs on Kumo Storage01 (private-isolated network)
+### VMs on Kumo Storage01 (private-isolated network)
 
 interface Ethernet1/17
   switchport mode trunk
@@ -120,7 +122,7 @@ switch.
      192.168.100.210     kumo-hil (HIL Master) (macvtap network; no connectivity)
      192.168.100.231     hil-headnode (for Han and Jim)
 
-## HIL configuration notes
+### HIL configuration notes
 * HIL user:password = admin:bashrcpotatoes
 * HIL is running on a VM on Kumo Storage 01.
 * There are 2 projects for the 2 kumo environments. Don't mess with those, the
@@ -128,7 +130,7 @@ kumo environments are still alive. Talk to Naved/Rado before moving any nodes
 out of those projects.
 * Root pass of HIL and BMI is `WittinglyPreconfigure`
 
-## kumo-hil-client
+### kumo-hil-client
 
      * Runs the HIL Client
      * Acts as the public gateway for HIL services (and BMI)
@@ -142,17 +144,21 @@ So connect your nodes to VLAN 200 to access internet.
 * dell-X's 2 ports, em1 and em2, are connected to Ethernet1/X and Ethernet1/(X+24)
 respectively. Eg; dell-10's ports are connected to Ethernet1/10 and Ethernet1/34.
 
-## BMI Setup
+### BMI Setup
 * Login details for the ubuntu image in `naved` project: root/hellomoc and bmi/hellmoc
   * root login over ssh is disabled by default.
 * There are 2 BMI setups in Kumo. Below is the information about the two:
 
-### [kumo-bmi-no-seccloud] VM running on kumo-storage01.
+**kumo-bmi-no-seccloud**
+
+VM running on kumo-storage01.
 
      Storage Network IP - 192.168.18.76 (/22)
      HIL Network IP - 192.168.100.142
 
-### [kumo-bmi-seccloud] VM running on kumo-storage01.
+**kumo-bmi-seccloud**
+
+VM running on kumo-storage01.
 
      Storage Network IP - 192.168.18.117 (/22)
      HIL Network IP - 192.168.100.197

@@ -1,11 +1,13 @@
-# Kaizen bare metal services
+# Kaizen Bare Metal
+
+### Kaizen bare metal services
 * Each node has 2 nics labelled nic1 and nic2. Currently there are 42 total dell nodes available; more will be added in future.
 * Currently the nodes don't have a lease time, but a leasing system will be added soon.
 * ~~Nodes **will be** automatically powered down and taken away from your project once the lease expires.~~
 * For provisioning, we connect `nic1` to the bmi provisioning network natively using HIL.
 * If you require a public IP address for your node, talk to Naved/Rado
 
-## Using HIL
+### Using HIL
 HIL allows users to reserve nodes and connect them via isolated networks.
 1. Logon to the kzn-hil-client (available over Internet).
   `ssh username@kzn-hil-client.infra.massopen.cloud` (Helpful tips about SSH available in the last section of this document)
@@ -20,7 +22,8 @@ export HIL_ENDPOINT='http://172.16.96.2:80/''
 You could put these in your bashrc so they are automatically in your environment
 when you login (you could figure out it's equivalent if you are using a different shell).
 
-3. Basic HIL commands:
+**Basic HIL commands**
+
 * `hil project node list <project-name>`
     This will list all the nodes that are currently added to your project.
 * `hil node list free`
@@ -45,12 +48,12 @@ when you login (you could figure out it's equivalent if you are using a differen
 
 For more information about HIL, checkout the [HIL Repo](http://github.com/cci-moc/hil)
 
-## Using BMI
+### Using BMI
 BMI allows you to provision software on your nodes. Once your nodes are reserved using HIL
 you can use BMI to pxe boot your node.
 
-**Note: BMI uses diskless provisioing, so your changes are not saved to the local disk. Your disk is
-saved in ceph that BMI automatically manages.**
+*Note: BMI uses diskless provisioing, so your changes are not saved to the local disk. Your disk is
+saved in ceph that BMI automatically manages.*
 
 1. Logon to the BMI machine via HIL client.
     `ssh username@kzn-vbmi01res.infra.massopen.cloud`
@@ -81,7 +84,7 @@ into your image in 3-4 minutes.
 
 For more information about BMI, checkout the [BMI repo](https://github.com/cci-moc/ims)
 
-## How to SSH
+### How to SSH
 This section can be skipped if you already know how to ssh like a pro. It's intented to simplify ssh for linux users. Windows user can use putty to ssh.
 1. Create a `config` file in your `.ssh` directory, and edit & paste the following:
 
@@ -105,11 +108,12 @@ Host kznbmi
 
 3. From another local terminal, type `ssh kumobmi` to get to kumo-bmi machine.
 
-## How to connect your nodes to internet
+### How to connect your nodes to internet
 In kaizen, your nodes connect to the internet using the provisioning network so no additional
 configuration is required!
 
-## How to connect to the local RHEL server for packages.
+### How to connect to the local RHEL server for packages.
 1. visit mochat.massopen.cloud/repos using lynx from any kaizen or kumo machine/vm. 
 
 2. Download whatever files are useful and put them in `/etc/yum.repos.d/` of your node.
+

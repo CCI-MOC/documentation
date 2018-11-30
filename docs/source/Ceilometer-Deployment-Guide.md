@@ -1,117 +1,116 @@
-## Introduction
-This guide will show you how to deploy ceilometer in a staging environment that is similar to our production environment in a sense that it also has two controller nodes. In detail, this staging environment contains two openstack controller nodes, two openstack compute nodes and one ceilometer node. One of the controller node is the major controller node and the other one is the minor controller node that could switch to work when the major controller node is down. The nodes in this environment are all running Centos 7. This guide will not cover installing ceilometer alarming service as it is not belongs to the core services of ceilometer.
+# Ceilometer Deployment Guide
+This guide will show you how to deploy ceilometer in a staging environment that is similar to our production environment in a sense that it also has two controller nodes. 
 
-## System Overview
+In detail, this staging environment contains two openstack controller nodes, two openstack compute nodes and one ceilometer node. One of the controller node is the major controller node and the other one is the minor controller node that could switch to work when the major controller node is down. 
+
+The nodes in this environment are all running Centos 7. 
+
+This guide will not cover installing ceilometer alarming service as it is not belongs to the core services of ceilometer.
+
+### System Overview
 We will deploy different part of ceilometer services to the openstack system as shown in the below diagram.
+
 ![](_static/ceilometer_deployment_chart.png)
+
 On the ceilometer node, below services are installed:
-- **openstack-ceilometer-api**: service to query and view data recorded by collector in internal full-fidelity database(MongoDB).
-- **openstack-ceilometer-collector **: daemon designed to gather and record event and metering data created by notification and polling agents.
-- **openstack-ceilometer-notification**: daemon designed to listen to notifications on message queue, convert them to Events and Samples, and apply pipeline actions.
+* **openstack-ceilometer-api**: service to query and view data recorded by collector in internal full-fidelity database(MongoDB).
+* **openstack-ceilometer-collector **: daemon designed to gather and record event and metering data created by notification and polling agents.
+* **openstack-ceilometer-notification**: daemon designed to listen to notifications on message queue, convert them to Events and Samples, and apply pipeline actions.
 
 On the openstack compute nodes, below service is installed:
-- **openstack-ceilometer-compute**: also is polling agent, daemon designed to poll OpenStack services and build Meters.
+* **openstack-ceilometer-compute**: also is polling agent, daemon designed to poll OpenStack services and build Meters.
 
 On the minor openstack controller node, below service is installed:
-- **openstack-ceilometer-central**: Polling via service APIs for non-compute resources.
+* **openstack-ceilometer-central**: Polling via service APIs for non-compute resources.
 
-## Install the Telemetry Service
+### Install the Telemetry Service
+1. Configure the ceilometer node
+ * With the vi editor, create a `.repo` file for yum, the package management utility for CentOS
 
-### Set up Ceilometer Node
-On Ceilometer node, do the following processes:
-- Install MongoDB as the backend database.
+	sudo vi /etc/yum.repos.d/mongodb-org.repo`
 
-With the vi editor, create a .repo file for yum, the package management utility for CentOS:
-
-`sudo vi /etc/yum.repos.d/mongodb-org.repo`
-
-Then add the repository information for the latest stable release to the file:
-
-`[mongodb-org-3.2]
+ * Add the repository information for the latest stable release to the file
+```
+[mongodb-org-3.2]
 name=MongoDB Repository
 baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/
 gpgcheck=1
 enabled=1
 gpgkey=https://www.mongodb.org/static/pgp/server-3.2.asc`
+```
+ * Save and close the file.
+ * Next install MongoDB package:
+```
+sudo yum install mongodb-org
+sudo systemctl start mongod
+sudo systemctl enable mongod
+```
+ * Install ceilometer packages
+	
+	yum install -y openstack-ceilometer-api openstack-ceilometer-collector openstack-ceilometer-notification python-ceilometer python-ceilometerclient
 
-Save and close the file.
+ * Start the MongoDB service:
 
-Next install MongoDB package:
+	systemctl start mongod.service
 
-`sudo yum install mongodb-org`
-`sudo systemctl start mongod`
-'sudo systemctl enable mongod'
+ * Open the /etc/sysconfig/iptables file in a text editor and add an INPUT rule allowing TCP traffic on port 27017. The new rule must appear before any INPUT rules that REJECT traffic:
 
-- Install below ceilometer packages:
-`yum install -y openstack-ceilometer-api openstack-ceilometer-collector openstack-ceilometer-notification python-ceilometer python-ceilometerclient`
+	-A INPUT -p tcp -m multiport --dports 27017 -j ACCEPT
 
-- Configure MongoDB backend
+ * Restart the iptables service to ensure that the change takes effect
 
-Start the MongoDB service:
-`systemctl start mongod.service`
+	systemctl restart iptables.service
 
-Open the /etc/sysconfig/iptables file in a text editor and add an INPUT rule allowing TCP traffic on port 27017. The new rule must appear before any INPUT rules that REJECT traffic:
-
-`-A INPUT -p tcp -m multiport --dports 27017 -j ACCEPT`
-
-Restart the iptables service to ensure that the change takes effect:
-
-`systemctl restart iptables.service`
-
-Create a database for the Telemetry service:
-
-`mongo --host MONGOHOST --eval '
+ * Create a database in MongoDB for the Telemetry service:
+```
+mongo --host MONGOHOST --eval '
    db = db.getSiblingDB("ceilometer");
    db.addUser({user: "ceilometer",
 	   pwd: "MONGOPASS",
-	   roles: [ "readWrite", "dbAdmin" ]})'`
+	   roles: [ "readWrite", "dbAdmin" ]})'
+```
+  * This also creates a database user named ceilometer. Replace MONGOHOST with the IP address or host name of the server hosting the MongoDB database. Replace MONGOPASS with a password for the ceilometer user.
+ * Set the database connection string:
 
-This also creates a database user named ceilometer. Replace MONGOHOST with the IP address or host name of the server hosting the MongoDB database. Replace MONGOPASS with a password for the ceilometer user.
+	openstack-config --set /etc/ceilometer/ceilometer.conf \
+   database connection mongodb://localhost:27017/ceilometer
 
-Set the database connection string:
+2. Create Telemetry Identity Records
+ * On **controller node** set up the shell to access keystone as the administrative user:
 
-`openstack-config --set /etc/ceilometer/ceilometer.conf \
-   database connection mongodb://localhost:27017/ceilometer`
+	source /root/keystonerc_admin
 
-### Create Telemetry Identity Records
+ * Create the ceilometer user:
 
-Next we will create ceilometer endpoint, user role in openstack.
-Login to one of the ```OpenStack controller node```. Perform the following procedures:
+	keystone user-create --name ceilometer --tenant PROJECTID --pass PASSWORD --email CEILOMETER_EMAIL --enabled TRUE
 
-Set up the shell to access keystone as the administrative user:
+  * Replace PROJECTID with the project ID, you could find by the command "OpenStack project list".
+  * Replace PASSWORD with the password that will be used by the Telemetry service when authenticating with the Identity service.
+  * Replace CEILOMETER_EMAIL with the email address used by the Telemetry service.
 
-`source /root/keystonerc_admin`
+ * Create the ResellerAdmin role:
 
-Create the ceilometer user:
+	keystone role-create --name ResellerAdmin
 
-`keystone user-create --name ceilometer --tenant PROJECTID --pass PASSWORD --email CEILOMETER_EMAIL --enabled TRUE`
+ * Link the ceilometer user and the ResellerAdmin role together within the context of the services tenant
 
-Replace the following values:
-- Replace PROJECTID with the project ID, you could find by the command "OpenStack project list".
-- Replace PASSWORD with the password that will be used by the Telemetry service when authenticating with the Identity service.
-- Replace CEILOMETER_EMAIL with the email address used by the Telemetry service.
+	keystone user-role-add --user ceilometer --role ResellerAdmin --tenant services
 
-Create the ResellerAdmin role:
+ * Link the ceilometer user and the admin role together within the context of the services tenant
 
-`keystone role-create --name ResellerAdmin`
+	keystone user-role-add --user ceilometer --role admin --tenant services
 
-Link the ceilometer user and the ResellerAdmin role together within the context of the services tenant:
+ * Create the ceilometer service entry
 
-`keystone user-role-add --user ceilometer --role ResellerAdmin --tenant services`
+	keystone service-create --name ceilometer --type metering --description "OpenStack Telemetry Service"
 
-Link the ceilometer user and the admin role together within the context of the services tenant:
+ * Create the ceilometer endpoint entry
 
-`keystone user-role-add --user ceilometer --role admin --tenant services`
+	keystone endpoint-create --region <endpoint-region> --service ceilometer --publicurl 'IP:8777' --adminurl 'IP:8777' --internalurl 'IP:8777'
 
-Create the ceilometer service entry:
-
-`keystone service-create --name ceilometer --type metering --description "OpenStack Telemetry Service"`
-
-Create the ceilometer endpoint entry:
-
-`keystone endpoint-create --region <endpoint-region> --service ceilometer --publicurl 'IP:8777' --adminurl 'IP:8777' --internalurl 'IP:8777'`
-
-Replace IP with the IP address or host name of the server hosting the Telemetry service. Replance region with the actual region name. U could get the region name and other information for reference from other endpoints like nova. Just do "openstack endpoint show nova".
+  * Replace IP with the IP address or host name of the server hosting the Telemetry service.
+  * Replance region with the actual region name.
+  * You could get the region name and other information for reference from other endpoints like nova. Just do "openstack endpoint show nova".
 
 ### Configure Telemetry Service Authentication
 

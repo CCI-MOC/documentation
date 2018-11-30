@@ -18,10 +18,10 @@ For few of the nodes, partition tables given by Brent didn't work. So, we had to
 
 ## Clear old partitions through anaconda boot prompt during RHEL 7.1 install
 * Drop into the shell with macros -> static macros -> alt-F's -> alt-f2
-* run "fdisk /dev/sda"
+* run `"fdisk /dev/sda"`
 * when in fdisk, type d for all of the partitions
 * next, press w to right the config back
-* if /dev/sdb exists, repeat the last three steps for /dev/sdb as well
+* if `/dev/sdb` exists, repeat the last three steps for /dev/sdb as well
 
 [RHEL-OSP-7 Beta code](ftp://partners.redhat.com/b5d52ebbb756856c8e7e6f44880b4741/OpenStack/)  (updated 7/24/2015)
 
@@ -124,9 +124,10 @@ Syslinux failure image:
 ******
 ### Tuesday, June 30, 2015 12:39 AM
 
-  **Issue**: OS gets installed sometimes and fails sometimes during pxebooting.
+**Issue**: OS gets installed sometimes and fails sometimes during pxebooting.
 
-### Observations & Troubleshooting done
+** Observations & Troubleshooting done**
+
 Tokens are given by foreman for tftp server which expire for every 60 min. Thought this could be issue and disabled it as kickstartfile will no longer be in http serverafter that specific timeout - No luck.
 
 Created a manual Kickstart.cfg from existing one and kept it in apache and updated the template file to point to this - Failed :(

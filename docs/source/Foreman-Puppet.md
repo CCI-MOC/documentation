@@ -3,9 +3,9 @@ Currently we are using ```foreman```, ```foreman-proxy```, and ```quickstack pup
 
 ### Create HIL project, network, and headnode
 1. Create project
-```haas project_create moc-prod```
+`haas project_create moc-prod`
 2. Create network
-```haas network_create moc-provision moc-prod moc-prod ""```
+`haas network_create moc-provision moc-prod moc-prod ""`
 3. Create headnode
 ```
 haas headnode_create prod-foreman moc-prod centos_base
@@ -29,9 +29,9 @@ Resulting haas configuration:
 ### Pre-install set-up on the centos_base vm to get it ready for foreman
 * Set fqdn: chose foreman.moc.neu.edu
 * Ensure interfaces are up correctly:
-  - had to create ifcfg-[interface] scripts in /etc/sysconfig/network-scripts to bring up both ifaces in consistent manner
-  - eth1 is on libvirt network, has address 192.168.122.162
-  - ens7 is a bridge on top of vnic, was created by haas... brought it up with IP 10.13.37.1
+  * had to create ifcfg-[interface] scripts in /etc/sysconfig/network-scripts to bring up both ifaces in consistent manner
+  * eth1 is on libvirt network, has address 192.168.122.162
+  * ens7 is a bridge on top of vnic, was created by haas... brought it up with IP 10.13.37.1
 
 ### Install foreman on the prod-foreman
 ```
@@ -47,7 +47,7 @@ We had to turn selinux to permissive mode to be able to serve tftp files from th
 
 ### [OUTDATED, CURRENTLY REMOVED] Installed the foreman-discovery plugin
 
-```foreman-installer --enable-foreman-plugin-discovery```
+`foreman-installer --enable-foreman-plugin-discovery`
 
 [Configuration instructions](http://theforeman.org/plugins/foreman_discovery/2.0/#3.Configuration)
 

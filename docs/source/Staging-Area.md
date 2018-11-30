@@ -2,7 +2,8 @@
 
 ### Staging area foreman
     
-    **IP** : 10.14.37.1 (reachable from 129.10.3.16 and 129.10.3.39)
+  **IP** : 10.14.37.1 (reachable from 129.10.3.16 and 129.10.3.39)
+
 ```
 [root@dev-foreman1 environments]# pwd
 /etc/puppet/environments

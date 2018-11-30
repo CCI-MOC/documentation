@@ -1,3 +1,4 @@
+# Where to Find the IPMI Checks
 Following the wiki Logging IPMI sensor data into Sensu + Influxdb, this is a quick walk-through to find the ipmi checks
 
 To view IPMI sensu checks, ssh into the haas master and then to the sensu-ipmi server
@@ -7,7 +8,9 @@ $ ssh username@192.168.122.147
 
 ```
 
-The checks for IPMI sensors are found at ```/etc/sensu/conf.d/ipmi```. Here is an example:
+The checks for IPMI sensors are found at `/etc/sensu/conf.d/ipmi`. 
+
+Here is an example:
 ```
 {
   "checks":{
@@ -22,8 +25,10 @@ The checks for IPMI sensors are found at ```/etc/sensu/conf.d/ipmi```. Here is a
 }
 
 ```
-It runs a ruby script, ````/etc/sensu/plugins/ipmi-sensor-metrics.rb``` that gets sensor values and parses them in the following format before logging them into sensu.
-```
-moc-sensu.moc.ne.edu.ipmisensor.p1_temp_sens  37.0  1439569010
-```
+
+It runs a ruby script, `/etc/sensu/plugins/ipmi-sensor-metrics.rb` that gets sensor values and parses them in the following format before logging them into sensu.
+
+Data is stored in the form of `moc-sensu.moc.ne.edu.ipmisensor.p1_temp_sens  37.0  1439569010`
+
 The influxdb handler inputs this parsed sensor data into influxdb.
+

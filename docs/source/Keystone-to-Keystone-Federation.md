@@ -7,30 +7,40 @@
 
 Will update more information soon 
 
-## Mapping 
+### Mapping 
 (Minying 07/23/15)
 
 Due to the complexity of Keystone v3 and in order for the team to understand this better, I'm gonna start from the very basic and then get to our multi-directional keystone federation design. 
 
 ### The concepts of user, group, domain, roles and projects in keystone
-* **Groups**
-  * a group of users
-  * role can be grant to a group, applying to all the users in the group
-* **Domains**
-  * may contain users, projects and groups
-  * the important part of this to K2K is that. There's a domain called "Federated", which will contain all the ephemeral users for K2K federation 
-  * a domein can only be accessed by a user/group who has a role of the domain.
-* **Projects**
-  * projects belong to domain
-  * project can only be accessed by a user/group who has a role of the project. 
-* **Roles**
-  * roles define the permission a user has to a domain or project 
-  * if a user has no rule to a project/domain that means the user has no permission, can't even see it
-  * roles can be granted to a user or a group 
+
+**Groups**
+
+* a group of users
+* role can be grant to a group, applying to all the users in the group
+
+**Domains**
+
+* may contain users, projects and groups
+* the important part of this to K2K is that. There's a domain called "Federated", which will contain all the ephemeral users for K2K federation 
+* a domein can only be accessed by a user/group who has a role of the domain.
+
+**Projects**
+
+* projects belong to domain
+* project can only be accessed by a user/group who has a role of the project. 
+
+**Roles**
+
+* roles define the permission a user has to a domain or project 
+* if a user has no rule to a project/domain that means the user has no permission, can't even see it
+* roles can be granted to a user or a group 
 
 ### Scoped token and unscoped token
-* **Unscoped token** means that a user/group has permission to look at what are the domains/projects that they can scope to (meaning they have roles of those projects/domains). But can't do anything else except ask for list or request a scoped token
-* **Scoped token** means that a user/group has certain privilege (depends on the role the user/group has of the project/domain) of a specific project/domain that they scoped to. And can actually perform actions like volume-attach 
+
+**Unscoped token** means that a user/group has permission to look at what are the domains/projects that they can scope to (meaning they have roles of those projects/domains). But can't do anything else except ask for list or request a scoped token
+
+**Scoped token** means that a user/group has certain privilege (depends on the role the user/group has of the project/domain) of a specific project/domain that they scoped to. And can actually perform actions like volume-attach 
 
 ### How does K2K federation works
 1. User in IdP generates a saml assertion
@@ -109,23 +119,29 @@ _____216_______          ______234______
 
 ### Multiple mappings and protocols 
 One mapping can contain a list of rules, each rule has `remote` and `local` objects. One protocol can  correspond to **only one** mapping and one IdP but one mapping can correspond to **multiple** protocols or IdP. 
-* **Multiple rules in a mapping**
-  * all rules that matched with the saml assertion will be apply together and users will be mapped correspondingly
-* **Multiple mappings** 
-  * when there are multiple mappings, it's the `protocol` in `auth_url` to decide which mapping to you
-  * because one protocol only correspond to one mapping and one IdP
-  * `auth_url` is stored in the SP entry in IdP, it's determined when we register the SP in IdP with `client.federation.service_providers.create`
-* **Multiple protocols**
-  * As I mentioned above we need to have multiple protocols to have multiple mappings
-  * To add a new protocol we need to change the following
-    * This will provide a protocol that works the same way as `saml2` but with different name
-    * keystone.conf file [auth] section
+
+**Multiple rules in a mapping**
+
+* all rules that matched with the saml assertion will be apply together and users will be mapped correspondingly
+
+**Multiple mappings** 
+
+* when there are multiple mappings, it's the `protocol` in `auth_url` to decide which mapping to you
+* because one protocol only correspond to one mapping and one IdP
+* `auth_url` is stored in the SP entry in IdP, it's determined when we register the SP in IdP with `client.federation.service_providers.create`
+
+**Multiple protocols**
+
+* As I mentioned above we need to have multiple protocols to have multiple mappings
+* To add a new protocol we need to change the following
+  * This will provide a protocol that works the same way as `saml2` but with different name
+  * `keystone.conf` file `[auth]` section
       * method and protocol path (py)
       * [keystone.auth.plugin.mapped.Mapped](https://github.com/openstack/keystone/tree/master/keystone/auth/plugins)
-    * /etc/apache2/site-available/keystone.conf
+    * `/etc/apache2/site-available/keystone.conf`
       * Add a `LocationMatch` section for the new protocol
     * register new protocol with new mapping in SP
-    * register new sp entry with the new protocol and auth url in IdP
+    * register new sp entry with the new protocol and `auth url` in IdP
 
 ### Security Concerns? 
 * I think we are definitely more secure with ephemeral users than with user exists in the backend, but this is probably gonna result in chatty authentication for each request we send between 2 clouds? 

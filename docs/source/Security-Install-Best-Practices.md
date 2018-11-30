@@ -6,7 +6,7 @@ Please discuss things with Rado before putting a node on the public network. Man
 
 If you just need internet access from your node, used the `nat-public` network described here: [Accessing-Northeastern-Cluster](Accessing-Northeastern-Cluster.html)
 
-## Use Strong Passwords
+### Use Strong Passwords
 Some methods for generating passwords randomly:
 
 **Random String**
@@ -128,9 +128,9 @@ net.ipv6.conf.all.disable_ipv6 = 1
 Also, one can run `sysctl -w net.ipv6.conf.all.disable_ipv6=1` to make the
 setting active on the current machine.
 
-## Enable automatic updates
+### Enable automatic updates
 
-### For CentOS/RHEL:
+**For CentOS/RHEL** :
 * `yum install yum-cron`
 * Edit /etc/yum/yum-cron.conf with these in mind:
  * update_cmd can be set to "security" in order to install only security updates automatically
@@ -138,7 +138,7 @@ setting active on the current machine.
 * On RHEL, you must enable the yum-cron service by running `systemctl enable yum-cron` and `systemctl start yum-cron`.
  * CentOS 7 uses cron and so shouldn't need the service
 
-### For Ubuntu:
+**For Ubuntu**:
 * `apt-get install unattended-upgrades`
 * Edit `/etc/apt/apt.conf.d/50unattended-upgrades` with these in mind:
  * Uncomment the updates you want to automatically install (at least `-security`)

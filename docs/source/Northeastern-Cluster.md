@@ -49,5 +49,8 @@ Instructions for [Accessing Northeastern Cluster](Accessing-Northeastern-Cluster
 ![](_static/NUclusterNetworkTopology.png)
 
 ### Updates:
-  **(5 Aug. 2016)** The top connections between R3-C17 and R3-C19 switches (VLAN3) are not being used (configured) right now. Thus, it would be possible to reclaim two ports from each of the two switches.   
+
+**(5 Aug. 2016)**
+
+The top connections between R3-C17 and R3-C19 switches (VLAN3) are not being used (configured) right now. Thus, it would be possible to reclaim two ports from each of the two switches.   
 

@@ -1,8 +1,10 @@
-Note - default configuration is access on Vlan1
+# Engage1 Management Cable Map
+*Note - default configuration is access on Vlan1*
 
 ### egg1-r4pAc04-mgmt  
-switch management at 10.10.10.1
-credentials admin/cisco
+* switch management at 10.10.10.1
+* credentials admin/cisco
+
 to change anything, type `enable` and password: `wittinglypreconfigure`
 
 Port | Mode | VLAN(s) | description | cable color
@@ -42,11 +44,12 @@ gig 1/0/48 | access | 3040 | -- | Local Reserved
 
 
 ### egg1-r4pAc04-mgmt-02
-Juniper ex3300
-switch management at 10.10.10.5
-credentials: root/admin38
-CLI for Juniper is not very intuitive or similar to Cisco
-When you log in via SSH you must type "CLI" to get to the switch CLI
+* Juniper ex3300
+* switch management at 10.10.10.5
+* credentials: root/admin38
+
+CLI for Juniper is not very intuitive or similar to Cisco. When you log in via SSH you must type "CLI" to get to the switch CLI
+
 Can be managed via web GUI at 10.10.10.5, same login credentials
 
 The intention is to use this switch for the IPMI network (VLAN 3040) only.  All ports are currently set to access 3040.  If we ever need an additional managed switch somewhere, we could use this and substitute a cheap non-managed switch.
@@ -83,8 +86,9 @@ gig 1/0/47 | access | 3040 | -- | Local Reserved
 
 
 ### egg1-r4pAc02-mgmt  
-switch management at 10.10.10.2
-credentials admin/cisco
+* switch management at 10.10.10.2
+* credentials admin/cisco
+
 to change anything, type `enable` and password: `wittinglypreconfigure`
 
 Port | Mode | VLAN(s) | description | cable color
