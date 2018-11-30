@@ -1,8 +1,10 @@
+# Accessing the MRI Dell Switch
 Very few people need access to this switch; if you think you are one of them, talk to the ops team about getting an account on the MIT gateway server. 
 
 ### Accessing the switch GUI
 
-##### Create VNC server
+  **Create VNC server**
+      
       $ ssh <username>@eofe1.mit.edu
 
 If you've logged into the switch before, check to see if the VNC server you used last time is still there (they are generally persistent):
@@ -17,7 +19,7 @@ Here eofe1:3 corresponds to port 5903.
 
 If there is no Xvnc process running, either because it died or because this is the first time you are logging in, just type 'vncserver' to launch one.  You will be prompted to create a password.  The output will tell you the port.
 
-##### Log into the VNC server
+  **Log into the VNC server**
 
 Create a tunnel from your local machine:
 
@@ -25,30 +27,35 @@ Create a tunnel from your local machine:
 
 (For the second port, make sure to use whatever port actually corresponds to your VNC server, which you noted in the previous step).
 
-You should now have a local connection to the VNC server.  The exact method depends on your OS.  On Mac OSX, I do the tunneling in Terminal and then use Finder to connect.  Some VNC clients will do both steps for you.  You will need to log in with the password you created in the 'vncserver' step.
+You should now have a local connection to the VNC server.  The exact method depends on your OS.
 
-##### Log into the switch
+On Mac OSX, I do the tunneling in Terminal and then use Finder to connect.Some VNC clients will do both steps for you. You will need to log in with the password you created in the 'vncserver' step.
+
+  **Log into the switch**
+
 Once you are on the VNC server, the switch is at R5-PA-C01-U39.ipmi.cluster in your browser. 
 
      Username: admin  
      Password: brocade123  
 
-Note:  The first time you open the VNC Server GUI, turn off the screensaver!  Otherwise, you will be locked out when the screensaver activates, because it demands a password (that we don't have) to log back in.  If you forget and this happens, you will have to go and kill the screensaver process from eofe1 on the command line.
+*Note:  The first time you open the VNC Server GUI, turn off the screensaver!  Otherwise, you will be locked out when the screensaver activates, because it demands a password (that we don't have) to log back in.  
+
+If you forget and this happens, you will have to go and kill the screensaver process from eofe1 on the command line.*
 
 You can also SSH to the switch with the same credentials if you prefer to use the CLI.
 
-##### Resetting the VNC server password
+  **Resetting the VNC server password**
 
-Even if the VNC server is stopped and relaunched, it will use the same password you set up the first time you launched it.  If you need to reset the password, kill the server's Xvnc process (if running) and then remove the file `.vnc/passwd` from your home directory.  Then run the `vncserver` command again.  You should be prompted to create a password.
+Even if the VNC server is stopped and relaunched, it will use the same password you set up the first time you launched it.  
+
+If you need to reset the password, kill the server's Xvnc process (if running) and then remove the file `.vnc/passwd` from your home directory.  Then run the `vncserver` command again.  
+
+You should be prompted to create a password.
 
 ### Accessing the switch CLI
-
 It is also possible to log into the switch CLI. From eofe1, ssh directly to the IP of the switch.  Username and password are the same as above.
 
-
-
 ### Port Map
-
 Ports not in the map are unused.
 
 Port | Connection | Access/Trunk | VLAN(s) | Notes

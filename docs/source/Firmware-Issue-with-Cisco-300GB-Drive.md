@@ -1,3 +1,5 @@
+# Firmware Issue with Cisco 300GB Drive
+
 * [Overview of the bug](#overview-of-the-bug)
 * [Summary of Failure Scenario](#summary-of-failure-scenario)
 * [Workaround](#workaround)
@@ -11,10 +13,9 @@ The stock disks on our Cisco UCS 220 servers (the disks themselves are SEAGATE S
 
 This problem is explained briefly at [this RedHat Solution](https://access.redhat.com/solutions/519973) but the explanation is not very clear, and does not provide instructions on how to work around the problem other than upgrading the firmware.
 
-***
+******
 
-###Overview of the bug
-
+### Overview of the bug
 The value 4294966784 is in bytes, but parted works with this value in sectors.  Parted reports the value as a 'grainSize' of 8388607 sectors (since on this disk a sector is 512 bytes):
 
 	[root@abc-moc01 ~]# python
@@ -51,18 +52,22 @@ This value, grainSize, is used by parted to align partitions for optimized perfo
 
 A typical value is something like 2048 or 4096 sectors (1 or 2 MB), so our >4GB value is absurd.  In the best case scenario, it causes parted to use up a lot of space in silly ways.  In the worst case, parted actually fails.
 
-***
+******
 
 ### Summary of Failure Scenario
-When creating the first logical partition, Parted adjusts the starting sector by almost twice optimal_io_size, which leaves >8GB free space at the beginning of the extended partition.  When creating a second logical partition, Parted will optimize by placing it in the smallest pocket of free space available.  
+When creating the first logical partition, Parted adjusts the starting sector by almost twice optimal_io_size, which leaves >8GB free space at the beginning of the extended partition.  
 
-If the requested size of the second partition is less than 8GB, Parted tries to place it in the free space it left before the first partition, and then performs the same alignment adjustments that created the free space in the first place.  This results in the start sector for the partition being outside the free space.  Anaconda catches this by comparing the start sector to the end sector, and throws an error.
+When creating a second logical partition, Parted will optimize by placing it in the smallest pocket of free space available.  
 
-***
+If the requested size of the second partition is less than 8GB, Parted tries to place it in the free space it left before the first partition, and then performs the same alignment adjustments that created the free space in the first place. 
 
-###Workaround
+This results in the start sector for the partition being outside the free space.  Anaconda catches this by comparing the start sector to the end sector, and throws an error.
 
-The workaround is to do partitioning in the %pre section of the kickstart file, where you can specify start and end sectors.  Below is an example that successfully creates Partition Table #1.
+******
+
+### Workaround
+
+The workaround is to do partitioning in the %pre section of the kickstart file, where you can specify start and end sectors. Below is an example that successfully creates Partition Table #1.
 
 In this case the start and end sectors must be calculated by hand (or by script).  The following partition scheme uses 2048 sectors as an alignment value.
 
@@ -105,10 +110,9 @@ And here's what goes in the normal kickstart partitioning section:
 	part /home      --onpart=/dev/sda7
 	part /scratch   --onpart=/dev/sda8
 
-***
+******
 
-###Walkthrough of the issue
-
+### Walkthrough of the Issue
 Walking through the issue shows why parted fails sometimes, but not others.  Suppose we want to create the following partition table in a kickstart install:
 
 	# Partition Table #1 - This one fails
@@ -150,9 +154,10 @@ When we do an installation using Partition Table #2, here is what it actually do
 Comparing anaconda.storage.logs for the the two attempts, with some looks into [anaconda's source code](https://github.com/abiquo/anaconda-ee-el6/blob/6542236e597473e7a06df6b234802f13f5982ca4/anaconda-ee-13.21.195/storage/partitioning.py) and , allows us to isolate why #1 fails.
 
 
-#####Walkthrough - Partition Table #2
+### Walkthrough - Partition Table #2
+Parted starts with the unpartitioned 300GB disk. The start sector is 63, which is normal for an msdos partition table.
 
-Parted starts with the unpartitioned 300GB disk.  The start sector is 63, which is normal for an msdos partition table.  However, 63 is not a multiple of 8388607.  Parted adjusts the start sector to 8388607 (going forward, this value is referred to as 'grainSize').  This leaves 4295MB of free space at the start of the disk.
+However, 63 is not a multiple of 8388607. Parted adjusts the start sector to 8388607 (going forward, this value is referred to as 'grainSize').  This leaves 4295MB of free space at the start of the disk.
 
 Our first partition is /boot, which we have specified at size 256MB, or 524288 sectors. (256*1024*1024/512 = 524288)
 
@@ -164,11 +169,18 @@ Note that we've now used up about 20G of our disk when all we actually wanted wa
 
 Same thing happens to the / partition, which we specified at 16384MB.  It gets adjusted to `grainSize*5=41943035` sectors or 20479MB.
 
-So far, we only created logical partitions, and although we wasted a lot of space, the partitions did get created.  Now, we create the extended partition.  This mostly goes as it should, except that the end of the partition is brought back further than it normally would be from the end of the disk, due to the large number of sectors between alignment boundaries.
+So far, we only created logical partitions, and although we wasted a lot of space, the partitions did get created.
+
+Now, we create the extended partition.  This mostly goes as it should, except that the end of the partition is brought back further than it normally would be from the end of the disk, due to the large number of sectors between alignment boundaries.
 
 Next, we create the /var logical partition.  We have asked for 4096MB, which is 8388608 sectors, so we get `grainSize*2` sectors or 8590MB.
 
-For logical partitions, parted tries to optimize by finding the smallest acceptable piece of free space it can use.  The logs aren't easy to follow without examining the source code, but here's the summary: it scans the free space regions, looking for the smallest acceptable one.  As each acceptable region is found, if it's smaller than the last acceptable one, it gets stored in a "best_free" variable.  Once it's done, it proceeds to create the partition in best_free.
+For logical partitions, parted tries to optimize by finding the smallest acceptable piece of free space it can use. 
+
+The logs aren't easy to follow without examining the source code, but here's the summary: 
+* It scans the free space regions, looking for the smallest acceptable one.  
+* As each acceptable region is found, if it's smaller than the last acceptable one, it gets stored in a "best_free" variable.  
+* Once it's done, it proceeds to create the partition in best_free.
 
 In this case, it looks at 3 free space regions, checking to see whether they are inside the extended partition, and if they are large enough.
 
@@ -187,7 +199,9 @@ Parted also checks that bit of space we left at the end of the disk when creatin
      14:50:38,808 DEBUG   : looking for intersection between extended (83886070-578813882) and free (578813883-585937499)
      14:50:38,808 DEBUG   : free region not suitable for request
 
-So, we go back to the acceptable partition we found before.  But wait!  It starts at 83886133, which is not a multiple of grainSize.  Because it is a logical partition, it first gets bumped to the next multiple of grainSize, then grainSize is added again in order to leave room to store the logical partition metadata (see lines 785-793 at the [anaconda source code](https://github.com/abiquo/anaconda-ee-el6/blob/6542236e597473e7a06df6b234802f13f5982ca4/anaconda-ee-13.21.195/storage/partitioning.py) to understand how this happens)\:
+So, we go back to the acceptable partition we found before. But wait! It starts at 83886133, which is not a multiple of grainSize. 
+
+Because it is a logical partition, it first gets bumped to the next multiple of grainSize, the grainSize is added again in order to leave room to store the logical partition metadata (see lines 785-793 at the [anaconda source code](https://github.com/abiquo/anaconda-ee-el6/blob/6542236e597473e7a06df6b234802f13f5982ca4/anaconda-ee-13.21.195/storage/partitioning.py) to understand how this happens)
 
      14:50:38,809 DEBUG   : adjusted start sector from 83886133 to 100663284
      14:50:38,809 DEBUG   : adjusted length from 8388608 to 16777214
@@ -199,13 +213,15 @@ Partition Table #2 is now finished, so the installation continues, but we get th
 
 If you want to see a continuous version of the log file quoted above, it is pasted [below](#logs)
 
-#####Walkthrough - Partition Table #1
+### Walkthrough - Partition Table #1
 
 Partition Table #1 works exactly the same way as Partition Table #2, until it finishes creating the /var partition.  At that point, #2 is done, but #1 needs to create the /tmp partition.  That's when things fall apart.
 
 We have specified /tmp at 2048MB, or 4194304 sectors.  This is smaller than grainSize.
 
-Parted goes through the same optimization as before, scanning free spaces for the smallest suitable option.  It rejects the block at the very beginning of the disk (63-8388606) because it's not on the extended partition.  But it *accepts* the 8590MB block at the beginning of the extended partition (83886133-578813882), which was created after the start sector for /var was adjusted by two grainSize boundaries:
+Parted goes through the same optimization as before, scanning free spaces for the smallest suitable option.  It rejects the block at the very beginning of the disk (63-8388606) because it's not on the extended partition.  
+
+But it *accepts* the 8590MB block at the beginning of the extended partition (83886133-578813882), which was created after the start sector for /var was adjusted by two grainSize boundaries:
 
 	14:50:38,808 DEBUG   : looking for intersection between extended (83886070-578813882) and free (83886133-578813882)
 	14:50:38,808 DEBUG   : current free range is 83886133-578813882 (241663MB)
@@ -227,7 +243,11 @@ Notice that the partition has a negative length!  Luckily, this problem is caugh
             raise PartitioningError("unable to allocate aligned partition")
 
 
-So to summarize, Parted tried to place /tmp within sectors 83886133-100647224, which were left free by the alignment adjustments done while creating /var.  The same alignment adjustments are then performed for /tmp, so the starting sector of the new partition is bumped up to the next grainSize boundary, at 92274677.  Parted adds grainSize again to store the logical partition metadata, and the starting point is now 100663284 - which isn't even inside the pocket of free space.
+So to summarize, Parted tried to place /tmp within sectors 83886133-100647224, which were left free by the alignment adjustments done while creating /var.  
+
+The same alignment adjustments are then performed for /tmp, so the starting sector of the new partition is bumped up to the next grainSize boundary, at 92274677.  
+
+Parted adds grainSize again to store the logical partition metadata, and the starting point is now 100663284 - which isn't even inside the pocket of free space.
 
 Meanwhile, Parted sets the end sector to 92274677, which satifies both these conditions:
 * a multiple of grainSize 
@@ -237,8 +257,7 @@ Our proposed partition is now defined with its start at 100663284, and its end a
 
 Anaconda has a check built in for this (`if start > end:`), and that's when the installation throws the error and fails.
 
-###Logs
-
+### Logs
 Continuous version of the section of anaconda.storage.log quoted in the Partition #2 walkthrough:
 
 	14:50:38,806 DEBUG   : new free: parted.Geometry instance --
@@ -273,8 +292,9 @@ Continuous version of Partition Table #1 Log:
 	18:17:02,372 DEBUG   : looking for intersection between extended (83886070-578813882) and free (578813883-585937499)
 	18:17:02,373 DEBUG   : free region not suitable for request
 
-###Useful links
+### Useful links
 * [RedHat Solution noting the issue](https://access.redhat.com/solutions/519973)
 * [listserv exchange with a helpful explanation of the issue](http://comments.gmane.org/gmane.linux.scsi/81164)
 * [relevant Anaconda source code](https://github.com/abiquo/anaconda-ee-el6/blob/6542236e597473e7a06df6b234802f13f5982ca4/anaconda-ee-13.21.195/storage/partitioning.py)
 * [relevant Parted source code](http://pyparted.sourcearchive.com/documentation/2.0.12-1/alignment_8py-source.html)
+

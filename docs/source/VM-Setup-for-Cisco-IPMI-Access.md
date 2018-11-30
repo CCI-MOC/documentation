@@ -1,8 +1,8 @@
+# VM Setup for Cisco IPMI Access
 The IPMI web GUI on the 48 Cisco nodes at NEU (as well as the IPMI for Fujitsu CD10K) must be accessed via SOCKS proxy, and relies on Flash and Java which are not well supported by all browsers.  
 
 The best way to set up access is to configure a VM on your local machine with the correct plugins, with proxy forwarding set up for the 10.99.0.0/16 network.
 
-## Steps
 * [Choose an OS for your VM](#choose-an-os-for-your-vm)
 * [Install redsocks](#install-redsocks)
     * [Configure redsocks](#configure-redsocks)
@@ -18,26 +18,22 @@ In a pinch, from a machine without a proxy utility, you can use [Firefox's IP se
 
 An [alternative setup with Chromium](#alternative-setup-with-chromium) is also described at below but has not been tested with recent versions of the OS, browser, etc.
 
-***
-
+******
 ### Choose an OS for your VM
-
 The proxy utility [redsocks](http://darkk.net.ru/redsocks/) is only developed for Debian, Ubuntu, ArchLinux, and Gentoo - it is not supported for CentOS or RHEL.  
 
 I have successfully tested these steps using [Lubuntu 14.04 LTS](https://help.ubuntu.com/community/Lubuntu/GetLubuntu) with Firefox 42.
 
 Ian was previously able to get this working on ArchLinux (the cisco-flash-sandbox VM's on moc02).
 
-***
-
+******
 ### Install redsocks
-
-Information on packages for the supported Linux flavors is available at [redsocks](http://darkk.net.ru/redsocks/).  On Lubuntu, you can install directly from the Ubuntu repositories:
+Information on packages for the supported Linux flavors is available at [redsocks](http://darkk.net.ru/redsocks/).  On Lubuntu, you can install directly from the Ubunturepositories:
 
      $ sudo apt-get install redsocks
 
 
-#### Configure redsocks
+### Configure redsocks
 Going forward I will use the following placeholders for arbitrarily chosen port numbers:
 
      <PROXY_PORT> - the port you use for port forwarding when connecting to the remote server, as in 
@@ -68,11 +64,10 @@ In the section `redupd{}`:
     
      dest_ip = 8.8.8.8
      
-*Working redsocks.conf example* \: [sample_redsocks.conf](sample_redsocks.conf)    
+*Working redsocks.conf example* : [sample_redsocks.conf](sample_redsocks.conf)    
 This sample uses 12345 for `<LOCAL_PORT>` and 9000 for `<PROXY_PORT>` 
 
 ### Configure iptables
-
 Add the following iptables rule:
 
      $ sudo iptables -t nat -A OUTPUT -p tcp -d 10.99.0.0/16 -j REDIRECT --to-ports <LOCAL_PORT>
@@ -93,7 +88,7 @@ On my Virtualbox guest running Lubuntu, the relevant interface was eth0, which d
 
 There is more information about this step in [this guide](https://help.ubuntu.com/community/IptablesHowTo).
 
-#### Start the redsocks service
+### Start the redsocks service
 
      $ sudo service redsocks start
 
@@ -101,35 +96,30 @@ The service should start automatically at boot going forward, but if you ever ma
 
      $ sudo service redsocks restart
 
-***
-
+******
 ### Install IcedTea
-
 IcedTea is a browser plugin for running Java applets.  Install the latest version of it, so for example if the latest version is 8:
 
      $ sudo apt-get install icedtea-8-plugin 
 
-***
-
-### Install flash plugin for Firefox:
-
+******
+### Install flash plugin for Firefox
 Go to the [Adobe Flash Player Download Page](https://get.adobe.com/flashplayer/) and choose `.tar.gz for other Linux` from the dropdown menu.  Save the tarball to your hard drive and extract it.  Move the file `libflashplayer.so` into the Mozilla plugins folder:
      
      $ cd <directory-where-you-extracted-the-tarball>
      $ sudo cp libflashplayer.so /usr/lib/mozilla/plugins/
 
-***
-
+******
 ### Set up SSH key login on the VM
+You need to enable the VM to log in to haas master using public key authentication. One method is to just (securely) copy your private key into this VM from your local machine.  
 
-You need to enable the VM to log in to haas master using public key authentication.  One method is to just (securely) copy your private key into this VM from your local machine.  
+Or, you can generate a key specifically for this VM. You will have to append the new public key to ~/.ssh/authorized_keys on the haas master. If you have an account on the emergency-recovery box, you will also want to add this public key there.
 
-Or, you can generate a key specifically for this VM.  You will have to append the new public key to ~/.ssh/authorized_keys on the haas master.   If you have an account on the emergency-recovery box, you will also want to add this public key there.
-
-*** 
-
+****** 
 ### SSL_NO_CIPHER_OVERLAP Error
-If you see this error, you should be able to bypass it by disabling some SSL security settings in Firefox.  Open Firefox and type about:config into the URL bar.  You will get a popup warning about voiding your (nonexistent) warranty, click "I accept the risk" or "I'll be careful" or whatever the agree button says.
+If you see this error, you should be able to bypass it by disabling some SSL security settings in Firefox.  Open Firefox and type about:config into the URL bar.
+
+You will get a popup warning about voiding your (nonexistent) warranty, click "I accept the risk" or "I'll be careful" or whatever the agree button says.
 
 In the search bar, type: "security.tls.version" to filter the settings.  (Make note of what they were before the change so you can restore them if needed).
 
@@ -141,15 +131,14 @@ Note that this makes your browser less secure, so don't use this VM to visit you
 [Source](http://www.ryananddebi.com/2014/12/10/bypassing-the-ssl_error_no_cypher_overlap-error-in-firefox-34/)
 
 
-***
+******
+### Some Alternative Setups 
+ **Alternative Setup with Firefox proxy settings** 
+It is possible to configure Firefox directly to use a SOCKS proxy. 
 
-## Some alternative setups
+This is a less recommended approach than using redsocks, because certain parts of the IPMI interface will not launch in a way that uses the proxy, and therefore won't work. But if you just need to get to the KVM console, this will work.  
 
-### Using Firefox proxy settings
-
-It is possible to configure Firefox directly to use a SOCKS proxy.  This is a less recommended approach than using redsocks, because certain parts of the IPMI interface will not launch in a way that uses the proxy, and therefore won't work.
-
-But if you just need to get to the KVM console, this will work.  You will still need to install appropriate flash plugins and IcedTea as described above.
+You will still need to install appropriate flash plugins and IcedTea as described above.
 
 Next, open the Preferences page in Firefox.  Click Advanced on the left side, then Network on the page that opens.  Click "Setings" where it says "Connection: Control how Firefox connect to the Internet."
 
@@ -169,12 +158,12 @@ You should now be able to reach the 10.99.1.x addresses in Firefox.
 
 When you are done accessing the IPMI, remember to open the dialog and change it to "Automatically detect" or "No Proxy".
 
-### Alternative Setup with Chromium
-
-Here is a useful alternate setup:
+  **Alternative Setup with Chromium**
 
      $ sudo apt-get install chromium-browser
      $ sudo apt-get install pepperflashplugin-nonfree
 
-Chromium doesn't work directly with IcedTea, so when you click "Launch KVM Console" you will need to save the .jlp file, then open it from your file browser (*not* from the bottom of the Chromium window) using IcedTea.  The easiest approach is to set IcedTea to be the default program for this file type (but it still won't properly open straight from Chromium).
+Chromium doesn't work directly with IcedTea, so when you click "Launch KVM Console" you will need to save the .jlp file, then open it from your file browser (*not* fromthe bottom of the Chromium window) using IcedTea.  
+
+The easiest approach is to set IcedTea to be the default program for this file type (but it still won't properly open straight from Chromium).
 

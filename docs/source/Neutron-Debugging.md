@@ -1,33 +1,39 @@
-# Debugging neutron for Kilo RHOSP-7.1 RHEL 7.1 set-up
+# Neutron Debugging
+Debugging neutron for Kilo RHOSP-7.1 RHEL 7.1 set-up
 
-## Useful Links
+### Useful Links
 * http://docs.openstack.org/admin-guide-cloud/content/ch_networking.html
 * http://docs.openstack.org/openstack-ops/content/network_troubleshooting.html
 * https://www.rdoproject.org/Networking_in_too_much_detail
 * http://www.yet.org/2014/09/openvswitch-troubleshooting/
 
-## Useful Commands
+### Useful Commands
 
-### ovs-vsctl - show and modify virtual switch interfaces
-* show commands
-  * ovs-vsctl show - shows full config
-  * ovs-vsctl br-show [bridge]
-  * ovs-vsctl port-show [port]
+  **ovs-vsctl** - show and modify virtual switch interfaces
+  * show commands
+    * ovs-vsctl show - shows full config
+    * ovs-vsctl br-show [bridge]
+    * ovs-vsctl port-show [port]
 
-### ovs-ofctl
+  **ovs-ofctl**
   * ovs-ofctl dump-flows [bridge]
 
-## Status on production cluster
-* [7/17/15] DHCP still not working. Assigning a static IP address works, and allows pinging the router. Investigating why BigData cluster can DHCP and production can't, by comparing the two.
+### Status on production cluster
+[7/17/15] DHCP still not working. Assigning a static IP address works, and allows pinging the router. 
 
-## Status on BigData cluster
-* [7/20/15] UPDATE: brought enp130s0f0.125 & enp130s0f0 down, brought back up enp130s0f0, enp130s0f0.125 was brought up with it, if fixed the issue. Apparently they have to be brought together based on http://www.linuxquestions.org/questions/linux-networking-3/rtnetlink-answers-file-exists-error-when-doing-ifup-on-alias-eth1-1-on-rhel5-710766/
-* [7/20/15] Tried installing tcpdump to test interfaces. 30 and 31 can no longer ping internet.
-* [7/17/15] DHCP'ing and connecting to router successfully. SSH and large pings are not getting throught. Thought to be an MTU issue.
+Investigating why BigData cluster can DHCP and production can't, by comparing the two.
 
-## Comparison of compute 29 (production) and compute 31 (big data)
+### Status on BigData cluster
 
-### ovs-vsctl show - list of ovs bridges
+  **[7/20/15] UPDATE** : brought enp130s0f0.125 & enp130s0f0 down, brought back up enp130s0f0, enp130s0f0.125 was brought up with it, if fixed the issue. Apparently they have to be brought together based on http://www.linuxquestions.org/questions/linux-networking-3/rtnetlink-answers-file-exists-error-when-doing-ifup-on-alias-eth1-1-on-rhel5-710766/
+
+  **[7/20/15] UPDATE** : Tried installing tcpdump to test interfaces. 30 and 31 can no longer ping internet.
+
+  **[7/17/15] UPDATE** :DHCP'ing and connecting to router successfully. SSH and large pings are not getting throught. Thought to be an MTU issue.
+
+### Comparison of compute 29 (production) and compute 31 (big data)
+
+  **ovs-vsctl show** (list of ovs bridges)
 ```
 [root@compute-29 ~]# ovs-vsctl show
 e309a501-ce92-4866-bcb8-ade421786753
@@ -137,7 +143,7 @@ d1a2649b-9908-4b40-86ff-77239f4c5f64
     ovs_version: "2.3.1-git3282e51"
 ```
 
-### ovs-ofctl show br-tun - more info on br-tun
+  **ovs-ofctl show br-tun** (more info on br-tun)
 ```
 [root@compute-29 ~]# ovs-ofctl show br-tun
 OFPT_FEATURES_REPLY (xid=0x2): dpid:00002a89dc75b140

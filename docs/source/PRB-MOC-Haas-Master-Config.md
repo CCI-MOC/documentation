@@ -1,7 +1,7 @@
-This page documents the commands used to configure [[moc-haas-master|HaaS-Development-Environment]] in the [[PRB HaaS Cluster]].
+# PRB MOC Hass Master Config
+This page documents the commands used to configure [moc-haas-master](HaaS-Development-Environment.html) in the [BU PRB HaaS Cluster](BU-PRB-Cluster.html)
 
-# Networking
-
+### Networking
 In this case, the system needs to act as a NAT router for the subnet. To do so, we use `firewalld.direct`, since we want to limit the NAT access only to the external interface.
 
 These are the iptables rules that enable this:
@@ -17,8 +17,7 @@ firewall-cmd --permanent --direct --add-rule ipv4 filter FORWARD 0 -s 172.16.10.
 firewall-cmd --reload
 ```
 
-## Forwarding SSH gateways
-
+### Forwarding SSH gateways
 Ports 22222 and 22223 forward to the ssh-gateway (for accessing the MOC intranet) and bmi-ssh-gateway (for accessing the BMI special network) respectively. These port forwardings were accomplished using:
 
 ```bash
@@ -27,8 +26,6 @@ firewall-cmd --permanent --zone=public --add-forward-port=port=22223:proto=tcp:t
 firewall-cmd --reload
 ```
 
-# FreeIPA
-
-To enroll a machine in FreeIPA, see [[FreeIPA]]
-
+### FreeIPA
+To enroll a machine in FreeIPA, see [FreeIPA](FreeIPA.html)
 

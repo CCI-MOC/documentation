@@ -1,6 +1,10 @@
-## 129 net connectivity 
+# Setting Up External Network
+On RHEL 7.1 nodes 
+
 ### Configuration
-Hardware iface ifcfg script (`/etc/sysconfig/network-scripts/ifcfg-enp130s0f0`)
+
+  **Hardware iface ifcfg script** (`/etc/sysconfig/network-scripts/ifcfg-enp130s0f0`)
+
 ```
 BOOTPROTO="dhcp"
 DEVICE="enp130s0f0"
@@ -11,7 +15,8 @@ DEFROUTE=no
 PEERROUTES=no
 ```
 
-Virtual tagged iface ifcfg script (`/etc/sysconfig/network-scripts/ifcfg-enp130s0f0.125`)
+**Virtual tagged iface ifcfg script** (`/etc/sysconfig/network-scripts/ifcfg-enp130s0f0.125`)
+
 ```
 VLAN=yes
 TYPE=Vlan
@@ -26,9 +31,7 @@ GATEWAY=129.10.3.1
 DNS1=8.8.8.8
 ```
 
-Manually added EPEL, OSP repo, and subscribed box to RHN.
-
-osp.repo:
+  **OSP Repo** (`/etc/yum.repos.d/osp.repo`)
 ```
 [osp]
 name=osp
@@ -37,7 +40,7 @@ gpgcheck=0
 enabled=1
 ```
 
-epel.repo:
+  **EPEL Repo** (`/etc/yum.repos.d/epel.repo`)
 ```
 [epel]
 name=epel
@@ -46,7 +49,7 @@ gpgcheck=0
 enabled=1
 ```
 
-### Steps to subscribe:
+### Subscribe to RHN
 ```
 # subscription-manager register
 # subscription-manager attach --auto

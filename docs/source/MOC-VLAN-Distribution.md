@@ -1,14 +1,16 @@
+# MOC VLAN Distribution
 This document lays out how the VLANs are distributed between our various clusters.
+
 It also talks (briefly) about how the hardware, and the infrastructure services we are running.
 
-There are (or will be) environment specific documents describing the networking setup
-with VLAN, network and host information.
+There are (or will be) environment specific documents describing the networking setup with VLAN, network and host information.
 
-# oVirt
+## oVirt
 We have a 3 node oVirt setup for hosting crucial services like DHCP, DNS, FreeIPA, Foreman etc.
+
 All these services are highly available VMs.
 
-## Configuration of oVirt nodes:
+### Configuration of oVirt nodes:
 
 | Name | RAM | Cores/threads | Storage |
 | ---- | --- | ------------- | ------- |
@@ -16,7 +18,7 @@ All these services are highly available VMs.
 |ov2.massopen.cloud | 384 GB | 20/40 | 10X1TB |
 |ov3.massopen.cloud | 384 GB | 20/40 | 10X1TB |
 
-## Services that will be hosted on the oVirt setup.
+### Services that will be hosted on the oVirt setup.
 1. FreeIPA server (one will be duplicated at BU),
 2. Foreman (might be multiple for different env)
 3. RHEL repo server, just 1 for all environemtns. Public IP with limited access.
@@ -36,9 +38,9 @@ All these services are highly available VMs.
 
 Each environment gets around 300 to 400 VLANs which will leave room for expansion for more environments. Below is the detailed distribution of the VLANs.
 
-# MOC VLANs
+## MOC VLANs
 
-## VLANs common to all environments:
+### VLANs common to all environments:
 
 | VLAN(s) | Description | Subnet(s) |
 | ------- | ----------- | --------- |

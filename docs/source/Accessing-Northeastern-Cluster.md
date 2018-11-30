@@ -1,10 +1,10 @@
+# Accessing the Northeastern Cluster
 [Northeastern Cluster](Northeastern-Cluster.html)
 
-###Setting public access to HaaS node
+### Setting public access to HaaS node
 Two ways; manually or through HaaS via setting public network through HaaS master
 
-###Logging into the Haas Master
-
+### Logging into the Haas Master
 Before you start, make sure ssh-agent is running and your key is added.  [Instructions here](#sshagent).
 
 Make sure your public key is on the HaaS master.  To have it added, send a request to moc-ops-team-list@bu.edu.
@@ -15,33 +15,27 @@ In a terminal type
 
 Where `<PORT#>` is any outgoing port on your machine that is not in use.
 
-#####Accessing the OBMs
+### Accessing the OBMs
+Change your proxy settings to use a SOCKS proxy with the port number you used above.
 
-Change your proxy settings to use a SOCKS proxy with the port number you used above.  More instructions for this are available [here](https://github.com/CCI-MOC/moc-public/wiki/Access-the-OpenStack-dashboard).
+More instructions for this are available [here](https://github.com/CCI-MOC/moc-public/wiki/Access-the-OpenStack-dashboard).
 
 Now, you should be able to reach the OBM in your browser at `http://10.99.1.x`, where x is 101,102,...,148 for servers 1 through 48.
 
-#####Accessing Foreman
-
+### Accessing Foreman
 The Foreman VM is at [http://10.13.37.1].  Request an admin password from moc-ops-team-list@bu.edu
 
 Go to Hosts-> All Hosts and then click on host that you want to use.  Its IP address `10.13.37.x` will be shown.  Note that 'x' generally will not match the number in the name of the node.
 
 ### Logging in to the nat-public gateway
+The Gateway/DNS/DHCP server for the `nat-public` network in HaaS is a headnode called `nat-pub-gateway`, owned by the project `haas-admins`. Regular use does not require logging in to this machine.
 
-The Gateway/DNS/DHCP server for the `nat-public` network in HaaS is a
-headnode called `nat-pub-gateway`, owned by the project `haas-admins`.
-Regular use does not require logging in to this machine.
+The machine can be reached from the HaaS master via the IP address `192.168.122.80`. Only Jay, Laura, and the three engineers have access
+to this (the users are configured via the manifests in the `puppet-internal` repository). 
 
-The machine can be reached from the HaaS master via the IP address
-`192.168.122.80`. Only Jay, Laura, and the three engineers have access
-to this (the users are configured via the manifests in the
-`puppet-internal` repository). These same users also have sudo access,
-though at present only `isd` has a password set. Talk to him if you need
-a password so you can sudo.
+These same users also have sudo access, though at present only `isd` has a password set. Talk to him if you need a password so you can sudo.
 
-###Using the server at 10.13.37.x
-
+### Using the server at 10.13.37.x
 Log in to the HaaS Master with your public key to the HaaS Master, and from there to the Foreman VM.
 
     ravisantosh@ravisantosh-Inspiron-5521:~$ ssh -A ravig@129.10.3.48
@@ -87,15 +81,13 @@ Then type:
 
 This will bring up the public interface which makes this node accessible from outside world.
 
-###Subscribe to the RHEL Portal
-
+### Subscribe to the RHEL Portal
 For installing RPMs we need to subscribe this node to RHEL portal.
 
     [root@compute-43 ~]# subscription-manager register(This needs RHEL account)
     [root@compute-43 ~]# subscription-manager attach --auto
 
-###<a name="sshagent"></a>Setting up ssh agent
-
+### Setting up ssh agent
 To checking whether an agent is running already:
 
     $ ps -aux | grep ssh-agent
