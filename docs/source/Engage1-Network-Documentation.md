@@ -25,7 +25,7 @@ Rough diagram of the Ceph storage:
 **VLANs**
  
 | VLAN ID | Used for |
-| --------- | ------------------------------------------------- | 
+| --------- | ------------------------------ | 
 | 10 | Public Internet via CSAIL (old) |
 | 11 | ? |
 | 105 | ? |
@@ -302,24 +302,24 @@ Instructions for how to log in are [here](Accessing-the-MRI-Dell-Switch.html)
 *These are likely to change away from the defaults in the near future.*
   
   **Quanta QSSC-S99-1U** (all 6 Kilo servers, 3 ceph-quanta servers, engage1-emergency)   
-  * **Default credentials** : root/root
+  * **Default credentials** : see bitwarden QSSC-S99-1U
   * **Default IPMI address**: 192.168.001.002
 
   **Lenovo Servers** (10 ceph-lenovo servers)  
-  * **Default credentials** : USERID/PASSW0RD
+  * **Default credentials** : see bitwarden Lenovo servers
   * **Default IPMI address** : 192.168.70.125
 
   **BU Intel servers** (cache-c104, e1-compute-08, e1-compute-09, e1-compute-10)
   * NO DEFAULT CREDENTIALS OR IP - must be set in BIOS
-  * **Currently set to** : root/P@ssw0rd1
+  * **Currently set to** : see bitwarden BU Intel servers
 
   **Cache servers**  (6 Intel servers)  
-  * **Default credential**: ADMIN/ADMIN
+  * **Default credential**: see bitwarden Cache Servers
   * [Video]( http://www.screencast.com/t/gazhGb8H)
 
   **Brocade Switches** (22 Brocade VDX 6740)  
-  * **Credentials** : admin/brocade123  
-  * **Default credentials** : admin/password   
+  * **Credentials** : see bitwarden Brocade Switches
+  * **Default credentials** : see bitwarden Default Brocade switches
   * **Default console IP** : none, set to DHCP
 
 ### Temporary Connections:

@@ -21,7 +21,7 @@ Instructions for [Accessing Northeastern Cluster](Accessing-Northeastern-Cluster
     * Node 48 (the haas master) has 3 additional 1TB drives 
   * IPMI access [VM Setup for Cisco IPMI Access](VM-Setup-for-Cisco-IPMI-Access.html)
   * There is also a SuperMicro emergency box
-    * default IPMI credentials: ADMIN/ADMIN
+    * default IPMI credentials: see bitwarden Default SuperMicro Credentials 
 
   **SWITCHES**
   * Cisco Nexus 5672 (x2)

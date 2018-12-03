@@ -65,6 +65,7 @@ In the section `redupd{}`:
      dest_ip = 8.8.8.8
      
 *Working redsocks.conf example* : [sample_redsocks.conf](sample_redsocks.conf)    
+
 This sample uses 12345 for `<LOCAL_PORT>` and 9000 for `<PROXY_PORT>` 
 
 ### Configure iptables
@@ -113,7 +114,7 @@ Go to the [Adobe Flash Player Download Page](https://get.adobe.com/flashplayer/)
 ### Set up SSH key login on the VM
 You need to enable the VM to log in to haas master using public key authentication. One method is to just (securely) copy your private key into this VM from your local machine.  
 
-Or, you can generate a key specifically for this VM. You will have to append the new public key to ~/.ssh/authorized_keys on the haas master. If you have an account on the emergency-recovery box, you will also want to add this public key there.
+Or, you can generate a key specifically for this VM. You will have to append the new public key to `~/.ssh/authorized_keys` on the haas master. If you have an account on the emergency-recovery box, you will also want to add this public key there.
 
 ****** 
 ### SSL_NO_CIPHER_OVERLAP Error

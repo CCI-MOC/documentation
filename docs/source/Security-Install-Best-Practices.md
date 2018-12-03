@@ -148,5 +148,5 @@ setting active on the current machine.
 ## Hidepid
 If the system has multiple users logging in who maybe don't trust each other completely (like a gateway system), it might be good to set hidepid, which prevents users from gathering info on other users' processes.
 
-To do this, follow [this tutorial](https://www.cyberciti.biz/faq/linux-hide-processes-from-other-users/) on adding hidepid to the proc flags in /etc/fstab.
+To do this, follow [this tutorial](https://www.cyberciti.biz/faq/linux-hide-processes-from-other-users/) on adding hidepid to the proc flags in `/etc/fstab`.
 

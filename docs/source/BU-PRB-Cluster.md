@@ -2,14 +2,21 @@
 
 ### Nodes
   
-  **Node names** in haas and other places  are {super,len}-\<last octet of IPMI IP\> and reflect the manufacturer.
-  * Example: sun-10, super-42
+**Node names** in haas and other places  are {super,len}-\<last octet of IPMI IP\> and reflect the manufacturer.
+* Example: sun-10, super-42
 
-  **Current ranges for nodes** : super-[36-46], dell-58 (moc01) dell(moc02),intel-[50-51], len-[60-63], think-[65-67].
-  * We try to keep the numbers for particular node types together.
+**Current ranges for nodes** : 
+* super-[36-46]
+* dell-58 (moc01)
+* dell(moc02)
+* intel-[50-51]
+* len-[60-63]
+* think-[65-67].
+* We try to keep the numbers for particular node types together.
+
 *If there is any confusion about who is using what, please talk to Naved.*
 
-  **List of all nodes with config (scroll to the right to see everything)**
+**List of all nodes with config (scroll to the right to see everything)**
 
 | ID | Node Name | Model Name | IPMI Address | RAM (GiB) | # of Sockets | # Processor Cores | Processor Model | Hyper-Threading | Who has it? | Notes |
 | ---| --------- | ------------ | --------- | ------------ | ----------------- | --------------- | ----------- | ------- | -------- | -------- |
@@ -43,15 +50,14 @@
 | 28 | think-65 | Lenovo ThinkPad | Unknown | - | - | - | Unknown | - | SecCloud | it's a laptop
 | 29 | think-65 | Lenovo ThinkPad | Unknown | - | - | - | Unknown | - | SecCloud | it's a laptop
 
-  **Notes on specific nodes**
-  * think-[65-67] are used for Heads/Secure Cloud
-  * think-65 is flashed to coreboot/Heads
-  * think-66 is flashed and loaned to Gerardo Ravago
-  * think-67 is still running stock firmware
-  * Cisco-200 and Cisco-204 are registered with our central freeIPA server as prb-cisco-200.infra.massopen.cloud and prb-cisco-204.infra.massopen.cloud respectively.
+**Notes on specific nodes**
+* think-[65-67] are used for Heads/Secure Cloud
+* think-65 is flashed to coreboot/Heads
+* think-66 is flashed and loaned to Gerardo Ravago
+* think-67 is still running stock firmware
+* Cisco-200 and Cisco-204 are registered with our central freeIPA server as prb-cisco-200.infra.massopen.cloud and prb-cisco-204.infra.massopen.cloud respectively.
 
-
-  **KVM switch** :
+**KVM switch** :
 There is a Keyboard Video Mouse (KVM) switch that can be used to administer nodes. You can switch which node's console you are using by pressing the "Print Screen" button, and selecting a port. 
 
 The port number corresponds to which port the KVM dongle is connected to on the back of the KVM switch.
@@ -63,133 +69,133 @@ down then please use the KVM switch.
 
 ### Network
 
-  **Gateways** :
-  * Gateway1: moc-haas-master.bu.edu
-  * Gateway2: moc-haas-deploy.bu.edu
+**Gateways** :
+* Gateway1: moc-haas-master.bu.edu
+* Gateway2: moc-haas-deploy.bu.edu
 
-  To **pass information through the gateway**, you can use several methods:
-  1. including "ssh -D" combined with your browser's SOCKS proxy support
-  2. [sshuttle](https://sshuttle.readthedocs.io/en/stable/). A good command to transfer just traffic for the remote networks would be: `sshuttle -r user@ssh-gateway -N --dns`
+To **pass information through the gateway**, you can use several methods:
+1. including "ssh -D" combined with your browser's SOCKS proxy support
+2. [sshuttle](https://sshuttle.readthedocs.io/en/stable/). A good command to transfer just traffic for the remote networks would be: `sshuttle -r user@ssh-gateway -N --dns`
 
-  **Hardware** Our network is served by primarily 4 gigabit switches: 
-  * **dell-{0,1,2,3}** (in the HIL rack with supermicros) and **tp-0** (located in the other rack)
-  * dell-0 is the "hub" switch to which all other switches are connected. 
-  * dell-0 has 10G connections to dell-1 and dell-2, and a regular 1G cable running to tp-0.
+**Hardware** Our network is served by primarily 4 gigabit switches: 
+* **dell-{0,1,2,3}** (in the HIL rack with supermicros) and **tp-0** (located in the other rack)
+* dell-0 is the "hub" switch to which all other switches are connected. 
+* dell-0 has 10G connections to dell-1 and dell-2, and a regular 1G cable running to tp-0.
 
 All of the switches have Multiple STP enabled to prevent loops.
 
-  **Node Cluster Assignments**
-  * **Ceph** : All supermicros will be used for deploying CEPH.
-  * **VLANs 1-2500** are spanned to all switches, though on tp-0 individual VLANs may need to be made known to the switch before they can be used.
-  * **VLANs 2501-4094** are not yet registered in order to preserve switch resources.
+**Node Cluster Assignments**
+* **Ceph** : All supermicros will be used for deploying CEPH.
+* **VLANs 1-2500** are spanned to all switches, though on tp-0 individual VLANs may need to be made known to the switch before they can be used.
+* **VLANs 2501-4094** are not yet registered in order to preserve switch resources.
 
 HIL instances are allocated 500 or less VLANs, starting at 1000. VLANs with an id <= 1000 are for other uses.
 
-  **VLAN 1** : Network administrative interfaces (switch management).
-  * **Subnet**: 192.168.3.0/24.
-  * **Hosts** :
-    * **Network-admin** (access to network switch administrative interfaces)
-    * **192.168.3.2**  [[moc-haas-master.bu.edu|PRB-MOC-Haas-Master-Config]]
-    * **192.168.3.93** moc-haas-deploy.bu.edu
-    * **192.168.3.[170-200]** DHCP (served from moc-control)
-    * **192.168.3.244** tp-0 (admin interface)
-    * **192.168.3.245** Dell 0 (admin interface)
-    * **192.168.3.246** Dell 1 (admin interface)
-    * **192.168.3.247** Dell 2 (admin interface)
-    * **192.168.3.250** Dell 3 (admin interface)
+**VLAN 1** : Network administrative interfaces (switch management).
+* **Subnet**: 192.168.3.0/24.
+* **Hosts** :
+* **Network-admin** (access to network switch administrative interfaces)
+* **192.168.3.2**  [moc-haas-master.bu.edu](PRB-MOC-Haas-Master-Config.html)
+* **192.168.3.93** moc-haas-deploy.bu.edu
+* **192.168.3.[170-200]** DHCP (served from moc-control)
+  * **192.168.3.244** tp-0 (admin interface)
+  * **192.168.3.245** Dell 0 (admin interface)
+  * **192.168.3.246** Dell 1 (admin interface)
+  * **192.168.3.247** Dell 2 (admin interface)
+  * **192.168.3.250** Dell 3 (admin interface)
 
-  **VLAN 2** : Public Internet (caution!)
+**VLAN 2** : Public Internet (caution!)
 
-  **VLAN 3**: MOC Intranet
-  * HaaS API servers and VMs are on here.
-  * Users can access through the SSH gateway (see below)
-  * **DNS** : 172.16.10.5, 172.16.10.3 172.16.10.4
-  * **Default gateway** : 172.16.10.5
-  * **Subnet** 172.16.10.0/23
-    * **172.16.10.2** [moc-haas-master.bu.edu](PRB-MOC-Haas-Master-Config.html)
-    * **172.16.10.6** haas-beta.prb.massopencloud.org
-    * **172.16.10.7** moc-haas-deploy.bu.edu
-    * **172.16.10.8** hack-n-hil.prb.massopencloud.org
-    * **172.16.10.20** BMI-Development VM
-    * **172.16.10.21** BMI VM for secure cloud
-    * **172.16.10.22** sc-trusted.prb.massopencloud.org (Secure Cloud - Trusted Zone)
-    * **172.16.10.23** sc-airlock.prb.masopencloud.org (Secure Cloud - Air Lock)
-    * **172.16.10.30** BMI VM for Dan
-    * **172.16.10.90** pronto-1-netex.prb.massopencloud.org
-    * **172.16.10.91** pronto-2-netex.prb.massopencloud.org
-    * **172.16.10.92** pronto-3-netex.prb.massopencloud.org
-    * **172.16.10.93** deathstar.prb.massopencloud.org
-    * **172.16.10.98** dhcp-vm (DHCP server)
-    * **172.16.10.99** bmi-ssh-gateway.prb.massopencloud.org BMI / Secure Cloud SSH gateway (VM on moc-haas-master.bu.edu)
-      * accessible from Internet by sshing to moc-haas-master.bu.edu port 22223
-      * Can use this snippet in one's `~/.ssh/config` file to make connections easy:
+**VLAN 3**: MOC Intranet
+* HaaS API servers and VMs are on here.
+* Users can access through the SSH gateway (see below)
+* **DNS** : 172.16.10.5, 172.16.10.3 172.16.10.4
+* **Default gateway** : 172.16.10.5
+* **Subnet** 172.16.10.0/23
+  * **172.16.10.2** [moc-haas-master.bu.edu](PRB-MOC-Haas-Master-Config.html)
+  * **172.16.10.6** haas-beta.prb.massopencloud.org
+  * **172.16.10.7** moc-haas-deploy.bu.edu
+  * **172.16.10.8** hack-n-hil.prb.massopencloud.org
+  * **172.16.10.20** BMI-Development VM
+  * **172.16.10.21** BMI VM for secure cloud
+  * **172.16.10.22** sc-trusted.prb.massopencloud.org (Secure Cloud - Trusted Zone)
+  * **172.16.10.23** sc-airlock.prb.masopencloud.org (Secure Cloud - Air Lock)
+  * **172.16.10.30** BMI VM for Dan
+  * **172.16.10.90** pronto-1-netex.prb.massopencloud.org
+  * **172.16.10.91** pronto-2-netex.prb.massopencloud.org
+  * **172.16.10.92** pronto-3-netex.prb.massopencloud.org
+  * **172.16.10.93** deathstar.prb.massopencloud.org
+  * **172.16.10.98** dhcp-vm (DHCP server)
+  * **172.16.10.99** bmi-ssh-gateway.prb.massopencloud.org BMI / Secure Cloud SSH gateway (VM on moc-haas-master.bu.edu)
+    * accessible from Internet by sshing to moc-haas-master.bu.edu port 22223
+    * Can use this snippet in one's `~/.ssh/config` file to make connections easy:
 	```
 	Host prb-bmi-gateway
 	    Hostname moc-haas-master.bu.edu
 	    Port 22223
 	```
-    * **172.16.10.100** ssh-gateway.prb.massopencloud.org (VM on moc-haas-master.bu.edu)
-      * accessible from Internet by sshing to moc-haas-master.bu.edu port 22222
+  * **172.16.10.100** ssh-gateway.prb.massopencloud.org (VM on moc-haas-master.bu.edu)
+    * accessible from Internet by sshing to moc-haas-master.bu.edu port 22222
 	```
 	Host prb-gateway
 	    Hostname moc-haas-master.bu.edu
         Port 22222
 	```
-    * **172.16.10.101** Ceph for BMI-Development
-    * **172.16.10.207** Red Hat Ceph Storage 3.0 ([details](Red-Hat-Ceph-3.0-cluster.html))
-    * **172.16.10.[102-180]** Static IPs available to physical haas nodes based on node number.
-      * The lowest octet is `<node num> + 100`. So sun-10 would be 172.16.10.110
-    * **172.16.10.[190-220]** DHCP (served from dhcp-vm)
-    * **172.16.10.209** intel-51
-    * **172.16.10.215** intel-50
+  * **172.16.10.101** Ceph for BMI-Development
+  * **172.16.10.207** Red Hat Ceph Storage 3.0 ([details](Red-Hat-Ceph-3.0-cluster.html))
+  * **172.16.10.[102-180]** Static IPs available to physical haas nodes based on node number.
+    * The lowest octet is `<node num> + 100`. So sun-10 would be 172.16.10.110
+  * **172.16.10.[190-220]** DHCP (served from dhcp-vm)
+  * **172.16.10.209** intel-51
+  * **172.16.10.215** intel-50
  * **VLAN 4** : ceph storage network (managed by BMI team/Ravi)
  * **Subnet** : 10.20.0.0/24. Hosts:
 * **VLAN 5** : IPMI interfaces
  * **Subnet** : 10.10.0.0/24. Hosts:
-   * IPMI interfaces for all nodes
-   * **10.10.0.5** : moc-haas-master.bu.edu (host int)
-   * **10.10.0.6** : haas-beta.prb.massopencloud.org
-   * **10.10.0.7** : moc-haas-deploy.bu.edu
-   * **10.10.0.{10-25}** : sun-{10-25}
-       * Note: IPMI of 42 is broken
-   * **10.10.0.{36-46}** : super-{36-46}
-   * **10.10.0.50** : intel-50
-   * **10.10.0.110** : HIL VM for BMI-Development.
-   * **10.10.0.149** : dhcp-vm (DHCP server)
-   * **10.10.0.[150-200]** : DHCP (served from dhcp-vm)
+ * IPMI interfaces for all nodes
+ * **10.10.0.5** : moc-haas-master.bu.edu (host int)
+ * **10.10.0.6** : haas-beta.prb.massopencloud.org
+ * **10.10.0.7** : moc-haas-deploy.bu.edu
+ * **10.10.0.{10-25}** : sun-{10-25}
+     * Note: IPMI of 42 is broken
+ * **10.10.0.{36-46}** : super-{36-46}
+ * **10.10.0.50** : intel-50
+ * **10.10.0.110** : HIL VM for BMI-Development.
+ * **10.10.0.149** : dhcp-vm (DHCP server)
+ * **10.10.0.[150-200]** : DHCP (served from dhcp-vm)
 
 * **VLAN 6** : External IPMI. This network is for sharing IPMI of certain systems with external users (like the lenovo and moc01 with our Secure Cloud/BMI collaborators)
  * **Subnet** : 10.10.1.0/24
-    * **10.10.1.2** moc-haas-master.bu.edu
-    * **10.10.1.6** moc-haas-deploy.bu.edu
-    * **10.10.1.58** moc01 aka dell-58 IPMI
-    * **10.10.1.60** len-60-ipmi.prb.massopencloud.org
-    * **10.10.1.61** len-61-ipmi.prb.massopencloud.org
-    * **10.10.1.99** bmi-ssh-gateway.prb.massopencloud.org
-    * **10.10.1.149** dhcp-vm (DHCP server)
-    * **10.10.1.[150-200]** DHCP (served from dhcp-vm)
+  * **10.10.1.2** moc-haas-master.bu.edu
+  * **10.10.1.6** moc-haas-deploy.bu.edu
+  * **10.10.1.58** moc01 aka dell-58 IPMI
+  * **10.10.1.60** len-60-ipmi.prb.massopencloud.org
+  * **10.10.1.61** len-61-ipmi.prb.massopencloud.org
+  * **10.10.1.99** bmi-ssh-gateway.prb.massopencloud.org
+  * **10.10.1.149** dhcp-vm (DHCP server)
+  * **10.10.1.[150-200]** DHCP (served from dhcp-vm)
 
 * **VLAN 900** : BMI provisioing network for secure cloud.
-  * **Subnet** : 192.168.39.0/24
-     * **92.168.39.1**  hacknhil
-     * **192.168.39.2**  BMI VM for dev
-     * **192.168.39.3**  BMI VM for secure cloud
-     * **192.168.39.4**  BMI VM for Dan
+* **Subnet** : 192.168.39.0/24
+   * **92.168.39.1**  hacknhil
+   * **192.168.39.2**  BMI VM for dev
+   * **192.168.39.3**  BMI VM for secure cloud
+   * **192.168.39.4**  BMI VM for Dan
 
 * **VLAN 1000** : BMI provisioning network
-  * **Subnet** : 192.168.29.0/24
-  * **Ubuntu node provisioned** : 192.168.29.33
-  * **DHCP range used** :21-50
-  * **192.168.29.99** : bmi-ssh-gateway.prb.massopencloud.org
+* **Subnet** : 192.168.29.0/24
+* **Ubuntu node provisioned** : 192.168.29.33
+* **DHCP range used** :21-50
+* **192.168.29.99** : bmi-ssh-gateway.prb.massopencloud.org
 
 * **VLAN 1001** : Secure Cloud Airlock
-  * **IP range** : 192.168.21.0-63/25 (DHCP IPs 192.168.21.10-63; timeout 1 hr)
-  * **192.168.21.2** : sc-airlock.prb.massopencloud.org (on hack-n-hil)
+* **IP range** : 192.168.21.0-63/25 (DHCP IPs 192.168.21.10-63; timeout 1 hr)
+* **192.168.21.2** : sc-airlock.prb.massopencloud.org (on hack-n-hil)
 
 * **VLAN 1002** : Secure Cloud Trusted Zone
-  * **IP range** : 192.168.21.128-254/25 (DHCP 192.168.21.128-255)
-  * **192.168.21.129** : sc-airlock.prb.massopencloud.org (on hack-n-hil)
-  * **192.168.21.130** : sc-trusted.prb.massopencloud.org (on hack-n-hil)
+* **IP range** : 192.168.21.128-254/25 (DHCP 192.168.21.128-255)
+* **192.168.21.129** : sc-airlock.prb.massopencloud.org (on hack-n-hil)
+* **192.168.21.130** : sc-trusted.prb.massopencloud.org (on hack-n-hil)
 
 * **VLAN 1003-1500** : haas-beta
 
@@ -201,24 +207,24 @@ HIL instances are allocated 500 or less VLANs, starting at 1000. VLANs with an i
 
 ### IPMI Credentials
   
-  **For moc01 aka dell-58 IPMI** :
-  * **IPMI username/password** : sc / BrotherHitsCrookTown
-  * **Disk-installed OS creds** (ubuntu 16.04): user / password
+**For moc01 aka dell-58 IPMI** :
+* **IPMI username/password** : see bitwarden dell-58
+* **Disk-installed OS creds** (ubuntu 16.04): user / password
 
-  **For Lenovos (len-60, len-61) server IPMI** :
-  * IPMI username/password : admin/BrotherHitsCrookTown
-  * Console-only access credentials: console/MeansAspireStroll
+**For Lenovos (len-60, len-61) server IPMI** :
+* IPMI username/password : see bitwarden Lenovos
+* Console-only access credentials: see bitwarden Lenovos, Console-Only access
 
-  **For lenovo 62** :
-  * **IPMI username/password** : USERID/PASSW0RD
+**For lenovo 62** :
+* **IPMI username/password** : USERID/PASSW0RD
 
-  **For super-{43-46}** :
-  * **user** : admin (for supermicros), '' (for suns)
-  * **password** : Xxu46RCjtxiLdc
-  * credentials for super-42 are probably still default
+**For super-{43-46}** :
+* **user** : admin (for supermicros), '' (for suns)
+* **password** : Xxu46RCjtxiLdc
+* credentials for super-42 are probably still default
 
-  **For Cisco nodes in our control (cisco-200 and cisco-204)**
-  * **IPMI username/password** : admin/Password1
+**For Cisco nodes in our control (cisco-200 and cisco-204)**
+* **IPMI username/password** : see bitwarden Cisco
 
 ```bash
 for i in `seq 10 25`;
@@ -229,18 +235,18 @@ do
 done
 ```
 
-  **For reference** :
-  * **Factory default user/password for the supermicros** : ADMIN/ADMIN
-  * [Supermicro IPMI Manual]<!--(http://www.supermicro.com/manuals/other/SMT_IPMI_Manual.pdf)-->
+**For reference** :
+* **Factory default user/password for the supermicros** : see bitwarden SuperMicros
+* [Supermicro IPMI Manual]<!--(http://www.supermicro.com/manuals/other/SMT_IPMI_Manual.pdf)-->
 
 ******
 ### Physical Switches
 
-  **dell-0 (beta) - core router (192.168.3.245)**
-  * PowerConnect 5524
-  * **Pattern** :
-    * Trunked/uplink connections are towards the left ports
-    * Node connections are towards the right ports
+**dell-0 (beta) - core router (192.168.3.245)**
+* PowerConnect 5524
+* **Pattern** :
+  * Trunked/uplink connections are towards the left ports
+  * Node connections are towards the right ports
 
 | Port | Cable Label | Other End | Which haas (beta, deployment or dev)
 ---- | ---- | ---- | ----
@@ -258,13 +264,13 @@ done
 25 te1/0/1 (10G) | - | dell-1/25 ALL VLANs trunked |
 26 te1/0/2 (10G) | - | dell-2/25 ALL VLANs trunked |
 
-  **dell-1 (deployment) (192.168.3.246)**
-  * PowerConnect 5524
-  * **Pattern** :
-    * Trunked connections in right half of ports (lower numbers)
-    * Node connections in left half of ports (upper numbers)
-    * IPMI in top half of ports (odd)
-    * eth0 in bottom half of ports (even)
+**dell-1 (deployment) (192.168.3.246)**
+* PowerConnect 5524
+* **Pattern** :
+  * Trunked connections in right half of ports (lower numbers)
+  * Node connections in left half of ports (upper numbers)
+  * IPMI in top half of ports (odd)
+  * eth0 in bottom half of ports (even)
 
 | Port | Cable Label | Other End | Which haas (beta, deployment or dev)
 ---- | ---- | ---- | ----
@@ -295,13 +301,13 @@ done
 25 te1/0/1 (10G) | - | dell-0/25 / ALL VLANs trunked |
 26 te1/0/2 (10G) | -  | dell-3 port 49 | ALL VLANs trunked
 
-  **dell-2 (dev) (192.168.3.247)**
-  * PowerConnect 5524
-  * **Pattern** :
-    * Trunked connections in right half of ports (lower numbers)
-    * Node connections in left half of ports (upper numbers)
-    * IPMI in top half of ports (odd)
-    * eth0 in bottom half of ports (even)
+**dell-2 (dev) (192.168.3.247)**
+* PowerConnect 5524
+* **Pattern** :
+  * Trunked connections in right half of ports (lower numbers)
+  * Node connections in left half of ports (upper numbers)
+  * IPMI in top half of ports (odd)
+  * eth0 in bottom half of ports (even)
 
 | Port | Cable Label | Other End | Which haas (beta, deployment or dev)
 ---- | ---- | ---- | ----
@@ -331,15 +337,15 @@ done
 24 | - |  |
 25 te1/0/1 (10G) | - | dell-0/26 / ALL VLANs trunked | -
 
-  **cisco-1 (main rack) (192.168.3.230)**
-  * Cisco Nexus 3548p-10g
-  * Powered off and disconnected
+**cisco-1 (main rack) (192.168.3.230)**
+* Cisco Nexus 3548p-10g
+* Powered off and disconnected
 
-  **tp-0 (other rack) (192.168.3.244)**
-  * TL-SG3216
-  * **Pattern** :
-    * Trunked connections in left half of ports (lower numbers)
-    * Node connections in right half of ports (upper numbers)
+**tp-0 (other rack) (192.168.3.244)**
+* TL-SG3216
+* **Pattern** :
+  * Trunked connections in left half of ports (lower numbers)
+  * Node connections in right half of ports (upper numbers)
 
 | Port | Cable Label | Other End | Which haas (beta, deployment or dev)
 ---- | ---- | ---- | ----
@@ -360,15 +366,15 @@ done
 15 | - | - | -
 16 |  | moc02 nic4 | -
 
-  **Unmanaged TP-Link (no ip)**
-  * TL-SG1016
-  * Unmanaged switch that is labelled "internet".
-  * **Has connections to** :
-    * port 1 on moc-control
-    * another connection to moc-02
+**Unmanaged TP-Link (no ip)**
+* TL-SG1016
+* Unmanaged switch that is labelled "internet".
+* **Has connections to** :
+  * port 1 on moc-control
+  * another connection to moc-02
 
-  **dell-3 (192.168.3.250)**
-  * Dell S3048-ON
+**dell-3 (192.168.3.250)**
+* Dell S3048-ON
 
 | Port | Cable Label | Other End | Which haas (beta, deployment or dev)
 ---- | ---- | ---- | ----
@@ -388,17 +394,17 @@ Admin Interface (Ethernet) | - | dell-1 port-9  | -
 ### Equipment
 We have a rack in the PRB server room with hardware for development work on HaaS. Here's what's up there:
 * **3 Dell Powerconnect 5524 switches** (24 ports each).
- * The **administrative interface** for these switches are listening on VLAN 1 to IP address 192.168.3.[245-247] using the "admin" username. These are referred to as dell-0 through dell-2, and are labeled.
- * **Password** for the dell switches is the standard MOC
+ * The **administrative interface** for these switches are listening on VLAN 1 to IP address 192.168.3.[245-247]. These are referred to as dell-0 through dell-2, and are labeled.
+ * **username/Password** see bitwarden dell switches
  * [CLI Manual](powerconnect5500_cliref_en-us.pdf). [Dell's support website](http://www.dell.com/support/home/us/en/4/product-support/product/powerconnect-5524/manuals)
 * **8 servers based on Supermicro's [SuperServer 5018A-MLTN4][1]**. These have [Super A1SAM-2550F](http://www.supermicro.com/products/motherboard/Atom/X10/A1SAM-2550F.cfm) motherboards. We added 16GiB of memory and a 750GB SATA disk (pulled from the ATLAS array). These are x86_64 Atom processors with VT and IPMI 2.0.
  * IPMI IP addresses are: 10.10.0.[40-47]
 * **2 Intel nodes**. They will probably be reunited with their family in engage1, but for now we can use them. Each node has two 14 core Xeons and 256 GB memory.
  * **IPMI addresses are**: 10.10.0.[50-51]
- * **IPMIusername:password**: root:calvin
+ * **IPMI username:password**: see bitwarden Intel
 * **A Dell S3048-ON** switch running Dell OS 9. It belongs to MOC. It's in the middle of the rack and connected to dell-0 switch (the hub).
 Use this switch for connecting hardware in the middle rack so we don't have multiple long wires running accross racks.
- * **credentials** : admin/brocadePRB
+ * **credentials** : see bitwarden Dell Switch
  * **management IP** : 192.168.4.250 (Vlan 20) - The management port has issues, configure any port to be on that vlan.
  * this switch is a little weird (it's vlan centric) so please read the manual before you try to configure it (or talk to Naved).
 
