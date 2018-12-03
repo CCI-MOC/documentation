@@ -22,10 +22,10 @@ On the NE cluster, the username and password credentials for the Cisco server OB
 To get a list of all sensors in these servers and their status, use the `sdr list` command with no arguments. This returns a large table with every sensor in the system and its status.
 
 The four fields of the output lines, as read from left to right are:
-1. IPMI sensor number.
-2. IPMI sensor ID.
-3. Sensor reading.
-4. Sensor status, indicating which thresholds have been exceeded.
+1. **IPMI sensor number**
+2. **IPMI sensor ID**
+3. **Sensor reading**
+4. **Sensor status**, indicating which thresholds have been exceeded.
 
 For example:
 ```

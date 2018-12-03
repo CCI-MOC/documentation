@@ -64,5 +64,5 @@ What devvesa meant was to click on "certain" patch such as https://review.openst
    It will take a while to install. After installation, type the IP address in your browser and login through Horizon dashboard see if there is a tab called Network under the Project tab. 
 
 ### Current Status
-**Successfully Install Devstack with Midonet Plugin on the instance hosted on CSAIL Opentack**
+Successfully Install Devstack with Midonet Plugin on the instance hosted on CSAIL Opentack.
 

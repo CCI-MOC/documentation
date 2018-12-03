@@ -1,7 +1,7 @@
 # Prerequisites for Spark on Openshift
 
 ### OC Commands
-Install` oc commands` by downloading the executables from [here](https://github.com/openshift/origin/releases)
+Install `oc commands` by downloading the executables from [here](https://github.com/openshift/origin/releases)
 
 The OpenShift Enterprise CLI exposes commands for managing your applications, as well as lower level tools to interact with each component of your system
 
@@ -24,8 +24,8 @@ An OpenShift user can deploy the oshinko-webui container into their project and 
 Another important part of Oshinko to highlight is the oshinko-s2i repository and associated images which implement the source-to-image workflow for Apache Spark based applications. These images enable you to create full applications that can be built, deployed and upgraded directly from a source repository.
 
 ### Steps to spin Spark clusters.
-1. Open your terminal.
-2. Login into [Mass OpenShift](https://openshift.massopen.cloud/) cluster through oc
+1. **Open your terminal**
+2. **Login into [Mass OpenShift](https://openshift.massopen.cloud/) cluster** through oc
 ```
 $ oc login https://openshift.massopen.cloud -u <your-username>
 $ oc login https://openshift.massopen.cloud/ -u singh.p@husky.neu.edu
@@ -36,11 +36,9 @@ Password: <your-password>
 
 Login successful.
 ```
-
-3. Create a new project
+3. **Create a new project**
 
 	oc new-project <project-name>
-
 4. Install all the Oshinko resources into your project. This creates the latest versions of the Oshinko S2I (source-to-image) templates and the Oshinko Web UI application, as well as a ServiceAccount and RoleBinding needed for creation and management of Apache Spark clusters.
 ```
 oc create -f https://radanalytics.io/resources.yaml
@@ -53,8 +51,7 @@ template "oshinko-scala-spark-build-dc" created
 template "oshinko-webui-secure" created
 template "oshinko-webui" created
 ```
-
-5. Start the Oshinko Web UI application by running `oc new-app --template=oshinko-webui` on the terminal. This is optional. We can definitely do without oshinko webui and rest api as we can manage Spark instance directly from OpenShift console. (I recommend to skip this step)
+5. **Start the Oshinko Web UI** application by running `oc new-app --template=oshinko-webui` on the terminal. This is optional. We can definitely do without oshinko webui and rest api as we can manage Spark instance directly from OpenShift console. (I recommend to skip this step)
 
 ```
 $ oc new-app --template=oshinko-webui
@@ -74,13 +71,10 @@ $ oc new-app --template=oshinko-webui
 
         * OSHINKO_REFRESH_INTERVAL=5
 ```
+6. At this point you can **go to your [OpenShift Console](https://openshift.massopen.cloud/console/)** explore the Oshinko Web UI (again optional).
 
-6. At this point you can go to your [OpenShift Console](https://openshift.massopen.cloud/console/) explore the Oshinko Web UI (again optional).
-
-
-### useful links:  
-* [](https://radanalytics.io/get-started)
-* [](https://elmiko.github.io/2016/11/16/spark-on-openshift-with-oshinko.html)
-* [](https://docs.openshift.com/container-platform/3.3/admin_solutions/user_role_mgmt.html#view-roles-users-cluster)
-
+### Useful Links:  
+* [https://radanalytics.io/get-started]
+* [https://elmiko.github.io/2016/11/16/spark-on-openshift-with-oshinko.html]
+* [https://docs.openshift.com/container-platform/3.3/admin_solutions/user_role_mgmt.html#view-roles-users-cluster)]
 

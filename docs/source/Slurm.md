@@ -1,5 +1,5 @@
 # SLURM
-SLURM is an open-source workload manager designed for Linux clusters of all sizes. 
+**SLURM** is an open-source workload manager designed for Linux clusters of all sizes. 
 
 It provides three key functions:
 * First it allocates exclusive and/or non-exclusive access to resources (computer nodes) to users for some duration of time so they can perform work.
@@ -41,12 +41,14 @@ Now install the MUNGE RPM packages from the EPEL repository:
     yum install munge munge-libs munge-devel  
 
 ### MUNGE configuration and testing  
-Create a secret key:  
+
+**Create a secret key**  
 
     /usr/sbin/create-munge-key 
+
 This uses /dev/urandom (Non-blocking pseudorandom number generator) to generate the key.  
   
-Change the ownership of the munge.key  
+**Change the ownership of the munge.key**  
 
     chown munge: /etc/munge/munge.key
     chmod 400 /etc/munge/munge.key  
@@ -56,12 +58,12 @@ After creating the `munge.key` securely propagate `/etc/munge/munge.key` (e.g., 
     chown -R munge: /etc/munge/ /var/log/munge/
     chmod 0700 /etc/munge/ /var/log/munge/  
   
-Enable and start the MUNGE service:  
+**Enable and start the MUNGE service**
 
     systemctl enable munge
     systemctl start munge  
   
-Run some tests as described in the [Munge installation](https://github.com/dun/munge/wiki/Installation-Guide) guide:  
+**Run some tests** as described in the [Munge installation](https://github.com/dun/munge/wiki/Installation-Guide) guide:  
 
     munge -n                    # Generate a credential on stdout
     munge -n | unmunge          # Displays information about the MUNGE key  
@@ -71,19 +73,19 @@ Run some tests as described in the [Munge installation](https://github.com/dun/m
 Follow the link to [Munge installation](https://github.com/dun/munge/wiki/Installation-Guide) guide for a more information.  
 
 ### Build SLURM RPMs  
-Install SLURM prerequisites as well as several optional packages:  
+**Install SLURM prerequisites as well as several optional packages**  
 
     yum install openssl openssl-devel pam-devel numactl numactl-devel hwloc hwloc-devel lua lua-devel readline-devel rrdtool-devel ncurses-devel man2html libibmad libibumad perl-CPAN perl-Switch  
 
-**Important** : Install the MariaDB(a replacement for MySQL) packages before you build SLURM RPMs(otherwise some libraries will be missing):  
+**Install the MariaDB(a replacement for MySQL) packages before you build SLURM RPMs(otherwise some libraries will be missing)**  
 
     yum install mariadb-server mariadb-devel  
   
-Now to download the SLURM bzip2 file run the command:  
+**Now to download the SLURM bzip2 file run the command**  
 
     sudo wget www.schedmd.com/download/archive/slurm-x.y.z.tar.bz2  
   
-Now to build SLURM RPMs, run the command:  
+**Now to build SLURM RPMs, run the command**
 
     rpmbuild -ta slurm-x.y.z.tar.bz2  
 
@@ -120,13 +122,13 @@ To configure SLURM and let all the nodes in the cluster know about each other a 
 
 There are two ways to create a `slurm.conf` file after the SLURM packages are installed.  
 1. After the SLURM RPMs are installed a directory `/etc/slurm/`  is created. Under that directory you will find `slurm.conf.example`. You can copy this file to `slurm.conf`  by running the command:  
-
-	cp /etc/slurm/slurm.conf.example /path_to_directory/slurm.conf  
-  
-Where path_to_directory can be any directory of your choosing.  
+```
+cp /etc/slurm/slurm.conf.example /path_to_directory/slurm.conf  
+```  
+Where `path_to_directory` can be any directory of your choosing.  
 2. After the SLURM RPMs are installed, under the directory `/usr/share/doc/slurm-x.y.z/html`  you will find a file named `configurator.easy.html`. Open this file in any web browser of your choosing and enter the configuration details as needed and click the submit button.  Now copy the information shown on the resulting page into `slurm.conf` (this file needs to created in the `/etc/slurm/` directory) and save the file.  
 
-In /etc/slurm/slurm.conf the important spool directories and slurm user are defined:  
+In `/etc/slurm/slurm.conf` the important spool directories and slurm user are defined:  
 
     SlurmUser=slurm  
     SlurmdSpoolDir=/var/spool/slurmd  
@@ -150,7 +152,7 @@ Executing the command:
 
     slurmd -C  
 
-on each compute node will print its physical configuration (sockets, cores, real memory size, etc.), which must be added to the global `/etc/slurm/slurm.conf` file. For example a node may be defined as:  
+On each compute node will print its physical configuration (sockets, cores, real memory size, etc.), which must be added to the global `/etc/slurm/slurm.conf` file. For example a node may be defined as:  
 
     NodeName=test001 Boards=1 SocketsPerBoard=2 CoresPerSocket=2 ThreadsPerCore=1 RealMemory=8010 TmpDisk=32752 Feature=xeon  
 
@@ -205,18 +207,18 @@ The dynamic firewall daemon [firewalld](https://fedoraproject.org/wiki/FirewallD
 
 See [Introduction to firewalld](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/sec-Using_Firewalls.html) to learn more about firewalld.  
   
-* Install firewalld with:
-
-    yum install firewalld firewall-config  
-
-* To configure Controller node, whitelist the compute nodes' private subnets (here: 192.168.x.x) on the controller node:  
-
-    systemctl start firewalld
-    firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT_direct 0 -s 192.168.x.x/24 -j ACCEPT  
-
+* **Install firewalld** with:
+```
+yum install firewalld firewall-config  
+```
+* To **configure Controller node**, whitelist the compute nodes' private subnets (here: 192.168.x.x) on the controller node:  
+```
+systemctl start firewalld
+firewall-cmd --permanent --direct --add-rule ipv4 filter INPUT_direct 0 -s 192.168.x.x/24 -j ACCEPT  
+```
 The configuration is stored in the file `/etc/firewalld/direct.xml`.  
   
-* To configure compute nodes, Run the following commands on the compute nodes:  
+* To **configure compute nodes**, Run the following commands on the compute nodes:  
 
     systemctl start firewalld  
     sudo firewall-cmd --zone=public --add-port=6818/tcp  #Adding the Slurmd Port 6818 (TCP) in the public zone.

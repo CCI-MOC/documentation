@@ -2,7 +2,7 @@
 
 ### SNMP basics
 
-**SNMP** stands for Simple Network Management Protocol and consists of three key components: managed devices, agents, and network-management systems (NMSs). A managed device is a node that has an SNMP agent and resides on a managed network. 
+**SNMP** stands for **Simple Network Management Protocol** and consists of three key components: **managed devices**, **agents**, and **network-management systems** (NMSs). A managed device is a node that has an SNMP agent and resides on a managed network. 
 
 These devices can be routers and access servers, switches and bridges, hubs, computer hosts, or printers. 
 
@@ -17,28 +17,28 @@ There are two types of MIBs: scalar ones and tabular ones. **Scalar objects** de
 Generally, an OID is a long sequence of numbers, coding the nodes, separated by dots. Top level MIB object IDs (OIDs) belong to different standard organizations. Vendors define private branches including managed objects for their own products.
 
 SNMP basically works with the principle that network management systems send out a request and the managed devices return a response. This is implemented using one of the following four operations: 
-* Get
-* GetNext
-* Set
-* Trap. 
+* **Get**
+* **GetNext**
+* **Set**
+* **Trap**
 
-**SNMP messages** consist of a header and a PDU (Protocol Data Unit). The headers consist of the SNMP version number and the community name. 
+**SNMP messages** consist of a **header** and a **PDU** (Protocol Data Unit). The headers consist of the SNMP version number and the community name. 
 
 The **community name** is used as a sort of password to increase security in SNMP. The PDU depends on the type of message that is sent. 
 
 The Get, GetNext, and Set, as well as the response PDU, consist of PDU type, Request ID, Error status, Error index and Object/Variable fields. 
 
-The **Trap** consists of Enterprise, Agent, Agent address, Generic trap type, Specific trap code, Timestamp and Object/Value fields.[\[1\]](http://kb.paessler.com/en/topic/653-how-do-snmp-mibs-and-oids-work)
+The **Trap** consists of **Enterprise**, **Agent**, **Agent address**, **Generic trap type**, **Specific trap code**, **Timestamp** and **Object/Value fields**.[\[1\]](http://kb.paessler.com/en/topic/653-how-do-snmp-mibs-and-oids-work)
 
 ### Use net-snmp and snmpwalk
 [Net-snmp](http://www.net-snmp.org/) is a suite of applications used to implement SNMP protocol, including different tools like snmpwalk. [Snmpwalk](http://www.net-snmp.org/docs/man/snmpwalk.html) is an SNMP application that uses SNMP GETNEXT requests to query a network entity for a tree of information.
 
-Install net-snmp:
+**Install net-snmp**:
     
     Fedora/Centos: yum install net-snmp-utils
     Ubuntu: apt-get install snmp
 
-Retrieve data through snmpwalk from the switch in NEU using the variable name "system":
+**Retrieve data through snmpwalk** from the switch in NEU using the variable name "system":
     
     snmpwalk -c mars -v 2c 10.99.1.6 system
     
@@ -50,7 +50,7 @@ As CISCO created their own MIBs for most their devices, it's necessary to load p
 
 SNMP MIBs has dependencies on other MIBs, all MIBs must be available on the machine where the SNMP request is made, all CISCO MIBs dependencies are documented on line.
 
-The MIB can be found and downloaded from web, then should be put on the folder ```/usr/share/snmp/mibs/```. For monitoring of CISCO switches, all the following MIBs are needed.
+The MIB can be found and downloaded from web, then should be put on the folder `/usr/share/snmp/mibs/`. For monitoring of CISCO switches, all the following MIBs are needed.
 
     #Download links can be found this web page
     #(http://snmp.cloudapps.cisco.com/Support/SNMP/do/BrowseMIB.do?local=en&step=2&mibName=CISCO-PROCESS-MIB).
@@ -69,7 +69,7 @@ Snmpwalk is good for testing the SNMP devices, but it has dependencies on the ne
 
 It is implemented in pure Ruby, so there are no dependencies on external libraries like net-snmp. You can run this library anywhere that Ruby can run [\[3\]](http://www.rubydoc.info/gems/snmp/1.2.0).
 
-Install snmp ruby library
+**Install snmp ruby library**
     
     gem install snmp
 

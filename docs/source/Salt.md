@@ -1,32 +1,33 @@
 # SaltStack
 
-**Salt** :
+### Key Terms
+**Salt** 
 * a configuration management system, capable of maintaining remote nodes in defined states (for example, ensuring that specific packages are installed and specific services are running)
 * a distributed remote execution system used to execute commands and query data on remote nodes, either individually or by arbitrary selection criteria
 
 It's an opensource, fast flexible and scalable solution built on python that can run configuration in parallel on a massive scale with simplicity.
 
-**Salt Cloud** :
+**Salt Cloud**
 
 A suite of tools used to create and deploy systems on many hosted cloud providers.
 
-**Master** :
+**Master**
 
 A central Salt daemon which from which commands can be issued to listening minions.
 
-**Minion** :
+**Minion**
 
 A server running a Salt minion daemon which can listen to commands from a master and perform the requested tasks. Generally, minions are servers which are to be controlled using Salt.
 
-**State** :
+**State**
 
 A data structure which contains a unique ID and describes one or more states of a system such as ensuring that a package is installed or a user is defined.  
 
-**Pillar** :
+**Pillar**
 
 A simple key-value store for user-defined data to be made available to a minion. Often used to store and distribute sensitive data to minion.  
 
-**Grain** :
+**Grain**
 
 A key-value pair which contains a fact about a system, such as its hostname, network addresses.
     
@@ -59,11 +60,11 @@ If there is an error that no repository is enabled then add below yum repository
 	sudo yum install salt-minion	     # to install minion
 	
 ### Configuration:
-Modify "/etc/salt/minion" on the minion to specify the master for that minion.
+Modify `/etc/salt/minion` on the minion to specify the master for that minion.
 
 	master: <ip or hostname of the master>
 
-To run the configuration using .sls files, modify the file `/etc/salt/master`
+To run the configuration using `.sls` files, modify the file `/etc/salt/master`
 
 ```
 # uncomment the below lines under the heading "file server settings" and create/check the location "/srv/salt"
@@ -84,7 +85,7 @@ Salt uses AES encryption for all communication between master and minion.
 
 In order to communicate with the master, minion will try to connect with it. However, it will wait for its request to be accepted by the master and the keys being exchanged among them.
    
-Use below commands on the master to list, accept, reject(if unaccepted) or delete(if accepted) the keys from the minions
+Use below commands on the master to list, accept, reject (if unaccepted) or delete (if accepted) the keys from the minions
 ```
 salt-key -L                                  # list all the key status
 	
@@ -204,7 +205,7 @@ my-openstack-config:
 
 Generate a cloud profile config file `openstack.profile.conf` at `/etc/salt/cloud.profiles.d`
 
-This can have multiple profiles with different profileID ie. first key of the group (openstack_512) within the same file    
+This can have multiple profiles with different profileID ie. first key of the group `openstack_512` within the same file    
    
 ```
 openstack_512:                                  # profileID

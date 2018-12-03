@@ -4,7 +4,7 @@ Elasticsearch is a popular open source search server that is used for real-time 
 This tutorial is for single node elasticsearch deployment (cluster size is 1).
 
 ### Install Elasticsearch
-*(Prerequisites) Elasticsearch requires at least Java 8.*
+Elasticsearch requires at least Java 8.
 
 ```
 cd ~
@@ -153,8 +153,8 @@ Like a table in relational DB. Has a lot of fields
 oriented - Stores entire objects or documents (also indexes the contents of each document in order to make them searchable)
 
 ## ELK Stack Configuration
-* Elasticsearch (elasticsearch.yml) to listen on an address (network.host: ES_private_IP) that is accessible to Logstash and Kibana.
-* Kibana configuration (kibana.yml) elasticsearch_url should be set to Elasticsearch's listening IP/port (elasticsearch_url: "http://ES_private_IP:9200").
+* In Elasticsearch configuration `elasticsearch.yml` should listen on an address `network.host: ES_private_IP` that is accessible to Logstash and Kibana.
+* In Kibana configuration `kibana.yml` `elasticsearch_url` should be set to Elasticsearch's listening IP/port `elasticsearch_url: "http://ES_private_IP:9200"`.
 * Logstash needs its output configured to point to the Elasticsearch server.
 
 ### Elasticsearch requests

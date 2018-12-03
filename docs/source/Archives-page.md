@@ -1,5 +1,5 @@
 # Archives Page
-* How to get set up if you're a [New User](New-User.html).  Orran mentioned this page is out of date. Folks should use [[To do list for New MOC Intern Member]]
+* How to get set up if you're a [New User](New-User.html).  Orran mentioned this page is out of date. Folks should use [To do list for New MOC Intern Member](To-do-list-for-New-MOC-Intern-and-Member.html)
 * [Harvard Cluster](Harvard-Cluster.html)   This page is obsolete. The equipment had been repurposed.
 * [Harvard Equipment Sign Out](Harvard-Equipment-Sign-Out.html)  This page is obsolete. The equipment had been repurposed.
 * [Running Tempest on Harvard Clusters](Running-Tempest-on-Harvard-Clusters.html) This page is obsolete. The equipment had been repurposed.

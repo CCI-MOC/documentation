@@ -1,17 +1,11 @@
 # Installing Spark on Openshift
 Before starting this step, there are a few prerequisites which are necessary to ensure you have the proper tools and resources to complete the work.
-
-Access to an [OpenShift cluster](https://openshift.massopen.cloud)
-
-A terminal with the oc command available
-
-A new project in OpenShift to store your work. (You created this in step 3 above).  
-
-The Oshinko templates available in your project. (Step 4)
-
-An editor to work on your source files
-
-An online space for a Git repository to store your code, such as GitHub or BitBucket
+1. Access to an [OpenShift cluster](https://openshift.massopen.cloud)
+2. A terminal with the oc command available
+3. A new project in OpenShift to store your work. (You created this in step 3 above).  
+4. The Oshinko templates available in your project. (Step 4)
+5. An editor to work on your source files
+6. An online space for a Git repository to store your code, such as GitHub or BitBucket
 
 With these in place you are ready to begin creating your microservice.
 

@@ -45,9 +45,9 @@ Rather than configure the software on one node and “freeze” it as a template
 [Sample costs](https://cloud.google.com/blog/big-data/2016/03/understanding-cloud-pricing-part-6-big-data-processing-engines)
 
 Tasked with crunching 50TB of data for 5 hours daily (from cheapest to most expensive):
-* Dataproc: 21-node cluster with 4 virtual cores, 15GB of RAM, and 80GB of SSD disk per node → $2154.40
-* EMR: 21-node cluster with 4 cores, 15GB RAM, and 2x40 GB SSD storage per node → $2613.27
-* HDInsight (closest equivalent): 20-node cluster with 4 cores, 14GB RAM, and 200GB disk per node → $3261.33
+* **Dataproc** : 21-node cluster with 4 virtual cores, 15GB of RAM, and 80GB of SSD disk per node → $2154.40
+* **EMR** : 21-node cluster with 4 cores, 15GB RAM, and 2x40 GB SSD storage per node → $2613.27
+* **HDInsight** (closest equivalent): 20-node cluster with 4 cores, 14GB RAM, and 200GB disk per node → $3261.33
 
 *Note that Dataproc and HDInsight will in practice bill by the minute. EMR will end up charging a lot more as it rounds up to the whole hour.*
 
@@ -55,9 +55,9 @@ Tasked with crunching 50TB of data for 5 hours daily (from cheapest to most expe
 Openstack Sahara provides easy setup of “elastic Hadoop on demand” (very similar to the three services above) within an OpenStack environment. Clusters and nodes are configured via “templating”, a process unique to Sahara.
 
 The process of templating can broken down into at least three distinct steps:
-* Choosing Hadoop distribution (vanilla, Cloudera, Hortonworks), or opting for Spark/Storm
-* Preconfiguring parameters for components such as HDFS, Yarn, Hive, Hue, Oozie — this is the most unique part of the templating process: easier than writing a shell script but with the tradeoff that a shell script can do anything and templating is limited to setting Hadoop-related parameters
-* Hardware specifications (defined as “flavors”)
+* **Choosing Hadoop distribution** (vanilla, Cloudera, Hortonworks), or opting for Spark/Storm
+* **Preconfiguring parameters** for components such as HDFS, Yarn, Hive, Hue, Oozie — this is the most unique part of the templating process: easier than writing a shell script but with the tradeoff that a shell script can do anything and templating is limited to setting Hadoop-related parameters
+* **Hardware specifications** (defined as “flavors”)
 
 Once deployed, all tasks can be run either from the Openstack Horizon web interface via the “create job binary” webform, or (as is typical) SSH or a REST API. Notably, and very usefully, Openstack provides a Python client/wrapper around this API.
 

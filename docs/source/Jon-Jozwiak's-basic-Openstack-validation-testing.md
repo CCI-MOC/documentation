@@ -1,7 +1,7 @@
 # Basic OpenStack Testing
 Testing coverage example for keystone, glance, neutron, and nova, by Jon-Jozwiak 
 
-### keystonerc_admin
+### Validate keystonerc_admin
 ```
 glance image-create --name "cirros-0.3.2-x86_64" --disk-format qcow2 --container-format bare –-is-public true --file cirros-0.3.2-i386-disk.img
 # Enable ping and SSH in default security group 

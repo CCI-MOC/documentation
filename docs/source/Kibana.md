@@ -67,9 +67,12 @@ Before you can start using Kibana, you need to tell it which Elasticsearch indic
 
 The first time you access Kibana, you are prompted to define an index pattern that matches the name of one or more of your indices.You can add index patterns at any time from the Settings tab.
 1. Point your browser at port 5601 to access the Kibana UI. For example, `localhost:5601` or `http://YOURDOMAIN.com:5601`
-2. Specify an index pattern that matches the name of one or more of your Elasticsearch indices. In our production the index name is `filebeat-*`. asterisk (`*`) matches zero or more characters in an index’s name. If your Elasticsearch indices follow some other naming convention, enter an appropriate pattern. The "pattern" can also simply be the name of a single index.
-3. Select the index field that contains the timestamp that you want to use to perform time-based comparisons. Kibana reads the index mapping to list all of the fields that contain a timestamp. If your index doesn’t have time-based data, disable the **Index contains time-based events** option.
-4. If new indices are generated periodically and have a timestamp appended to the name, select the **Use event times to create index names** option and select the **Index pattern interval**. This improves search performance by enabling Kibana to search only those indices that could contain data in the time range you specify. This is primarily applicable if you are using Logstash to feed data into Elasticsearch.
+2. Specify an index pattern that matches the name of one or more of your Elasticsearch indices. In our production the index name is `filebeat-*`. asterisk (`*`) matches zero or more characters in an index’s name. 
+  If your Elasticsearch indices follow some other naming convention, enter an appropriate pattern. The "pattern" can also simply be the name of a single index.
+3. Select the index field that contains the timestamp that you want to use to perform time-based comparisons. Kibana reads the index mapping to list all of the fields that contain a timestamp.
+  If your index doesn’t have time-based data, disable the **Index contains time-based events** option.
+4. If new indices are generated periodically and have a timestamp appended to the name, select the **Use event times to create index names** option and select the **Index pattern interval**.
+  This improves search performance by enabling Kibana to search only those indices that could contain data in the time range you specify. This is primarily applicable if you are using Logstash to feed data into Elasticsearch.
 5. Click **Create** to add the index pattern. This first pattern is automatically configured as the default. When you have more than one index pattern, you can designate which one to use as the default **from Settings > Indices**.
 
 For more information, check the documentation [here](https://www.elastic.co/guide/en/kibana/current/index.html)

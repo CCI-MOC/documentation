@@ -22,7 +22,7 @@ The Apache Vanilla plugin provides the ability to launch upstream Vanilla Apache
 * oozie
 * hiveserver 
 
-**Validation** :  
+**Validation**  
 
 * Cluster must contain exactly one namenode  
 * Cluster can contain at most one resourcemanager  
@@ -70,7 +70,7 @@ The Ambari plugin provides a way to provision clusters with Hortonworks Data Pla
 * Knox Gateway
 * Spark History Server
 
-**Validation**:  
+**Validation**  
 
 * Ensure the existence of Ambari Server process in the cluster  
 * Ensure the existence of a NameNode, Zookeeper, ResourceManager(s), HistoryServer and App TimeLine Server in the cluster  

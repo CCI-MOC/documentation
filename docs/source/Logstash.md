@@ -148,7 +148,7 @@ $ cd /etc/pki/tls
 $ sudo openssl req -config /etc/pki/tls/openssl.cnf -x509 -days 3650 -batch -nodes -newkey rsa:2048 -keyout private/logstash-forwarder.key -out certs/logstash-forwarder.crt
 ```
 
-Inorder for Logstash Server to collect logs shipped by Logsash Forwarder, the input section of the logstash .conf file must be configured similar to the following:
+Inorder for Logstash Server to collect logs shipped by Logsash Forwarder, the input section of the `logstash.conf` file must be configured similar to the following:
 ```
 input {
   lumberjack {

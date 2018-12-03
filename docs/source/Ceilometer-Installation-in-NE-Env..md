@@ -4,10 +4,10 @@ To learn more about Ceilometer in our production environment, please go here: [C
 ### Install MongoDB
 We have MongoDB installed on a separate node located at `129.10.5.56`. Go there and then follow these instructions.
 
-Install the MongoDB package
-
-	# yum install mongodb-server mongodb
-
+**Install the MongoDB package**
+```
+# yum install mongodb-server mongodb
+```
 
 Edit the `/etc/mongod.conf`
 ```
@@ -16,14 +16,13 @@ bind_ip = <your ip> # In our case 129.10.5.56
 smallfiles = true
 ```
 
-Start mongodb services and configure them to start when the system boots
-
+**Start mongodb services** and configure them to start when the system boots
 ```
 # systemctl enable mongod.service
 # systemctl start mongod.service
 ```
 
-Create the ceilometer database in mongodb
+**Create the ceilometer database in mongodb**
 ```
 # mongo --host 129.10.5.56 --eval '
   db = db.getSiblingDB("ceilometer");
@@ -36,46 +35,38 @@ Create the ceilometer database in mongodb
 
 **Create the service credentials**
 
-1. Source the admin credentials to gain access to admin-only CLI commands
-
-    ```
-    # source keystone_admin
-    ```
-
-2. Create the ceilometer user
-
+1. **Source the admin credentials** to gain access to admin-only CLI commands
+```
+# source keystone_admin
+```
+2. **Create the ceilometer user**
 ```
 $ openstack user create --password-prompt ceilometer
 User Password:CEILOMETER_PASS (from hiera file)
 Repeat User Password:
 ```
-
-3. Add the admin role to the ceilometer user
+3. **Add the admin role to the ceilometer user**
 
 ```
   $ openstack role add --project services --user ceilometer admin
 ```
-4.Create the ceilometer service entity:
-
+4.**Create the ceilometer service**
 ```
 $ openstack service create --name ceilometer \
   --description "Telemetry" metering
 ```
-
-5.Create the Telemetry module API endpoint:
-
+5.**Create the Telemetry module API endpoint**
 ```
 $ openstack endpoint create --publicurl http://10.13.37.17:8777 --internalurl http://10.13.37.17:8777 --adminurl http://10.13.37.17:8777 --region MOC_Kaizen metering
 ```
-Above is only an example of the endpoint creation, you should change the url, region and service name accordingly. 
+  Above is only an example of the endpoint creation, you should change the url, region and service name accordingly. 
 
 **Install and configure ceilometer module**
 
-1. Install package
+1. **Install package**
 ```
 # yum install openstack-ceilometer-api openstack-ceilometer-collector openstack-ceilometer-notification openstack-ceilometer-central openstack-ceilometer-alarm python-ceilometerclient
 ```
-
 2. Edit the `/etc/ceilometer/ceilometer.conf` file
 ```
 [database]
@@ -112,8 +103,7 @@ os_auth_url = https://keystone.staging.moc.edu:35357/v2.0 (your keystone)
 os_region_name = MOC_Test(your region name)
 
 ```
-
-3. Configure to start ceilometer service at reboot
+3. **Configure to start ceilometer service at reboot**
 
 ```
 #systemctl enable openstack-ceilometer-api.service openstack-ceilometer-notification.service openstack-ceilometer-central.service openstack-ceilometer-collector.service openstack-ceilometer-alarm-evaluator.service openstack-ceilometer-alarm-notifier.service
@@ -149,7 +139,7 @@ ceilometer meter-list
 ```
 
 ### Configure Compute Service
-1. Install the packages:
+1. **Install the packages**
 ```
 # yum install openstack-ceilometer-compute python-ceilometerclient python-pecan
 ```
@@ -193,7 +183,7 @@ os_endpoint_type = internalURL
 os_region_name = RegionOne
 ```
 
-3. Configure the Compute service to send notifications to the message bus. Edit the `/etc/nova/nova.conf` file
+3. **Configure the Compute service to send notifications to the message bus**. Edit the `/etc/nova/nova.conf` file
 
 ```
 [DEFAULT]
@@ -205,29 +195,29 @@ notification_driver = messagingv2
 ```
 
 
-4. Start the Telemetry agent and configure it to start when the system boots:
+4. **Start the Telemetry agent** and configure it to start when the system boots:
 
 ```
 # systemctl enable openstack-ceilometer-compute.service
 # systemctl start openstack-ceilometer-compute.service
 ```
 
-5. Restart the Compute service:
+5. **Restart the Compute service**:
 
 ```
 # systemctl restart openstack-nova-compute.service
 ```
 
 ### Configure IPMI Service
-1. Install the ipmi package
+1. **Install the ipmi package**
 ```
 # yum install openstack-ceilometer-ipmi
 ```
-2. Install ipmitool
+2. **Install ipmitool**
 ```
 # yum install ipmitool
 ```
-3. Start impi agent
+3. **Start impi agent**
 ```
 # systemctl enable openstack-ceilometer-ipmi.service
 # systemctl start openstack-ceilometer-ipmi.service

@@ -1,7 +1,7 @@
 # Aggregate Data in InfluxDB
 This wiki page contains an explanation of how we aggregate data from different measurements (tables) in influxDB and put them into one measurement(table). 
 
-The purpose of this page will be to explain a script that I have written. The script is located on the kaizen-sensu-admin, located at 10.13.37.179 in the /root directory.
+The purpose of this page will be to explain a script that I have written. The script is located on the kaizen-sensu-admin, located at 10.13.37.179 in the `/root` directory.
 
 You can also find the script [here](https://github.com/CCI-MOC/moc/blob/master/scripts/influxdb_aggregate)
 
@@ -19,7 +19,7 @@ InfluxDB has a fairly limited query language at the moment, as it is relatively 
 
 Because of this, there is not much support for merging different tables into one. So, we've had to write a script that does this.
 
-The influxdb_aggregate script is run once every minute by a cronjob.
+The `influxdb_aggregate` script is run once every minute by a cronjob.
 
 The script queries influxDB for certain tables, and certain metrics within those tables. It calculates an average of all the data points received in the last minute for each specific metric and host, and puts them into a new table, called "Aggregated_metrics".
 

@@ -5,6 +5,7 @@
 * [Create DB user](https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql)
 * [Install Wordpress](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-on-centos-7)
 * In `/etc/httpd/conf/httpd.conf` under `<Directory "/var/www">` and `<Directory "/var/www/html">` change `AllowOverride none` to `AllowOverride all`.  
+
 *IMPORTANT** Do not change it under `<Directory "/">`!*
 
 ```
@@ -19,9 +20,9 @@ wp_db_pass: <password set for wpuser>
 ### How to change Wordpress Domain 
 When running a multisite installation as we are, wordpress also hardcodes the domain in the database.
 
-Run this [script](https://github.com/interconnectit/Search-Replace-DB) through the command line to replace all occurrences of the old domain with the new domain. (Can't be done manually as there are hundreds). [**Reference**](https://codex.wordpress.org/Moving_WordPress#Moving_WordPress_Multisite)
+Run this [script](https://github.com/interconnectit/Search-Replace-DB) through the command line to replace all occurrences of the old domain with the new domain. (Can't be done manually as there are hundreds). [Reference](https://codex.wordpress.org/Moving_WordPress#Moving_WordPress_Multisite)
 
-Navigate to the wordpress directory (this is where wp-config.php is) and run:
+Navigate to the wordpress directory (this is where `wp-config.php` is) and run:
     
      # git clone https://github.com/interconnectit/Search-Replace-DB
      # cd Search-Replace-DB
@@ -37,7 +38,9 @@ You must also replace the domain name everywhere it is hard-coded into links in 
 
 There is also a GUI you can use by pointing your browser to the Search-Replace-DB directory.
 
-If the script gives you a CLI error about "undefined function mb_regex_encoding()" it is because you need to install the package php-mbstring.  (In the GUI this will appear as a popup about an AJAX error).  Install the package, then restart httpd:
+If the script gives you a CLI error about `undefined function mb_regex_encoding()` it is because you need to install the package php-mbstring.  (In the GUI this will appear as a popup about an AJAX error).  
+
+Install the package, then restart httpd
      
      # yum install php-mbstring -y
      # systemctl restart httpd
@@ -51,9 +54,11 @@ The backup consists of:
     httpd.conf         # server config
     backup.info        # identifying info about the backup, time/date, etc
 
-Use Kristi's Ansible playbook to automatically deploy a LAMP server and configure the wordpress database on a new instance. *(Update on Spet. 15th by Lucas: Currently, the ansible script might not work. We need to do a test on that script)*
+Use Kristi's Ansible playbook to automatically deploy a LAMP server and configure the wordpress database on a new instance.
 
-Copy the backup of /var/www/html to /var/www/html on the new server.  You need to make sure all hidden files are copied, so be careful of the syntax:
+*(Update on Spet. 15th by Lucas: Currently, the ansible script might not work. We need to do a test on that script)*
+
+Copy the backup of `/var/www/html` to `/var/www/html` on the new server.  You need to make sure all hidden files are copied, so be careful of the syntax:
 
      # rmdir /var/www/html
      # cp -r <backup_directory>/var/www/html /var/www/html

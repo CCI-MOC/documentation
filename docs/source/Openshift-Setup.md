@@ -64,7 +64,7 @@ The second way is to get the private ip of the service (this is possible by clic
 
 Now this will only work if you have a proxy set up. 
 
-In your browser, go to your proxy settings and set up a manual socks proxy with any port(say 6000).
+In your browser, go to your proxy settings and set up a manual socks proxy with any port (say 6000).
 
 Then SSH into your machine where openshift is currently running using the port 6000 with the below command:
 
@@ -84,14 +84,14 @@ Once you have made necessary configurations in jenkins for you projects, you can
 [some documentation on using Jenkins with Openshift](https://github.com/openshift/jenkins)
 
 Even though it looks straight forward, I'll explain the steps for using s2i.
-1. First of all create a private git repository since your passwords will all be visible in your jenkins' configuration.
-2. Create the directory structure as mentioned in the above links.
-3. Copy all the files from `/var/lib/jenkins` within the jenkins container which is running in opensfhit. into the configurations folder in git repository.
-4. Copy all the files and folders from `/var/lib/jenkins/plugins` into the plugins folder in git repository.
-5. Copy all the files and folders from `/var/lib/jenkins/jobs` into the configurations/jobs folder in git repository.
-6. Mention all the correct plugins and their versions in the `plugins.txt` file inorder to successfully install the extra  plugins which were not present already in the default jenkins project.
-7. Once all the files are ready, push them into the github private repo.
-8. Now goto the directory where s2i is installed and run the below command:
+1. First of all **create a private git repository** since your passwords will all be visible in your jenkins' configuration.
+2. **Create the directory structure** as mentioned in the above links.
+3. **Copy all the files** from `/var/lib/jenkins` within the jenkins container which is running in Openshift into the configurations folder in git repository.
+4. **Copy all the files and folders** from `/var/lib/jenkins/plugins` into the plugins folder in git repository.
+5. **Copy all the files and folders** from `/var/lib/jenkins/jobs` into the configurations/jobs folder in git repository.
+6. **Mention all the correct plugins and their versions in the `plugins.txt`** file inorder to successfully install the extra  plugins which were not present already in the default jenkins project.
+7. **Push files into the github private repo**.
+8. Now goto the directory where s2i is installed and **run command**
 
 	./s2i build https://github.com/_repository-name_ _existing-image-to-be-based-on_ _new-image-name_
 
@@ -106,13 +106,13 @@ Complete details are given [here](https://blog.openshift.com/openshift-3-2-jenki
 
 In the above mentioned blog, there are two lines about Kubernetes plugin, and that _has_ to be configured on order to make this work efficiently.
 * Kubernetes url can be found using the below command, with port 443 mostly
-
-	oc get services --all-namespaces
-
+```
+oc get services --all-namespaces
+```
 * Kubernetes Server certificate key would be the first server key found using this command
-
-	kubectl config view --raw
-
+```
+kubectl config view --raw
+```
 * Kubernetes namespace would be the project name you are currently under.
 * Credentials would be te username/password currently being used in openshift.
 * Make sure to test the connection before proceeding forward.

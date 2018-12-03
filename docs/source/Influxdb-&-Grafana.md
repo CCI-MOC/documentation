@@ -18,6 +18,7 @@ This diagram shows how Sensu,InfluxDB and Grafana interact with each other.
 InfluxDB uses port 8083 as the admin server port and 8086 as the http api port by default. More configuration options can be viewed and modified at `/opt/influxdb/shared/config.toml`.
 
 **Configuration related to sensu**
+
 All configuration files related to sensu are inside `/etc/sensu/conf.d`.
 
 This is a .json file configuring host, port, username, password and database for influxdb. 
@@ -105,8 +106,10 @@ On each of the two VMs, run command `sudo service influxdb start`
 ### Grafana Installation
 The Grafana version we are using is v 2.0.0-beta3
 
-You can install Grafana using Yum directly. `$ sudo yum install https://grafanarel.s3.amazonaws.com/builds/grafana-2.0.0_beta3-1.x86_64.rpm`
-
+You can install Grafana using yum directly.
+```
+$ sudo yum install https://grafanarel.s3.amazonaws.com/builds/grafana-2.0.0_beta3-1.x86_64.rpm
+```
 Or you can install it using rpm.
 ```
 $ sudo yum install initscripts fontconfig

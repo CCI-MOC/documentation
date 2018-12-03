@@ -6,17 +6,17 @@ This page talks about the current SLURM system we can deploy using the existing 
 The current scripts assumes you are deploying the SLURM cluster using CentOS 7 operating system on MOC's kaizen VMs.  
   
 ### Prerequisites to run these scripts
-1. A VM or your local machine that can SSH into the kaizen VMs(used as the Controller/Compute node).  
-2. Every kaizen VM(node) brought up should be reachable by other Nodes(i.e Controller/Compute nodes) especially by the Controller node and by the machine described in the 1st prerequisite(This is possible by assigning floating ip).  
+1. A VM or your local machine that can SSH into the kaizen VMs (used as the Controller/Compute node).  
+2. Every kaizen VM (node) brought up should be reachable by other Nodes (i.e Controller/Compute nodes) especially by the Controller node and by the machine described in the 1st prerequisite (This is possible by assigning floating ip).  
 3. The nodes which are used by the SLURM cluster should be running CentOS 7 operating system.
   
-The current system uses the local machine or a VM on kaizen(so forth called local machine throughout this document) that can reach every other node in the SLURM cluster. The script is run on this local machine.  
+The current system uses the local machine or a VM on kaizen (so forth called local machine throughout this document) that can reach every other node in the SLURM cluster. The script is run on this local machine.  
   
 The following shows the current SLURM cluster deployment architecture:
 
 ![SLURM cluster deployment architecture](_static/Slurm.jpg)  
   
-The deployment scripts are run on the local machine seen in the diagram, this deployment scripts installs the necessary packages and starts the particular daemon(central daemon or daemon) on the node.
+The deployment scripts are run on the local machine seen in the diagram, this deployment scripts installs the necessary packages and starts the particular daemon (central daemon or daemon) on the node.
 
 The SLURM cluster communicates over the internal network, whereas to install the packages the local machine communicates with the VMs using the floating ips.  
   
@@ -34,5 +34,5 @@ where, `floating_ip_of_the_instance` is the ip address of node that the local ma
   
 Running these commands takes care of installing all the packages, editing the SLURM configuration file and running the SLURM daemon on the node. The Master/Controller node should brought up first.
 
-The script keeps track of the nodes and there ip addresses from the file ip_address.txt present in the directory where the scripts are present.
+The script keeps track of the nodes and there ip addresses from the file `ip_address.txt` present in the directory where the scripts are present.
 

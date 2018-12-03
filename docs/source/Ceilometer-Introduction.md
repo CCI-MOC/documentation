@@ -2,33 +2,35 @@
 This is an introduction to how Ceilometer works in our production environment as of July 20, 2016
 
 Ceilometer consists of three main parts:
-1. The Ceilometer Agents
-2. A Ceilometer Server
-3. The MongoDB database that stores Ceilometer Info
+1. The **Ceilometer Agents**
+2. A **Ceilometer Server**
+3. The **MongoDB database** that stores Ceilometer Info
 
 ### Ceilometer Agents
 The Ceilometer compute agents are installed on the compute nodes in our production environment. They poll the compute node (using the ceilometer API) that they are installed on for data and send it to the server. 
 
 The services that run on the compute node are:
-* openstack-ceilometer-api
-* openstack-ceilometer-compute
+* **openstack-ceilometer-api**
+* **openstack-ceilometer-compute**
 
 They should be functioning correctly. You can view the logs are `/var/log/ceilometer`.
 
 ### Ceilometer Server
 The Ceilometer server lives on the controller node. It collects the data that is being sent from the compute nodes and sends that data to the database. It also collects some data from itself, if configured, such as data on glance images. 
 
-We are only currently interested in data from the compute nodes and their VMs. To this end, we have disabled polling of swift object storage, as it was causing errors. Some other services may still be configured, such as glance images, but can be ignored.
+We are only currently interested in data from the compute nodes and their VMs. To this end, we have disabled polling of swift object storage, as it was causing errors. 
+
+Some other services may still be configured, such as glance images, but can be ignored.
 
 The Ceilometer Server needs a few ceilometer services to be running:
-* Openstack-ceilometer-alarm-evaluator
-* Openstack-ceilometer-alaarm-notifier
-* Openstack-ceilometer-api
-* Openstack-ceilometer-central
-* Openstack-ceilometer-collector
-* Openstack-ceilometer-notification
+* **Openstack-ceilometer-alarm-evaluator**
+* **Openstack-ceilometer-alaarm-notifier**
+* **Openstack-ceilometer-api**
+* **Openstack-ceilometer-central**
+* **Openstack-ceilometer-collector**
+* **Openstack-ceilometer-notification**
 
-There is currently a bug where some of the data being sent from compute nodes is discarded. Redhat has opened a bug report on it because it may be a [bug](https://bugzilla.redhat.com/show_bug.cgi?id=1358005)
+There is currently a bug where some of the data being sent from compute nodes is discarded. Redhat has opened a [bug report](https://bugzilla.redhat.com/show_bug.cgi?id=1358005) on it. 
 
 When this is resolved, all of the data should be sent from the compute nodes to the ceilometer server on the controller node.
 

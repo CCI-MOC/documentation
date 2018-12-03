@@ -3,10 +3,11 @@ From Yue Zhang, June 2015
 
 First of all, we should install devstack on a clean Ubuntu12.04 on Single Machine(Physical Machine/ VM). Installing devstack on a physical machine may **destroy the whole system**, you should be aware of it. 
 
-System Requirements
-* Processor - at least 2 cores
-* Memory - at least 8GB
-* Hard Drive - at least 60GB
+**System Requirements**
+
+* **Processor** - at least 2 cores
+* **Memory** - at least 8GB
+* **Hard Drive** - at least 60GB
 
 ```
 sudo apt-get install git -y || sudo yum install -y git
