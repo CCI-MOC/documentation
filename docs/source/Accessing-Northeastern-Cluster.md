@@ -18,20 +18,25 @@ Where `<PORT#>` is any outgoing port on your machine that is not in use.
 ### Accessing the OBMs
 Change your proxy settings to use a SOCKS proxy with the port number you used above.
 
-More instructions for this are available [here](https://github.com/CCI-MOC/moc-public/wiki/Access-the-OpenStack-dashboard).
+More instructions for this are available [here](Access-the-OpenStack-dashboard.html).
 
 Now, you should be able to reach the OBM in your browser at `http://10.99.1.x`, where x is 101,102,...,148 for servers 1 through 48.
 
 ### Accessing Foreman
-The Foreman VM is at [http://10.13.37.1].  Request an admin password from moc-ops-team-list@bu.edu
+The Foreman VM is at `http://10.13.37.1`.  Request an admin password from moc-ops-team-list@bu.edu
 
-Go to Hosts-> All Hosts and then click on host that you want to use.  Its IP address `10.13.37.x` will be shown.  Note that 'x' generally will not match the number in the name of the node.
+Go to Hosts-> All Hosts and then click on host that you want to use.
+
+Its IP address `10.13.37.x` will be shown.  Note that 'x' generally will not match the number in the name of the node.
 
 ### Logging in to the nat-public gateway
-The Gateway/DNS/DHCP server for the `nat-public` network in HaaS is a headnode called `nat-pub-gateway`, owned by the project `haas-admins`. Regular use does not require logging in to this machine.
+The Gateway/DNS/DHCP server for the `nat-public` network in HaaS is a headnode called `nat-pub-gateway`, owned by the project `haas-admins`.
 
-The machine can be reached from the HaaS master via the IP address `192.168.122.80`. Only Jay, Laura, and the three engineers have access
-to this (the users are configured via the manifests in the `puppet-internal` repository). 
+Regular use does not require logging in to this machine.
+
+The machine can be reached from the HaaS master via the IP address `192.168.122.80`.
+
+Only Jay, Laura, and the three engineers have access to this (the users are configured via the manifests in the `puppet-internal` repository). 
 
 These same users also have sudo access, though at present only `isd` has a password set. Talk to him if you need a password so you can sudo.
 
@@ -60,7 +65,7 @@ So, you are now logged into the box. Next, bring down network manager using foll
     [root@compute-43 ~]# systemctl stop NetworkManager
 
 
-*Note: Before following these steps to put your node on the public network, please review the steps at [[Security Best Practices]].*
+*Note: Before following these steps to put your node on the public network, please review the steps at [Security Best Practices](Security-Install-Best-Practices.html).*
 
 Create configuration file for your network interface at `/etc/sysconfig/network-scripts/ifcfg-enp130s0f0.125`:
 

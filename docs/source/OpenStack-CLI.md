@@ -1,19 +1,28 @@
-<!-- linky links -->
+# OpenStack CLI
 [CLI Cheat Sheet]: http://docs.openstack.org/user-guide/cli-cheat-sheet.html
 
-## Introduction
+The OpenStack CLI is designed for interactive use.
 
-The OpenStack CLI is designed for interactive use.  It's also possible to call it from a bash script or similar, but typically it is too slow for heavy scripting use.
-  
+It's also possible to call it from a bash script or similar, but typically it is too slow for heavy scripting use.
 
-## Command Line setup
+### Command Line setup
 
-To use CLI, you must set some environmental variables.  The easiest way to do this is to run the OpenStack RC script you downloaded earlier.  Find the file (by default it will be named `project-openrc.sh` where project is the name of your OpenStack project).  Source the file:
+To use CLI, you must set some environmental variables.
+
+The easiest way to do this is to run the OpenStack RC script you downloaded earlier.
+
+Find the file (by default it will be named `project-openrc.sh` where project is the name of your OpenStack project).
+
+Source the file:
 
     [kamfonik@ezio ~]$ source tutorial_project-openrc.sh
     Please enter your OpenStack Password:
 
-You will be prompted for the password to your OpenStack account.  Note that this just stores your entry into the environment variable - there's no validation at this stage.  If you have trouble authenticating later, try running the script again and re-enter your password, in case you made a typo.
+You will be prompted for the password to your OpenStack account.
+
+Note that this just stores your entry into the environment variable - there's no validation at this stage.
+
+If you have trouble authenticating later, try running the script again and re-enter your password, in case you made a typo.
 
 What this script does is set the following environment variables:
 
@@ -27,7 +36,7 @@ What this script does is set the following environment variables:
 
 Note that "project" and "tenant" both refer to the same thing, your OpenStack project.
 
-## OpenStack Hello World
+### OpenStack Hello World
 
 To test that you have everything configured, try out some commands.  The following command lists all the images available to your project:
 
@@ -76,21 +85,31 @@ If you see this error:
     [kamfonik@ezio moc-public.wiki]$ openstack server list
     The request you have made requires authentication. (HTTP 401) (Request-ID: req-6a827bf3-d5e8-47f2-984c-b6edeeb2f7fb)
 
-Then your environment variables are likely not configured correctly.  The most common reason is that you made a typo when entering your password.  Try sourcing the rc script again and retyping it.
+Then your environment variables are likely not configured correctly.
 
-You can type `openstack -h` to see a list of available commands.  There is also a useful [CLI cheat sheet] maintained in the End User guide. 
+The most common reason is that you made a typo when entering your password.  Try sourcing the rc script again and retyping it.
+
+You can type `openstack -h` to see a list of available commands.
 
 Note that this includes some admin-only commands. If you try one of these by mistake, you might see this output:
 
     [kamfonik@ezio ~]$ openstack user list
     You are not authorized to perform the requested action: admin_required (HTTP 403) (Request-ID: req-60ceb1b8-a90f-407a-84dd-66e0d4b40869)
 
-Depending on your needs for API interaction, this  might be sufficient.  If you just occasionally want to run 1 or 2 of these commands from your terminal, you can do it manually or write a quick bash script that makes use of this CLI.  However, this isn't a very optimized  way to do complex interactions with OpenStack.  For that, you want to write scripts that interact with the python bindings directly.
+Depending on your needs for API interaction, this  might be sufficient.
 
-Pro Tip: If you find yourself fiddling extensively with awk and grep to extract things like project IDs from the CLI output, it's time to move on to using the client libraries or the RESTful API directly in your scripts.
+If you just occasionally want to run 1 or 2 of these commands from your terminal, you can do it manually or write a quick bash script that makes use of this CLI.
 
-***
+However, this isn't a very optimized  way to do complex interactions with OpenStack. For that, you want to write scripts that interact with the python bindings directly.
 
-#### Next: [[Python SDK]]
-##### Previous: [[API Access]]
-[[Openstack Tutorial Index]]
+*Pro Tip: If you find yourself fiddling extensively with awk and grep to extract things like project IDs from the CLI output, it's time to move on to using the client libraries or the RESTful API directly in your scripts.*
+
+******
+
+Next: [Python SDK](Python-SDK.html)
+
+
+Previous: [API Access](API-Access.html)
+
+[Openstack Tutorial Index](Openstack-Tutorial-Index.html)
+

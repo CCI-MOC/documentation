@@ -1,16 +1,17 @@
-<!-- linky links -->
-[OpenStack API Guide]: https://docs.openstack.org/api/api-ref-guides.html
-## Introduction 
+# REST API
+[OpenStack API Guide](https://docs.openstack.org/api/api-ref-guides.html)
 
-It's possible to write your application to interact directly with OpenStack's REST APIs.  This requires some comfort with REST but in some cases may be the best way to adapt your particular application to make use of a particular service.
+It's possible to write your application to interact directly with OpenStack's REST APIs.
+
+This requires some comfort with REST but in some cases may be the best way to adapt your particular application to make use of a particular service.
 
 An introduction to the concept of REST and how to use it is beyond the scope of this tutorial, but we do provide an example below to get started with.
 
-A good resource is the [OpenStack API Guide].
+### Example
 
-## Example
+Note that the script below includes both Keystone V2 and V3 authentication.
 
-Note that the script below includes both Keystone V2 and V3 authentication.  We recommend working with V3 auth for new applicatoins, but include the V2 example to illustrate the differences for those who might be trying to work with an existing V2 application.  
+We recommend working with V3 auth for new applicatoins, but include the V2 example to illustrate the differences for those who might be trying to work with an existing V2 application.  
 
 Our current Mitaka production environment supports both APIs (as of this writing, April 2017).
 
@@ -148,9 +149,13 @@ ice-discovery
         print "******"
 ```
 
-Download the above script: [REST_example.py](tutorial_scripts/REST_example.py)
-***
+Download the above script: [REST_example.py]
 
-#### Next: [[Python Service Clients]]
-##### Previous: [[Python SDK]]
-[[OpenStack Tutorial Index]]
+******
+
+Next: [Python Service Clients](Python-Service-Clients.html)
+
+Previous: [Python SDK](Python-SDK.html)
+
+[OpenStack Tutorial Index](OpenStack-Tutorial-Index.html)
+

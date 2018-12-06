@@ -1,14 +1,18 @@
-<!-- linky links -->
-[novaclient]: http://docs.openstack.org/developer/python-novaclient/     
-[cinderclient]: http://docs.openstack.org/developer/python-cinderclient/     
-[neutronclient]: http://docs.openstack.org/developer/python-neutronclient/      
-[glanceclient]: http://docs.openstack.org/developer/python-glanceclient/     
-[swiftclient]: http://docs.openstack.org/developer/python-swiftclient/swiftclient.html   
-[OpenStack SDK docs]: https://docs.openstack.org/user-guide/sdk-overview.html#openstack-sdk
-## Introduction
-The individual service clients are Python libraries that wrap the OpenStack REST APIs.  According to the official [OpenStack SDK docs], this method of interacting with OpenStack should be avoided unless there is no other way to accomplish what you need.  We provide some working examples here in case this describes your use case.
+# Python Service Clients
+* [novaclient](http://docs.openstack.org/developer/python-novaclient/)
+* [cinderclient](http://docs.openstack.org/developer/python-cinderclient/)     
+* [neutronclient](http://docs.openstack.org/developer/python-neutronclient/)      
+* [glanceclient](http://docs.openstack.org/developer/python-glanceclient/)  
+* [swiftclient](http://docs.openstack.org/developer/python-swiftclient/swiftclient.html)   
+* [OpenStack SDK docs](https://docs.openstack.org/user-guide/sdk-overview.html#openstack-sdk)
 
-## Hello World script
+The individual service clients are Python libraries that wrap the OpenStack REST APIs.
+
+According to the official OpenStack SDK docs, this method of interacting with OpenStack should be avoided unless there is no other way to accomplish what you need.
+
+We provide some working examples here in case this describes your use case.
+
+### Hello World script
 
 Let's jump right in with an example.  Here's a script that will list all instances in your project. 
 
@@ -33,13 +37,15 @@ Let's jump right in with an example.  Here's a script that will list all instanc
                              project_name,
                              auth_url) 
 
-Here's an [example script](tutorial_scripts/api-client-examples.py) that shows how to set up clients for the different services and retrieve some basic information about existing resources.  You need to make sure your environment variables are set in order for it to work. 
+Here's an [example script] that shows how to set up clients for the different services and retrieve some basic information about existing resources.
 
-## Launch an instance
+You need to make sure your environment variables are set in order for it to work. 
+
+### Launch an instance
 
 Let's launch an instance from a script.  We'll assume that you have already created a private network, and that you know the name of the image you want to launch from.
 
-Make a copy of the python-api-clients.py script, let's call the new script nova_launch.py.
+Make a copy of the `python-api-clients.py` script, let's call the new script `nova_launch.py`.
 
 Define some instance parameters like this:
 
@@ -79,31 +85,25 @@ Run your script from a terminal where you have sourced the openstackrc script:
 
 If you log into the Horizon GUI, you can see your instance.
 
-The [example script](tutorial_scripts/nova_launch.py) is available for download - make sure to fill in the appropriate image, flavor, keypair, and network names, and to set your environment variables.
+The [example script] is available for download.
+
+Make sure to fill in the appropriate image, flavor, keypair, and network names, and to set your environment variables.
 
 
-# OpenStack Python API Documentatoin
+### OpenStack Python API Documentatoin
 
 More information about the various OpenStack clients is available in the official documentation:
-
 * [Nova][novaclient]
 * [Neutron][neutronclient]
 * [Cinder][cinderclient]
 * [Glance][glanceclient]
 * [Swift][swiftclient]
 
+You have now reached the end of the tutorial! Good work!
 
-***
+******
 
-##### You have now reached the end of the tutorial! Good work!
+Previous: [REST API](REST-API.html)
 
-***
-
-##### Previous: [[REST API]]
-[[OpenStack Tutorial Index]]
-
-
-
-
-
+[OpenStack Tutorial Index](OpenStack-Tutorial-Index.html)
 

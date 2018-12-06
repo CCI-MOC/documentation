@@ -1,19 +1,25 @@
-<!-- linky links -->
-[Python SDK page at PyPi]: https://pypi.python.org/pypi/openstacksdk
-[Openstack End User Guide]: http://docs.openstack.org/user-guide/
-[1]: http://docs.openstack.org/user-guide/common/cli-install-openstack-command-line-clients.html
-[known SDKs]: https://wiki.openstack.org/wiki/SDKs
+# Python SDK
+[Python SDK page at PyPi](https://pypi.python.org/pypi/openstacksdk)
 
-## Intro
+[Openstack End User Guide](http://docs.openstack.org/user-guide/)
 
-From the [Python SDK page at Pypi]:  
-> The python-openstacksdk is a collection of libraries for building applications to work with OpenStack clouds. The project aims to provide a consistent and complete set of interactions with OpenStack’s many services, along with complete documentation, examples, and tools."
+[1](http://docs.openstack.org/user-guide/common/cli-install-openstack-command-line-clients.html)
 
-If you need to plug OpenStack into existing scripts using another language, there are a variety of other SDKs at various levels of active development.  A list of [known SDKs] is maintained on the official OpenStack wiki.	 
+[known SDKs](https://wiki.openstack.org/wiki/SDKs)
 
-## Hello World script
 
-Let's jump right in with an example.  Here's a script equivalent of the `openstack image list` command we performed via the CLI on the [previous page](#API-Access.md)
+From the Python SDK page at Pypi:  
+```
+The python-openstacksdk is a collection of libraries for building applications to work with OpenStack clouds. The project aims to provide a consistent and complete set of interactions with OpenStack’s many services, along with complete documentation, examples, and tools."
+```
+
+If you need to plug OpenStack into existing scripts using another language, there are a variety of other SDKs at various levels of active development.
+
+A list of known SDKs is maintained on the official OpenStack wiki.	 
+
+### Hello World script
+
+Let's jump right in with an example.  Here's a script equivalent of the `openstack image list` command we performed via the CLI on the [previous page](API-Access.html)
 
     import os
     from openstack import connection
@@ -51,9 +57,13 @@ Let's jump right in with an example.  Here's a script equivalent of the `opensta
          print "{ID}\t{name}".format(ID=image.id, name=image.name)
 
 
-Wait, you're thinking, that looks like a lot more work than `openstack image list`!  But, look at how much of that work is just the openstack authentication step.  You only have to do that part once per script.
+Wait, you're thinking, that looks like a lot more work than `openstack image list`!
 
-Notice that we access the image name and id.  There's actually a lot more information we can get from the output of conn.compute.images().  To see an example, add this to the bottom of your script:
+But, look at how much of that work is just the openstack authentication step.  You only have to do that part once per script.
+
+Notice that we access the image name and id.  There's actually a lot more information we can get from the output of conn.compute.images().
+
+To see an example, add this to the bottom of your script:
 
     image1 = conn.compute.images().next()
     print(image1)
@@ -70,9 +80,9 @@ Pro Tip: if you'd like the output of the above to be a bit more readable, you ca
 
 Most OpenStack resource objects have this `to_dict()` function, since they inherit it from the base Resource class.
 
-Here's an [example script](tutorial_scripts/list-images.py) that makes use of the code above.  You need to make sure your environment variables are set in order for it to work.
+Here's an [example script] that makes use of the code above.  You need to make sure your environment variables are set in order for it to work.
 
-## Launch an instance
+### Launch an instance
 
 OK, enough looking at images, let's get some work done and launch an instance. 
 
@@ -86,7 +96,11 @@ Define some instance parameters like this:
     NETWORK='your-network-here'
     KEYPAIR='your-keypair-here'
 
-Fill in appropriate values for these parameters based on what's available in the OpenStack installation, and the image configuration you want.  You can specify image, flavor, network, and keypair by either name or ID value, but make sure it's a string. If you are a member of multiple projects, make sure to provide a network and keypair that are in the project specified in your openstackrc file.
+Fill in appropriate values for these parameters based on what's available in the OpenStack installation, and the image configuration you want.
+
+You can specify image, flavor, network, and keypair by either name or ID value, but make sure it's a string.
+
+If you are a member of multiple projects, make sure to provide a network and keypair that are in the project specified in your openstackrc file.
 
 Next, use these values to prepare some resources:
 
@@ -112,16 +126,13 @@ Run your script:
 
 It should print the attributes of your server, and you should see your new instance appear in the Instances list in the Horizon GUI.
 
-An [example script](tutorial_scripts/sdk_launch.py) is available for download - make sure to fill in the appropriate image, flavor, keypair, and network names.
+An [example script] is available for download - make sure to fill in the appropriate image, flavor, keypair, and network names.
 
-***
+******
 
-#### Next: [[REST API]]
-##### Previous: [[OpenStack CLI]]
-[[OpenStack Tutorial Index]]
+Next: [REST API](REST-API.html)
 
+Previous: [OpenStack CLI](OpenStack-CLI.html)
 
-
-
-
+[OpenStack Tutorial Index](OpenStack-Tutorial-Index.html)
 
