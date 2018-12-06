@@ -1,0 +1,2 @@
+This is just a placeholder right now, but we need a list of related projects we need to read up on:
+* the cluster on demand project (http://issg.cs.duke.edu/cod/) and emulab (http://www.emulab.net) provide mechanisms we need to read up on for providing isolated physical clusters for different experiments, while our current physical partitioning schemes are trivial, we should look at these and related projects.

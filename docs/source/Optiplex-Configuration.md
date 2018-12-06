@@ -1,0 +1,11 @@
+- In the standard BIOS config:
+  - Enable Intel virtualization extensions
+  - Set PXE boot first in boot order
+- In the Intel MSE config (which has default password 'admin'):
+  - Set 'provision model' to 'small business'
+  - In TCP setup:
+    - Turn DHCP off
+    - Set IP address to 10.0.0.x, where x is the computer's number
+    - Set subnet mask to 255.255.255.0
+    - Set gateway to 10.0.0.0
+  - Set DNS servers to 8.8.8.8 and 10.0.0.0 (doesn't really matter)

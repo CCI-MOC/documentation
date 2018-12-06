@@ -1,38 +1,123 @@
-# Mix and Match Federation
-This guide assumes the installation of Mix & Match using DevStack.
+# Overview
+We are proposing a new set of use cases for OpenStack and a set of 
+changes to enable a multi-landlord cloud model, where multiple service
+providers can cooperate (and compete) to stand up services in a single
+cloud. This wiki page first describes the model and then our plan for a 
+end-to-end demo by the Tokyo summit. 
 
-### Keystone to Keystone
-To setup Keystone 2 Keystone federation we use the [ansible-k2k](https://github.com/knikolla/ansible-k2k) playbook. Install Ansible and follow the information in the README of the playbook.
+#Motivation and High-level use cases
 
-Currently the playbook works only for Liberty, but George is preparing a pull request to make it work with Mitaka.
+All current clouds are stood up by a single company or organization,
+creating a vertically integrated monopoly.  Any competition is between
+entire clouds and is limited by the customer's ability to move their
+data over the connectivity between clouds.  We think an alternative
+model is possible, where different organizations can stand up
+individual services in the same data centers, and the customer (or
+intermediaries acting on their behalf) can pick and choose between
+them.  We call this model of having multiple landlords in a cloud an
+Open Cloud eXchange ([OCX](http://www.cs.bu.edu/fac/best/res/papers/ic14.pdf)).
 
-### Patched Nova
-When run via DevStack, the source code for the OpenStack services is not installed in the system python `site-packages` directory. Instead, the source code for the services is cloned from git to `/opt/stack/`. 
+The OCX model would enable more innovation by technology companies,
+enable cloud research and provide more choice to cloud consumers. We
+are developing this model in a new public cloud, the Massachusetts
+Open Cloud (MOC), that is just being started in the
+[MGHPCC](http://www.mghpcc.org) data center shared between Boston
+University, Harvard University, the Massachusetts Institute of
+Technology, Northeastern University, and the University of
+Massachusetts.  Some use cases being explored in the context of the
+MOC illustrate the potential of this model:
 
-Therefore, to substitute Nova with our own version is enough to replace `/opt/stack/nova` with our own patched version and then restart the services.
+- Harvard and MIT both stand up their own OpenStack cloud for
+  students, but provide resources on-demand to the MOC that can be used
+  by researchers that collaborate between the universities and by
+  external users.  
+- A storage company stands up a new innovative block storage service
+  on a few racks in the MGHPCC, operates it themselves, and makes it
+  available to users of the MOC and/or the individual university
+  clouds.  The storage company is in total control of price,
+  automation, and SLA for the service, and users can choose if they
+  want to use the service.
+- A company stands up a new compute service with innovative hardware
+  (e.g., FPGAs, crypto accellerator) or pricing model.  A customer
+  with a two Petabyte disk volume can switch to using that compute
+  without having to move the data.
+- A research group at Boston University and Northeastern develops a
+  highly elastic compute service that can checkpoint 1000s of servers
+  in seconds into SSD, and broadcast provision a distributed
+  application to allow an interactive medical imaging application that
+  wants 1000s of servers for a few seconds. 
+- A security sensitive life sciences company exploits software from
+  the [MACS](http://www.bu.edu/hic/research/macs/) project to
+  distribute their data across two storage services from non-colluding
+  providers.  The data is accessed from a Nova compute service running
+  on a trusted compute platform developed collaboratively with
+  Intel. Since all services are deployed in the same datacenter, the
+  computation is efficient.
+- Students in a [cloud computing course](https://okrieg.github.io/EC500/index.html)  offered by Northeastern and 
+  Boston University faculty
+  develop and stand up an
+  experimental proxy service for open stack services that provides
+  users of the MOC a Swift service that combines the inventory of
+  multiple underlying Swift services.
 
-To restart the services enter the screen via `screen -r`, then press `CTRL + A` followed by `"` (`SHIFT + '`) to view a list of all the available terminal sessions. Enter the ones starting with `n-` such as `n-api` and press `CTRL + C` to stop the process, then `UP ARROW` followed by `ENTER` to rerun it.
+We believe solutions to the problems of the OCX model will improve
+OpenStack generally from a security and reliability
+perspective. Solving the problems of multiple providers/landlords that
+don't trust each other also brings defense in depth for a single
+provider cloud; potentially preventing an exploit of one service from
+compromising an entire cloud.
 
-### Patched Clients
-To patch the clients like `python-novaclient` simply download the uninstall the original version via `pip uninstall python-novaclient` and then install the new one with `python setup.py install`.
+We will be doing this work in the context of the newly annouced
+[Mercador](https://wiki.openstack.org/wiki/Mercador) project.  The
+Mercador focus was originally on federation of resourcs between
+untrusting single provider clouds.  When the two teams met, we
+realized that the two projects solve orthogonal but complementary
+problems, and we decided by joining forces we can help ensure that the
+(still orthogonal) development efforts don't come up with solutions
+that are incompatible.
 
-### Network connectivity
-Shared network between environments is vlan 3800, 172.31.192.0/18, will be allocated by /22 chunks per environment. Routing is handled by brocade fabric on Engage1 side, Nexus switch on Kumo side.
+# Demo Plan
+We plan to have an end-to-end demo by the Tokyo summit. We first outline use cases, 
+then design assumptions, then details on each use case
 
-**Work in progress, might change**
-```
-172.31.192.0/22 - Engage1, Kumo, Kaizen, subnet bits are /18, /22 is informational for IP range.`
+## Low-level use cases
+- boot image from Openstack B into Openstack A, fleshed out, assuming command line:
+- mount volume from BU Openstack to MOC Openstack instance
+- mount BU Openstack volume to NU Openstack VM in MOC Openstack project
+- in a project deploy one VM on NU, one on BU, have sit on same network
 
-172.31.192.1 - E1/Brocade router virtual interface in vlan 3800`
+## Design assumptions and notes
+- We will refer to an OpenStack instance as a Keystone, since thats the one required service (you might have only storage, or only compute in an OpenStack instance, but you will always have a keystone).
+- In current version, assume user always queries all keystones, i.e. we don't keep track of a subset of keystones that he actually using; in the long term we wil want to keep track for each project what keystones.
+- Each project has a **home** Keystone
+- All other keystones for the project are **foreign** Keystone
+- To make below efficient, we will need to cache clients for
+  - for each service, you maintain the service client object, reference to keystone client object that controls it.  If it fails, we return back error, and mark it as a object that needs to be re-initialized.  When user gets error, types in passord... library will go through all timed out objects and re-initialize based on new SAML assertion. Probably organize as a hash of keystone clients based on keystone end-point, then keep list per keystone of the service end-points.  
+  - in first version, we won't do this caching
 
-172.31.192.2 - E1/moc-services interface in vlan 3800`
+## Deadlines
 
-172.31.192.4 - Kumo/Nexus router virtual interface in vlan 3800`
+- Keystone Midcycle is July 15
+- Openstack Summit is Oct 27 - Oct 30
+- Submission deadline for the summit is July 15
 
-192.168.67.253 - E1/Brocade router virtual interface in vlan 4050 (ceph)`
+## Planning and getting involved
 
-192.168.131.254 - E1/Brocade router virtual interface in vlan 4052 (openstack private)`
+Planning for this project will happen on this trello board: (https://trello.com/b/BQQFdyLx/os-mix-match-federation).
 
-172.31.192.4 - Kumo/Nexus router virtual interface in vlan 3702 (openstack private)`
-```
+To get involved, please send email to (mail:moc-team-list@bu.edu) and/or join the #moc irc channel on freenode. 
 
+###Comparisons to mercador
+* Mercador doesn't want to expose any information for the user - we need to expose project for quota polling
+* Mercador want's to just add a virtual region which points to the remote cluster... not enable mix and match. They are trying to avoid *all* cross region addressing through API.
+
+## Tokyo POC : Library/API
+
+Install two stable/kilo devstacks: call one IdP and the other SP.  Set up K2K between them.  On the IdP, use the 'moc_modified' branch of https://github.com/CCI-MOC/nova and of https://github.com/CCI-MOC/python-novaclient.
+
+Currently, there are changes in the following areas of the code:
+
+    nova/volume/cinder.py                              (cinder client creation)
+    nova/api/openstack/compute/contrib/volumes.py      (parsing extra API option)
+    nova/compute/rpcapi.py                             (sending information over messagebus)
+    nova/compute/manager.py                            (getting information from messagebus)
