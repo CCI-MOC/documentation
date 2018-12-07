@@ -45,7 +45,7 @@ This is the Massachusetts Open Cloud private wiki; we mostly use it to document 
 * [Midonet Kilo Release](Midonet-Kilo-Release.html)
 * [Keystone to Keystone Federation](Keystone-to-Keystone-Federation.html)
 * [Mix and Match Federation](Mix-and-Match-Federation.html)
-* [Debugging-the-installed-version-of-Horizon](https://github.com/CCI-MOC/moc-public/wiki/Debugging-the-installed-version-of-Horizon)
+* [Debugging-the-installed-version-of-Horizon](Debugging-the-installed-version-of-Horizon.html)
 * [Jon Jozwiak's basic Openstack validation testing](Jon-Jozwiak's-basic-Openstack-validation-testing.html)
 
 ### Monitoring (Definitely outdated)
