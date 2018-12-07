@@ -1,9 +1,16 @@
-UP <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
+# Adding Quotas
 
-Quotas are set to ensure that the docker containers conform to both usage and size restrictions of the cluster.  They are set on both the container level, the project level and sets of projects.  To set up a default quota for all new projects, search for self provisioning projects.  
+[UP](OpenShift.html)
 
-See: <https://github.com/openshift/origin/tree/master/examples/project-quota>
-<https://docs.openshift.org/latest/admin_guide/managing_projects.html#template-for-new-projects>
+Quotas are set to ensure that the docker containers conform to both usage and size restrictions of the cluster.
+
+They are set on both the container level, the project level and sets of projects.
+
+To set up a default quota for all new projects, search for self provisioning projects.  
+
+See
+* [1](https://github.com/openshift/origin/tree/master/examples/project-quota)
+* [2](https://docs.openshift.org/latest/admin_guide/managing_projects.html#template-for-new-projects)
 
 1) Get the previous template:
 

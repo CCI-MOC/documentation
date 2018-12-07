@@ -1,5 +1,5 @@
-UP: <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
-Ref: <>
+# OpenShift Monitoring
+[UP](OpenShift.html)
 
 1) Create a VM running the cloud forms image.
 
@@ -70,3 +70,4 @@ oadm router management-metrics \
 --selector='kubernetes.io/hostname=<master>' \
 --stats-port=1937 \
 --host-network=false
+

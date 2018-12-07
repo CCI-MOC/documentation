@@ -1,3 +1,5 @@
-## Source: [ChRIS](https://github.com/FNNDSC)
+# Radiology
+Source: [ChRIS](https://github.com/FNNDSC)
 
-* [Swift Implementation for Radiology in the Cloud](https://github.com/CCI-MOC/moc-public/wiki/Swift-Implementation-for-Radiology-in-the-Cloud)
+* [Swift Implementation for Radiology in the Cloud](Swift-Implementation-for-Radiology-in-the-Cloud.html)
+

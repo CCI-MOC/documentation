@@ -18,6 +18,7 @@ This is the Massachusetts Open Cloud private wiki; we mostly use it to document 
 * [Brocade  VCS training - lab session]<!--(VCS_Lab.pptx.pdf)-->
 * [Brocade training - instruction session]<!--(VCS_Training_01.pdf)-->
 * [Ceph Tutorials](Ceph-Tutorials.html)
+* [OpenStack Tutorial Index](OpenStack-Tutorial-Index.html)
 
 ### Clusters
 * [MOC VLAN Distribution](MOC-VLAN-Distribution.html)
@@ -100,6 +101,7 @@ This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-
 * [Optiplex BIOS Settings](Optiplex-BIOS-Settings.html)
 
 ### Openshift
+* [OpenShift](OpenShift.html)
 * [Openshift Setup ](Openshift-Setup.html)
 * [Spark on OpenShift](Openshift-Spark.html)
 

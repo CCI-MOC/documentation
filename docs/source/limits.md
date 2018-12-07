@@ -1,4 +1,5 @@
-UP: <https://github.com/CCI-MOC/moc-public/wiki/Useful-OpenShift-Commands>
+# OpenShift Limits
+[UP](Useful-OpenShift-Commands.html)
 
 create the limit range
 
@@ -15,3 +16,4 @@ describe the limit ranges:
 delete limits
 
     oc delete limit <limit name>
+

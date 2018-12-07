@@ -1,3 +1,5 @@
+# Adding New Etcd
+
 1) run the os_p.pl script
    don't worry about the docker stuff in that script - it will fail on that
 
@@ -70,3 +72,4 @@
         ETCD_INITIAL_CLUSTER="e001=https://10.0.0.13:2380,e002=https://10.0.0.24:2380,
         e003=https://10.0.0.23:2380,e004=https://e004:2380"
         ETCD_INITIAL_CLUSTER_STATE="existing"
+

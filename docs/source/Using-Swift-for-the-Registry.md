@@ -1,12 +1,10 @@
-UP <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
+# Using Swift for the Registry
+[UP](OpenShift.html)
 
 Reference:
-
-    Overall: <https://access.redhat.com/documentation/en-us/openshift_container_platform/3.5/html/installation_and_configuration/setting-up-the-registry>
-
-    Extended Configuration: <https://access.redhat.com/documentation/en-us/openshift_container_platform/3.5/html/installation_and_configuration/setting-up-the-registry#install-config-registry-extended-configuration
-
-    Swift Specific: <https://docs.docker.com/registry/storage-drivers/swift/>
+* [Overall](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.5/html/installation_and_configuration/setting-up-the-registry)
+* [Extended Configuration](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.5/html/installation_and_configuration/setting-up-the-registry#install-config-registry-extended-configuration)
+* [Swift Specific](https://docs.docker.com/registry/storage-drivers/swift/)
 
 1) create a registry-config file
 
@@ -91,4 +89,7 @@ Reference:
     Project tab
        +-> Object Store tab
              
-Look for a container with the name specified in the registry-config file under storage.swift.container.  That container is the one being used as the OpenShift Registry.
+Look for a container with the name specified in the registry-config file under storage.swift.container.
+
+That container is the one being used as the OpenShift Registry.
+

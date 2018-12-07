@@ -14,7 +14,7 @@ Phone: (617) 353-6070
     * Guest Password: 675-377-3302#  (this is for anyone calling in)
 3. If you are the moderator, it will prompt you for the "matter number."  We don't currently use this function, so push any number, then #.
 
-**NOTE: The phone in the MOC team room is configured so that all you have to do is press and hold number 7.  As a bonus, doing it that way skips the loud automatic voice prompts.**
+*NOTE: The phone in the MOC team room is configured so that all you have to do is press and hold number 7.  As a bonus, doing it that way skips the loud automatic voice prompts.*
 
 ### MOC Persons
 See https://massopen.cloud/team/

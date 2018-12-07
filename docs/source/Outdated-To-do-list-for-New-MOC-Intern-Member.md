@@ -54,7 +54,7 @@ If you have successfully subscribed to the you will receive the following email 
     >>>> subscribe moc-team-list@bu.edu YOUR_EMAIL
     Succeeded.
 
-* Add your name and contact information at [this URL] (https://github.com/CCI-MOC/moc-public/wiki/People)
+* Add your name and contact information at [this URL] (People.html)
 
 * **Trello** : Send mail to piyanai@bu.edu with your Trello user name and you will be added to the appropriate organization. 
 
@@ -70,7 +70,7 @@ Please share your the time slots when you plan to spend time in the MOC and/or o
 
 * Get familiar with OpenStack, github, Python and Red Hat Enterprise software
 
-    **OpenStack** : There are many tutorials online for OpenStack. Going over the official [getting start guide](http://docs.openstack.org/admin-guide-cloud/content/ch_getting-started-with-openstack.html) can be helpful. The MOC team tutorial on how to use our production system can be found at [Getting started wiki] (https://github.com/CCI-MOC/moc-public/wiki/Getting-started)
+    **OpenStack** : There are many tutorials online for OpenStack. Going over the official [getting start guide](http://docs.openstack.org/admin-guide-cloud/content/ch_getting-started-with-openstack.html) can be helpful. The MOC team tutorial on how to use our production system can be found at [Getting started wiki] (Getting-started.html)
 
     **Python** : You may want to consider using [iPython](http://ipython.org/) or other interactive Python tool to learn to code in Python. Similar to OpenStack, there are quite a few online tutorials. The [official Python](https://www.python.org/) site is here. 
 

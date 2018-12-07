@@ -1,5 +1,5 @@
-UP: <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
-
+# Adding Limits
+[UP](OpenShift.html)
 
 //// commitment override ////
 On each master do the following:
@@ -33,3 +33,6 @@ On each node, do the following:
 2) restart the node
 
         systemctl restart atomic-openshift-node
+
+[Limits for Persistent Storage](Limits-for-Persistent-Storage.html)
+

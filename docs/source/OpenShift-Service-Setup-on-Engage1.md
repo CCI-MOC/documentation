@@ -1,4 +1,6 @@
-UP: <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
+# OpenShift Service Setup on Engage1
+
+[UP](OpenShift.html)
 
 0)  Goal, install OpenShift on Engage1 with the following features:
 
@@ -14,7 +16,7 @@ UP: <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
      define roles in open shift and map them to keystone
      cluster topology 
 
-     Instructions can be found at (https://docs.openshift.com/container-platform/3.5/install_config/install/quick_install.html)
+[Instructions](https://docs.openshift.com/container-platform/3.5/install_config/install/quick_install.html)
 
 1) A shared network must exist between master and node hosts
 

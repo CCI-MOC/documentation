@@ -1,10 +1,18 @@
-The OpenStack Object Store project, known as Swift, offers cloud storage software so that you can store and retrieve lots of data with a simple API. It's built for scale and optimized for durability, availability, and concurrency across the entire data set. Swift is ideal for storing unstructured data that can grow without bound.
+# Swift Implementation for Radiology in the Cloud
 
-There are two apis viz. **pfioh and pman**, which interact with the Swift storage to get or put data.
+The OpenStack Object Store project, known as Swift, offers cloud storage software so that you can store and retrieve lots of data with a simple API.
 
-For accessing the Swift storage, authorization credentials needs to provided as a secret, mounted into the pod. More information can be found at [Configuring Swift Credentials](https://github.com/awalkaradi95moc/pman/blob/master/openshift/README.rst) 
+It's built for scale and optimized for durability, availability, and concurrency across the entire data set.
 
-## pfioh
+Swift is ideal for storing unstructured data that can grow without bound.
+
+There are two apis viz. **pfioh** and **pman**, which interact with the Swift storage to get or put data.
+
+For accessing the Swift storage, authorization credentials needs to provided as a secret, mounted into the pod.
+
+More information can be found at [Configuring Swift Credentials](https://github.com/awalkaradi95moc/pman/blob/master/openshift/README.rst) 
+
+### pfioh
 
 1) The data pushed to pfioh is stored in Swift. In Swift, an object container is created with the name as specified in the key. 
 
@@ -14,7 +22,7 @@ For accessing the Swift storage, authorization credentials needs to provided as 
 
     `pfioh --forever --httpResponse --swift-storage --createDirsAsNeeded`
 
-## pman
+### pman
 
 1) pman needs to talk to Swift two times during the operation: **get** the data from Swift for image processor to perform some operation and **put** the output of image processor into the output folder of the data container. 
 
@@ -31,5 +39,4 @@ For accessing the Swift storage, authorization credentials needs to provided as 
 7) However, the publish container has to know when the output has been generated. It polls the main OpenShift api to find out whether the job has been finished and then transfers the output into Swift.  
 
 8) Once the publish container has finished its '**put**' operation, the job will finish.
-
 

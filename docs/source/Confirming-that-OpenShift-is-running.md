@@ -1,3 +1,4 @@
+# Confirming that OpenShift is Running
 1) Are the nodes running:
 
         oc get nodes
@@ -45,3 +46,4 @@
     To redeploy the registry:
 
         oc -n default rollout latest docker-registry
+

@@ -1,4 +1,5 @@
-up:<https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
+# Configuring Users
+[UP](OpenShift.html)
 
 *  To add users to a role to a project:
 
@@ -10,8 +11,7 @@ up:<https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
         oc get users      #list the users
         oadm policy add-role-to-user admin <user name from oc get users>
 
-*  To create an anyuid user
-   ref: <https://blog.openshift.com/understanding-service-accounts-sccs/>
+*  To create an anyuid user [ref](https://blog.openshift.com/understanding-service-accounts-sccs)
 
         oc create serviceaccount useroot
         oc adm policy add-scc-to-user anyuid -z useroot
@@ -25,3 +25,4 @@ up:<https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
         oc edit dc/myAppNeedsRoot
 
    To edit directly.
+

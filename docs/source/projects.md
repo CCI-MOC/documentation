@@ -1,4 +1,5 @@
-UP: <https://github.com/CCI-MOC/moc-public/wiki/Useful-OpenShift-Commands>
+# OpenShift Projects
+[UP](Useful-OpenShift-Commands.html)
 
 Joining Project Networks allows project1 and project2 to access any pods and services in the other:
 

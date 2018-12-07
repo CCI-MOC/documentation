@@ -1,10 +1,10 @@
-UP <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
+# Adding Persistent Storage
+[UP](OpenShift.html)
 
 Ref:
-1) More General <https://docs.openshift.com/container-platform/3.5/install_config/persistent_storage/index.html>
-   For setting open stack user/passord/... <https://docs.openshift.com/container-platform/3.5/install_config/configuring_openstack.html#install-config-configuring-openstack>
-
-2) Using Cinder <https://docs.openshift.com/container-platform/3.5/install_config/persistent_storage/persistent_storage_cinder.html#install-config-persistent-storage-persistent-storage-cinder>
+* [More General](https://docs.openshift.com/container-platform/3.5/install_config/persistent_storage/index.html)
+* [For setting open stack user/passord/...](https://docs.openshift.com/container-platform/3.5/install_config/configuring_openstack.html#install-config-configuring-openstack)
+* [Using Cinder](https://docs.openshift.com/container-platform/3.5/install_config/persistent_storage/persistent_storage_cinder.html#install-config-persistent-storage-persistent-storage-cinder)
 
 
 1. Create storageclass (that is set as the default storageclass) for cinder
@@ -43,3 +43,4 @@ Ref:
         systemctl stop atomic-openshift-node
         ovs-ofctl del-flows br0 -O OpenFlow13
         systemctl start atomic-openshift-node
+

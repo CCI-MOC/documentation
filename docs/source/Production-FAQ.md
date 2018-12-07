@@ -1,1 +1,3 @@
-* [Reason for connection drops and solution](https://github.com/CCI-MOC/moc-public/wiki/frequent-connection-drops-to-instances)
+# Production FAQs
+
+* [Reason for connection drops and solution](frequent-connection-drops-to-instances.html)

@@ -1,38 +1,35 @@
-UP: <https://github.com/CCI-MOC/moc-public/wiki>
-
-Overview
-
+# OpenShift
 OpenShift on Engage1 is now an HA configuration with multiple masters, 3 etcd nodes and multiple nodes.
 
+* [OpenShift Service Setup on Engage1](OpenShift-Service-Setup-on-Engage1.html)
+* [Confirming that OpenShift is running](Confirming-that-OpenShift-is-running.html)
+* [Testing OpenShift](Testing-OpenShift.html)
+* [Adding persistent storage](Adding-persistent-storage.html)
+* [Using Swift for the Registry](Using-Swift-for-the-Registry.html)
+* [pruning setup](pruning-setup.html)
+* [Conformance Test Setup](Conformance-Test-Setup.html)
+* [Adding Quotas](Adding-Quotas.html)
+* [Limiting the number of Projects](Limiting-the-number-of-Projects.html)
+* [router restart](router-restart.html)
+* [router wild card certificates](router-wild-card-certificates.html)
+* [Adding a Node](Adding-a-Node.html)
+* [configuring users (also anyuid)](configuring-users-(also-anyuid).html)
+* [Adding Limits](Adding-Limits.html)
+* [Aggregated Logging](Aggregated-Logging.html)
+* [Adding Metrics](Adding Metrics.html)
+* [Installing the oc CLI tool for OpenShift](Installing-the-oc-CLI-tool-of-OpenShift.html)
+* [monitoring](monitoring.html)
+* [backup/restore](backup-restore.html)
+* [Setup CICD (Jenkins) on OpenShift](Setup-CICD-(Jenkins)-on-OpenShift.html)
+* [jaeger](jaeger.html)
+* [Spark](Spark.html)
+* [Adding New Etcd](Adding-New-Etcd.html)
 
-[[OpenShift Service Setup on Engage1]]
-* [[Confirming that OpenShift is running]]
-* [[Testing OpenShift]]
-* [[Adding persistent storage]]
-* [[Using Swift for the Registry]]
-* [[pruning setup]]
-* [[Conformance Test Setup]]
-* [[Adding Quotas]]
-* [[Limiting the number of Projects]]
-* [[router restart]]
-* [[router wild card certificates]]
-* [[Adding a Node]]
-* [[configuring users (also anyuid)]]
-* [[Adding Limits]]:
-* [[Aggregated Logging]]
-* [[Adding Metrics]]
-* [Installing the oc CLI tool for OpenShift](https://github.com/CCI-MOC/moc-public/wiki/Installing-the-oc-CLI-tool-of-OpenShift)
-* [[monitoring]]
-* [[backup/restore]]
-* [[Setup CICD (Jenkins) on OpenShift]]
-----
-* [[jaeger]]
-* [[Spark]]
-* [[Adding New Etcd]]
+[Service Setup](Service-Setup.html)
 
------
-[[Useful OpenShift Commands]]
+[Useful OpenShift Commands](Useful-OpenShift-Commands.html)
 
-[[OpenShift Debugging]]
+[OpenShift Debugging](OpenShift-Debugging.html)
 
-[[OpenShift Usage Hints]]
+[OpenShift Usage Hints](OpenShift-Usage-Hints.html)
+

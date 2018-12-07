@@ -1,4 +1,5 @@
-UP <https://github.com/CCI-MOC/moc-public/wiki/Adding-Limits>
+# OpenShift Resource Limits
+[UP](Adding-Limits.html)
 
 Create a file containing:
 
@@ -43,4 +44,4 @@ Create a file containing:
               max:
                 storage: "5Gi"
 
-    
+

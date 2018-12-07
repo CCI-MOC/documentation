@@ -1,6 +1,7 @@
+# People
 Please visit [MOC official website](https://massopen.cloud/team/) for the more up-to-date team list. 
 
-## Boston University
+### Boston University
 * [Orran Krieger:](http://okrieg.github.io) okrieg@bu.edu, 617-901-5483 (cell)
 * Piyanai Saowarattitada piyanai@bu.edu, 603-305-3767 (cell)
 * Jason Hennessey henn@bu.edu
@@ -33,7 +34,7 @@ Please visit [MOC official website](https://massopen.cloud/team/) for the more u
 * Leo Jia leojia@bu.edu (intern)
 * Jade Dhangwattanotai, jadedhang@gmail.com (intern)
 
-## Northeastern University
+### Northeastern University
 * Peter Desnoyers pjd@ccs.neu.edu 617-669-4728 (cell)
 * Abhishek Raju abhi@ccs.neu.edu
 * Apoorve Mohan apoorve@ccs.neu.edu (intern)
@@ -55,10 +56,10 @@ Please visit [MOC official website](https://massopen.cloud/team/) for the more u
 * Deeksha Doddahonnaiah doddahonnaiah.d@husky.neu.edu (intern)
 
 
-## MIT CSAIL
+### MIT CSAIL
 * Jon Proulx jon@csail.mit.edu 617-669-1087 (cell)
 
-## Alumni
+### Alumni
 * Jonathan Bell jbell@bu.edu
 * Ankita Gupta ankita1@ccs.neu.edu (intern)
 * Dimitri Makrigiorgos dmak1112@bu.edu (intern)
@@ -74,3 +75,4 @@ Please visit [MOC official website](https://massopen.cloud/team/) for the more u
 * Logan Bernard bernardl@bu.edu
 * Yiyun Ma  yiyunma@ccs.neu.edu
 * Will Tome willt@ccs.neu.edu
+

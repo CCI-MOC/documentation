@@ -32,13 +32,14 @@ An alternative that works on Mac OSX. It only generates one word at a time:
 
 Also, keep the passwords a secret!  Don't send passwords via unencrypted email, post them to #MOC, or put them in a public git repository.
 
-## Log in as yourself, not root.
+### Log in as yourself, not root.
 Create a user account with your own name, and sudo when you need root permissions.  This allows disabling remote root login (see below), and also makes it easier to see who is doing what, or fix things if someone's key is compromised.
 
 
-## SSH
+### SSH
 
-### Add public SSH keys to user accounts
+**Add public SSH keys to user accounts**
+
 You will need root privileges to do this for any user that is not yourself.
 
     # mkdir /home/lihua/.ssh                        // Create .ssh directory in the user's home folder
@@ -59,8 +60,9 @@ The output should look like this (known_hosts may or may not be there):
     -rw-r--r--. 1 lihua lihua  173 Aug 13 09:41 known_hosts   // Don't worry if this file isn't there
 
 
-### Disable password authentication and remote root login
-**Important:**  Make sure to set up your own account with public key authentication **and check that it works** before making these changes.  
+**Disable password authentication and remote root login**
+
+*Important:**  Make sure to set up your own account with public key authentication **and check that it works** before making these changes.*  
 
 Edit the file `/etc/ssh/sshd_config`. Make sure the following settings are set to `no`:
 
@@ -87,14 +89,15 @@ In order to prevent the wasting of resources as well as [lookup vulnerabilities]
 UseDNS no
 ```
 
-### Enable sshguard or something similar
+**Enable sshguard or something similar**
+
 sshguard is available on Ubuntu by running `apt-get install sshguard` and prevents automated brute-force attacks that can be used to attack passwords as well as vunerabilities such as defeating ASLR.
 
-## Enable the firewall
+### Enable the firewall
 * For Ubuntu, this can be done using `ufw enable`.
 * For RHEL/CentOS, one can use `system-config-firewall`
 
-## Set up NTP
+### Set up NTP
 Can Chrony/OpenNTPD as an NTP client. Good timestamps will help debugging problems later.
 
 Ubuntu users should make use of openntpd, as it has built-in privilege
@@ -115,8 +118,7 @@ server ipa1.ipa.massopencloud.org
 
 MIT has time.mit.edu.
 
-
-## Disable IPv6
+### Disable IPv6
 We don't use IPv6 for anything. Also, many firewalls don't protect against it
 by default, effectively meaning there is no firewall if it is enabled.
 
@@ -145,7 +147,7 @@ setting active on the current machine.
  * Enable `Automatic-Reboot` so that kernel security packages take effect
  * Optionally set an `Automatic-Reboot-Time` that is more to your liking that "now"
 
-## Hidepid
+### Hidepid
 If the system has multiple users logging in who maybe don't trust each other completely (like a gateway system), it might be good to set hidepid, which prevents users from gathering info on other users' processes.
 
 To do this, follow [this tutorial](https://www.cyberciti.biz/faq/linux-hide-processes-from-other-users/) on adding hidepid to the proc flags in `/etc/fstab`.

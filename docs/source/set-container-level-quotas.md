@@ -1,1 +1,3 @@
-UP: <https://github.com/CCI-MOC/moc-public/wiki/Adding-Quotas>
+# Set Container Level Quotas
+[UP](Adding-Quotas.html)
+

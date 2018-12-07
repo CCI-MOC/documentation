@@ -1,4 +1,6 @@
-UP: <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
+# Router Restart
+
+[UP](OpenShift.html)
 
 If the router didn't come up cleanly.
 
@@ -65,3 +67,4 @@ If the router didn't come up cleanly.
             deploymentconfig "router" created
             service "router" created
         --> Success
+

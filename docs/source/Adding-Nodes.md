@@ -1,31 +1,28 @@
-UP: <https://github.com/CCI-MOC/moc-public/wiki/Adding-a-Node>
+# Adding Nodes
 
-Reference: <https://docs.openshift.com/container-platform/3.5/install_config/adding_hosts_to_existing_cluster.html#adding-nodes-advanced>
+[UP](Adding-a-Node.html)
 
-Adding nodes:
+[Reference](https://docs.openshift.com/container-platform/3.5/install_config/adding_hosts_to_existing_cluster.html#adding-nodes-advanced)
 
 (Advanced install method)
 
-Reference: <https://docs.openshift.com/container-platform/3.5/install_config/adding_hosts_to_existing_cluster.html#adding-nodes-advanced>
+[Reference](https://docs.openshift.com/container-platform/3.5/install_config/adding_hosts_to_existing_cluster.html#adding-nodes-advanced)
 
-To add new nodes:
+### To add new nodes
 
-  On the new Node: 
-  
-      follow steps 0-13 here <https://github.com/CCI-MOC/moc-public/wiki/OpenShift-Service-Setup-on-Engage1>
+On the new Node follow steps 0-13 [here](OpenShift-Service-Setup-on-Engage1.html)
 
-  Master:
-
-  1) This will update all of the ansible playbooks:
+### Master
+1) This will update all of the ansible playbooks:
 
         yum update atomic-openshift-utils
 
-  2) Edit /etc/ansible/hosts 
-     A) add 'new_nodes' to the [OSEv3:children] 
-     B) Add a new section called [new_nodes] to the 
-     C) Add the new nodes under the [new_nodes] section
+2) Edit `/etc/ansible/hosts` 
+* add 'new_nodes' to the [OSEv3:children] 
+* Add a new section called [new_nodes] to the 
+* Add the new nodes under the [new_nodes] section
 
-     File should look like:
+File should look like:
 
             [OSEv3:children]
             masters
@@ -48,15 +45,17 @@ To add new nodes:
             node-007 openshift_node_lables="{'region':'default', 'zone':'default'}"
             node-008 openshift_node_lables="{'region':'default', 'zone':'default'}"
 
-  3) for each of the nodes, ensure that the node network plugin matches the master network plugins:
+3) for each of the nodes, ensure that the node network plugin matches the master network plugins:
 
         vi /etc/origin/master/master-config.yaml
         vi /etc/origin/node/node-config.yaml
 
-     For the MOC, we are running the multitentant plugin, so everything should match
-     networkConfig:networkPluginName: "rehat/openshift-ovs-multitenant"
+For the MOC, we are running the multitentant plugin, so everything should match
 
-  3) run the following sensible playbook:
+	networkConfig:networkPluginName: "rehat/openshift-ovs-multitenant"
+
+3) run the following sensible playbook:
   
         ansible-playbook [-i /path/to/hostsFile] \
             /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-node/scaleup.yml
+

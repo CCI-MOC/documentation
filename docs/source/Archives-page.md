@@ -16,23 +16,23 @@
 * [Ruoyu Chen Blog](Ruoyu-Daily.html)
 * [OPs log]
 
-## Equipment signout
+### Equipment signout
 * [Northeastern Cluster](NEU-Equipment-Sign-Out.html)
 * [Flash Drives](Flash-Drive-Sign-Out.html)
 
-## Vagrant stuff
+### Vagrant stuff
 * [Install Devstack with Vagrant](Install-Devstack-with-Vagrant.html)
 * [Use Vagrant to manage OpenStack Instance](Use-Vagrant-to-manage-OpenStack-Instance.html)
 * [Deploy BigTop and run smoke tests with Vagrant](Deploy-Bigtop-and-run-smoke-tests-with-Vagrant.html)
 
-## Openstack
+### Openstack
 * [Blueprints](Blueprints.html)
 * [Fuel Hardening](Fuel-Hardening.html)
 * [Ansible testing](Ansible-testing.html)
 * [Scaling Openstack](Scaling-Openstack.html)
 * [Puppet git workflow](Puppet-git-workflow.html)
 
-## How tos
+### How tos
 * [Reprovisioning a Staging Environment](Reprovisioning-a-Staging-Environment.html)
 * [2 Node cluster](2-Node-cluster.html)
 

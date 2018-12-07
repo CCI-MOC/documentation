@@ -1,4 +1,5 @@
-UP: <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
+# Limiting the Number of Projects
+[UP](OpenShift.html)
 
 Limiting the number of projects a user can have.
 
@@ -23,9 +24,10 @@ On each master do the following:
                   maxProjects: 10
                 - maxProjects: 2
 
-    This means that user accounts labeled with admin can create an unlimited number of projects, user accounts labeled with "advance" can create 10 projects, and all other user accounts can create only 2 projects.
+This means that user accounts labeled with admin can create an unlimited number of projects, user accounts labeled with "advance" can create 10 projects, and all other user accounts can create only 2 projects.
 
 3) restart the master:
 
         systemctl restart atomic-openshift-master-api
         systemctl restart atomic-openshift-master-controllers 
+

@@ -1,13 +1,14 @@
-UP <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
+# Pruning Setup
+[UP](OpenShift.html)
 
 References:
-1) https://docs.openshift.com/container-platform/3.5/admin_guide/pruning_resources.html#pruning-images
-2) https://docs.openshift.com/container-platform/3.5/admin_guide/pruning_resources.html#pruning-builds
-3) https://docs.openshift.com/container-platform/3.5/admin_guide/pruning_resources.html#pruning-deployments
+* [1](https://docs.openshift.com/container-platform/3.5/admin_guide/pruning_resources.html#pruning-images)
+* [2](https://docs.openshift.com/container-platform/3.5/admin_guide/pruning_resources.html#pruning-builds)
+* [3](https://docs.openshift.com/container-platform/3.5/admin_guide/pruning_resources.html#pruning-deployments)
 
 OpenShift has a project that will schedule containers to run at specified intervals, so in the future, this can be done completely within OpenShift.
 
-created an sa account with the name image-xxxxxxxx-xxxx that has the cluster privilege of system:pruner.
+Created an sa account with the name image-xxxxxxxx-xxxx that has the cluster privilege of system:pruner.
 
 
         oc create -n default -f - <<EOF
@@ -41,3 +42,4 @@ cron on m-2
         0 0-23/2 * * *  oadm prune deployments --orphans --keep-complete=5 --keep-failed=1 --keep-younger-than=60m --confirm
         0 1-23/2 30 * *  oc login --token=xxxxx && oadm prune images --keep-tag-revisions=3 --keep-younger-than=60m
         0 0-23/2 30 * *  oc login --token=xxxxx && oadm prune images --prune-over-size-limit --confirm
+

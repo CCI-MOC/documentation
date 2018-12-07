@@ -1,6 +1,7 @@
-UP: <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
+# Adding Metrics
+[UP](OpenShift.html)
 
-Reference: <https://docs.openshift.com/container-platform/3.5/install_config/cluster_metrics.html#metrics-namespace>
+[Reference](https://docs.openshift.com/container-platform/3.5/install_config/cluster_metrics.html#metrics-namespace)
 
 1) Run the ansible script for either with PV or without PV:
 

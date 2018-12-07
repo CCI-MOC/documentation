@@ -1,6 +1,5 @@
-UP<>
-
-reference: <https://docs.openshift.com/container-platform/3.5/install_config/aggregate_logging_sizing.html>
+# Aggregated Logging
+[Reference](https://docs.openshift.com/container-platform/3.5/install_config/aggregate_logging_sizing.html)
 
 0) disable logging:
 

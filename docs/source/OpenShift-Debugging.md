@@ -1,7 +1,7 @@
-UP: <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
+# OpenShift Debugging
+[UP](OpenShift.html)
 
-[[Network Debugging]]
+[Network Debugging](Network-Debugging.html)
 
-[[Certificates]]
-
+[Certificates](Certificates.html)
 

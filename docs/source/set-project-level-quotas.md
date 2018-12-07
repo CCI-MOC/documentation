@@ -1,1 +1,2 @@
-UP: <https://github.com/CCI-MOC/moc-public/wiki/Adding-Quotas>
+# OpenShift Set Project Level Quotas
+[UP](Adding-Quotas.html)

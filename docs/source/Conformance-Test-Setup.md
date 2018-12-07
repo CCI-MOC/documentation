@@ -1,6 +1,8 @@
-UP <https://github.com/CCI-MOC/moc-public/wiki/Testing-OpenShift>
+# Conformance Test Setup
 
-ref: <https://github.com/openshift/svt/tree/master/conformance>
+[UP](Testing-OpenShift.html)
+
+[Reference](https://github.com/openshift/svt/tree/master/conformance)
 
 To install the Conformance tests:
 
@@ -50,3 +52,4 @@ To install the Conformance tests:
 
         cd ./svt/conformance
         ./svt_conformance
+

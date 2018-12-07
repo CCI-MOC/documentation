@@ -1,7 +1,7 @@
 # To Do List for New MOC Intern and Member
 
 In order to become part of the MOC team, there are a few things that you need to do:
-* Add your name and contact information at [this URL](https://github.com/CCI-MOC/moc-public/wiki/People)
+* Add your name and contact information at [this URL](People.html)
 * Subscribe to the [team mailing lists](visiting https://lists.massopen.cloud)
 * **Trello** : Send mail to msd@bu.edu with your Trello user name and you will be added to the appropriate organization.
 * Once you are a member of the MOC team on Trello, go to the [moc-massopencloud](https://trello.com/b/2IMwDpdi/moc-massopencloud) Trello board, and add a Trello card on the Backlog Trello list with
@@ -26,7 +26,7 @@ Please share your the time slots when you plan to spend time in the MOC and/or o
 
 ### Get familiar with OpenStack, github, Python and Red Hat Enterprise software
 
-  **OpenStack** : There are many tutorials online for OpenStack. Going over the official [getting start guide](http://docs.openstack.org/admin-guide-cloud/content/ch_getting-started-with-openstack.html) can be helpful. The MOC team tutorial on how to use our production system can be found at [Getting started wiki] (https://github.com/CCI-MOC/moc-public/wiki/Getting-started)
+  **OpenStack** : There are many tutorials online for OpenStack. Going over the official [getting start guide](http://docs.openstack.org/admin-guide-cloud/content/ch_getting-started-with-openstack.html) can be helpful. The MOC team tutorial on how to use our production system can be found at [Getting started wiki] (Getting-started.html)
 
   **Python** : You may want to consider using [iPython](http://ipython.org/) or other interactive Python tool to learn to code in Python. Similar to OpenStack, there are quite a few online tutorials. The [official Python](https://www.python.org/) site is here.
 

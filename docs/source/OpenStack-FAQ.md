@@ -1,3 +1,4 @@
+# OpenStack FAQ
 FAQ for OpenStack instance e.g. why network on my instance does not work ?
 
 *  Q:  I have launched an Ubuntu instance but I am not able to ssh into the system. I have tried on Windows and Ubuntu host OSs, but I am getting the "Connection Timed Out" error. 
@@ -22,7 +23,7 @@ https://www.youtube.com/watch?v=ZjdrVHPjltI
       * Enter a DNS Name Server - 8.8.8.8
       * Save the changes.
 
-#### Why do I see too much connection-drop errors? Is there a solution for it?
-[Reason for connection drops and solution](https://github.com/CCI-MOC/moc-public/wiki/frequent-connection-drops-to-instances)
+* Q: Why do I see too much connection-drop errors? Is there a solution for it?
 
+  A: [Reason for connection drops and solution](frequent-connection-drops-to-instances.html)
 

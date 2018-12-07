@@ -1,7 +1,8 @@
-UP <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
-* [[pruning (system cleanup)]]
-* [[limits]]
-* [[projects]]
+# Useful OpenShift Commands
+[UP](OpenShift.html)
+* [pruning (system cleanup)](pruning-(system-cleanup).html)
+* [limits](limits.html)
+* [projects](projects.html)
 
  0) restarts the master service:
  
@@ -68,13 +69,10 @@ UP <https://github.com/CCI-MOC/moc-public/wiki/OpenShift>
 
 ---
 Notes:
+1. On project creation:
+  * `oadm new-project` uses the default template
+  * `oc new-project` and "Create New Project" (from the GUI) will allow the specification of one project template
+  * Cluster admins can use: `oc process ... | oc create -f ...` (This is still a bit of a research project - haven't used this yet).
 
-   1) On project creation:
+[see](https://github.com/openshift/origin/issues/4381)
 
-      a) oadm new-project uses the default template
-
-      b) oc new-project and "Create New Project" (from the GUI) will allow the specification of one project template
-
-      c) Cluster admins can use: oc process ... | oc create -f ...  (This is still a bit of a research project - haven't used this yet).
-
-    see: <https://github.com/openshift/origin/issues/4381>
