@@ -1,6 +1,7 @@
+# Debugging VNC Access
 We are using vnc to share access for debugging current deployment.  Contact one of the developers to add your public key for ssh access.
 
-Add following to your .ssh/config:
+Add following to your `.ssh/config`:
 
 ```
 Host mocdebug
@@ -11,9 +12,15 @@ Host mocdebug
   User mocdebug
 ```
 
-There are two vncservers we will keep running there, a small one on port '5909 (vncclient :9)' and a small one on port '5908 (vncclient :8)'.  There are aliases in bash to restart them if they go down.  Once you have shed into mocdebug, you will be able to connect your favorite vncclient to either one on your localhost, e.g.:
-    vncclient localhost:8
+There are two vncservers we will keep running there, a small one on port '5909 (vncclient :9)' and a small one on port '5908 (vncclient :8)'.
 
-The password is "mocmoc"
+There are aliases in bash to restart them if they go down.
 
-Firefox is already set up with socks forwarding, and there is an entry in the .ssh/config file to ssh into the gateway server.
+Once you have shed into mocdebug, you will be able to connect your favorite vncclient to either one on your localhost, e.g.:
+
+	vncclient localhost:8
+
+The password is bitwarden VM VNC Access password
+
+Firefox is already set up with socks forwarding, and there is an entry in the `.ssh/config` file to ssh into the gateway server.
+

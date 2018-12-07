@@ -258,7 +258,7 @@ compute-42.moc.ne.edu | 10.13.37.9 | moc-sensu
 compute-43.moc.ne.edu | 10.13.37.23 | moc-sensu
 compute-43.moc.ne.edu | 129.10.3.47 | moc-sensu, openstack-api, openstack-metrics
 
-See also [[Sensu & Filebeat for Ceph in Kaizen]]
+See also [Sensu & Filebeat for Ceph in Kaizen](Sensu-&-Filebeat-for-Ceph-in-Kaizen.html)
 
 # OpenStack
 
