@@ -6,5 +6,5 @@
 
         oc exec -it hawkular-metrics-x1r4j cat /var/run/secrets/kubernetes.io/serviceaccount/ca.crt
 
-and count the certificates.
+  and count the certificates.
 

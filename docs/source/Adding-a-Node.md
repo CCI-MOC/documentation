@@ -5,8 +5,8 @@
 [reference](https://docs.openshift.com/container-platform/3.5/install_config/adding_hosts_to_existing_cluster.html#adding-nodes-advanced)
 
 1) Either:
-* [Adding Masters](Adding-Masters.html)
-* [Adding Nodes](Adding-Nodes.htmla)
+  * [Adding Masters](Adding-Masters.html)
+  * [Adding Nodes](Adding-Nodes.html)
 
 2) Confirm all nodes were added:
 

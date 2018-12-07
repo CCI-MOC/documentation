@@ -1,10 +1,9 @@
 # Adding Limits
 [UP](OpenShift.html)
 
-//// commitment override ////
 On each master do the following:
 
-1) edited the master-config.yaml
+1) Edited the master-config.yaml
 
         kubernetesMasterConfig:
           admissionConfig:
@@ -17,20 +16,20 @@ On each master do the following:
                   cpuRequestToLimitPercent: 100 
                   #limitCPUToMemoryPercent: 200
 
-2) restarted the master node
+2) Restarted the master node
 
         systemctl restart atomic-openshift-master-api
         systemctl restart atomic-openshift-master-controllers
 
 On each node, do the following:
 
-1) edit the node-config.yaml
+1) Edit the node-config.yaml
 
         kubeletArguments:
           cpu-cfs-quota:
             - "false"
 
-2) restart the node
+2) Restart the node
 
         systemctl restart atomic-openshift-node
 

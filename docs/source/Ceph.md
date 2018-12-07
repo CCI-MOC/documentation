@@ -1,15 +1,15 @@
 # Ceph
 
 ### Architecture
-* [1](http://www.ibm.com/developerworks/library/l-ceph/)
-* [2](http://ceph.com/docs/master/architecture/)
+* [Ceph](http://www.ibm.com/developerworks/library/l-ceph/)
+* [Ceph Architecture](http://ceph.com/docs/master/architecture/)
 
 ### Ceph with OpenStack
-* [1](http://www.ibm.com/developerworks/cloud/library/cl-openstackceph/)
-* [2](http://www.sebastien-han.fr/blog/2012/06/10/introducing-ceph-to-openstack/)
-* [3](http://www.slideshare.net/mirantis/fuel-ceph)
+* [Ceph with OpenStack](http://www.ibm.com/developerworks/cloud/library/cl-openstackceph/)
+* [Introduction to Ceph with OpenStack](http://www.sebastien-han.fr/blog/2012/06/10/introducing-ceph-to-openstack/)
+* [Fuel Ceph](http://www.slideshare.net/mirantis/fuel-ceph)
 
 ### Notes
 All articles by Sebastian Han are informative.  
-* [1](http://www.sebastien-han.fr/blog/categories/ceph/)
+* [Ceph](http://www.sebastien-han.fr/blog/categories/ceph/)
 

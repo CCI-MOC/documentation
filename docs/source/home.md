@@ -12,6 +12,7 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [MOC Contributors Legal Agreements version y_r201503](https://drive.google.com/folderview?id=0B3HZEpE-A8qadWVpY2piSjdYdXc&usp=sharing)
 * [Trello, burndown chart, scrum tools - what the fuss ? !!! ](Trello.html)
 * [Kaizen Cluster User Registration](Kaizen-Cluster-User-Registration.html)
+* [Getting Started](Getting-Started.html)
 * [Access IPMI of Nodes](Access-IPMI-of-nodes.html)
 * [Reset Password in Kaizen Openstack](Reset-Password-in-Kaizen-Openstack.html)
 * [Debugging VNC access](Debugging-VNC-access.html)
@@ -118,7 +119,7 @@ This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-
 
 ### Related Reading
 * Google document describing current thinking on shared provisioning layer is available [here](https://docs.google.com/document/d/110avjh50FpwprMdMb_z2LS8n2TjUsh2xbSqHm3qAAOw/edit?usp=sharing)
-* for some debugging hints, look at: [Logging and debugging in OpenStack](http://vmartinezdelacruz.com/logging-and-debugging-in-openstack/)
+* For some debugging hints, look at: [Logging and debugging in OpenStack](http://vmartinezdelacruz.com/logging-and-debugging-in-openstack/)
 
 ### Archives
 Items that are known to be under utilized will be archived at the [Archives page](Archives-page.html). Keep this last!

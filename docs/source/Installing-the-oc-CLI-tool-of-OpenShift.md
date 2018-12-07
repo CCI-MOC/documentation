@@ -41,7 +41,7 @@ cd oc-tool
 ```
 In this folder, you will find the oc command which will be used for all operarions.
 
-To avoid typing ./oc every time, store this path in your .bashrc file.
+To avoid typing `./oc` every time, store this path in your `.bashrc` file.
 
 `export PATH=<HOME>/oc-tool:$PATH`
 

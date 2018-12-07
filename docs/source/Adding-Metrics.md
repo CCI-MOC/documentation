@@ -20,12 +20,12 @@
            -e openshift_metrics_hawkular_hostname=hawkular-metrics.example.com
 
 2) Not sure if this is needed, to add the hawkular OpenShift Agent - this gets deployed to the default project
-    a) Get the 2 configuration files
+  * Get the 2 configuration files
 
         wget https://github.com/openshift/origin-metrics/blob/enterprise/hawkular-openshift-agent/hawkular-openshift-agent-configmap.yaml
         wget https://github.com/openshift/origin-metrics/blob/enterprise/hawkular-openshift-agent/hawkular-openshift-agent.yaml
 
-    b) To deploy the agent:
+  * To deploy the agent:
 
         oc create -f hawkular-openshift-agent-configmap.yaml -n default
         oc process -f hawkular-openshift-agent.yaml | oc create -n default -f -

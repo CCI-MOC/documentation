@@ -6,7 +6,6 @@ Ref:
 * [For setting open stack user/passord/...](https://docs.openshift.com/container-platform/3.5/install_config/configuring_openstack.html#install-config-configuring-openstack)
 * [Using Cinder](https://docs.openshift.com/container-platform/3.5/install_config/persistent_storage/persistent_storage_cinder.html#install-config-persistent-storage-persistent-storage-cinder)
 
-
 1. Create storageclass (that is set as the default storageclass) for cinder
 
         vi cinder-storageclass.yaml
@@ -21,24 +20,21 @@ Ref:
         parameters:
           type: Ceph
           availability: nova
-
-
-    note: parameters:type: needs to match the type that is displayed in the volumes in horizon.
-
+  
+  *Note: parameters:type: needs to match the type that is displayed in the volumes in horizon.*
 2. Create the storageclass from that file: 
 
         oc create -f cinder-storageclass.yaml
 
-  Note: cannot edit via:
+  *Note: cannot edit via:*
 
         oc edit storageclass cinder-storageclass
 
-      have to delete and then reload for changes to take place:
+  *have to delete and then reload for changes to take place:*
 
         oc delete storageclass cinder-storageclass
         ...
- 
-6. On each node (including the master) - probably not needed.
+3. On each node (including the master) - probably not needed.
 
         systemctl stop atomic-openshift-node
         ovs-ofctl del-flows br0 -O OpenFlow13

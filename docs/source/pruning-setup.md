@@ -2,9 +2,9 @@
 [UP](OpenShift.html)
 
 References:
-* [1](https://docs.openshift.com/container-platform/3.5/admin_guide/pruning_resources.html#pruning-images)
-* [2](https://docs.openshift.com/container-platform/3.5/admin_guide/pruning_resources.html#pruning-builds)
-* [3](https://docs.openshift.com/container-platform/3.5/admin_guide/pruning_resources.html#pruning-deployments)
+* [Pruning Images](https://docs.openshift.com/container-platform/3.5/admin_guide/pruning_resources.html#pruning-images)
+* [Pruning Builds](https://docs.openshift.com/container-platform/3.5/admin_guide/pruning_resources.html#pruning-builds)
+* [Pruning Deployments](https://docs.openshift.com/container-platform/3.5/admin_guide/pruning_resources.html#pruning-deployments)
 
 OpenShift has a project that will schedule containers to run at specified intervals, so in the future, this can be done completely within OpenShift.
 

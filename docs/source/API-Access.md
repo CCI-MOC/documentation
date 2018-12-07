@@ -1,7 +1,5 @@
 # API Access
-* [CLI Cheat Sheet](http://docs.openstack.org/user-guide/cli-cheat-sheet.html)
 * [Openstack End User Guide](http://docs.openstack.org/user-guide/)
-* [1](http://docs.openstack.org/user-guide/common/cli-install-openstack-command-line-clients.html)
 
 Most of this tutorial has been focused on interacting with OpenStack via the Horizon GUI.
 

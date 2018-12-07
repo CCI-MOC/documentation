@@ -5,51 +5,50 @@
 [Reference](https://github.com/openshift/svt/tree/master/conformance)
 
 To install the Conformance tests:
+1. Clone the repository
 
-    1) clone the repository
+	git clone https://github.com/openshift/svt.git
 
-        git clone https://github.com/openshift/svt.git
+2. Install go
+```
+download latest https://golang.org/dl/
+wget https://storage.googleapis.com/golang/go1.6.3.linux-amd64.tar.gz
+tar xzvf go1.6.3.linux-amd64.tar.gz
+```
+  * system wide install
 
-    2) install go
-        download latest https://golang.org/dl/
+	sudo mv go /usr/local/
 
-            wget https://storage.googleapis.com/golang/go1.6.3.linux-amd64.tar.gz
-            tar xzvf go1.6.3.linux-amd64.tar.gz
+  * add system wide path
 
-        system wide install
+        sudo vi /etc/profile
 
-            sudo mv go /usr/local/
+  * add this to bottom
+```
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=/usr/local/go/dev
+export PATH=$PATH:$GOPATH/bin
+```
+  * reload
 
-        add system wide path
+        source /etc/profile
 
-            sudo vi /etc/profile
+  * test go
 
-        add this to bottom
+        go version
 
-            export PATH=$PATH:/usr/local/go/bin
-            export GOPATH=/usr/local/go/dev
-            export PATH=$PATH:$GOPATH/bin
+3. Install ginkgo
 
-        reload
+        go get github.com/onsi/ginkgo/ginkgo
 
-            source /etc/profile
+4. Install atomic-openshift-tests
+```
+atomic-openshift-excluder unexclude
+yum -y install atomic-openshift-tests
+atomic-openshift-excluder exclude
+```
+5. Run the tests
 
-        test go
-
-            go version
-
-    3) install ginkgo
-
-         go get github.com/onsi/ginkgo/ginkgo
-
-    4) install atomic-openshift-tests
-
-        atomic-openshift-excluder unexclude
-        yum -y install atomic-openshift-tests
-        atomic-openshift-excluder exclude
-
-    5) run the tests
-
-        cd ./svt/conformance
+	cd ./svt/conformance
         ./svt_conformance
 

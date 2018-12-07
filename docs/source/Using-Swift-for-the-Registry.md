@@ -6,7 +6,7 @@ Reference:
 * [Extended Configuration](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.5/html/installation_and_configuration/setting-up-the-registry#install-config-registry-extended-configuration)
 * [Swift Specific](https://docs.docker.com/registry/storage-drivers/swift/)
 
-1) create a registry-config file
+1) Create a registry-config file
 
         # registry-config.yml
         version: 0.1
@@ -46,7 +46,7 @@ Reference:
           storage:
             - name: openshift
 
-2) (shouldn't need to do this) delete the registry configuration
+2) Delete the registry configuration *(shouldn't need to do this)*
 
         oc delete svc/docker-registry dc/docker-registry
 
@@ -63,11 +63,11 @@ Reference:
 
         oc -n default volume dc/docker-registry --add --type=secret --secret-name=registry-config -m /etc/docker/registry/
 
-7) Updates the registry to reference the configuration path by adding the REGISTRY_CONFIGURATION_PATH environment variable.
+6) Updates the registry to reference the configuration path by adding the REGISTRY_CONFIGURATION_PATH environment variable.
 
         oc -n default env dc/docker-registry REGISTRY_CONFIGURATION_PATH=/etc/docker/registry/config.yml
 
-9) add replicas
+7) Add replicas
 
         oc -n default edit dc/docker-registry
 

@@ -1,46 +1,46 @@
 # Useful OpenShift Commands
 [UP](OpenShift.html)
-* [pruning (system cleanup)](pruning-(system-cleanup).html)
-* [limits](limits.html)
-* [projects](projects.html)
+* [Pruning (system cleanup)](pruning-(system-cleanup).html)
+* [Limits](limits.html)
+* [Projects](projects.html)
 
- 0) restarts the master service:
+0) Restarts the master service:
  
         systemctl restart atomic-openshift-master
 
- 1) log in: 
+1) Log in: 
 
         oc login -u <username>:<password>
 
- 2) list the projects: 
+2) List the projects: 
 
         oc projects   
 
- 3) create a project:              
+3) Create a project:              
 
         oadm new-project <project name> --description="<project description>"
 
- 4) gets current project:      
+4) gets current project:      
 
         oc project
 
- 5) sets current project:      
+5) sets current project:      
 
         oc project <project name>
 
- 6) lists pods in current project: 
+6) lists pods in current project: 
 
         oc get pods
 
- 7) describe a pod:            
+7) describe a pod:            
 
         oc describe pod <a pod name from command 5>
 
- 8) cat log from a pod:        
+8) cat log from a pod:        
 
         oc logs <a pod name from command 5>
 
- 9) list nodes:   
+9) list nodes:   
 
         oc get nodes
 
@@ -50,29 +50,29 @@
 
 11) Move the project over to a different region - also can be used to determine the region a project is currently running in.
 
-    1)  oc edit dc/[project name]
+  1) `oc edit dc/[project name]`
       
-      a) either add or edit
+    a) Either add or edit
 
-      spec:
+        spec:
           template:
               spec:
                   nodeSelector:
                       region: [region name]
 
-    2) redeploy the project:
+  2) Redeploy the project:
 
         oc -n default rollout latest docker-registry
 
-    So far the only time we have had to do this is to move the docker-registry from the
-    default region to the infra region.
+So far the only time we have had to do this is to move the docker-registry from the default region to the infra region.
 
 ---
-Notes:
-1. On project creation:
-  * `oadm new-project` uses the default template
-  * `oc new-project` and "Create New Project" (from the GUI) will allow the specification of one project template
-  * Cluster admins can use: `oc process ... | oc create -f ...` (This is still a bit of a research project - haven't used this yet).
+### Notes
+
+On project creation:
+* `oadm new-project` uses the default template
+* `oc new-project` and "Create New Project" (from the GUI) will allow the specification of one project template
+* Cluster admins can use: `oc process ... | oc create -f ...` (This is still a bit of a research project - haven't used this yet).
 
 [see](https://github.com/openshift/origin/issues/4381)
 

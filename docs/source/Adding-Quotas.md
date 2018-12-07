@@ -9,8 +9,8 @@ They are set on both the container level, the project level and sets of projects
 To set up a default quota for all new projects, search for self provisioning projects.  
 
 See
-* [1](https://github.com/openshift/origin/tree/master/examples/project-quota)
-* [2](https://docs.openshift.org/latest/admin_guide/managing_projects.html#template-for-new-projects)
+* [Project Quotas](https://github.com/openshift/origin/tree/master/examples/project-quota)
+* [Template for New Projects](https://docs.openshift.org/latest/admin_guide/managing_projects.html#template-for-new-projects)
 
 1) Get the previous template:
 

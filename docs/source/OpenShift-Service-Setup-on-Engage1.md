@@ -2,19 +2,18 @@
 
 [UP](OpenShift.html)
 
-0)  Goal, install OpenShift on Engage1 with the following features:
-
-     High Availability
-     Multi-tenant networking
-     Using Keystone Authentication
-     multiple docker registries using swift
-     dynamically allocated persistent volumes using cinder
-     Pruning of image/deployments/builds
-     Monitoring
-     cluster resource contraints
-     default project contraints
-     define roles in open shift and map them to keystone
-     cluster topology 
+Goal, install OpenShift on Engage1 with the following features:
+* High Availability
+* Multi-tenant networking
+* Using Keystone Authentication
+* multiple docker registries using swift
+* dynamically allocated persistent volumes using cinder
+* Pruning of image/deployments/builds
+* Monitoring
+* cluster resource contraints
+* default project contraints
+* define roles in open shift and map them to keystone
+* cluster topology 
 
 [Instructions](https://docs.openshift.com/container-platform/3.5/install_config/install/quick_install.html)
 
@@ -50,7 +49,7 @@
    These were registered in a subdomain using an external DNS server.
 
    By default, SELinix is enabled - to check:
-     view: /etc/selinux/config
+     view: `/etc/selinux/config`
 
         SELINUX = enforcing
         SELINUXTYPE=targeted
@@ -185,7 +184,7 @@
 
 14) Follow the Advanced Install for OpenShift
 
-    On the master edit /etc/ansible/hosts file
+    On the master edit `/etc/ansible/hosts` file
     
         vi /etc/ansible/hosts
 
@@ -252,28 +251,21 @@
 
         ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/config.yml    
 
-    At this point we have achieved the following:
+At this point we have achieved the following:
+* High Availability
+* Multi-tenant networking
+* Keystone Authentication
+* Native Cloud Support (about 1/2 to persistent volumes).
 
-         High Availability
-         Multi-tenant networking
-         Keystone Authentication
-         Native Cloud Support (about 1/2 to persistent volumes).
+Notes: 
+1. There are several values that need to be changed when the virtual machines are restarted
+2. Will need clean virtual machines after every run as the ansible scripts don't clean up after themselves.  It is faster to reinitialize the VMs.
+3. Generally need to have 2 or three Infra nodes - all other nodes can be region 'Default'
+4. The master node should not be schedulable.
+5. Nodes can be reassigned a region with 'oc label node shiftnode1.moclocal region=infra --overwrite=true'
+6. Before deleting a virtual machine, run: 
 
-    Notes: 
+	subscription-manager unregister
 
-        1) there are several values that need to be changed when the virtual machines are restarted
+To unsubscribe it from RH.
 
-        2) Will need clean virtual machines after every run as the ansible scripts don't clean up after
-           themselves.  It is faster to reinitialize the VMs.
-
-        3) Generally need to have 2 or three Infra nodes - all other nodes can be region 'Default'
-
-        4) The master node should not be schedulable.
-
-        5) Nodes can be reassigned a region with 'oc label node shiftnode1.moclocal region=infra --overwrite=true'
-
-        6) Before deleting a virtual machine, run: 
-
-                subscription-manager unregister
-
-            To unsubscribe it from RH.

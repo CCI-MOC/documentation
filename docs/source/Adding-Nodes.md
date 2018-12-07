@@ -18,9 +18,9 @@ On the new Node follow steps 0-13 [here](OpenShift-Service-Setup-on-Engage1.html
         yum update atomic-openshift-utils
 
 2) Edit `/etc/ansible/hosts` 
-* add 'new_nodes' to the [OSEv3:children] 
-* Add a new section called [new_nodes] to the 
-* Add the new nodes under the [new_nodes] section
+  * add 'new_nodes' to the [OSEv3:children] 
+  * Add a new section called [new_nodes] to the 
+  * Add the new nodes under the [new_nodes] section
 
 File should look like:
 

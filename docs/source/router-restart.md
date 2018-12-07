@@ -4,7 +4,7 @@
 
 If the router didn't come up cleanly.
 
-1) delete the router information in the following order
+1) Delete the router information in the following order
 
         [root@m-1 quotas]# oc get dc
         NAME               REVISION   DESIRED   CURRENT   TRIGGERED BY

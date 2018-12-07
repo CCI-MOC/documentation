@@ -1,10 +1,10 @@
-# Introduction
+# OpenShift Introduction
 
 [UP](MOC-OpenShift-Text-&amp;-Screenshot-Tutorial.html)
 
 **OpenShift** is the container service the Mass Open Cloud has deployed.  If you haven't thought about containers it is useful to read a [little bit about them](https://en.wikipedia.org/wiki/Operating-system-level_virtualization)
 
-Specifically, OpenShift uses [docker containers](shttps://en.wikipedia.org/wiki/Docker_(software).
+Specifically, OpenShift uses [docker containers](https://en.wikipedia.org/wiki/Docker_(software)).
 
 Docker containers have minimal storage requirements and are **immutable**.
 

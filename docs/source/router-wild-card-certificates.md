@@ -1,7 +1,7 @@
 # Router Wildcard Certificates
 [UP](OpenShift.html)
 
-0) modify the `/etc/origin/master/master-config.yaml` to configure the router subdomain:
+0) Modify the `/etc/origin/master/master-config.yaml` to configure the router subdomain:
 
         routingConfig:
           subdomain:  "apps.osh.massopen.cloud"
@@ -18,7 +18,7 @@
               --hostnames='*.apps.osh.massopen.cloud' \
               --cert=cloudapps.crt --key=cloudapps.key
 
-3) bundle the certs in a way that the router expects them:
+3) Bundle the certs in a way that the router expects them:
 
         cat cloudapps.crt cloudapps.key $CA/ca.crt > cloudapps.router.pem
 

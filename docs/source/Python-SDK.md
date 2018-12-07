@@ -3,9 +3,7 @@
 
 [Openstack End User Guide](http://docs.openstack.org/user-guide/)
 
-[1](http://docs.openstack.org/user-guide/common/cli-install-openstack-command-line-clients.html)
-
-[known SDKs](https://wiki.openstack.org/wiki/SDKs)
+[Known SDKs](https://wiki.openstack.org/wiki/SDKs)
 
 
 From the Python SDK page at Pypi:  

@@ -20,9 +20,9 @@ Master:
         yum update atmoic-openshift-utils
 
 2) Edit `/etc/ansible/hosts`
-* Add 'new_masters' and 'new_nodes' to the [OSEv3:children] 
-* Add a new section called [new_nodes] to the 
-* Add the new nodes under the [new_nodes] section
+  * Add 'new_masters' and 'new_nodes' to the [OSEv3:children] 
+  * Add a new section called [new_nodes] to the 
+  * Add the new nodes under the [new_nodes] section
 
 File should look like:
 
@@ -49,7 +49,6 @@ File should look like:
         [new_nodes]
         smaster002 openshift_node_lables="{'region':'infra', 'zone':'default'}" open shift_schedulable=false
         smaster003 openshift_node_lables="{'region':'infra', 'zone':'default'}" open shift_schedulable=false
-
 3) run the following ansible playbook:
   
         ansible-playbook [-i /path/to/hostsFile] \

@@ -69,7 +69,7 @@ Find your username in the top right corner of the dashboard, and click on it.  C
 
 Enter your temporary password under "Current Password", and your new password in the other two boxes.
 
-![](_static/change_password.png|Change Password Menu)
+![](_static/change_password.png)
 
 ******
  

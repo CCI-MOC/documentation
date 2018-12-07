@@ -1,4 +1,4 @@
-#Getting Started
+# Getting Started
 [MOC Production Dashboard](http://kaizen.massopen.cloud)
 
 ### Tutorials

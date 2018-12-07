@@ -89,16 +89,6 @@ The [example script] is available for download.
 
 Make sure to fill in the appropriate image, flavor, keypair, and network names, and to set your environment variables.
 
-
-### OpenStack Python API Documentatoin
-
-More information about the various OpenStack clients is available in the official documentation:
-* [Nova][novaclient]
-* [Neutron][neutronclient]
-* [Cinder][cinderclient]
-* [Glance][glanceclient]
-* [Swift][swiftclient]
-
 You have now reached the end of the tutorial! Good work!
 
 ******

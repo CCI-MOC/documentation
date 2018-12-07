@@ -67,7 +67,7 @@
 * [MOCPOC: Packstack Openstack Install (on Centos) experiment: vms](MOCPOC-Packstack-Openstack-Install-(on-Centos)-experiment-vms.html)
 
 ### Fuel
-* [Fuel experience](Fuel-experience.html)
+* [Fuel experience](Fuel-Experience.html)
 * [Fuel experience quick start in virtualbox](Fuel-experience-quick-start-in-virtualbox.html)
 * [Fuel openstack install (on centos)](Fuel-openstack-install-(on-centos).html)
 * [Fuel OpenStack test deployments with Cisco switch](Fuel-OpenStack-test-deployments-with-Cisco-switch.html)

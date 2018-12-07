@@ -1,7 +1,7 @@
 # Aggregated Logging
 [Reference](https://docs.openshift.com/container-platform/3.5/install_config/aggregate_logging_sizing.html)
 
-0) disable logging:
+0) Disable logging:
 
         ansible-playbook \
             /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
@@ -13,11 +13,11 @@
 
     note the --node-selector="", this will distribute logging across all of the nodes in the cluster.
 
-2) switch to the logging project:
+2) Switch to the logging project:
 
         oc project logging
 
-3) added the following to the /etc/ansible/hosts file:
+3) Added the following to the /etc/ansible/hosts file:
 
         #aggregated logging
         openshift_logging_install_logging=True
@@ -37,11 +37,11 @@
         oc patch dc/logging-es-4o9ou402 -p '{"spec":{"template":{"spec":{"containers":[{\ 
              "name":"elasticsearch","securityContext":{"privileged": true}}]}}}}'
 
-5) run the ansible script:  
+5) Run the ansible script:  
 
         ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml
 
-6) due to a bug in the ansible scripts, logging was failing with this entry in the log files:
+6) Due to a bug in the ansible scripts, logging was failing with this entry in the log files:
 
         Exception in thread "main" java.lang.RuntimeException: Unable to load index mapping for io.fabric8.elasticsearch.kibana.mapping.empty.  The key was not in the settings or it specified a file that does not exists.
 
@@ -49,6 +49,7 @@
 
         https://github.com/openshift/openshift-ansible/pull/4657/files       
 
-    Updated the scripts, and added the following line to /usr/share/ansible/openshift-ansible/roles/openshift_logging/templates/elasticsearch.yml.j2 (line 43):
+    Updated the scripts, and added the following line to `/usr/share/ansible/openshift-ansible/roles/openshift_logging/templates/elasticsearch.yml.j2` (line 43):
 
         io.fabric8.elasticsearch.kibana.mapping.empty: /usr/share/elasticsearch/index_patterns/com.redhat.viaq-openshift.index-pattern.json
+
