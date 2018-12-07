@@ -14,7 +14,7 @@
 * [BMI Wiki - setup and how to](BMIInstallation.html)
 * [Service list](Service-list.html) -- Pretty much no useful information here.
 * [Ruoyu Chen Blog](Ruoyu-Daily.html)
-* [OPs log]
+* [OPs log](OPs-log.html)
 * [Development Environment](Development-Environment.html)   
 * [EC500 Instructions](EC500-Instructions.html)
 * [KVM How To](KVM-How-To.html)
