@@ -11,7 +11,7 @@ Instructions for [Accessing Northeastern Cluster](Accessing-Northeastern-Cluster
 [NEU Equipment Sign-Out](NEU-Equipment-Sign-Out.html)
 
   **SERVERS**
-  * Cisco UCS C220 M3 SSF (x48). See [this file]<!--(CiscoConfiguration.pdf)--> for list of configuration components. 
+  * Cisco UCS C220 M3 SSF (x48). See [this file](_static/CiscoConfiguration.pdf) for list of configuration components. 
   * numbers 1-24 in rack 17, 25-48 in rack 19.  Numbered from bottom of rack up.
   * More information specific to the [Cisco UCS C220](Cisco-UCS-C220.html) nodes
   * Internal Storage

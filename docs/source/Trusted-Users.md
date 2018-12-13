@@ -39,7 +39,7 @@ worksheet_key = 10MF5OYuwxiB537IpuKwBDKy388KRKCMJLabA3D28Ztw
 
 Eventually, we will have this online registration. For now, we will use a simple form that can be checked out from MOC repo. 
 
-The request form file name is [MOCAccountRequestForm_TrustedUser.docx]<!--(MOCAccountRequestForm_TrustedUser.docx)--> or [MOCAccountRequestForm_TrustedUser.pdf]<!--(MOCAccountRequestForm_TrustedUser.pdf)-->
+The request form file name is [MOCAccountRequestForm_TrustedUser.docx]<!--(MOCAccountRequestForm_TrustedUser.docx)--> or [MOCAccountRequestForm_TrustedUser.pdf](_static/MOCAccountRequestForm_TrustedUser.pdf)
 
 ### Steps after moc-kaizen-l receives the request form:
 1. create the account for the user using the default quota below
