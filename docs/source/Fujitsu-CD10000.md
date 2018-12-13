@@ -4,20 +4,19 @@
   
 **Web URL** : https://129.10.3.253/dashboard (note - web server no longer responding on this address)
   
-**User/Password** : "admin"/"90@Limber@Joyriding" (darned password requirements...)
+**User/Password** : bitwarden Fujitsu CD10000 User
 
-**SSH User/Password** : root/same password as above. The OLD password was 'fjCD#1007', if it's ever relevant. fjCD#1007 is still the root password for nodes 1-4
+**SSH User/Password** : bitwarden Fujitsu CD10000 SSH User
 
 ### IPMI
 
 **IPMI of the management server** : 10.99.1.14 (accessible via HIL master or emergency box)
 
-* current user/password:  admin/3YKHDPQgmMkf1
-* default user/password was admin/admin
+* current user/password: bitwarden Fujitsu CD10000 Management
 
 **IPMI of the individual nodes**: 192.168.10.11-14 which (accessible from the management server, brocade 1g switches vlan 10 in fujitsu appliance cage)
 
-* current user/password is still set at the default: admin/admin
+* current user/password is still set at the default, see bitwarden Fujitsu CD10000 Nodes
 * those should be accessible from haas-master after 7/13 visit
 
 ### Documentation 

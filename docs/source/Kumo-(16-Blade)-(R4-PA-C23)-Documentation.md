@@ -1,6 +1,8 @@
-<!--Documentation Spreadsheet: [R4-PA-C23 rack layout and networking](inventory_xlsx/R4-PA-C23.xlsx)-->
+# Kumo 16 Blade R4 PA C23 Documentation 
 
-######10.10.10.0/24: VLAN 3040 
+Documentation Spreadsheet: [R4-PA-C23 rack layout and networking](_static/xlsx/R4-PA-C23.xlsx)
+
+### 10.10.10.0/24: VLAN 3040 
 This network is shared with Engage1, see also [[Engage1 Network Documentation]]
 For this deployment, server addresses should all be in the range 10.10.10.{200-254}
      
@@ -18,17 +20,14 @@ For this deployment, server addresses should all be in the range 10.10.10.{200-2
   
 ### Cisco Nexus 3548 Switch
     
-    username: admin
-    password: P@ssword1
+    username/password: see bitwarden Cisco Nexus 3548 Switch
 
 ### Cisco Catalyst 3650 Switch
 <!--
 [Catalyst 3650 Hardware Install Guide](manuals/cat3650_hardware_install_guide.pdf)  
 [Catalyst 3650 Getting Started Guide](manuals/cat3650_getting_started_guide.pdf)
 -->
-     username: admin
-     ssh/telnet password: cisco
-     enable password: wittinglypreconfigure   
+     username/ssh-telnet password: see bitwarden Cisco Catalyst 3650 Switch
  
      The enable password is what you enter after you log in and type 'enable'.
 

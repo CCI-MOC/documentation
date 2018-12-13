@@ -2,25 +2,23 @@
 
 ### Hardware and Networking Layout
 Where is everything, and what is connected to what ? These spreadsheets will tell you:  
-* [Engage1_networks.xlsx]<!--(inventory_xlsx/Engage1_networks.xlsx)-->
-* [Engage1_racks_and_hardware.xlsx]<!--(inventory_xlsx/Engage1_racks_and_hardware.xlsx)-->
-* [Engage1_Brocade_cable_map.xlsx]<!--(inventory_xlsx/Engage1_Brocade_cable_map.xlsx)-->
+* [Engage1_networks.xlsx](_static/xlsx/Engage1_networks.xlsx)
+* [Engage1_racks_and_hardware.xlsx](_static/xlsx/Engage1_racks_and_hardware.xlsx)
+* [Engage1_Brocade_cable_map.xlsx](_static/xlsx/Engage1_Brocade_cable_map.xlsx)
 
 New management cable map can be found here: [Engage1 Management Cable Map](Engage1-Management-Cable-Map.html)   
 
-Old document is [here]<!--(inventory_xlsx/Engage1_1G_cable_map.xlsx) just in case, but is completely outdated.)-->
+Old document is [here](_static/xlsx/Engage1_1G_cable_map.xlsx) just in case, but is completely outdated.)-->
 
 Following is the snapshot of what the rack layout is as of March 2015 
 
 ![](_static/MGHPCCRackLocation.png)
 
-<!--[MGHPCCRackAssignments032015.pptx]( MGHPCCRackAssignments032015.pptx)-->
+<!--[MGHPCCRackAssignments032015.pptx](MGHPCCRackAssignments032015.pptx)-->
 
 Rough diagram of the Ceph storage: 
    
 ![](_static/engage1_ceph.png)
-
-[Documentation of PDU configuration]<!--(PDU_Documentation.html)-->
 
 **VLANs**
  
