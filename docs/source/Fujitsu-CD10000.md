@@ -22,7 +22,7 @@
 
 ### Documentation 
 * User guide can be found at [Link](_static/cd10000-ug-en_v1.0SP2.pdf)
-* Spreadsheet layout of the CD10K deployment [Link](_static/MOC_CD10K_Master_Worksheet_052915_DM.xlsx)
+* Spreadsheet layout of the CD10K deployment [Link](_static/xlsx/MOC_CD10K_Master_Worksheet_052915_DM.xlsx)
 * System Admin training material can be found at [Link]<!--(CD10000-MOC-Training.7z)-->
 
 ### How to open a support call to Fujitsu 
