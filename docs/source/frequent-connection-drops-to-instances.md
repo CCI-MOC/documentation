@@ -10,9 +10,9 @@ To see if you are affected by this bug or not, perform the following steps:-
 * Login to horizon and goto Networks -> Routers -> (click on router-name)
 * Check the Gateway address of the Router. If the ip-address is in 129.10.3.0/25 subnet, then make sure the floating-ip's you have are from the same subnet only (129.10.3.0/25 and not 129.10.3.128/26). If your router is in subnet 129.10.3.128/26, your floating-ip's should also be in the same subnet.
 
-![](_static/floatingips.png)
+![](_static/img/floatingips.png)
 
-![](_static/router.png)
+![](_static/img/router.png)
 
 If there is a discrepancy, then you can try clearing the gateway of router and setting it again, or can try deleting the router and creating it again or can try freeing the wrong floating-ip and allocating it again.
 

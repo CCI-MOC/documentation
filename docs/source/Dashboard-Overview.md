@@ -12,7 +12,7 @@ On the Compute panel you see an overview of different resources.
 
 Navigate: Project -> Compute -> Overview  
 
-![](_static/compute_overview.png)
+![](_static/img/compute_overview.png)
 
 Take some time to click through the different tabs under compute, such as Instances. 
 
@@ -22,14 +22,14 @@ Navigate: Project -> Network -> Network Topology
 
 Next click on the Network panel.  You should see the external public network which has already been created.
 
-![](_static/network_topology_01-lg.png)
+![](_static/img/network_topology_01-lg.png)
 
 ### Object Store Panel
 Navigate: Project->Object Store->Container  
 
 In future you would use this tab to create Swift object storage for your projects on a need basis.  
 
-![](_static/swift_containers.png)
+![](_static/img/swift_containers.png)
 
 ******
 

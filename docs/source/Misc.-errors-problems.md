@@ -26,7 +26,7 @@ Check that the change worked, and we only have one large root partition
 ### Node 39 crashes
 (Hua/Abesari)
 
-![](_static/node_39_reboot_errors.png)
+![](_static/img/node_39_reboot_errors.png)
 
 Possible solution (Yue) We will rebuild this node with RHEL7.1.
 1. Rebuild the Nodes from the Foremen. https://192.168.122.162/users/login (admin/welcome1)

@@ -7,7 +7,7 @@ To start a VM, we will need a base image.  MOC has made several Public images av
 ### Launch an Instance
 Navigate: Project -> Compute -> Images.  Make sure you are on the Public tab.
 
-![](_static/base_images_public.png)
+![](_static/img/base_images_public.png)
 
 Click Launch Instance next to the public image of your choice.  In the example, we chose RHEL7.1.  
 
@@ -17,7 +17,7 @@ Make sure you review all of them as per instructions before clicking on Launch! 
 
 Give your instance a name.
 
-![](_static/launch_details.png)
+![](_static/img/launch_details.png)
 
 **Source**
 
@@ -25,14 +25,14 @@ Double check that in the dropdown "Select Boot Source," "Image" is selected.
 
 To create an image that uses the boot volume sized according to the flavor ensure that "No" is selected under the "Create New Volume" section as shown here:
 
-![](_static/launch_source.png)
+![](_static/img/launch_source.png)
 
 
 **Flavor**  
 
 Choose m1.small from the 'Flavor' tab by clicking on the "+" icon.
  
-![](_static/launch_flavor_01.png)
+![](_static/img/launch_flavor_01.png)
 
 The default m1.tiny flavor is too small for the base images which are available.
 
@@ -42,19 +42,19 @@ If you find later that a custom flavor would help you use your resources more ef
 
 After choosing m1.small, you should see it moved up to "Allocated".
 
-![](_static/launch_flavor_02.png)
+![](_static/img/launch_flavor_02.png)
 
 **Networking**
 
 Make sure the Private Network you just created is moved up to "Allocated". If not, you can click on the "+" icon in "Available".
 
-![](_static/launch_networks.png)
+![](_static/img/launch_networks.png)
 
 **Security Groups**
 
 Make sure to add the security group where you enabled SSH.
 
-![](_static/launch_security.png)
+![](_static/img/launch_security.png)
 
 **Key Pair**
 
@@ -62,7 +62,7 @@ Add the key pair you want to use with this VM.
 
 Openstack currently only supports adding a single key pair. We will discuss how to add additional public keys [later in the tutorial](SSH-to-Cloud-VM.html#more-ssh-keys).
 
-![](_static/launch_key.png)
+![](_static/img/launch_key.png)
 
 **Configuration and Metadata**
 
@@ -73,12 +73,12 @@ You are now ready to launch your VM - go ahead and click "Launch Instance"!
 On a successful launch you would be redirected to Compute -> Instances tab  
 and can see the VM spawning.  
 
-![](_static/launch_spawning.png)
+![](_static/img/launch_spawning.png)
 
 Once your VM is successfully running you will see the **Power State** changes from
 "No State" to "running".  
 
-![](_static/launch_running.png)
+![](_static/img/launch_running.png)
 
 Good job!
 

@@ -14,7 +14,7 @@ The current system uses the local machine or a VM on kaizen (so forth called loc
   
 The following shows the current SLURM cluster deployment architecture:
 
-![SLURM cluster deployment architecture](_static/Slurm.jpg)  
+![SLURM cluster deployment architecture](_static/img/Slurm.jpg)  
   
 The deployment scripts are run on the local machine seen in the diagram, this deployment scripts installs the necessary packages and starts the particular daemon (central daemon or daemon) on the node.
 

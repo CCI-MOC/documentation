@@ -2,7 +2,7 @@
 
 Logical View
 
-![](https://github.com/CCI-MOC/papers/blob/master/engage1/Engage1Network.png)
+<!--![](https://github.com/CCI-MOC/papers/blob/master/engage1/Engage1Network.png)-->`
 
 There are 18 Compute Racks which have 18 Servers and three of them have Cache Server. Each Server within Rack is connected to Switch via 10GB link, and each Cache server within Rack is connected to Switch via 2x 40GB link.
 

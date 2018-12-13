@@ -2,25 +2,238 @@
 
 [Harvard Equipment Sign Out](Harvard-Equipment-Sign-Out.html)
 
-![](_static/Harvard-network-topology.png)
+![](_static/img/Harvard-network-topology.png)
 
 The R720, eosctl01, connects to sw1 over em1-em4, and to sw3 over p3p1 (p3p2 is disconnceted).  The 16 blades connect to sw1 over p3p1 and to sw3 over em1 (em2 and p3p1 are disconnected).
 
 # MOC Network Topology 
-![](_static/MOCatHU_NetworkTopology.png)
+![](_static/img/MOCatHU_NetworkTopology.png)
 
 # Engagement Journal
 
-<!--[Link](MOC OpenStack_Ceph_Satellite Engagement Journal - November 2014_v1.2.pdf)-->
+[Link](_static/pdf/MOC OpenStack_Ceph_Satellite Engagement Journal - November 2014_v1.2.pdf)
 
 # Testing Openstack
-<!--
-[openstack_test.sh](openstack_test.sh)
-[george.yaml](george.yaml)
--->
-[How To Test Harvard Moc Cluster](How-To-Test-Harvard-Moc-Cluster.html)
+openstack_test.sh
+```
+export OS_USERNAME=george_test
+export OS_TENANT_NAME=george_test
+export OS_PASSWORD=testtesttest
+export OS_AUTH_URL=http://140.247.152.207:35357/v2.0/
 
-# Overview
+# Open up Neutron enough to test connectivity
+N_RULE1=$(neutron security-group-rule-create --protocol icmp --direction ingress default | grep ' id ' | awk '{print $4}')
+N_RULE2=$(neutron security-group-rule-create --protocol tcp --port-range-min 22 --port-range-max 22 --direction ingress default | grep ' id ' | awk '{print $4}')
+
+# Create a SSH keypair
+nova keypair-add testkey > /tmp/testkey.pem
+chmod 600 /tmp/testkey.pem
+
+# Capture IDs
+PUBNETID=$(neutron net-list | grep pubnet | awk '{print $2}')
+
+#Creating Internal L2 private networks
+#Internal-only router to connect multiple L2 networks privately.
+PRIVNET1ID=$(neutron net-create privnet1 | grep ' id ' | awk '{print $4}')
+PRIVSUBNET1ID=$(neutron subnet-create --name privsubnet1 $PRIVNET1ID 172.16.25.0/24 | grep ' id ' | awk '{print $4}')
+# Set gateway for your external network
+neutron router-gateway-set $ROUTERID $PUBNETID
+
+### Launch an instance...
+CIRROSID=$(glance image-list | grep -i cirros | awk '{print $2}')
+INSTANCEID=$(nova boot testserver --flavor 1 --image $CIRROSID --key-name testkey --security-groups default --nic net-id=$PRIVNET1ID | grep ' id ' | awk '{print $4}')
+FLOATINGIP=$(neutron floatingip-create pubnet1 | grep floating_ip_address | awk '{print $4}')
+nova add-floating-ip $INSTANCEID $FLOATINGIP
+
+#   VOLUMEID=$(cinder create 2 | grep ' id ' | awk '{print $4}')
+sleep 5
+#   nova volume-attach $INSTANCEID $VOLUMEID
+echo Test server at ${FLOATINGIP} now.  There should be a volume attached.
+bash
+
+#   nova volume-detach $INSTANCEID $VOLUMEID
+#   cinder delete $VOLUMEID
+
+nova delete $INSTANCEID
+# HERE:  should test booting from a volume, snapshotting a VM and booting from the snapshot, snapshotting a volume potentially.
+nova delete $INSTANCEID
+# HERE:  should test booting from a volume, snapshotting a VM and booting from the snapshot, snapshotting a volume potentially.
+
+#  VOLUMEID=$(cinder create --image-id $CIRROSID 1 | grep ' id ' | awk '{print $4}')
+#  sleep 5
+#  INSTANCEID=$(nova boot testserver --flavor 1 --boot-volume $VOLUMEID --key-name testkey --security-groups default --nic net-id=$PRIVNET1ID | grep ' id ' | awk '{print $4}')
+#  nova add-floating-ip $INSTANCEID $FLOATINGIP
+#  sleep 5
+#  echo Test server at ${FLOATINGIP} now.
+#  bash
+#  nova delete $INSTANCEID
+#  sleep 10
+#  cinder delete $VOLUMEID
+
+FLOATINGIP_ID=$(neutron floatingip-list | grep $FLOATINGIP | awk '{print $2}')
+neutron floatingip-delete $FLOATINGIP_ID
+
+
+neutron router-gateway-clear $ROUTERID
+neutron router-interface-delete $ROUTERID $PRIVSUBNET1ID
+neutron router-delete $ROUTERID
+neutron subnet-delete $PRIVSUBNET1ID
+neutron net-delete $PRIVNET1ID
+
+neutron security-group-rule-delete $N_RULE1
+neutron security-group-rule-delete $N_RULE2
+
+HEATSTACK=$(heat stack-create -f george.yaml -P 'key_name=testkey;image='$CIRROSID';private_net_name=borr;public_net_id='$PUBNETID borr2 | grep borr2 | awk '{print $2}')
+echo 'Test your heat stack now'
+bash
+heat stack-delete $HEATSTACK
+
+nova keypair-delete testkey
+rm /tmp/testkey.pem
+
+echo 'Done!!'
+```
+george.yaml
+```
+heat_template_version: 2013-05-23
+
+description: >
+  HOT template to create a new neutron network plus a router to the public
+  network, and for deploying two servers into the new network. The template also
+  assigns floating IP addresses to each server so they are routable from the
+  public network.
+
+parameters:
+  key_name:
+    type: string
+    description: Name of keypair to assign to servers
+    constraints:
+      - custom_constraint: nova.keypair
+  image:
+    type: string
+    description: Name of image to use for servers
+    constraints:
+      - custom_constraint: glance.image
+  flavor:
+    type: string
+    description: Flavor to use for servers
+    default: m1.small
+    constraints:
+      - custom_constraint: nova.flavor
+  public_net_id:
+    type: string
+    description: >
+      ID of public network for which floating IP addresses will be allocated
+    constraints:
+      - custom_constraint: neutron.network
+  private_net_name:
+    type: string
+    description: Name of private network to be created
+  private_net_cidr:
+    type: string
+    description: Private network address (CIDR notation)
+    default: 192.168.4.0/24
+  private_net_gateway:
+    type: string
+    description: Private network gateway address
+    default: 192.168.4.1
+  private_net_pool_start:
+    type: string
+    description: Start of private network IP address allocation pool
+    default: 192.168.4.2
+  private_net_pool_end:
+resources:
+  private_net:
+    type: OS::Neutron::Net
+    properties:
+      name: { get_param: private_net_name }
+
+  private_subnet:
+    type: OS::Neutron::Subnet
+    properties:
+      network_id: { get_resource: private_net }
+      cidr: { get_param: private_net_cidr }
+      gateway_ip: { get_param: private_net_gateway }
+      allocation_pools:
+        - start: { get_param: private_net_pool_start }
+          end: { get_param: private_net_pool_end }
+
+  router:
+    type: OS::Neutron::Router
+
+  router_gateway:
+    type: OS::Neutron::RouterGateway
+    properties:
+      router_id: { get_resource: router }
+      network_id: { get_param: public_net_id }
+
+ router_interface:
+    type: OS::Neutron::RouterInterface
+    properties:
+      router_id: { get_resource: router }
+      subnet_id: { get_resource: private_subnet }
+
+  server1:
+    type: OS::Nova::Server
+    properties:
+      name: Server1
+      image: { get_param: image }
+      flavor: { get_param: flavor }
+      key_name: { get_param: key_name }
+      networks:
+        - port: { get_resource: server1_port }
+
+  server1_port:
+    type: OS::Neutron::Port
+    properties:
+      network_id: { get_resource: private_net }
+      fixed_ips:
+        - subnet_id: { get_resource: private_subnet }
+
+ server1_floating_ip:
+    type: OS::Neutron::FloatingIP
+    properties:
+      floating_network_id: { get_param: public_net_id }
+      port_id: { get_resource: server1_port }
+
+  server2:
+    type: OS::Nova::Server
+    properties:
+      name: Server2
+      image: { get_param: image }
+      flavor: { get_param: flavor }
+      key_name: { get_param: key_name }
+      networks:
+        - port: { get_resource: server2_port }
+
+  server2_port:
+    type: OS::Neutron::Port
+    properties:
+      network_id: { get_resource: private_net }
+      fixed_ips:
+        - subnet_id: { get_resource: private_subnet }
+ server2_floating_ip:
+    type: OS::Neutron::FloatingIP
+    properties:
+      floating_network_id: { get_param: public_net_id }
+      port_id: { get_resource: server2_port }
+
+outputs:
+  server1_private_ip:
+    description: IP address of server1 in private network
+    value: { get_attr: [ server1, first_address ] }
+  server1_public_ip:
+    description: Floating IP address of server1 in public network
+    value: { get_attr: [ server1_floating_ip, floating_ip_address ] }
+  server2_private_ip:
+    description: IP address of server2 in private network
+    value: { get_attr: [ server2, first_address ] }
+  server2_public_ip:
+    description: Floating IP address of server2 in public network
+    value: { get_attr: [ server2_floating_ip, floating_ip_address ] }
+```
+
+[How To Test Harvard Moc Cluster](How-To-Test-Harvard-Moc-Cluster.html)
 
 This document is a description of the MOC OpenStack cluster configuration being hosted at Harvard.
 

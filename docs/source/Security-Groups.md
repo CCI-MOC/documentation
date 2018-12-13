@@ -7,7 +7,7 @@ Click on the Security Groups tab.
 
 You should see a ‘default’ security group.  
 
-![](_static/security_groups.png)
+![](_static/img/security_groups.png)
 
 Security groups are profiles that control the firewall settings which allow or block access to instances that are members of the group.  
  
@@ -26,15 +26,15 @@ Click on "Create Security Group."  Give your new group a name, and a brief descr
 
 In the example, we will enable SSH from anywhere so we can access the VM via a public IP.
 
-![](_static/create_security_group.png)
+![](_static/img/create_security_group.png)
 
 Your new group now appears in the list.  Click the "Manage Rules" button in the "Actions" column next to your new security group.
 
-![](_static/access_security_newgroup.png)
+![](_static/img/access_security_newgroup.png)
 
 You will see some existing rules:
 
-![](_static/security_rules_01.png)
+![](_static/img/security_rules_01.png)
 
 Let's create the new rule to allow SSH. Click on Add Rule.
 
@@ -42,11 +42,11 @@ You will see there are a lot of options you can configure on this screen.
 
 There is a built-in SSH option to make things simple.  Choose 'SSH' from the 'Rule' drop down menu and click "Add."  
 
-![](_static/add_rule.png)
+![](_static/img/add_rule.png)
 
 The new rule now appears in the list.
 
-![](_static/security_rules_02.png)
+![](_static/img/security_rules_02.png)
 
 **Allowing Ping**
 
@@ -54,7 +54,7 @@ The default configuration blocks ping responses, so you will need to add an addi
 
 Ping is ICMP traffic, so the easiest way to allow it is to add a new rule and choose "ALL ICMP" from the dropdown.
 
-![](_static/security_add_rule_ping.png)
+![](_static/img/security_add_rule_ping.png)
 
 More on different types of ICMP codes can be found at [this link](http://www.nthelp.com/icmp.html).
 

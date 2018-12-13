@@ -52,7 +52,7 @@ Run devstack.
 
 ### Midonet topology
 
-![](_static/midonet-topology.png)
+![](_static/img/midonet-topology.png)
 
 ### Documentation
 * [Official documents](http://docs.midokura.com/)

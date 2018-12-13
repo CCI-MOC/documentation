@@ -10,7 +10,7 @@ This guide will not cover installing ceilometer alarming service as it is not be
 ### System Overview
 We will deploy different part of ceilometer services to the openstack system as shown in the below diagram.
 
-![](_static/ceilometer_deployment_chart.png)
+![](_static/img/ceilometer_deployment_chart.png)
 
 On the ceilometer node, below services are installed:
 * **openstack-ceilometer-api**: service to query and view data recorded by collector in internal full-fidelity database(MongoDB).
@@ -361,7 +361,7 @@ If you have done every part right. Then you should have ceilometer up and runnin
 
 Type `ceilometer meter-list`. This command will show all the meters currently enabled. You should get the results like below:
 
-![](_static/ceilometer_meters.png)
+![](_static/img/ceilometer_meters.png)
 
 You could learn more ceilometer commands by typing `ceilometer --help`
 

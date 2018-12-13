@@ -1,6 +1,6 @@
 # Diagram
 
-![](_static/05-13-15-Sensu-Diagram.png)
+![](_static/img/05-13-15-Sensu-Diagram.png)
 
 Sensu is composed of three Sensu parts. Sensu has a Sensu Server that distributes commands, Sensu Clients that receive those commands and send the results back to the Sensu Server, and Sensu API provides the REST-like interface for Sensu's data. 
 
@@ -14,7 +14,7 @@ Sensu API depends on RabbitMQ and Redis.
 
 # Sensu Topology
 
-![](_static/sensu-diagram.png)
+![](_static/img/sensu-diagram.png)
 
 # Services
 
@@ -72,7 +72,7 @@ We defined a check to run on nodes subscribed to the a channel (e.g. "moc-sensu"
 
 # Configurations
 
-All configuration files are inside /etc/sensu/
+All configuration files are inside `/etc/sensu/`
 
 ### config.json (Sensu server and clients)
 
@@ -182,7 +182,7 @@ A handler can be triggered based on severity or exit status. You can list the tr
 
 A handler has a type. There are default types like pipe, which is exactly as it implies. It receives a pipe from the resulted output and sends that piped log to the email for the handler to take.
 
-A handler has a command. It can trigger any bash or shell command, but it also tends to be used to trigger handler scripts inside /etc/sensu/handlers.
+A handler has a command. It can trigger any bash or shell command, but it also tends to be used to trigger handler scripts inside `/etc/sensu/handlers`.
 
 ```
 {
@@ -199,13 +199,13 @@ A handler has a command. It can trigger any bash or shell command, but it also t
 }
 ```
 
-# Logs
+### Logs
 
 	/var/log/sensu/sensu-server.log
 	/var/log/sensu/sensu-client.log
 	/var/log/sensu/sensu-api.log
 
-# Details of MOC Sensu
+### Details of MOC Sensu
 
 Sensu-server
 
@@ -268,9 +268,9 @@ To be able to talk to OpenStack api with specific client libraries on sensu serv
 sudo pip install rackspace-neutronclient
 sudo pip install python-novaclient
 ```
-# Library and Tools
+### Library and Tools
 
-### sensu-cli
+**sensu-cli**
 
 sensu-cli allows interacting with sensu-api with command line.
 
@@ -286,7 +286,8 @@ ssl   false
 read_timeout 20
 open_timeout 20
 ```
-### sensu-plugin
+
+**sensu-plugin**
 
 Plugins and helper libraries for Sensu and it's necessary to run some ruby checks, e.g load_metrics.ruby
 ```
@@ -298,8 +299,10 @@ At this moment only installation of sensu clients is partly puppetized in MOC, w
 [root@moc-sat modules]# /etc/puppet/environments/production/modules
 ```
 
-# Sensu installation issues
-### Rabbitmq-server
+### Sensu installation issues
+
+**Rabbitmq-server**
+
 1.ERROR: distribution port 25672 in use on (by non-Erlang process?)
 And disable SELinux for the time being in /etc/selinux/config file
 
@@ -309,4 +312,4 @@ SELINUX=disabled
 
 
 ### Sensu ipmi info
-login as root, password is welcome1
+see bitwarden Sensu ipmi info

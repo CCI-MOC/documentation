@@ -13,7 +13,7 @@ You can refer to this online link [setup proxy on firefox](http://www.wikihow.co
 
 Check this screenshot
 
-![](_static/configure_proxies.png)
+![](_static/img/configure_proxies.png)
 
 **Google Chrome (Ubuntu)**
 
@@ -27,7 +27,7 @@ We'll call a local port number as the socks proxy port. We'll call that port num
 * Input the port number before the - and + buttons: $SOCKS_PORT_NUMBER //example 5000 (ensure port number is greater than 1024)  
 * Finally, hit the button with Apply system wide.
 
-![](_static/proxy_settings.png)
+![](_static/img/proxy_settings.png)
 
 Before visiting the OpenStack Dashboard, you may have to restart the browser.  
 
@@ -51,7 +51,7 @@ Point your browser to `https://kaizen.massopen.cloud`
 
 You should see the following screen:      
 
-![](_static/redhat_login_page_small.png)
+![](_static/img/redhat_login_page_small.png)
 
 ### Log in to the OpenStack Dashboard
 Use your openstack user credentials to login. Your username will be your email address.
@@ -60,7 +60,7 @@ Upon signing up you received a temporary password. Use the temporary password th
 
 Once you login you should see an overview of the resources like instances(vms), CPU, RAM etc. Take some time to just browse around.
 
-![](_static/compute_overview.png)
+![](_static/img/compute_overview.png)
 
 ### Change Your Password
 The first time you log in, you must change your temporary password to one that only you know.  
@@ -69,7 +69,7 @@ Find your username in the top right corner of the dashboard, and click on it.  C
 
 Enter your temporary password under "Current Password", and your new password in the other two boxes.
 
-![](_static/change_password.png)
+![](_static/img/change_password.png)
 
 ******
  

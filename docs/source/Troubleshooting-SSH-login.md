@@ -166,11 +166,11 @@ One common reason VMs do not boot is if you chose a flavor that is too small for
 
 Your project may use the same floating IP for different VMs.  It is possible that moving the IP from one VM to another will cause you to get the following error message:
 
-![](_static/host_fail.png)
+![](_static/img/host_fail.png)
 
 This happens because your computer records an identification key each time it connects to a new host.  Remember this prompt?
 
-![](_static/ssh_to_vm.png)
+![](_static/img/ssh_to_vm.png)
 
 Your computer recorded a key from the first VM and associated it with the IP address.  Since it received a different key this time, it refuses to connect.
 

@@ -22,7 +22,7 @@ Click "Build".
 7)Now you have to access to the IPMI console. Be sure you can access the IPMI console, possibly as described in [VM-Setup-for-Cisco-IPMI-Access](VM-Setup-for-Cisco-IPMI-Access.html). To access the IPMI console you have to do a port forwarding to the haas_master.
 
 Screen should be look like the following:
-![](https://github.com/CCI-MOC/moc/raw/master/docs/images/install_centos7_min_hd_step3.png)
+![](_static/img/install_centos7_min_hd_step3.png)
 
 8) Start up the KVM console, and click "yes" and "continue" despite all the warnings. There are extra instructions on this, depending on your browser, in VM-Setup-for-Cisco-IPMI-Access. 
 
@@ -54,5 +54,5 @@ Screen should be look like the following:
 
 `[ukaynar@haas-master ~]$  ifup /etc/sysconfig/network-scripts/ifcfg-enp130s0f0.1053`
 
-18)If the machine has RHEL operating system, then we have to subscribe the node to the red hat portal as describe in [here](https://github.com/CCI-MOC/moc/wiki/Setting-up-external-network-on-RHEL7.1-nodes)
+18)If the machine has RHEL operating system, then we have to subscribe the node to the red hat portal as describe in [here](Setting-up-external-network-on-RHEL7.1-nodes.html)
 

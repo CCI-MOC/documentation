@@ -471,7 +471,7 @@ The bug in 'shell.py' was fixed about 6 months ago when they rewrote the file en
 
 Heat is fun!
 
-![](_static/neutron_topology.png)
+![](_static/img/neutron_topology.png)
 
 2015-2-11 gsilvis:
 

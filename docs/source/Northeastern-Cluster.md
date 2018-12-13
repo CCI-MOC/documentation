@@ -11,7 +11,7 @@ Instructions for [Accessing Northeastern Cluster](Accessing-Northeastern-Cluster
 [NEU Equipment Sign-Out](NEU-Equipment-Sign-Out.html)
 
   **SERVERS**
-  * Cisco UCS C220 M3 SSF (x48). See [this file](_static/CiscoConfiguration.pdf) for list of configuration components. 
+  * Cisco UCS C220 M3 SSF (x48). See [this file](_static/pdf/CiscoConfiguration.pdf) for list of configuration components. 
   * numbers 1-24 in rack 17, 25-48 in rack 19.  Numbered from bottom of rack up.
   * More information specific to the [Cisco UCS C220](Cisco-UCS-C220.html) nodes
   * Internal Storage
@@ -21,7 +21,7 @@ Instructions for [Accessing Northeastern Cluster](Accessing-Northeastern-Cluster
     * Node 48 (the haas master) has 3 additional 1TB drives 
   * IPMI access [VM Setup for Cisco IPMI Access](VM-Setup-for-Cisco-IPMI-Access.html)
   * There is also a SuperMicro emergency box
-    * default IPMI credentials: see bitwarden Default SuperMicro Credentials 
+    * default IPMI credentials: see bitwarden Kaizen Default SuperMicro Credentials 
 
   **SWITCHES**
   * Cisco Nexus 5672 (x2)
@@ -44,9 +44,9 @@ Instructions for [Accessing Northeastern Cluster](Accessing-Northeastern-Cluster
 ### Miscellaneous
 [Misc. errors/problems](Misc.-errors-problems.html)
 
-![](_static/NUManagementNetworkTopology.png)
+![](_static/img/NUManagementNetworkTopology.png)
 
-![](_static/NUclusterNetworkTopology.png)
+![](_static/img/NUclusterNetworkTopology.png)
 
 ### Updates:
 

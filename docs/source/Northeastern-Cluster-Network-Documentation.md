@@ -28,7 +28,7 @@ OBM/MANAGEMENT VLAN
 **10.99.1.1-4**   Kzn-osd01-04 
 
 * Fujitsu servers
-* admin,admin
+* username/password: see Kaizen Fujitsu Servers
 * KVM works with Java 6, IE11
 
 **10.99.1.5**     Cisco Nexus 5672 in Cabinet 17
@@ -37,7 +37,7 @@ OBM/MANAGEMENT VLAN
   
 **10.99.1.14**    Fujitsu MGT Port #1 
 
-* User/Password: admin/3YKHDPQgmMkf1
+* User/Password: see bitwarden Kaizen Fujitsu MGT Port #1
   
 **10.99.1.15**    Fujitsu MGT Port #2
   
@@ -46,7 +46,7 @@ OBM/MANAGEMENT VLAN
 **10.99.1.21-27**  Dell ceph nodes
   
 **10.99.1.101-148**  Cisco server OBMs 
-* User/Password: admin/73qtx8nVXa4c06
+* User/Password: see bitwarden Kaizen Cisco server OBMs
 
 **10.99.1.253**     VM on HaaS master (henn)
   
@@ -264,16 +264,15 @@ See [this issue](https://github.com/CCI-MOC/kilo-puppet/issues/11)
 
 ## Diagrams
 
-![](_static/NUManagementNetworkTopology.png)
+![](_static/img/NUManagementNetworkTopology.png)
 
-![](_static/NUclusterNetworkTopology.png)
+![](_static/img/NUclusterNetworkTopology.png)
 
 ### 1G Switches
 
 **129.10.3.249**
 
-* username: admin
-* password: Wittinglypreconfigure
+* username/password: see bitwarden 1G Switch 129.10.3.249
 
 ### IPMI vlan switchports
 
@@ -284,7 +283,7 @@ See [this issue](https://github.com/CCI-MOC/kilo-puppet/issues/11)
         interface {
             ge-0/0/0.0;
             ge-0/0/1.0;
-            ge-0/0/2.0;
+            ge-0/0/129.10.3.2492.0;
             ge-0/0/3.0;
             ge-0/0/4.0;
             ge-0/0/5.0;

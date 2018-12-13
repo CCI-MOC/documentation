@@ -1,6 +1,6 @@
 # Architecture of Haadoop over Ceph Storage
 
-![](https://github.com/CCI-MOC/papers/blob/master/engage1/engage1_hadoop.png)
+<!--![](https://github.com/CCI-MOC/papers/blob/master/engage1/engage1_hadoop.png)-->
 
 The CEPH storage has two tiers called cache tier and base tier.
 

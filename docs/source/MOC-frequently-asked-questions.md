@@ -8,7 +8,7 @@ Put the DNS nameservers as specified in below links when creating/updating the p
 
 [Creating/updating private network](Set-up-a-Private-Network.html)
 
-![](_static/create_network_details.png)
+![](_static/img/create_network_details.png)
 
 ******
 

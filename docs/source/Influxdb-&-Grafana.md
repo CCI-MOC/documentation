@@ -5,7 +5,7 @@ We installed influxdb and grafana in moc-sensu server `10.31.27.157`.
 
 This diagram shows how Sensu,InfluxDB and Grafana interact with each other. 
 
-![](_static/influxdb.png)
+![](_static/img/influxdb.png)
 
 ******
 

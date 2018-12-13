@@ -1,6 +1,6 @@
 # Kaizen Backups Overview
 
-![](_static/Kaizen_Backups_Diagram.jpg)
+![](_static/img/Kaizen_Backups_Diagram.jpg)
 
 Backups of the MOC Kaizen cluster are handled by a set of lightweight bash scripts which use rsync.  
 

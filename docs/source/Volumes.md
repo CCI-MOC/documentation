@@ -15,7 +15,7 @@ Some uses for volumes:
     
 To get started, navigate to Compute -> Volumes.
 
-![](_static/volume_list_01.png)
+![](_static/img/volume_list_01.png)
 
 ### Empty Volumes
 
@@ -27,21 +27,21 @@ Click "Create Volume". In the resulting popup, give your volume a name.  The des
 
 Choose "empty volume" from the Source dropdown.  This will create a volume that is like an unformatted hard disk.  Choose a size for your volume.
 
-![](_static/volume_create.png)
+![](_static/img/volume_create.png)
 
 Click Create.  In a few moments, the volume will appear in the Volume list with the status Available.
 
-![](_static/volume_list_02.png)
+![](_static/img/volume_list_02.png)
 
 **Attach the volume to an instance**
 
 In the Actions column, click the dropdown and select Manage Attachments.  
 
-![](_static/volume_dropdown.png)
+![](_static/img/volume_dropdown.png)
 
 From the  menu, choose the instance you want to connect the volume to, and click Attach Volume.
 
-![](_static/volume_attach.png)
+![](_static/img/volume_attach.png)
 
 The volume now has a status of "In Use" and the Attached To column notes which instance it is attached to, and what device name it has.
 
@@ -49,7 +49,7 @@ This will be something like `/dev/vdb` but it can vary depending on the state of
 
 Make note of the device name of your volume.
 
-![](_static/volume_list_03.png)
+![](_static/img/volume_list_03.png)
 
 **Format and mount the volume**
 
@@ -109,11 +109,11 @@ Perhaps you did some work in your individual project, and you want to transfer a
 
 The volume to transfer must not be attached to an instance.  Click the dropdown next to the volume and choose Create Transfer.
 
-![](_static/volume_transfer_create01.png)
+![](_static/img/volume_transfer_create01.png)
 
 Give the transfer a name.
 
-![](_static/volume_transfer_create02.png)
+![](_static/img/volume_transfer_create02.png)
 
 You will see a screen like this.  Be sure to capture the Transfer ID and the Key.
 
@@ -121,7 +121,7 @@ You can always get the transfer ID later if needed, but there is no way to retri
 
 If the key is lost before the transfer is completed, you will have to cancel the pending transfer and create a new one.
 
-![](_static/volume_transfer_create03.png)
+![](_static/img/volume_transfer_create03.png)
 
 Assuming you have access to the receiving project, switch to it using the Project dropdown at the top right.
 
@@ -129,15 +129,15 @@ If you don't have access to the receiving project, give the transfer ID and key 
 
 In the receiving project, go to the Volumes tab, and click Accept Volume Transfer.  In the example, we see that the receiving project already has a couple of volumes.
 
-![](_static/volume_transfer_receive01.png)
+![](_static/img/volume_transfer_receive01.png)
 
 Enter the Transfer ID and the Transfer key that were captured when the transfer was created.
 
-![](_static/volume_transfer_receive02.png)
+![](_static/img/volume_transfer_receive02.png)
 
 The volume should now appear in the Volumes list of the receiving project.
 
-![](_static/volume_transfer_receive03.png)
+![](_static/img/volume_transfer_receive03.png)
 
 Note that pending transfers can be cancelled if they are not yet accepted, but there is no way to "undo" a transfer once it is complete.
 

@@ -3,9 +3,9 @@
 
 ### egg1-r4pAc04-mgmt  
 * switch management at 10.10.10.1
-* credentials admin/cisco
+* credentials: see bitarden Engage1 egg1-r4pAc04
 
-to change anything, type `enable` and password: `wittinglypreconfigure`
+to change anything, type `enable` and type enable password
 
 Port | Mode | VLAN(s) | description | cable color
 --- | --- | --- | --- | ---
@@ -46,7 +46,7 @@ gig 1/0/48 | access | 3040 | -- | Local Reserved
 ### egg1-r4pAc04-mgmt-02
 * Juniper ex3300
 * switch management at 10.10.10.5
-* credentials: root/admin38
+* credentials: see bitwarden Engage1 egg1-r4pAc04-mgmt-02
 
 CLI for Juniper is not very intuitive or similar to Cisco. When you log in via SSH you must type "CLI" to get to the switch CLI
 
@@ -87,9 +87,9 @@ gig 1/0/47 | access | 3040 | -- | Local Reserved
 
 ### egg1-r4pAc02-mgmt  
 * switch management at 10.10.10.2
-* credentials admin/cisco
+* credentials: see bitwarden Engage1 egg1-r4pAc02-mgmt
 
-to change anything, type `enable` and password: `wittinglypreconfigure`
+to change anything, type `enable` and type enable password
 
 Port | Mode | VLAN(s) | description | cable color
 --- | --- | --- | --- | ---
@@ -141,3 +141,4 @@ gig 1/0/45 | (default) | -- | -- | --
 gig 1/0/46 | (default) | -- | -- | --
 gig 1/0/47 | (default) | -- | -- | --
 gig 1/0/48 | access | 3040 | Local Reserved | n/a
+

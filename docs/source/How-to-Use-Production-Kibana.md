@@ -3,24 +3,24 @@
 ### Discovering Data
 Click `Discover` in the top navigation bar to display Kibana’s data discovery functions:
 
-![](_static/Basic_Kibana_Dashboard.png)
+![](_static/img/Basic_Kibana_Dashboard.png)
 
 ### Time Range
 You could specify the time range by clicking the clock button at the upper right corner.
 
-![](_static/kibana_time_bar.png)
+![](_static/img/kibana_time_bar.png)
 
 ### Query Bar
 In the query bar, you can enter an [Elasticsearch query](https://www.elastic.co/guide/en/elasticsearch/reference/5.1/query-dsl-query-string-query.html#query-string-syntax) to search your data.
 
 For an example, if you want to see all log messages that contain key word "httpd" in this month. Just enter "httpd" in the search bar, select time range to be "this month" and click enter. The result is as follows:
 
-![](_static/kibana_query_bar.png)
+![](_static/img/kibana_query_bar.png)
 
 ### Fields
 Fields let us easily find logs we want because we could search by specific field values. The kibana fields side panel is as follows:
 
-![](_static/kibana_side_panel.png)
+![](_static/img/kibana_side_panel.png)
 
 The fields contains not only the default fields such as 'Time', 'source' and also some fields added when we parse the logs in logstash. 
 
@@ -34,14 +34,14 @@ Firstly find an nova log message in the main panel, click the small triangle loc
 
 In the drop down panel, find the `type` field and click the `+` sign to filter for this value. As show in the following picture.
 
-![](_static/kibana_filter_nova.png)
+![](_static/img/kibana_filter_nova.png)
 
 You could combine other fields together by this way to make more sophisticated search. Once you are done, you could click the save search button on the upper right corner of the page to save this search pattern.
 
 ### Visualizing Data
 To start visualize your data, click 'Visualize' in the top navigation bar.
 
-![](_static/visualize.png)
+![](_static/img/visualize.png)
 
 The Visualize tools enable you to view your data in several ways. 
 
@@ -49,11 +49,11 @@ Let's make a vertical bar chart for a saved search called 'nova' we made earlier
 
 You will see a window similar as the following:
 
-![](_static/kibana_nova.png)
+![](_static/img/kibana_nova.png)
 
 Then specify Y-axis as 'Count'. Specify 'buckets' as 'X-Axis' and 'Aggregation' as 'Date Histogram'. Click the green 'Apply changes' button to view the results. The results should be similar with follows:
 
-![](_static/kibana_nova2.png)
+![](_static/img/kibana_nova2.png)
 
 This diagram shows how many nova logs are collected over time.
 
@@ -74,5 +74,5 @@ To build a dashboard that contains the visualizations that saved before:
 
 Your sample dashboard should end up looking roughly like this:
 
-![](_static/Horizon_dashboard.png)
+![](_static/img/Horizon_dashboard.png)
 

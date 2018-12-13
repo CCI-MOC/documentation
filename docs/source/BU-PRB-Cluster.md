@@ -208,15 +208,15 @@ HIL instances are allocated 500 or less VLANs, starting at 1000. VLANs with an i
 ### IPMI Credentials
   
 **For moc01 aka dell-58 IPMI** :
-* **IPMI username/password** : see bitwarden dell-58
+* **IPMI username/password** : see bitwarden PRB dell-58
 * **Disk-installed OS creds** (ubuntu 16.04): user / password
 
 **For Lenovos (len-60, len-61) server IPMI** :
-* IPMI username/password : see bitwarden Lenovos
-* Console-only access credentials: see bitwarden Lenovos, Console-Only access
+* IPMI username/password : see bitwarden PRB Lenovo IPMI
+* Console-only access credentials: see bitwarden PRB Lenovo Servers, Console-Only access
 
 **For lenovo 62** :
-* **IPMI username/password** : USERID/PASSW0RD
+* **IPMI username/password** : see bitwarden PRB Lenovo 62
 
 **For super-{43-46}** :
 * **user** : admin (for supermicros), '' (for suns)
@@ -224,7 +224,7 @@ HIL instances are allocated 500 or less VLANs, starting at 1000. VLANs with an i
 * credentials for super-42 are probably still default
 
 **For Cisco nodes in our control (cisco-200 and cisco-204)**
-* **IPMI username/password** : see bitwarden Cisco
+* **IPMI username/password** : see bitwarden PRB Cisco Servers
 
 ```bash
 for i in `seq 10 25`;
@@ -395,16 +395,16 @@ Admin Interface (Ethernet) | - | dell-1 port-9  | -
 We have a rack in the PRB server room with hardware for development work on HaaS. Here's what's up there:
 * **3 Dell Powerconnect 5524 switches** (24 ports each).
  * The **administrative interface** for these switches are listening on VLAN 1 to IP address 192.168.3.[245-247]. These are referred to as dell-0 through dell-2, and are labeled.
- * **username/Password** see bitwarden dell switches
+ * **username/Password** see bitwarden PRB Dell Switches
  * [CLI Manual](powerconnect5500_cliref_en-us.pdf). [Dell's support website](http://www.dell.com/support/home/us/en/4/product-support/product/powerconnect-5524/manuals)
 * **8 servers based on Supermicro's [SuperServer 5018A-MLTN4][1]**. These have [Super A1SAM-2550F](http://www.supermicro.com/products/motherboard/Atom/X10/A1SAM-2550F.cfm) motherboards. We added 16GiB of memory and a 750GB SATA disk (pulled from the ATLAS array). These are x86_64 Atom processors with VT and IPMI 2.0.
  * IPMI IP addresses are: 10.10.0.[40-47]
 * **2 Intel nodes**. They will probably be reunited with their family in engage1, but for now we can use them. Each node has two 14 core Xeons and 256 GB memory.
  * **IPMI addresses are**: 10.10.0.[50-51]
- * **IPMI username:password**: see bitwarden Intel
+ * **IPMI username:password**: see bitwarden PRB Intel Nodes
 * **A Dell S3048-ON** switch running Dell OS 9. It belongs to MOC. It's in the middle of the rack and connected to dell-0 switch (the hub).
 Use this switch for connecting hardware in the middle rack so we don't have multiple long wires running accross racks.
- * **credentials** : see bitwarden Dell Switch
+ * **credentials** : see bitwarden PRB Dell Switch
  * **management IP** : 192.168.4.250 (Vlan 20) - The management port has issues, configure any port to be on that vlan.
  * this switch is a little weird (it's vlan centric) so please read the manual before you try to configure it (or talk to Naved).
 

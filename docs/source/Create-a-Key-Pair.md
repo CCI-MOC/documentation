@@ -7,7 +7,7 @@ For security, the VM images have password authentication disabled by default, so
 
 Click Access and Security, then click the Key Pairs tab which appears below it.
 
-![](_static/key_pairs_01.png)
+![](_static/img/key_pairs_01.png)
 
 ### Import a Key Pair  
 Prerequisite: You need ssh installed in your system
@@ -21,7 +21,7 @@ Open a terminal and type the following commands (in the example, we have named t
 
 Example:
 
-![](_static/generate_key.png)
+![](_static/img/generate_key.png)
  
 You will be prompted to create a passphrase for the key.  
 
@@ -52,11 +52,11 @@ Paste the public key that you just copied in the "Public Key" text box.
 
 Give the key a name in the "Key Pair Name" Box.   
 
-![](_static/import_key.png)
+![](_static/img/import_key.png)
 
 Click "Import Key Pair".  You will see your key pair appear in the list.
 
-![](_static/key_pairs_02.png)
+![](_static/img/key_pairs_02.png)
 
 You can now skip ahead to [Adding the key to an ssh-agent](#agent)
     
@@ -66,7 +66,7 @@ If you are having trouble creating a key pair with the instructions above, the O
 
 Click "Create a Key Pair", and enter a name for the key pair.
 
-![](_static/create_key.png)
+![](_static/img/create_key.png)
 
 You will be prompted to download a `.pem` file containing your private key. 
 
@@ -74,7 +74,7 @@ In the example, we have named the key 'cloud_key.pem', but you can name it anyth
 
 Save this file to your hard drive, for example in your Downloads folder.
 
-![](_static/save_key.png)
+![](_static/img/save_key.png)
 
 Store this key inside the `.ssh` folder on your local machine/laptop, using the following steps: 
     
@@ -87,11 +87,11 @@ To see your public key, navigate to Project -> Compute -> Access and Security ->
 
 You should see your key in the list.
 
-![](_static/key_pairs_03.png)
+![](_static/img/key_pairs_03.png)
 
 Click on the key, and you will see a screen of information that includes your public key:
 
-![](_static/view_public_key.png)
+![](_static/img/view_public_key.png)
 
 The public key is the part of the key you distribute to VMs and remote servers.
 

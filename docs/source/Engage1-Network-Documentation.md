@@ -12,13 +12,13 @@ Old document is [here](_static/xlsx/Engage1_1G_cable_map.xlsx) just in case, but
 
 Following is the snapshot of what the rack layout is as of March 2015 
 
-![](_static/MGHPCCRackLocation.png)
+![](_static/img/MGHPCCRackLocation.png)
 
 <!--[MGHPCCRackAssignments032015.pptx](MGHPCCRackAssignments032015.pptx)-->
 
 Rough diagram of the Ceph storage: 
    
-![](_static/engage1_ceph.png)
+![](_static/img/engage1_ceph.png)
 
 **VLANs**
  
@@ -300,7 +300,7 @@ Instructions for how to log in are [here](Accessing-the-MRI-Dell-Switch.html)
 *These are likely to change away from the defaults in the near future.*
   
   **Quanta QSSC-S99-1U** (all 6 Kilo servers, 3 ceph-quanta servers, engage1-emergency)   
-  * **Default credentials** : see bitwarden QSSC-S99-1U
+  * **Default credentials** : see bitwarden Engage1 Quanta QSSC-S99-1U
   * **Default IPMI address**: 192.168.001.002
 
   **Lenovo Servers** (10 ceph-lenovo servers)  
@@ -309,15 +309,15 @@ Instructions for how to log in are [here](Accessing-the-MRI-Dell-Switch.html)
 
   **BU Intel servers** (cache-c104, e1-compute-08, e1-compute-09, e1-compute-10)
   * NO DEFAULT CREDENTIALS OR IP - must be set in BIOS
-  * **Currently set to** : see bitwarden BU Intel servers
+  * **Currently set to** : see bitwarden Engage1 BU Intel servers
 
   **Cache servers**  (6 Intel servers)  
-  * **Default credential**: see bitwarden Cache Servers
+  * **Default credential**: see bitwarden Engage1 Cache Servers
   * [Video]( http://www.screencast.com/t/gazhGb8H)
 
   **Brocade Switches** (22 Brocade VDX 6740)  
-  * **Credentials** : see bitwarden Brocade Switches
-  * **Default credentials** : see bitwarden Default Brocade switches
+  * **Credentials** : see bitwarden Engage1 Brocade Switches
+  * **Default credentials** : see bitwarden Engage1 Brocade switches
   * **Default console IP** : none, set to DHCP
 
 ### Temporary Connections:

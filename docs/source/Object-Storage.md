@@ -11,7 +11,7 @@ You can manage objects in the Object Store via the web interface, or by using th
 ### Web Interface
 To get started, navigate to Project -> Object Store -> Containers.
 
-![](_static/object_store.png)
+![](_static/img/object_store.png)
 
 ### Create a Container
 In order to store objects, you need at least one **Container** to put them in.  Containers are essentially top-level directories.  Other services use the terminology **buckets**.  
@@ -22,11 +22,11 @@ If you get an error message after trying to create the container, try giving it 
 
 For now, leave the Container Access set to Private.
 
-![](_static/object_store_create_container.png)
+![](_static/img/object_store_create_container.png)
 
 Your container now appears in the containers list.
 
-![](_static/object_store_container_list.png)
+![](_static/img/object_store_container_list.png)
 
 ### Upload a File
 Click on the name of your container, and click the Upload File icon.  Click Browse and select a file from your local machine to upload.
@@ -35,7 +35,7 @@ It can take a while to upload very large files, so if you're just testing it out
 
 By default the File Name will be the same as the original file, but you can change it to another name. Click "Upload File".  Your file will appear inside the container. 
 
-![](_static/object_store_upload_file.png)
+![](_static/img/object_store_upload_file.png)
 
 ### Using Folders
 Files stored by definition do not organize objects into folders, but you can use folders to keep your data organized.
@@ -49,7 +49,7 @@ Making a container public allows you to send your collaborators a URL that gives
 
 Click on your container's name, then check the "Public Access" box. Note that "Public Access" changes from "disabled" to "link".
 
-![](_static/object_store_make_public.png)
+![](_static/img/object_store_make_public.png)
 
 Click "link" to see a list of object in the container. This is the URL of your container.  
 
@@ -59,14 +59,14 @@ In addition, everything inside a public container is public, so we recommend cre
 
 In this example, we have added a folder and a second object, to show how the directory structure appears in the container.
 
-![](_static/object_store_public_url.png)
+![](_static/img/object_store_public_url.png)
 
 To download the file `test.txt` we would use the following url:
 `http://rdgw.kaizen.massopencloud.org/swift/v1/test-container-unique/test.txt`
 
 Or you can just click on "Download" next to the file's name. 
 
-![](_static/object_store_download_file.png)
+![](_static/img/object_store_download_file.png)
 
 You can also interact with public objects using a utility such as curl:
 

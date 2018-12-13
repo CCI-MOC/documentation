@@ -1,7 +1,7 @@
 # Nexus 5672 Switch
 
 ### CLI access
-The nexus switches can be accessed via ssh, username `admin` and password `wittinglypreconfigure`.
+The nexus switches can be accessed via ssh, username/password: see bitwarden Kaizen Nexus 5672 Switch.
 
 Each of the two switches has the following Access List rules which only allows access from the two HaaS masters and the Emergency box set:
 

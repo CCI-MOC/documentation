@@ -24,7 +24,7 @@ If not, there are a number of excellent tutorials around the web. The official P
 ### Setting up API Access
 Navigate to Project -> Compute -> Access & Security.  Choose the "API Access" tab under the Access & Security header.
 
-![](_static/api_access.png)
+![](_static/img/api_access.png)
 
 You will see a list of URL endpoints for each OpenStack service.
 

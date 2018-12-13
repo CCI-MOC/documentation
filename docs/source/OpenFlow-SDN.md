@@ -1,5 +1,5 @@
 ### Topology Diagram
-![](_static/openflow_topology_color.png)
+![](_static/img/openflow_topology_color.png)
 
 ### Overview
 

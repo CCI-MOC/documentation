@@ -13,13 +13,13 @@ Navigate to Project -> Compute -> Instances
 
 Next to Instance Name -> Click Actions dropdown arrow (far right) -> Choose Associate Floating IP
 
-![](_static/floatingip_associate.png)
+![](_static/img/floatingip_associate.png)
 
 If you have some floating IPs already allocated to your project which are not yet associated with a VM, they will be available in the dropdown list on this screen.
 
 If you have no floating IPs allocated, or all your allocated IPs are in use already, the dropdown list will be empty.
 
-![](_static/floatingip_none.png)
+![](_static/img/floatingip_none.png)
 
 Click the + symbol to allocate an IP.  You will see the following screen.
 
@@ -29,7 +29,7 @@ In the example, the project has a quota of 2 floating IPs, but we have not alloc
 
 Click Allocate.
 
-![](_static/floatingip_allocate.png)
+![](_static/img/floatingip_allocate.png)
 
 You will get a green "success" popup in the top left that shows your public IP address.
 
@@ -37,11 +37,11 @@ You will get a red error message instead if you attempt to exceed your project's
 
 *If you have not tried to exceed your quota, but you get a red error message anyway, please contact moc-kaizen-l@bu.edu for help.*
 
-![](_static/floatingip_success.png)
+![](_static/img/floatingip_success.png)
 
 You can now see the floating IP is attached to your VM on the Instances page:
 
-![](_static/floatingip_is_associated.png)
+![](_static/img/floatingip_is_associated.png)
 
 ### Disassociate a Floating IP 
 
@@ -53,7 +53,7 @@ Find the instance you want to remove the IP from in the list.  Click the red "Di
 
 This IP will be disassociated from the instance, but it will still remain allocated to your project.
 
-![](_static/floatingip_disassociate.png)
+![](_static/img/floatingip_disassociate.png)
 
 ### Release a Floating IP
 
@@ -71,7 +71,7 @@ The floating IP will be removed from your project.
 
 Just keep the IP allocated to your project for future use.*
 
-![](_static/floatingip_release.png)
+![](_static/img/floatingip_release.png)
 
 ******
 
