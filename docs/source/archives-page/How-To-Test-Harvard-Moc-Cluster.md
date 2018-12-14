@@ -113,7 +113,7 @@ Run the following commands on your vm ,in this example the vbox vm
     $ apt-get install python-swiftclient      
 
 #### Set up the test script for testing
-Copy the test files openstack_test.sh and george.yaml from [harvard cluster wiki](Harvard-Cluster.html) in a new folder inside your vagrant box/vm.
+Copy the test files openstack_test.sh and george.yaml from [harvard cluster wiki](archives-page/Harvard-Cluster.html) in a new folder inside your vagrant box/vm.
 
 Change permission level for the test script
 

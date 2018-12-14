@@ -1,6 +1,6 @@
 # Diagram
 
-[Harvard Equipment Sign Out](Harvard-Equipment-Sign-Out.html)
+[Harvard Equipment Sign Out](archives-page/Harvard-Equipment-Sign-Out.html)
 
 ![](_static/img/Harvard-network-topology.png)
 
