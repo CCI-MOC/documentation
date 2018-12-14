@@ -1,0 +1,1 @@
+Installed CentOS on Computer 10 (cs-jabba). 
