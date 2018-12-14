@@ -1,7 +1,7 @@
 # To Do List for New MOC Intern and Member
 
 In order to become part of the MOC team, there are a few things that you need to do:
-* Add your name and contact information at [this URL](People.html)
+* Add your name and contact information at [this URL](contacts/People.html)
 * Subscribe to the [team mailing lists](visiting https://lists.massopen.cloud)
 * **Trello** : Send mail to msd@bu.edu with your Trello user name and you will be added to the appropriate organization.
 * Once you are a member of the MOC team on Trello, go to the [moc-massopencloud](https://trello.com/b/2IMwDpdi/moc-massopencloud) Trello board, and add a Trello card on the Backlog Trello list with
@@ -26,7 +26,7 @@ Please share your the time slots when you plan to spend time in the MOC and/or o
 
 ### Get familiar with OpenStack, github, Python and Red Hat Enterprise software
 
-  **OpenStack** : There are many tutorials online for OpenStack. Going over the official [getting start guide](http://docs.openstack.org/admin-guide-cloud/content/ch_getting-started-with-openstack.html) can be helpful. The MOC team tutorial on how to use our production system can be found at [Getting started wiki] (Getting-started.html)
+  **OpenStack** : There are many tutorials online for OpenStack. Going over the official [getting start guide](http://docs.openstack.org/admin-guide-cloud/content/ch_getting-started-with-openstack.html) can be helpful. The MOC team tutorial on how to use our production system can be found at [Getting started wiki] (how-tos/Getting-started.html)
 
   **Python** : You may want to consider using [iPython](http://ipython.org/) or other interactive Python tool to learn to code in Python. Similar to OpenStack, there are quite a few online tutorials. The [official Python](https://www.python.org/) site is here.
 
@@ -74,7 +74,7 @@ You can expect at most a couple of questions in a day, and likely less. If you g
 
     moc-research-list@bu.edu : for those who are interested in research related activities in the MOC.
 
-If you need help subscribing to this mailing list, instruction can be found under the first part of [this wiki](Outdated-To-do-list-for-New-MOC-Intern-Member)
+If you need help subscribing to this mailing list, instruction can be found under the first part of [this wiki](archives-page/Outdated-To-do-list-for-New-MOC-Intern-Member)
 
 ### Stipend
 If you have not already done so...
@@ -95,5 +95,5 @@ Then you should be able to enter your hours to be approved to received your comp
 **A user account for accessing the production environment.**
 If you asked to register as a Kaizen user, go to this [URL](https://massopen.cloud/blog/user-account-request-form/) and follow instruction at the page to register for a new account in Kaizen - MOC OpenStack cloud.
 
-*NOTE : Previous version of this wiki can be found [here](Outdated-To-do-list-for-New-MOC-Intern-Member.html)*
+*NOTE : Previous version of this wiki can be found [here](archives-page/Outdated-To-do-list-for-New-MOC-Intern-Member.html)*
 

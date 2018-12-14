@@ -2,20 +2,20 @@
 Please visit [MOC official website](https://massopen.cloud) for complete details of current projects.
 
 ### Contacts
-* [MOC Developers Contact Information](MOC-Developers-Contact-Information.html)
+* [MOC Developers Contact Information](contacts/MOC-Developers-Contact-Information.html)
 
 ### How Tos
-* [To do list for New MOC Intern and Member](To-do-list-for-New-MOC-Intern-and-Member.html)
-* [Massopen.cloud mail and lists](Massopen.cloud-mail-and-lists.html)
-* [How to get involved in the OpenStack community](How-to-Get-Involved-in-the-OpenStack-Community.html)
-* [Security Install Best Practices](Security-Install-Best-Practices.html)
+* [To do list for New MOC Intern and Member](how-tos/To-do-list-for-New-MOC-Intern-and-Member.html)
+* [Massopen.cloud mail and lists](how-tos/Massopen.cloud-mail-and-lists.html)
+* [How to get involved in the OpenStack community](how-tos/How-to-Get-Involved-in-the-OpenStack-Community.html)
+* [Security Install Best Practices](how-tos/Security-Install-Best-Practices.html)
 * [MOC Contributors Legal Agreements version y_r201503](https://drive.google.com/folderview?id=0B3HZEpE-A8qadWVpY2piSjdYdXc&usp=sharing)
-* [Trello, burndown chart, scrum tools - what the fuss ? !!! ](Trello.html)
-* [Kaizen Cluster User Registration](Kaizen-Cluster-User-Registration.html)
-* [Getting Started](Getting-Started.html)
-* [Access IPMI of Nodes](Access-IPMI-of-nodes.html)
-* [Reset Password in Kaizen Openstack](Reset-Password-in-Kaizen-Openstack.html)
-* [Debugging VNC access](Debugging-VNC-access.html)
+* [Trello, burndown chart, scrum tools - what the fuss ? !!! ](how-tos/Trello.html)
+* [Kaizen Cluster User Registration](how-tos/Kaizen-Cluster-User-Registration.html)
+* [Getting Started](how-tos/Getting-Started.html)
+* [Access IPMI of Nodes](how-tos/Access-IPMI-of-nodes.html)
+* [Reset Password in Kaizen Openstack](how-tos/Reset-Password-in-Kaizen-Openstack.html)
+* [Debugging VNC access](how-tos/Debugging-VNC-access.html)
 
 ### Knowledge base/Trainings
 * [Brocade  VCS training - lab session](_static/VCS_Lab.pptx.pdf)
