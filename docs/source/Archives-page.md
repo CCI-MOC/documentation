@@ -1,74 +1,67 @@
 # Archives Page
-* How to get set up if you're a [New User](New-User.html).  Orran mentioned this page is out of date. Folks should use [To do list for New MOC Intern Member](To-do-list-for-New-MOC-Intern-and-Member.html)
-* [Harvard Cluster](Harvard-Cluster.html)   This page is obsolete. The equipment had been repurposed.
-* [Harvard Equipment Sign Out](Harvard-Equipment-Sign-Out.html)  This page is obsolete. The equipment had been repurposed.
-* [Running Tempest on Harvard Clusters](Running-Tempest-on-Harvard-Clusters.html) This page is obsolete. The equipment had been repurposed.
-* [Developer Status](Developer-Status.html)
-* [MRI Hardware](MRI-Hardware.html)
+* How to get set up if you're a [New User](archives-page/New-User.html).  Orran mentioned this page is out of date. Folks should use [To do list for New MOC Intern Member](To-do-list-for-New-MOC-Intern-and-Member.html)
+* [Harvard Cluster](archives-page/Harvard-Cluster.html)   This page is obsolete. The equipment had been repurposed.
+* [Harvard Equipment Sign Out](archives-page/Harvard-Equipment-Sign-Out.html)  This page is obsolete. The equipment had been repurposed.
+* [Running Tempest on Harvard Clusters](archives-page/Running-Tempest-on-Harvard-Clusters.html) This page is obsolete. The equipment had been repurposed.
+* [MRI Hardware](archives-page/MRI-Hardware.html)
 * [mri haas howto]
-* [harvard dev env progress](harvard-dev-env-progress.html)
-* [How To Test Harvard MOC Cluster](How-To-Test-Harvard-Moc-Cluster.html)
-* 2015/1/30 [CEPH issues](CEPH.html)
-* [Puppet refactorization of openstack provisioning]
-* [Graphite and Grafana]
-* [BMI Wiki - setup and how to](BMIInstallation.html)
-* [Service list](Service-list.html) -- Pretty much no useful information here.
-* [Ruoyu Chen Blog](Ruoyu-Daily.html)
-* [OPs log](OPs-log.html)
-* [Development Environment](Development-Environment.html)   
-* [EC500 Instructions](EC500-Instructions.html)
-* [KVM How To](KVM-How-To.html)
-* [Apache VCL](Apache-VCL.html)
-* [Dell powerconnect vlan](Dell-powerconnect-vlan.html)
-* [PXE tftp dhcp server setup](PXE-tftp-dhcp-server-setup.html)
-* [Ubuntu PXE boot image](Ubuntu-PXE-boot-image.html)
-* [Optiplex Configuration](Optiplex-Configuration.html)
-* [Setting vlan via snmp (cisco)](Setting-vlan-via-snmp-(cisco).html)
-* [Setting vlan via snmp (tp link)](Setting-vlan-via-snmp-(tp-link).html)
-* [SPL](SPL.html)
-* [SPL Demo](SPL-Demo.html)
-* [Vlan Head Nodes](Vlan-Head-Nodes.html)
-* [Vlan settings on the switch](Vlan-settings-on-the-switch.html)
-
-### Equipment signout
-* [Northeastern Cluster](NEU-Equipment-Sign-Out.html)
-* [Flash Drives](Flash-Drive-Sign-Out.html)
+* [harvard dev env progress](archives-page/harvard-dev-env-progress.html)
+* [How To Test Harvard MOC Cluster](archives-page/How-To-Test-Harvard-Moc-Cluster.html)
+* 2015/1/30 [CEPH issues](archives-page/CEPH.html)
+* [BMI Wiki - setup and how to](archives-page/BMIInstallation.html)
+* [Service list](archives-page/Service-list.html) -- Pretty much no useful information here.
+* [Ruoyu Chen Blog](archives-page/Ruoyu-Daily.html)
+* [OPs log](archives-page/OPs-log.html)
+* [Development Environment](archives-page/Development-Environment.html)   
+* [EC500 Instructions](archives-page/EC500-Instructions.html)
+* [KVM How To](archives-page/KVM-How-To.html)
+* [Apache VCL](archives-page/Apache-VCL.html)
+* [Dell powerconnect vlan](archives-page/Dell-powerconnect-vlan.html)
+* [PXE tftp dhcp server setup](archives-page/PXE-tftp-dhcp-server-setup.html)
+* [Ubuntu PXE boot image](archives-page/Ubuntu-PXE-boot-image.html)
+* [Optiplex Configuration](archives-page/Optiplex-Configuration.html)
+* [Setting vlan via snmp (cisco)](archives-page/Setting-vlan-via-snmp-(cisco).html)
+* [Setting vlan via snmp (tp link)](archives-page/Setting-vlan-via-snmp-(tp-link).html)
+* [SPL](archives-page/SPL.html)
+* [SPL Demo](archives-page/SPL-Demo.html)
+* [Vlan Head Nodes](archives-page/Vlan-Head-Nodes.html)
+* [Vlan settings on the switch](archives-page/Vlan-settings-on-the-switch.html)
 
 ### Vagrant stuff
-* [Install Devstack with Vagrant](Install-Devstack-with-Vagrant.html)
-* [Use Vagrant to manage OpenStack Instance](Use-Vagrant-to-manage-OpenStack-Instance.html)
-* [Deploy BigTop and run smoke tests with Vagrant](Deploy-Bigtop-and-run-smoke-tests-with-Vagrant.html)
+* [Install Devstack with Vagrant](archives-page/Install-Devstack-with-Vagrant.html)
+* [Use Vagrant to manage OpenStack Instance](archives-page/Use-Vagrant-to-manage-OpenStack-Instance.html)
+* [Deploy BigTop and run smoke tests with Vagrant](archives-page/Deploy-Bigtop-and-run-smoke-tests-with-Vagrant.html)
 
 ### Openstack
-* [Blueprints](Blueprints.html)
-* [Fuel Hardening](Fuel-Hardening.html)
-* [Ansible testing](Ansible-testing.html)
-* [Scaling Openstack](Scaling-Openstack.html)
-* [Puppet git workflow](Puppet-git-workflow.html)
+* [Blueprints](archives-page/Blueprints.html)
+* [Fuel Hardening](archives-page/Fuel-Hardening.html)
+* [Ansible testing](archives-page/Ansible-testing.html)
+* [Scaling Openstack](archives-page/Scaling-Openstack.html)
+* [Puppet git workflow](archives-page/Puppet-git-workflow.html)
 
 ### How tos
-* [Reprovisioning a Staging Environment](Reprovisioning-a-Staging-Environment.html)
-* [2 Node cluster](2-Node-cluster.html)
+* [Reprovisioning a Staging Environment](archives-page/Reprovisioning-a-Staging-Environment.html)
+* [2 Node cluster](archives-page/2-Node-cluster.html)
 
 ### Tempest
-* [Tempest Logs](Tempest-Logs.html)
-* [Configuration file](Configuration-file.html)
-* [Run Tempest on NEU BigData Clusters](Run-Tempest-on-NEU-BigData-Clusters.html)
+* [Tempest Logs](archives-page/Tempest-Logs.html)
+* [Configuration file](archives-page/Configuration-file.html)
+* [Run Tempest on NEU BigData Clusters](archives-page/Run-Tempest-on-NEU-BigData-Clusters.html)
 
 ### MOCPOC
-* [MOCPOC Nomenclature](MOCPOC-Nomenclature.html)
-* [Networking Configuration of MOC POC](Networking-Configuration-of-MOC-POC.html)
-* [Death Star VM configuration](Death-Star-VM-configuration.html)
-* [MOCPOC 0 Configuration](MOCPOC-0-Configuration.html)
-* [MOCPOC Configuration as of 01 July 2013](MOCPOC-Configuration-as-of-01-July-2013.html)
-* [MOCPOC: Puppet Openstack Install (on Centos)](MOCPOC-Puppet-Openstack-Install-(on-Centos).html)
-* [MOCPOC: Puppet Openstack Install (on Ubuntu)](MOCPOC-Puppet-Openstack-Install-(on-Ubuntu).html)
-* [MOCPOC: Packstack experiment (allinone on physical hardware, CentOS)](MOCPOC-Packstack-experiment-(allinone-on-physical-hardware,-CentOS).html)
-* [MOCPOC: Packstack Openstack Install (on Centos) experiment: vms](MOCPOC-Packstack-Openstack-Install-(on-Centos)-experiment-vms.html)
+* [MOCPOC Nomenclature](archives-page/MOCPOC-Nomenclature.html)
+* [Networking Configuration of MOC POC](archives-page/Networking-Configuration-of-MOC-POC.html)
+* [Death Star VM configuration](archives-page/Death-Star-VM-configuration.html)
+* [MOCPOC 0 Configuration](archives-page/MOCPOC-0-Configuration.html)
+* [MOCPOC Configuration as of 01 July 2013](archives-page/MOCPOC-Configuration-as-of-01-July-2013.html)
+* [MOCPOC: Puppet Openstack Install (on Centos)](archives-page/MOCPOC-Puppet-Openstack-Install-(on-Centos).html)
+* [MOCPOC: Puppet Openstack Install (on Ubuntu)](archives-page/MOCPOC-Puppet-Openstack-Install-(on-Ubuntu).html)
+* [MOCPOC: Packstack experiment (allinone on physical hardware, CentOS)](archives-page/MOCPOC-Packstack-experiment-(allinone-on-physical-hardware,-CentOS).html)
+* [MOCPOC: Packstack Openstack Install (on Centos) experiment: vms](archives-page/MOCPOC-Packstack-Openstack-Install-(on-Centos)-experiment-vms.html)
 
 ### Fuel
-* [Fuel experience](Fuel-Experience.html)
-* [Fuel experience quick start in virtualbox](Fuel-experience-quick-start-in-virtualbox.html)
-* [Fuel openstack install (on centos)](Fuel-openstack-install-(on-centos).html)
-* [Fuel OpenStack test deployments with Cisco switch](Fuel-OpenStack-test-deployments-with-Cisco-switch.html)
+* [Fuel experience](archives-page/Fuel-Experience.html)
+* [Fuel experience quick start in virtualbox](archives-page/Fuel-experience-quick-start-in-virtualbox.html)
+* [Fuel openstack install (on centos)](archives-page/Fuel-openstack-install-(on-centos).html)
+* [Fuel OpenStack test deployments with Cisco switch](archives-page/Fuel-OpenStack-test-deployments-with-Cisco-switch.html)
 
