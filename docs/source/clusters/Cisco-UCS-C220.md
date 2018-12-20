@@ -6,7 +6,7 @@ Data sheet can be found [here](https://www.google.com/webhp?sourceid=chrome-inst
 The stock disks on these nodes have a firmware issue that causes problems with disk partitioning. See [Firmware Issue with Cisco 300GB Drive](Firmware-Issue-with-Cisco-300GB-Drive.html) for an explanation and workaround.
 
 ### IPMI access
-See also [VM Setup for Cisco IPMI Access](VM-Setup-for-Cisco-IPMI-Access.html)
+See also [VM Setup for Cisco IPMI Access](clusters/VM-Setup-for-Cisco-IPMI-Access.html)
 
 The Cisco IPMI interfaces only support SSLv3, which is disabled by default in newer firefox versions.
 

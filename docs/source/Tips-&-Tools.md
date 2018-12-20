@@ -1,10 +1,6 @@
 
-* [[Foreman-Puppet]]
-* Credential for Red Hat package subscription 
-
-    > Username : mocsubsriber 
-
-    > Password : 451MOCTeamRoom
+* [Foreman-Puppet](clusters/Foreman-Puppet.html)
+* Credential for Red Hat package subscription: see bitwarden Redhat Packages Subsciption
   
 * [[Transitioning from Django to AngularJS]] 
  

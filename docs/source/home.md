@@ -24,8 +24,8 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [Production FAQ](trainings/Production-FAQ.html)
 
 ### Clusters
-* [MOC VLAN Distribution](MOC-VLAN-Distribution.html)
-* [Northeastern Cluster](Northeastern-Cluster.html)
+* [MOC VLAN Distribution](clusters/MOC-VLAN-Distribution.html)
+* [Northeastern Cluster](clusters/kaizen/Northeastern-Cluster.html)
 * [BU PRB Cluster](BU-PRB-Cluster.html)
 * [CSAIL at Holyoke](CSAIL-at-Holyoke.html)
 * [Engage1 Cluster](Engage1-Cluster.html)
