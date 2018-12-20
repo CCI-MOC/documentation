@@ -95,7 +95,7 @@ HIL instances are allocated 500 or less VLANs, starting at 1000. VLANs with an i
 * **Subnet**: 192.168.3.0/24.
 * **Hosts** :
 * **Network-admin** (access to network switch administrative interfaces)
-* **192.168.3.2**  [moc-haas-master.bu.edu](PRB-MOC-Haas-Master-Config.html)
+* **192.168.3.2**  [moc-haas-master.bu.edu](clusters/prb/PRB-MOC-Haas-Master-Config.html)
 * **192.168.3.93** moc-haas-deploy.bu.edu
 * **192.168.3.[170-200]** DHCP (served from moc-control)
   * **192.168.3.244** tp-0 (admin interface)
@@ -112,7 +112,7 @@ HIL instances are allocated 500 or less VLANs, starting at 1000. VLANs with an i
 * **DNS** : 172.16.10.5, 172.16.10.3 172.16.10.4
 * **Default gateway** : 172.16.10.5
 * **Subnet** 172.16.10.0/23
-  * **172.16.10.2** [moc-haas-master.bu.edu](PRB-MOC-Haas-Master-Config.html)
+  * **172.16.10.2** [moc-haas-master.bu.edu](clusers/prb/PRB-MOC-Haas-Master-Config.html)
   * **172.16.10.6** haas-beta.prb.massopencloud.org
   * **172.16.10.7** moc-haas-deploy.bu.edu
   * **172.16.10.8** hack-n-hil.prb.massopencloud.org
@@ -142,7 +142,7 @@ HIL instances are allocated 500 or less VLANs, starting at 1000. VLANs with an i
         Port 22222
 	```
   * **172.16.10.101** Ceph for BMI-Development
-  * **172.16.10.207** Red Hat Ceph Storage 3.0 ([details](Red-Hat-Ceph-3.0-cluster.html))
+  * **172.16.10.207** Red Hat Ceph Storage 3.0 ([details](clusters/kaizen/Red-Hat-Ceph-3.0-cluster.html))
   * **172.16.10.[102-180]** Static IPs available to physical haas nodes based on node number.
     * The lowest octet is `<node num> + 100`. So sun-10 would be 172.16.10.110
   * **172.16.10.[190-220]** DHCP (served from dhcp-vm)

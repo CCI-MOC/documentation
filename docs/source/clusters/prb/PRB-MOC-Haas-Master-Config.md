@@ -1,5 +1,5 @@
 # PRB MOC Hass Master Config
-This page documents the commands used to configure [moc-haas-master](HaaS-Development-Environment.html) in the [BU PRB HaaS Cluster](BU-PRB-Cluster.html)
+This page documents the commands used to configure [moc-haas-master](clusters/prb/HaaS-Development-Environment.html) in the [BU PRB HaaS Cluster](clusters/prb/BU-PRB-Cluster.html)
 
 ### Networking
 In this case, the system needs to act as a NAT router for the subnet. To do so, we use `firewalld.direct`, since we want to limit the NAT access only to the external interface.
