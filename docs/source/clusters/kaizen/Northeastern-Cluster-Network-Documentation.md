@@ -121,6 +121,7 @@ EXTERNALLY VISIBLE MANAGEMENT VLAN
 
 ### 192.168.28.0/24: VLAN 250
 FUJITSU STORAGE VLAN
+
 *Note: Addresses on this network are all pre-assigned in /etc/hosts on the Fujitsu nodes, even though in most cases the relevant machine doesn't actually exist.  So when debugging this network, you occasionally see a weird hostname resolve on the Fujitsu end.*
 
 **192.168.28.{11-14}** Fujitsu Storage Nodes

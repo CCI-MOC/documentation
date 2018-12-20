@@ -3,7 +3,7 @@ It's confirmed that the embedded driver is unsupported on Red Hat 7.0 on the UCS
 
 The goal is to deploy Red Hat 7.0 on the UCS servers. The UCS servers have embedded Raid driver using Intel C600 Mega Raid driver.
  
-##Issue
+### Issue
 Bootloader/installer do(es) not work with the embedded raid driver on the UCS servers.
 
 Three approaches we are pursuing: 
