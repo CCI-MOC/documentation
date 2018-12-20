@@ -3,7 +3,7 @@ Instructions for [Accessing Northeastern Cluster](clusters/kaizen/Accessing-Nort
 
 ### Projects
 * [Kaizen Production](clusters/kaizen/Kaizen-Production.html)
-* [Monitoring in NEU Env.](clusters/kaizen/Monitoring-in-NEU-Env..html)
+* [Monitoring in NEU Env.](clusters/kaizen/Monitoring-in-NEU-Env.html)
 * [Staging Area](clusters/kaizen/Staging-Area.html)
 * [VMs running on physical nodes](clusters/kaizen/VMs-running-on-nodes.html)
 

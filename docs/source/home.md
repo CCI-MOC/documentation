@@ -22,6 +22,7 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [Brocade training - instruction session](_static/VCS_Training_01.pdf)
 * [Ceph Tutorials](trainings/Ceph-Tutorials.html)
 * [Production FAQ](trainings/Production-FAQ.html)
+* [Tips & Tools](trainings/Tips-&-Tools.html)
 
 ### Clusters
 * [MOC VLAN Distribution](clusters/MOC-VLAN-Distribution.html)
