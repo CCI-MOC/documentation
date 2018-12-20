@@ -277,7 +277,7 @@ IPMI can be accessed from either moc-services or engage1-emergency.  It is recom
 
 Firefox should open, assuming you have appropriate X forwarding software installed on your local machine.  For a Mac, you need to install XQuartz.
 
-Connecting via engage1-emergency requires some other solution to get a GUI.  If you have a [[dedicated VM|VM-Setup-for-Cisco-IPMI-Access]] set up for IPMI access with redsocks proxy utility, you can use that.  
+Connecting via engage1-emergency requires some other solution to get a GUI.  If you have a [dedicated VM](clusters/VM-Setup-for-Cisco-IPMI-Access.html) set up for IPMI access with redsocks proxy utility, you can use that.  
 
 You can also configure the browser on your local machine to use a SOCKS proxy.  You may need to install a Java web plugin and/or browser flash plugin in order to use the IPMI web GUI.  
 

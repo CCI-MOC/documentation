@@ -1,16 +1,12 @@
 
-* [[Foreman-Puppet]]
-* Credential for Red Hat package subscription 
-
-    > Username : mocsubsriber 
-
-    > Password : 451MOCTeamRoom
+* [Foreman-Puppet](clusters/Foreman-Puppet.html)
+* Credential for Red Hat package subscription: see bitwarden Redhat Packages Subsciption
   
-* [[Transitioning from Django to AngularJS]] 
+* [Transitioning from Django to AngularJS](trainings/Transitioning-from-Djando-to-AngularJS.html) 
  
-* [[Create new vm on eos-ctl01]]
+* [Create new vm on eos-ctl01](trainings/Create-new-vm-on-eos-ctl01.html)
 
-* [[How to setup Twiki]]
+* [How to setup Twiki](trainings/How-to-setup-Twiki.html)
 
 * **tcpdump**  (Peter Desnoyers)
 ```

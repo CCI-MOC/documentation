@@ -1,7 +1,7 @@
 # Installing Centos 7 on Node Harddrive
 *Note: Some of this information may become irrelevant once we get network booting fully figured out, Evan W. has already created a network boot image for CentOS 7 minimal*
 
-Be sure you can [access the IPMI console](VM-Setup-for-Cisco-IPMI-Access.html)
+Be sure you can [access the IPMI console](clusters/VM-Setup-for-Cisco-IPMI-Access.html)
 
 Download the [CentOS 7 minimal image](https://www.centos.org/download/ in the VM you can access the IPMI console from)
 

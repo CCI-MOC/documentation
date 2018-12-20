@@ -1,6 +1,6 @@
 # Misc Errors/Problems
 
-### Re-sizing root partition, removing /var/nova/instances
+### Re-sizing root partition, removing `/var/nova/instances`
 In order to get the full disk on the root partition, follow the steps below:
 
 All mounting and remove - resize operations must be done as root

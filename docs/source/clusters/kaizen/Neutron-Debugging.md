@@ -2,10 +2,10 @@
 Debugging neutron for Kilo RHOSP-7.1 RHEL 7.1 set-up
 
 ### Useful Links
-* [](http://docs.openstack.org/admin-guide-cloud/content/ch_networking.html)
-* [](http://docs.openstack.org/openstack-ops/content/network_troubleshooting.html)
-* [](https://www.rdoproject.org/Networking_in_too_much_detail)
-* [](http://www.yet.org/2014/09/openvswitch-troubleshooting/)
+* [Ch Networking](http://docs.openstack.org/admin-guide-cloud/content/ch_networking.html)
+* [network troubleshooting](http://docs.openstack.org/openstack-ops/content/network_troubleshooting.html)
+* [Networing in Too Much Detail](https://www.rdoproject.org/Networking_in_too_much_detail)
+* [OpenvSwitch Troubleshooting](http://www.yet.org/2014/09/openvswitch-troubleshooting/)
 
 ### Useful Commands
 
@@ -25,7 +25,7 @@ Investigating why BigData cluster can DHCP and production can't, by comparing th
 
 ### Status on BigData cluster
 
-  **[7/20/15] UPDATE** : brought enp130s0f0.125 & enp130s0f0 down, brought back up enp130s0f0, enp130s0f0.125 was brought up with it, if fixed the issue. Apparently they have to be brought together based on http://www.linuxquestions.org/questions/linux-networking-3/rtnetlink-answers-file-exists-error-when-doing-ifup-on-alias-eth1-1-on-rhel5-710766/
+  **[7/20/15] UPDATE** : brought enp130s0f0.125 & enp130s0f0 down, brought back up enp130s0f0, enp130s0f0.125 was brought up with it, if fixed the issue. Apparently they have to be [brought together](http://www.linuxquestions.org/questions/linux-networking-3/rtnetlink-answers-file-exists-error-when-doing-ifup-on-alias-eth1-1-on-rhel5-710766/)
 
   **[7/20/15] UPDATE** : Tried installing tcpdump to test interfaces. 30 and 31 can no longer ping internet.
 

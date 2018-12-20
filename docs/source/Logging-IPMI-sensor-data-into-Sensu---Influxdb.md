@@ -1,5 +1,5 @@
 # Loggin IPMI Data to Sensu and InfluxDB
-Accessing the Cisco servers is explained [here](Cisco-UCS-C220.html) in detail.
+Accessing the Cisco servers is explained [here](clusters/Cisco-UCS-C220.html) in detail.
 
 ### IPMItool Installation
 You can access IPMI functionality through the command line with the IPMItool utility. To be able to use `ipmitool`, install it with the following

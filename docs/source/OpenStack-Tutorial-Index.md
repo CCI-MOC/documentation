@@ -44,5 +44,5 @@ If you just need to review a specific step, you can find the page you need in th
 
 ******
 
-Back to [Getting Started](Getting-started.html)
+Back to [Getting Started](how-tos/Getting-started.html)
 
