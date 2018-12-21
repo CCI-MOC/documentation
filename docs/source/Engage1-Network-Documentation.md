@@ -94,7 +94,7 @@ Previously the two switches were on different subnets, but these have been merge
   
   **10.10.10.5**   e1-r4pAc04-mgmt-02 (Juniper)  (credentials: root/admin38)
           
-See [Kumo documentation](Kumo-Network-Documentation.html) for Kumo switches
+See [Kumo documentation](clusters/kumo/Kumo-Network-Documentation.html) for Kumo switches
 
   **10.10.10.15**  moc-haas01 - network managing port
 

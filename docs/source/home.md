@@ -30,7 +30,7 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [BU PRB Cluster](BU-PRB-Cluster.html)
 * [CSAIL at Holyoke](CSAIL-at-Holyoke.html)
 * [Engage1 Cluster](Engage1-Cluster.html)
-* [Kumo Cluster](Kumo-Cluster.html)
+* [Kumo Cluster](clusters/kumo/Kumo-Cluster.html)
 * [Kaizen Bare Metal](Kaizen-Bare-Metal.html)
 * [Ops tasks in Northeastern University MOC deployment](Ops-tasks-in-Northeastern-University-MOC-deployment.html)
 * [Ceph](Ceph.html)
