@@ -1,7 +1,7 @@
+# HaaS Bootstrapping
 The script below is an example of how to populate the HaaS with nodes.  
-It also configures the switch accordingly. This is the script that was 
-used to add the extra rack of servers into the northeastern cluster's 
-HaaS.
+
+It also configures the switch accordingly. This is the script that was used to add the extra rack of servers into the northeastern cluster's HaaS.
 
 ```python
 import json
@@ -56,3 +56,4 @@ for vlan in range(1000,1100):
     conn.sendline('state active')
     conn.sendline('exit')
 ```
+
