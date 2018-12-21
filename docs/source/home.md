@@ -23,6 +23,7 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [Ceph Tutorials](trainings/Ceph-Tutorials.html)
 * [Production FAQ](trainings/Production-FAQ.html)
 * [Tips & Tools](trainings/Tips-&-Tools.html)
+* [Ceph](trainings/Ceph.html)
 
 ### Clusters
 * [MOC VLAN Distribution](clusters/MOC-VLAN-Distribution.html)
@@ -31,9 +32,9 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [CSAIL at Holyoke](clusters/CSAIL-at-Holyoke.html)
 * [Engage1 Cluster](clusters/engage1/Engage1-Cluster.html)
 * [Kumo Cluster](clusters/kumo/Kumo-Cluster.html)
-* [Kaizen Bare Metal](Kaizen-Bare-Metal.html)
-* [Ops tasks in Northeastern University MOC deployment](Ops-tasks-in-Northeastern-University-MOC-deployment.html)
 * [Ceph](Ceph.html)
+* [Kaizen Bare Metal](clusters/kaizen/Kaizen-Bare-Metal.html)
+* [Ops tasks in Northeastern University MOC deployment](clusters/kaizen/Ops-tasks-in-Northeastern-University-MOC-deployment.html)
 
 ### MOC/Research/Design
 * [Radiology](Radiology.html)
