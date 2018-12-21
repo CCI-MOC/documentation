@@ -6,15 +6,15 @@ Where is everything, and what is connected to what ? These spreadsheets will tel
 * [Engage1_racks_and_hardware.xlsx](_static/xlsx/Engage1_racks_and_hardware.xlsx)
 * [Engage1_Brocade_cable_map.xlsx](_static/xlsx/Engage1_Brocade_cable_map.xlsx)
 
-New management cable map can be found here: [Engage1 Management Cable Map](Engage1-Management-Cable-Map.html)   
+New management cable map can be found here: [Engage1 Management Cable Map](clusters/engage1/Engage1-Management-Cable-Map.html)   
 
-Old document is [here](_static/xlsx/Engage1_1G_cable_map.xlsx) just in case, but is completely outdated.)-->
+Old document is [here](_static/xlsx/Engage1_1G_cable_map.xlsx) just in case, but is completely outdated.)
 
 Following is the snapshot of what the rack layout is as of March 2015 
 
 ![](_static/img/MGHPCCRackLocation.png)
 
-<!--[MGHPCCRackAssignments032015.pptx](MGHPCCRackAssignments032015.pptx)-->
+[MGHPCCRackAssignments032015.pptx](_static/MGHPCCRackAssignments032015.pptx)
 
 Rough diagram of the Ceph storage: 
    
@@ -75,7 +75,7 @@ floating IPs, infrastructure with direct connection to Kai/Kumo 128.31.20.0/22
   **OpenStack floating IPs** : 128.31.22.0 to 128.31.23.254 
 
 ### Anycast (VLANS 2000-2699) 
-See [Engage1 Anycast Setup](Engage1-Anycast-Setup.html)
+See [Engage1 Anycast Setup](clusters/engage1/Engage1-Anycast-Setup.html)
 
 ### OBM (VLAN 3040)
 Includes OBM network for servers in MOC racks, as well as the cache servers in MIT's rack, via the Dell Switch in r5-pA-c1. 
@@ -294,7 +294,7 @@ Next, open a browser window, and navigate to the appropriate IP for the server y
 ### Dell Switch
 MRI Dell Switch (for cache server IPMI) - located in r5-pA-c1.  It is accessed via an MIT gateway, so please talk to Laura, Rado, or Rahul if you need something configured there.
 
-Instructions for how to log in are [here](Accessing-the-MRI-Dell-Switch.html)
+Instructions for how to log in are [here](clusters/engage1/Accessing-the-MRI-Dell-Switch.html)
 
 ### Login credentials:  
 *These are likely to change away from the defaults in the near future.*
