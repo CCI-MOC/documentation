@@ -7,7 +7,7 @@ In order to log into those machines, you will first need send an email to Hua Li
 We've set up a sensu on a VM that is located on Haas Master. This VM have access to the IPMI network. 
 1. **Log on to Haas Master**
 
-    You can click [here](clusters/kaizen/Accessing-Northeastern-Cluster.html) for information about logging into Haas Master.
+    You can click [here](Accessing-Northeastern-Cluster.html) for information about logging into Haas Master.
 
 2. **Log on to the VM**
 ```

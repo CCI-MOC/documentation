@@ -1,7 +1,7 @@
 # Midonet
 [RDO installation](https://www.rdoproject.org/networking/midonet-integration_mem-5-rhel-7-kilo-osp)
 
-[Midonet with MOC Kilo Openstack](clusters/kaizen/Midonet-with-openstack-Kilo-release-(MOC-puppet-deployment).html)
+[Midonet with MOC Kilo Openstack](Midonet-with-openstack-Kilo-release-(MOC-puppet-deployment).html)
 
 ### Devstack installation
 Ubuntu/redhat with 8 GB RAM and 4+ VCPUs.
