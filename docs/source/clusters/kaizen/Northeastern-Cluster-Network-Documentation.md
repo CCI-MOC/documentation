@@ -1,6 +1,6 @@
 # Northeastern Cluster Network Documentation
 
-[Northeastern Cluster](clusters/kaizen/Northeastern-Cluster.html)
+[Northeastern Cluster](Northeastern-Cluster.html)
 
 * [VLANs and IP Addresses](#vlans-and-ip-addresses)
 * [Haas Master Config](#haas-master-config)

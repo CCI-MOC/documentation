@@ -1,14 +1,14 @@
 # Northeastern Cluster
-Instructions for [Accessing Northeastern Cluster](clusters/kaizen/Accessing-Northeastern-Cluster.html)
+Instructions for [Accessing Northeastern Cluster](Accessing-Northeastern-Cluster.html)
 
 ### Projects
-* [Kaizen Production](clusters/kaizen/Kaizen-Production.html)
-* [Monitoring in NEU Env.](clusters/kaizen/Monitoring-in-NEU-Env.html)
-* [Staging Area](clusters/kaizen/Staging-Area.html)
-* [VMs running on physical nodes](clusters/kaizen/VMs-running-on-nodes.html)
+* [Kaizen Production](Kaizen-Production.html)
+* [Monitoring in NEU Env.](Monitoring-in-NEU-Env.html)
+* [Staging Area](Staging-Area.html)
+* [VMs running on physical nodes](VMs-running-on-nodes.html)
 
 ### Equipment
-[NEU Equipment Sign-Out](clusters/kaizen/NEU-Equipment-Sign-Out.html)
+[NEU Equipment Sign-Out](NEU-Equipment-Sign-Out.html)
 
   **SERVERS**
   * Cisco UCS C220 M3 SSF (x48). See [this file](_static/pdf/CiscoConfiguration.pdf) for list of configuration components. 
@@ -25,24 +25,24 @@ Instructions for [Accessing Northeastern Cluster](clusters/kaizen/Accessing-Nort
 
   **SWITCHES**
   * Cisco Nexus 5672 (x2)
-  * More information at [Cisco Switches (NEU cluster)](clusters/kaizen/Cisco-Switches-(NEU-cluster).html)
+  * More information at [Cisco Switches (NEU cluster)](Cisco-Switches-(NEU-cluster).html)
   * Servers are connected to the switch ports in order 
     * on switch R3-C17, server 1 connects to port 1, server 2 to port 2, and so on up to server 24 to port 24.
     * on switch R3-C19, server 25 connects to port 1, server 48 to port 24.
 
   **STORAGE**
-[Fujitsu CD10000](clusters/kaizen/Fujitsu-CD10000.html)
+[Fujitsu CD10000](Fujitsu-CD10000.html)
 
   **Networks**
-[Northeastern Cluster Network Documentation](clusters/kaizen/Northeastern-Cluster-Network-Documentation.html)
+[Northeastern Cluster Network Documentation](Northeastern-Cluster-Network-Documentation.html)
 
 ### Setup/Configuration
-* [Kilo/RHEL-OSP-7 Deployment](clusters/kaizen/Kilo-RHEL-OSP-7-Deployment.html)
-* [Icehouse/Red Hat 7.0 Deployment Experimentation](clusters/kaizen/Icehouse-Red-Hat-7.0-Deployment-Experimentation.html)
+* [Kilo/RHEL-OSP-7 Deployment](Kilo-RHEL-OSP-7-Deployment.html)
+* [Icehouse/Red Hat 7.0 Deployment Experimentation](Icehouse-Red-Hat-7.0-Deployment-Experimentation.html)
 * [Installing CentOS 7 on a node hard drive](clusters/Installing-CentOS-7-on-a-node-hard-drive.html)
 
 ### Miscellaneous
-[Misc. errors/problems](clusters/kaizen/Misc.-errors-problems.html)
+[Misc. errors/problems](Misc.-errors-problems.html)
 
 ![](_static/img/NUManagementNetworkTopology.png)
 
