@@ -58,7 +58,7 @@ cp -r /etc/puppet/environments/production/modules/moc_openstack/files/nova /etc/
 ```
 * Puppetize the nodes.
 
-[Setting up tempest](clusters/kaizen/Setting-up-tempest.html)
+[Setting up tempest](Setting-up-tempest.html)
 
-[Midonet](clusters/kaizen/Midonet.html)
+[Midonet](Midonet.html)
 

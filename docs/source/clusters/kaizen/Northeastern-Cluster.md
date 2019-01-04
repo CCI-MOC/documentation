@@ -11,15 +11,15 @@ Instructions for [Accessing Northeastern Cluster](Accessing-Northeastern-Cluster
 [NEU Equipment Sign-Out](NEU-Equipment-Sign-Out.html)
 
   **SERVERS**
-  * Cisco UCS C220 M3 SSF (x48). See [this file](_static/pdf/CiscoConfiguration.pdf) for list of configuration components. 
+  * Cisco UCS C220 M3 SSF (x48). See [this file](../../_static/pdf/CiscoConfiguration.pdf) for list of configuration components. 
   * numbers 1-24 in rack 17, 25-48 in rack 19.  Numbered from bottom of rack up.
-  * More information specific to the [Cisco UCS C220](clusters/Cisco-UCS-C220.html) nodes
+  * More information specific to the [Cisco UCS C220](../Cisco-UCS-C220.html) nodes
   * Internal Storage
     * All nodes have a single 300GB drive in slot 1
     * These nodes also have an additional 1TB drive in slot 2: 
       * node 6, nodes 14-24, nodes 39-47
     * Node 48 (the haas master) has 3 additional 1TB drives 
-  * IPMI access [VM Setup for Cisco IPMI Access](clusters/VM-Setup-for-Cisco-IPMI-Access.html)
+  * IPMI access [VM Setup for Cisco IPMI Access](../VM-Setup-for-Cisco-IPMI-Access.html)
   * There is also a SuperMicro emergency box
     * default IPMI credentials: see bitwarden Kaizen Default SuperMicro Credentials 
 
@@ -39,14 +39,14 @@ Instructions for [Accessing Northeastern Cluster](Accessing-Northeastern-Cluster
 ### Setup/Configuration
 * [Kilo/RHEL-OSP-7 Deployment](Kilo-RHEL-OSP-7-Deployment.html)
 * [Icehouse/Red Hat 7.0 Deployment Experimentation](Icehouse-Red-Hat-7.0-Deployment-Experimentation.html)
-* [Installing CentOS 7 on a node hard drive](clusters/Installing-CentOS-7-on-a-node-hard-drive.html)
+* [Installing CentOS 7 on a node hard drive](../Installing-CentOS-7-on-a-node-hard-drive.html)
 
 ### Miscellaneous
 [Misc. errors/problems](Misc.-errors-problems.html)
 
-![](_static/img/NUManagementNetworkTopology.png)
+![](../../_static/img/NUManagementNetworkTopology.png)
 
-![](_static/img/NUclusterNetworkTopology.png)
+![](../../_static/img/NUclusterNetworkTopology.png)
 
 ### Updates:
 
