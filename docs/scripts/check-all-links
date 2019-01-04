@@ -6,4 +6,4 @@ find * \
 	-name archives-page -prune -o \
 	-name Archives-page.md -prune -o \
 	-type f -name '*.md' -print0 |
-	xargs -0 scripts/markdown-check-links -m '_static=source/_static'
+	xargs -0 scripts/markdown-check-links --docroot $PWD/source
