@@ -5,6 +5,7 @@ import glob
 import logging
 import mistune
 import os
+import re
 
 try:
     import urllib.parse as urlparse
@@ -37,7 +38,7 @@ class BrokenLinkError(ValidationError):
 
 
 class RelativeLinkError(ValidationError):
-    '''Link "{}" is a relative link'''
+    '''Use absolute links instead of relative link in "{}"'''
 
     name = 'relative-link'
     default = False
@@ -54,6 +55,12 @@ class AbsoluteLinkError(ValidationError):
     '''Link "{}" is an absolute link'''
 
     name = 'absolute-link'
+
+
+class WikiLinkError(ValidationError):
+    '''Unsupported Wiki-style link "{}"'''
+
+    name = 'wiki-link'
 
 
 ALL_RULES = [rule.name for rule in ValidationError.__subclasses__()]
@@ -168,8 +175,22 @@ class LinkCheckerRenderer(mistune.Renderer):
 
 class LinkCheckerLexer(mistune.InlineLexer):
     def __init__(self, validator, *args, **kwargs):
-        self._validator = validator
         super(LinkCheckerLexer, self).__init__(*args, **kwargs)
+        self.enable_wiki_link()
+        self._validator = validator
+
+    def enable_wiki_link(self):
+        LOG.debug('enabling wiki link checking')
+        self.rules.wiki_link = re.compile(
+            r'\[\[([\w ]+)(\|([\w ]+))?\]\]'
+        )
+
+        pos = self.default_rules.index('autolink')
+        self.default_rules.insert(pos + 1, 'wiki_link')
+
+    def output_wiki_link(self, m):
+        self._validator.add_error(WikiLinkError(m.group(0)))
+        return m.group(0)
 
     def output_reflink(self, m):
         key = m.group(2).lower() if m.group(2) else m.group(1).lower()
