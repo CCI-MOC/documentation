@@ -5,6 +5,7 @@ import glob
 import logging
 import mistune
 import os
+import re
 
 try:
     import urllib.parse as urlparse
@@ -15,33 +16,77 @@ LOG = logging.getLogger('linkcheck')
 
 
 class ValidationError(Exception):
+    default = True
+
     def __str__(self):
-        return self.__doc__.format(super(ValidationError, self).__str__())
+        return '{rulename}: {message}'.format(
+            message=self.__doc__.format(
+                super(ValidationError, self).__str__()),
+            rulename=self.name)
 
 
-class MissingReference(ValidationError):
+class MissingReferenceError(ValidationError):
     '''No reference link named "{}"'''
 
+    name = 'missing-reference'
 
-class BrokenLink(ValidationError):
+
+class BrokenLinkError(ValidationError):
     '''File not found for path "{}"'''
+
+    name = 'broken-link'
+
+
+class RelativeLinkError(ValidationError):
+    '''Use absolute links instead of relative link in "{}"'''
+
+    name = 'relative-link'
+    default = False
+
+
+class ParentLinkError(ValidationError):
+    '''Use absolute links instead of ".." in "{}"'''
+
+    name = 'parent-link'
+    default = False
+
+
+class AbsoluteLinkError(ValidationError):
+    '''Link "{}" is an absolute link'''
+
+    name = 'absolute-link'
+
+
+class WikiLinkError(ValidationError):
+    '''Unsupported Wiki-style link "{}"'''
+
+    name = 'wiki-link'
+
+
+ALL_RULES = [rule.name for rule in ValidationError.__subclasses__()]
+DEFAULT_RULES = [rule.name for rule in ValidationError.__subclasses__()
+                 if rule.default]
 
 
 class Validator:
-    def __init__(self, src, pathmap=None, fail_fast=False, docroot='.'):
-        self.src = src
+    def __init__(self,
+                 pathmap=None,
+                 fail_fast=False,
+                 docroot='.',
+                 rules=None):
         self.fail_fast = fail_fast
         self.docroot = docroot
         self.pathmap = pathmap
-        self.errors = []
 
-    def add_error(self, err):
-        self.errors.append(err)
+        if rules:
+            self.rules = set(rules)
+        else:
+            self.rules = set(DEFAULT_RULES)
 
-        if self.fail_fast:
-            raise(err)
+    def __call__(self, path):
+        return ValidatorContext(self, path)
 
-    def file_exists(self, path):
+    def file_exists(self, src, path):
         LOG.debug('file_exists: processing path %s', path)
 
         paths = []
@@ -56,7 +101,7 @@ class Validator:
             if path.startswith('/'):
                 path = '{}/{}'.format(self.docroot, path)
             else:
-                path = os.path.join(os.path.dirname(self.src), path)
+                path = os.path.join(os.path.dirname(src), path)
 
             paths.append(path)
 
@@ -71,29 +116,86 @@ class Validator:
         return any(os.path.exists(p) for p in resolved)
 
 
+class ValidatorContext:
+    def __init__(self, validator, path):
+        self.validator = validator
+        self.path = path
+
+    def __enter__(self):
+        self.errors = []
+        return self
+
+    def __exit__(self, type, value, traceback):
+        if self.errors:
+            raise ValidationError()
+
+    def add_error(self, error):
+        if error.name in self.validator.rules:
+            LOG.debug('add_error: %s: failed %s', self.path, error.name)
+            error.path = self.path
+            self.errors.append(error)
+
+            if self.validator.fail_fast:
+                raise(error)
+        else:
+            LOG.debug('add_error: %s: ignoring %s', self.path, error.name)
+
+    def file_exists(self, path):
+        return self.validator.file_exists(self.path, path)
+
+    def check_local_link(self, url):
+        _url = urlparse.urlparse(url)
+        if not _url.scheme:
+            if not self.file_exists(_url.path):
+                self.add_error(BrokenLinkError(url))
+
+            if '../' in _url.path:
+                self.add_error(ParentLinkError(url))
+
+            if '/' in _url.path and not _url.path.startswith('/'):
+                self.add_error(RelativeLinkError(url))
+
+            if _url.path.startswith('/'):
+                self.add_error(AbsoluteLinkError(url))
+
+
 class LinkCheckerRenderer(mistune.Renderer):
     def __init__(self, validator, *args, **kwargs):
         self._validator = validator
         super(LinkCheckerRenderer, self).__init__(*args, **kwargs)
 
     def link(self, link, title, text):
-        url = urlparse.urlparse(link)
-        if not url.scheme:
-            if not self._validator.file_exists(url.path):
-                self._validator.add_error(BrokenLink(link))
-
+        self._validator.check_local_link(link)
         return super(LinkCheckerRenderer, self).link(link, title, text)
+
+    def image(self, src, title, text):
+        self._validator.check_local_link(src)
+        return super(LinkCheckerRenderer, self).image(src, title, text)
 
 
 class LinkCheckerLexer(mistune.InlineLexer):
     def __init__(self, validator, *args, **kwargs):
-        self._validator = validator
         super(LinkCheckerLexer, self).__init__(*args, **kwargs)
+        self.enable_wiki_link()
+        self._validator = validator
+
+    def enable_wiki_link(self):
+        LOG.debug('enabling wiki link checking')
+        self.rules.wiki_link = re.compile(
+            r'\[\[([\w ]+)(\|([\w ]+))?\]\]'
+        )
+
+        pos = self.default_rules.index('autolink')
+        self.default_rules.insert(pos + 1, 'wiki_link')
+
+    def output_wiki_link(self, m):
+        self._validator.add_error(WikiLinkError(m.group(0)))
+        return m.group(0)
 
     def output_reflink(self, m):
         key = m.group(2).lower() if m.group(2) else m.group(1).lower()
         if key not in self._links:
-            self._validator.add_error(MissingReference(key))
+            self._validator.add_error(MissingReferenceError(key))
 
         return super(LinkCheckerLexer, self).output_reflink(m)
 
@@ -111,11 +213,15 @@ class LinkCheckerLexer(mistune.InlineLexer):
 @click.option('-d', '--docroot', default='.')
 @click.option('-m', '--map', 'pathmap', multiple=True)
 @click.option('-v', '--verbosity', is_flag=True, multiple=True)
+@click.option('-r', '--rules', type=click.Choice(ALL_RULES))
+@click.option('-s', '--skip-rules', type=click.Choice(ALL_RULES))
 @click.argument('paths', nargs=-1)
-def main(fail_fast, docroot, verbosity, pathmap, paths):
+def main(fail_fast, docroot, verbosity, pathmap, rules, skip_rules, paths):
     all_errors = 0
     pathmap = dict(x.split('=') for x in pathmap)
     verbosity = len(verbosity)
+    rules = set(rules.split(',') if rules else DEFAULT_RULES)
+    skip_rules = set(skip_rules.split(',') if skip_rules else [])
 
     try:
         loglevel = ['WARNING', 'INFO', 'DEBUG'][verbosity]
@@ -124,26 +230,32 @@ def main(fail_fast, docroot, verbosity, pathmap, paths):
 
     logging.basicConfig(level=loglevel)
 
+    selected_rules = rules.difference(skip_rules)
+    LOG.warning('enabled rules: %s', ', '.join(selected_rules))
+
+    validator = Validator(pathmap=pathmap,
+                          fail_fast=fail_fast,
+                          docroot=docroot,
+                          rules=selected_rules)
+
     for path in paths:
-        validator = Validator(path,
-                              pathmap=pathmap,
-                              fail_fast=fail_fast,
-                              docroot=docroot)
-        renderer = LinkCheckerRenderer(validator)
-        lexer = LinkCheckerLexer(validator, renderer)
-        markdown = mistune.Markdown(renderer, inline=lexer)
-
+        LOG.info('checking %s', path)
         try:
-            with open(path, 'r') as fd:
-                markdown(fd.read())
-        except ValidationError:
-            pass
+            with validator(path) as v:
+                renderer = LinkCheckerRenderer(v)
+                lexer = LinkCheckerLexer(v, renderer)
+                markdown = mistune.Markdown(renderer, inline=lexer)
 
-        if validator.errors:
-            all_errors += len(validator.errors)
+                with open(path, 'r') as fd:
+                    markdown(fd.read())
+        except ValidationError:
+            all_errors += len(v.errors)
             print('{}:'.format(path))
-            for err in validator.errors:
+            for err in v.errors:
                 print('  {}'.format(err))
+
+            if fail_fast:
+                break
 
     if all_errors:
         raise click.ClickException(
