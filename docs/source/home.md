@@ -18,8 +18,8 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [Debugging VNC access](how-tos/Debugging-VNC-access.html)
 
 ### Knowledge base/Trainings
-* [Brocade  VCS training - lab session](_static/VCS_Lab.pptx.pdf)
-* [Brocade training - instruction session](_static/VCS_Training_01.pdf)
+* [Brocade  VCS training - lab session](_static/pdf/VCS_Lab.pptx.pdf)
+* [Brocade training - instruction session](_static/pdf/VCS_Training_01.pdf)
 * [Ceph Tutorials](trainings/Ceph-Tutorials.html)
 * [Production FAQ](trainings/Production-FAQ.html)
 * [Tips & Tools](trainings/Tips-&-Tools.html)
