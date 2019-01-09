@@ -2,11 +2,11 @@
 #
 
 # You can set these variables from the command line.
-SPHINXOPTS    = -vvvn
-SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = MOC
-SOURCEDIR     = source
-BUILDDIR      = build
+SPHINXOPTS    ?= -vvvn
+SPHINXBUILD   ?= sphinx-build
+SPHINXPROJ    ?= MOC
+SOURCEDIR     ?= docs/source
+BUILDDIR      ?= docs/build
 
 # Put it first so that "make" without argument is like "make help".
 help:
