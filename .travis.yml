@@ -1,0 +1,6 @@
+language: node_js
+node_js:
+  - "node"
+before_script:
+  npm install -g express remark-lint remark-cli remark-preset-lint-consistent remark-preset-lint-markdown-style-guide remark-preset-lint-recommended
+script: remark $TRAVIS_BUILD_DIR/docs/source
