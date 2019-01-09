@@ -265,9 +265,9 @@ See [this issue](https://github.com/CCI-MOC/kilo-puppet/issues/11)
 
 ## Diagrams
 
-![](_static/img/NUManagementNetworkTopology.png)
+![](../../_static/img/NUManagementNetworkTopology.png)
 
-![](_static/img/NUclusterNetworkTopology.png)
+![](../../_static/img/NUclusterNetworkTopology.png)
 
 ### 1G Switches
 
