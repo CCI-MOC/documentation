@@ -34,7 +34,7 @@ Subnet advertisement needs to be to NEU from Cisco switches.
 
 ### Updates
 
-![](_static/img/Updates.gif)
+![](../../_static/img/Updates.gif)
 
 How update process would work:
 1. A VM will pull updates from RedHat daily and create local repository in a folder named repos.
