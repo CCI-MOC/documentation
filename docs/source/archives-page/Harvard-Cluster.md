@@ -2,16 +2,16 @@
 
 [Harvard Equipment Sign Out](archives-page/Harvard-Equipment-Sign-Out.html)
 
-![](_static/img/Harvard-network-topology.png)
+![](../_static/img/Harvard-network-topology.png)
 
 The R720, eosctl01, connects to sw1 over em1-em4, and to sw3 over p3p1 (p3p2 is disconnceted).  The 16 blades connect to sw1 over p3p1 and to sw3 over em1 (em2 and p3p1 are disconnected).
 
 # MOC Network Topology 
-![](_static/img/MOCatHU_NetworkTopology.png)
+![](../_static/img/MOCatHU_NetworkTopology.png)
 
 # Engagement Journal
 
-[Link](_static/pdf/MOC OpenStack_Ceph_Satellite Engagement Journal - November 2014_v1.2.pdf)
+[Link](../_static/pdf/MOC OpenStack_Ceph_Satellite Engagement Journal - November 2014_v1.2.pdf)
 
 # Testing Openstack
 openstack_test.sh
