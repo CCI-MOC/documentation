@@ -82,7 +82,7 @@ Next, create a non-default user:
 
     create user pduadmin
 
-Enter the user's password when prompted.  Please set (and document) an actual secure password, not PASSWORD.  (For tips on creating secure passwords, see [[Security Best Practices]]).
+Enter the user's password when prompted.  Please set (and document) an actual secure password, not PASSWORD.  (For tips on creating secure passwords, see [Security Best Practices](Security-Best-Practices.html)).
 
     Password: PASSWORD
     Verify:   PASSWORD

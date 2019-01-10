@@ -417,7 +417,7 @@ Links to useful Red Hat docs:
 
 (This section mostly reproduces the instructions in the [Ceph Documentation](http://docs.ceph.com/docs/master/radosgw/config/) but with some additional notes/comments)
 
-For more information about using the RADOS gateway to do operations, see [[Talking to the RADOS Gateway]]
+For more information about using the RADOS gateway to do operations, see [Talking to the RADOS Gateway](Talking-to-the-RADOS-Gateway.html)
 
 ####User Setup
 Create a gateway user and a swift subuser with a swift secret key:
@@ -543,6 +543,6 @@ Civetweb debugging info goes into the radosgw logs with the preface 'civetweb:'.
 * Useful pages from Ceph's bug tracker:
      * [mod_proxy_fcgi](http://tracker.ceph.com/issues/10551)
      * [civetweb] (http://tracker.ceph.com/issues/7933)
-* [[Talking to the RADOS Gateway]]
+* [Talking to the RADOS Gateway](Talking-to-the-RADOS-Gateway.html)
 
 [top](#top)

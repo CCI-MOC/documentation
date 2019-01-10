@@ -99,7 +99,7 @@ The UMass Helpdesk will see the Access Request and Change Quota Request tickets 
 
     $ ssh helpdesk@128.31.25.252
 
-And use the `moc` interface to run the script.  This is a bash function layered in between the helpdesk user and the actual scripts - the intention is to prevent all the helpdesk users from having access to the `settings.ini` file which contains passwords.  More information about this is at [[Configuration of the Helpdesk VM]].
+And use the `moc` interface to run the script.  This is a bash function layered in between the helpdesk user and the actual scripts - the intention is to prevent all the helpdesk users from having access to the `settings.ini` file which contains passwords.  More information about this is at [Configuration of the Helpdesk VM](Configuration-of-the-Helpdesk-VM.html).
 
 ## Addusers python script
 

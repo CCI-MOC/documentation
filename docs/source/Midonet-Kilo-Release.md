@@ -42,7 +42,7 @@ What devvesa meant was to click on "certain" patch such as https://review.openst
     `$ sudo vim local.conf`
 
          #!/usr/bin/env bash
-         [[local|localrc]]
+         [local](localr.html)
          # Specify Neutron plugin to use
          Q_PLUGIN_CLASS=neutron.plugins.midonet.plugin.MidonetPluginV2
 

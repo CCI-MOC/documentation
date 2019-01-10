@@ -1,5 +1,5 @@
 # HaaS Development Environment
-There are 3 haas environments in PRB. Nitty gritty network cabling and other info can be found in [[PRB HaaS Cluster]].
+There are 3 haas environments in PRB. Nitty gritty network cabling and other info can be found in [PRB HaaS Cluster](PRB-HaaS-Cluster.html).
 
 ### SSH gateway to MOC Intranet
 
@@ -13,7 +13,7 @@ The MOC Intranet is isolated from the Internet so that we can be a little more o
 
 Location for users to try the latest/greatest haas bits on machines that aren't as high class as the production ones.
 
-Machines placed on the moc-intranet network can reach the outside world by following the network config info found on [[PRB HaaS Cluster]].
+Machines placed on the moc-intranet network can reach the outside world by following the network config info found on [PRB HaaS Cluster](PRB-HaaS-Cluster.html).
 
   **DEV** : [moc-haas-master.bu.edu](PRB-MOC-Haas-Master-Config.html) (accessible from Internet)
 

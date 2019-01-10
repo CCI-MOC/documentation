@@ -15,7 +15,7 @@ Create a local.conf file and dump the below content to it.
 ```
 #!/usr/bin/env bash
 
-[[local|localrc]]
+[local](localr.html)
 ADMIN_PASSWORD=password
 DATABASE_PASSWORD=$ADMIN_PASSWORD
 RABBIT_PASSWORD=$ADMIN_PASSWORD

@@ -11,7 +11,7 @@
 
 * Kumo networking is not fully labeled.  Would be good to get labels there and also audit to make sure the cable map spreadsheet is accurately.
 
-* Something I never got around to setting up properly: [[PDU Documentation]].  Remote access to the PDU is useful because you can "unplug" servers if needed to reset by powering down a specific port.  I did configure some of them in Engage1 but I'm not sure if there is up to date documentation - probably best to just restore them to factory settings as described at the link, which can be done without interrupting the power supply to servers, then reconfigure them as you like.
+* Something I never got around to setting up properly: [PDU Documentation](PDU-Documentation.html).  Remote access to the PDU is useful because you can "unplug" servers if needed to reset by powering down a specific port.  I did configure some of them in Engage1 but I'm not sure if there is up to date documentation - probably best to just restore them to factory settings as described at the link, which can be done without interrupting the power supply to servers, then reconfigure them as you like.
 
 * We tried to find the CSAIL switch that we are connected to, one cable went to R5-PB-C18 u39 and the the other to R5-PB-C18 U38, but there wasn't anything in that cabinet/U when we looked?  Double check that we looked in the right place, and then maybe ask CSAIL if they moved it.
 
@@ -19,8 +19,8 @@
 ## Links to documentation people may find helpful:
 
 * [[Helpdesk VMs - Index | Helpdesk-VMs---Index]] - this is a list of links to other pages about the Helpdesk VMs and how they work
-* [[MGHPCC]] - brain dump of information about MGHPCC
-* [[Setting up the RADOS gateway]], [[Talking to the RADOS gateway]], and [[Specifying Pools via Radosgw]] all contain information of interest although may not be 100% accurate with latest releases
+* [MGHPCC](MGHPCC.html) - brain dump of information about MGHPCC
+* [Setting up the RADOS gateway](Setting-up-the-RADOS-gateway.html), [Talking to the RADOS gateway](Talking-to-the-RADOS-gateway.html), and [Specifying Pools via Radosgw](Specifying-Pools-via-Radosgw.html) all contain information of interest although may not be 100% accurate with latest releases
 * relevant to specifying pools via Radosgw - I saw some evidence you may be able to configure a default placement target by project.  I have not looked into this closely.  Rado, this may be of interest to Ugur's work?
 
 ## MOC-bot

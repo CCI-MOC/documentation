@@ -3,7 +3,7 @@
 Documentation Spreadsheet: [R4-PA-C23 rack layout and networking](_static/xlsx/R4-PA-C23.xlsx)
 
 ### 10.10.10.0/24: VLAN 3040 
-This network is shared with Engage1, see also [[Engage1 Network Documentation]]
+This network is shared with Engage1, see also [Engage1 Network Documentation](Engage1-Network-Documentation.html)
 For this deployment, server addresses should all be in the range 10.10.10.{200-254}
      
      10.10.10.3    Mangement Switch (Cisco Catalyst 3650)

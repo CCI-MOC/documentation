@@ -141,7 +141,7 @@ Scroll down to Security Groups and check for your SSH security group, and check 
 
      ALLOW IPv4 22/tcp from 0.0.0.0/0
 
-Instructions on creating a security group are here: [[Security Groups]]
+Instructions on creating a security group are here: [Security Groups](Security-Groups.html)
 
 You can add a security group to your VM after launch.  Go to Project-->Compute-->Instances and click the dropdown menu under the 'Actions' column next to your VM.
 

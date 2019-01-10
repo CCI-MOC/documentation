@@ -67,7 +67,7 @@
 ### Configuration in Devstack
 Edit the devstack/localrc file to match the following (minimal configuration): 
 
-    [[local|localrc]]
+    [local](localr.html)
     ADMIN_PASSWORD=secrete
     DATABASE_PASSWORD=$ADMIN_PASSWORD
     RABBIT_PASSWORD=$ADMIN_PASSWORD

@@ -24,7 +24,7 @@
 ```
 
 ### Useful OpenStack related resources
-[[Reference blogs and articles]]
+[Reference blogs and articles](../Reference-blogs-and-articles.html)
 
 Ravi
 
@@ -44,4 +44,4 @@ This can be checked using ip route
  ip route
 default via 172.16.0.1 dev enp130s0f0.1053 
 
-* [[ Programming Tatics ]]
+* [Programming Tatics](../Programming-Tatics.html)

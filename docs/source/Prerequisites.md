@@ -16,4 +16,4 @@ Ensure that you have completed the following steps:
 * You will also be given a password to login to OpenStack.
 
 ### NEXT
-[[Access the OpenStack dashboard]]
+[Access the OpenStack dashboard](Access-the-OpenStack-dashboard.html)

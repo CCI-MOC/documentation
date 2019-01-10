@@ -1,7 +1,7 @@
 * [Inventory](#inventory)
 * [Storage Cage](#storage-cage)
 * [Keys and Access](#keys-and-access)
-* [[PDU Documentation]] (link is to another wiki page)
+* [PDU Documentation](PDU-Documentation.html) (link is to another wiki page)
 
 ## Where stuff is
 

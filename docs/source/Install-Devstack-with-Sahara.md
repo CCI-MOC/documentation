@@ -20,7 +20,7 @@ cd devstack
 A `local.conf` file should be include into the devstack folder. 
 
 ```
-[[local|localrc]]
+[local](localr.html)
 ADMIN_PASSWORD=nova
 MYSQL_PASSWORD=nova
 RABBIT_PASSWORD=nova

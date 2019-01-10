@@ -10,7 +10,7 @@
 * [Narrated Video tutorial](https://youtu.be/9_PbcPV_jEU?t=199)
    * *Please note: This video is very helpful, but a little out of date.  The MOC tutorials above have more current information.*
 * Fast [video tutorial](https://www.youtube.com/watch?v=ZjdrVHPjltI) of how to launch an instance on a generic Openstack cloud
-* [[OpenStack FAQ]] 
+* [OpenStack FAQ](../OpenStack-FAQ.html) 
 
 
 ### Getting help

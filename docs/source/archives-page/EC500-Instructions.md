@@ -4,18 +4,18 @@ So you are a student and excited to get access  to a cloud computing environment
 
 But first things first, there are a few pre-requisites. Please review the instructions!
 
-* [[Prerequisites]]
-* [[Access the OpenStack dashboard]]
-* [[Launching a VM]]
-* [[SSH to Cloud VM]]
+* [Prerequisites](../Prerequisites.html)
+* [Access the OpenStack dashboard](../Access-the-OpenStack-dashboard.html)
+* [Launching a VM](Launching-a-VM.html)
+* [SSH to Cloud VM](../SSH-to-Cloud-VM.html)
 
 Check the full video tutorial if you need help:
 * [Full video tutorial](https://www.youtube.com/watch?v=9_PbcPV_jEU)
 
 Check the following page for common troubleshooting faqs:  
-* [[Troubleshooting Guide]]
+* [Troubleshooting Guide](Troubleshooting-Guide.html)
 
 References:
-* [[OpenStack Glossary]]
+* [OpenStack Glossary](../OpenStack-Glossary.html)
 
 
