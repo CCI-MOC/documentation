@@ -1,0 +1,20 @@
+matrix:
+  include:
+    - language: node_js
+      node_js:
+        - "node"
+      before_script:
+        npm install -g express remark-lint remark-cli remark-preset-lint-consistent remark-preset-lint-markdown-style-guide remark-preset-lint-recommended
+      script: remark --rc-path $TRAVIS_BUILD_DIR/.remarkrc $TRAVIS_BUILD_DIR/docs/source
+    - language: python
+      python:
+        - 2.7
+      install:
+        pip install -r $TRAVIS_BUILD_DIR/requirements-testing.txt
+      script: tox -c $TRAVIS_BUILD_DIR
+    - language: python
+      python:
+        - 2.7
+      install:
+        pip install -r $TRAVIS_BUILD_DIR/requirements.txt
+      script: make -C $TRAVIS_BUILD_DIR html
