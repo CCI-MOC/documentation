@@ -2,23 +2,23 @@
 
 ### Hardware and Networking Layout
 Where is everything, and what is connected to what ? These spreadsheets will tell you:  
-* [Engage1_networks.xlsx](_static/xlsx/Engage1_networks.xlsx)
-* [Engage1_racks_and_hardware.xlsx](_static/xlsx/Engage1_racks_and_hardware.xlsx)
-* [Engage1_Brocade_cable_map.xlsx](_static/xlsx/Engage1_Brocade_cable_map.xlsx)
+* [Engage1_networks.xlsx](../../_static/xlsx/Engage1_networks.xlsx)
+* [Engage1_racks_and_hardware.xlsx](../../_static/xlsx/Engage1_racks_and_hardware.xlsx)
+* [Engage1_Brocade_cable_map.xlsx](../../_static/xlsx/Engage1_Brocade_cable_map.xlsx)
 
-New management cable map can be found here: [Engage1 Management Cable Map](clusters/engage1/Engage1-Management-Cable-Map.html)   
+New management cable map can be found here: [Engage1 Management Cable Map](Engage1-Management-Cable-Map.html)   
 
-Old document is [here](_static/xlsx/Engage1_1G_cable_map.xlsx) just in case, but is completely outdated.)
+Old document is [here](../../_static/xlsx/Engage1_1G_cable_map.xlsx) just in case, but is completely outdated.)
 
 Following is the snapshot of what the rack layout is as of March 2015 
 
-![](_static/img/MGHPCCRackLocation.png)
+![](../../_static/img/MGHPCCRackLocation.png)
 
-[MGHPCCRackAssignments032015.pptx](_static/MGHPCCRackAssignments032015.pptx)
+[MGHPCCRackAssignments032015.pptx](../../_static/MGHPCCRackAssignments032015.pptx)
 
 Rough diagram of the Ceph storage: 
    
-![](_static/img/engage1_ceph.png)
+![](../../_static/img/engage1_ceph.png)
 
 **VLANs**
  
@@ -75,7 +75,7 @@ floating IPs, infrastructure with direct connection to Kai/Kumo 128.31.20.0/22
   **OpenStack floating IPs** : 128.31.22.0 to 128.31.23.254 
 
 ### Anycast (VLANS 2000-2699) 
-See [Engage1 Anycast Setup](clusters/engage1/Engage1-Anycast-Setup.html)
+See [Engage1 Anycast Setup](Engage1-Anycast-Setup.html)
 
 ### OBM (VLAN 3040)
 Includes OBM network for servers in MOC racks, as well as the cache servers in MIT's rack, via the Dell Switch in r5-pA-c1. 
@@ -94,7 +94,7 @@ Previously the two switches were on different subnets, but these have been merge
   
   **10.10.10.5**   e1-r4pAc04-mgmt-02 (Juniper)  (credentials: root/admin38)
           
-See [Kumo documentation](Kumo-Network-Documentation.html) for Kumo switches
+See [Kumo documentation](../../Kumo-Network-Documentation.html) for Kumo switches
 
   **10.10.10.15**  moc-haas01 - network managing port
 
@@ -277,7 +277,7 @@ IPMI can be accessed from either moc-services or engage1-emergency.  It is recom
 
 Firefox should open, assuming you have appropriate X forwarding software installed on your local machine.  For a Mac, you need to install XQuartz.
 
-Connecting via engage1-emergency requires some other solution to get a GUI.  If you have a [dedicated VM](clusters/VM-Setup-for-Cisco-IPMI-Access.html) set up for IPMI access with redsocks proxy utility, you can use that.  
+Connecting via engage1-emergency requires some other solution to get a GUI.  If you have a [dedicated VM](../VM-Setup-for-Cisco-IPMI-Access.html) set up for IPMI access with redsocks proxy utility, you can use that.  
 
 You can also configure the browser on your local machine to use a SOCKS proxy.  You may need to install a Java web plugin and/or browser flash plugin in order to use the IPMI web GUI.  
 
@@ -294,7 +294,7 @@ Next, open a browser window, and navigate to the appropriate IP for the server y
 ### Dell Switch
 MRI Dell Switch (for cache server IPMI) - located in r5-pA-c1.  It is accessed via an MIT gateway, so please talk to Laura, Rado, or Rahul if you need something configured there.
 
-Instructions for how to log in are [here](clusters/engage1/Accessing-the-MRI-Dell-Switch.html)
+Instructions for how to log in are [here](Accessing-the-MRI-Dell-Switch.html)
 
 ### Login credentials:  
 *These are likely to change away from the defaults in the near future.*
