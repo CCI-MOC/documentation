@@ -1,5 +1,5 @@
 # Kumo Cluster
 
 ### Accessing the cluster
-* [Kumo Network Documentation](clusters/kumo/Kumo-Network-Documentation.html)
+* [Kumo Network Documentation](Kumo-Network-Documentation.html)
 
