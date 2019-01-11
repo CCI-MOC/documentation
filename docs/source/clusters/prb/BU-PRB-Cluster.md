@@ -396,7 +396,7 @@ We have a rack in the PRB server room with hardware for development work on HaaS
 * **3 Dell Powerconnect 5524 switches** (24 ports each).
  * The **administrative interface** for these switches are listening on VLAN 1 to IP address 192.168.3.[245-247]. These are referred to as dell-0 through dell-2, and are labeled.
  * **username/Password** see bitwarden PRB Dell Switches
- * [CLI Manual](_static/pdf/powerconnect5500_cliref_en-us.pdf). [Dell's support website](http://www.dell.com/support/home/us/en/4/product-support/product/powerconnect-5524/manuals)
+ * [CLI Manual](../../_static/pdf/powerconnect5500_cliref_en-us.pdf). [Dell's support website](http://www.dell.com/support/home/us/en/4/product-support/product/powerconnect-5524/manuals)
 * **8 servers based on Supermicro's [SuperServer 5018A-MLTN4][1]**. These have [Super A1SAM-2550F](http://www.supermicro.com/products/motherboard/Atom/X10/A1SAM-2550F.cfm) motherboards. We added 16GiB of memory and a 750GB SATA disk (pulled from the ATLAS array). These are x86_64 Atom processors with VT and IPMI 2.0.
  * IPMI IP addresses are: 10.10.0.[40-47]
 * **2 Intel nodes**. They will probably be reunited with their family in engage1, but for now we can use them. Each node has two 14 core Xeons and 256 GB memory.

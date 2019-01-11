@@ -27,5 +27,5 @@ firewall-cmd --reload
 ```
 
 ### FreeIPA
-To enroll a machine in FreeIPA, see [FreeIPA](FreeIPA.html)
+To enroll a machine in FreeIPA, see [FreeIPA](../FreeIPA.html)
 
