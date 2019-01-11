@@ -13,7 +13,7 @@ The MOC Intranet is isolated from the Internet so that we can be a little more o
 
 Location for users to try the latest/greatest haas bits on machines that aren't as high class as the production ones.
 
-Machines placed on the moc-intranet network can reach the outside world by following the network config info found on [PRB HaaS Cluster](PRB-HaaS-Cluster.html).
+Machines placed on the moc-intranet network can reach the outside world by following the network config info found on [PRB HaaS Cluster](haas-dev-setup.html).
 
   **DEV** : [moc-haas-master.bu.edu](PRB-MOC-Haas-Master-Config.html) (accessible from Internet)
 

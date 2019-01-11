@@ -18,7 +18,7 @@ Where `<PORT#>` is any outgoing port on your machine that is not in use.
 ### Accessing the OBMs
 Change your proxy settings to use a SOCKS proxy with the port number you used above.
 
-More instructions for this are available [here](Access-the-OpenStack-dashboard.html).
+More instructions for this are available [here](../../Access-the-OpenStack-dashboard.html).
 
 Now, you should be able to reach the OBM in your browser at `http://10.99.1.x`, where x is 101,102,...,148 for servers 1 through 48.
 
@@ -65,7 +65,7 @@ So, you are now logged into the box. Next, bring down network manager using foll
     [root@compute-43 ~]# systemctl stop NetworkManager
 
 
-*Note: Before following these steps to put your node on the public network, please review the steps at [Security Best Practices](how-tos/Security-Install-Best-Practices.html).*
+*Note: Before following these steps to put your node on the public network, please review the steps at [Security Best Practices](../../how-tos/Security-Install-Best-Practices.html).*
 
 Create configuration file for your network interface at `/etc/sysconfig/network-scripts/ifcfg-enp130s0f0.125`:
 

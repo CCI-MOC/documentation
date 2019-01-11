@@ -23,6 +23,7 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [Ceph Tutorials](trainings/Ceph-Tutorials.html)
 * [Production FAQ](trainings/Production-FAQ.html)
 * [Tips & Tools](trainings/Tips-&-Tools.html)
+* [Ceph](trainings/Ceph.html)
 
 ### Clusters
 * [MOC VLAN Distribution](clusters/MOC-VLAN-Distribution.html)
@@ -31,9 +32,8 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [CSAIL at Holyoke](clusters/CSAIL-at-Holyoke.html)
 * [Engage1 Cluster](clusters/engage1/Engage1-Cluster.html)
 * [Kumo Cluster](clusters/kumo/Kumo-Cluster.html)
-* [Kaizen Bare Metal](Kaizen-Bare-Metal.html)
-* [Ops tasks in Northeastern University MOC deployment](Ops-tasks-in-Northeastern-University-MOC-deployment.html)
-* [Ceph](Ceph.html)
+* [Kaizen Bare Metal](clusters/kaizen/Kaizen-Bare-Metal.html)
+* [Ops tasks in Northeastern University MOC deployment](clusters/kaizen/Ops-tasks-in-Northeastern-University-MOC-deployment.html)
 
 ### MOC/Research/Design
 * [Radiology](Radiology.html)
@@ -64,12 +64,12 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [Resolving Sensu Email Alerts](Email-Alerting-in-Sensu.html)
 * [Viewing the Monitoring Dashboards in NEU Env](Viewing-the-Monitoring-Dashboards-in-NEU-Env.html)
 * [SNMP: CISCO switch monitoring](SNMP-CISCO-switch-monitoring.html)
-* [Influxdb & Grafana](Influxdb-&-Grafana.html)
+* [Influxdb & Grafana](Influx-Grafana.html)
 * [Use InfluxDB handler in Sensu](Use-InfluxDB-handler-in-Sensu.html)
 * [Logging IPMI sensor data into Sensu + Influxdb](Logging-IPMI-sensor-data-into-Sensu---Influxdb.html)
 * [Where to find the IPMI checks](Where-to-find-the-IPMI-checks.html)
 * [Ceilometer Introduction](Ceilometer-Introduction.html)
-* [Ceilometer Installation in NE Env.](Ceilometer-Installation-in-NE-Env..html)
+* [Ceilometer Installation in NE Env.](Ceilometer-Installation-in-NE-Env.html)
 * [InfluxDB Crash Course: Querying Data](InfluxDB-Crash-Course-Querying-Data.html)
 * [Aggregate Data in InfluxDB](Aggregate-Data-in-InfluxDB.html)
 * [Ceilometer Deployment Guide](Ceilometer-Deployment-Guide.html)
