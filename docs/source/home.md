@@ -32,7 +32,6 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [CSAIL at Holyoke](clusters/CSAIL-at-Holyoke.html)
 * [Engage1 Cluster](clusters/engage1/Engage1-Cluster.html)
 * [Kumo Cluster](clusters/kumo/Kumo-Cluster.html)
-* [Ceph](Ceph.html)
 * [Kaizen Bare Metal](clusters/kaizen/Kaizen-Bare-Metal.html)
 * [Ops tasks in Northeastern University MOC deployment](clusters/kaizen/Ops-tasks-in-Northeastern-University-MOC-deployment.html)
 
