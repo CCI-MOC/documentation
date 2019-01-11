@@ -1,12 +1,12 @@
 
-* [Foreman-Puppet](clusters/Foreman-Puppet.html)
+* [Foreman-Puppet](../Foreman-Puppet.html)
 * Credential for Red Hat package subscription: see bitwarden Redhat Packages Subsciption
   
-* [Transitioning from Django to AngularJS](trainings/Transitioning-from-Djando-to-AngularJS.html) 
+* [Transitioning from Django to AngularJS](Transitioning-from-Django-to-AngularJS.html) 
  
-* [Create new vm on eos-ctl01](trainings/Create-new-vm-on-eos-ctl01.html)
+* [Create new vm on eos-ctl01](Create-new-vm-on-eos-ctl01.html)
 
-* [How to setup Twiki](trainings/How-to-setup-Twiki.html)
+* [How to setup Twiki](How-to-setup-Twiki.html)
 
 * **tcpdump**  (Peter Desnoyers)
 ```
@@ -24,7 +24,7 @@
 ```
 
 ### Useful OpenStack related resources
-[[Reference blogs and articles]]
+[Reference blogs and articles](Reference-blogs-and-articles.html)
 
 Ravi
 
@@ -44,4 +44,4 @@ This can be checked using ip route
  ip route
 default via 172.16.0.1 dev enp130s0f0.1053 
 
-* [[ Programming Tatics ]]
+* [Programming Tatics](Programming-Tactics.html)
