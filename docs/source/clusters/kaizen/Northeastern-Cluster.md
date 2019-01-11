@@ -25,7 +25,7 @@ Instructions for [Accessing Northeastern Cluster](Accessing-Northeastern-Cluster
 
   **SWITCHES**
   * Cisco Nexus 5672 (x2)
-  * More information at [Cisco Switches (NEU cluster)](Cisco-Switches-(NEU-cluster).html)
+  * More information at [Cisco Switches (NEU cluster)](Cisco-Switches-NEU-cluster.html)
   * Servers are connected to the switch ports in order 
     * on switch R3-C17, server 1 connects to port 1, server 2 to port 2, and so on up to server 24 to port 24.
     * on switch R3-C19, server 25 connects to port 1, server 48 to port 24.

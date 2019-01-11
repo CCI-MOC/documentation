@@ -3,10 +3,10 @@
 ### Specifications
 Data sheet can be found [here](https://www.google.com/webhp?sourceid=chrome-instant&rlz=1C5CHFA_enTH540US541&ion=1&espv=2&ie=UTF-8#q=ucs+c220+m3+sff+datasheet)
 
-The stock disks on these nodes have a firmware issue that causes problems with disk partitioning. See [Firmware Issue with Cisco 300GB Drive](clusters/Firmware-Issue-with-Cisco-300GB-Drive.html) for an explanation and workaround.
+The stock disks on these nodes have a firmware issue that causes problems with disk partitioning. See [Firmware Issue with Cisco 300GB Drive](Firmware-Issue-with-Cisco-300GB-Drive.html) for an explanation and workaround.
 
 ### IPMI access
-See also [VM Setup for Cisco IPMI Access](clusters/VM-Setup-for-Cisco-IPMI-Access.html)
+See also [VM Setup for Cisco IPMI Access](VM-Setup-for-Cisco-IPMI-Access.html)
 
 The Cisco IPMI interfaces only support SSLv3, which is disabled by default in newer firefox versions.
 

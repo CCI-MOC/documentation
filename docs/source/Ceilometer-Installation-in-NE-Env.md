@@ -1,5 +1,5 @@
 # Ceilometer Installation in NEU Env.
-To learn more about Ceilometer in our production environment, please go here: [Ceilometer Introduction](Ceilometer-Introduction.html). This will give you a background on how ceilometer is installed that will help you understand this guide.
+To learn more about Ceilometer in our production environment, please go here: [Ceilometer Introduction](../../Ceilometer-Introduction.html). This will give you a background on how ceilometer is installed that will help you understand this guide.
 
 ### Install MongoDB
 We have MongoDB installed on a separate node located at `129.10.5.56`. Go there and then follow these instructions.
