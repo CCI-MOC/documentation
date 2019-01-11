@@ -2,7 +2,8 @@
 
 * [HaaS Repo](https://github.com/CCI-MOC/haas)
 * [Bug Tracker](https://github.com/CCI-MOC/Haas/issues Bug Tracker)
-* [[Haas interface]]
+* [HaaS Interface](Haas-interface.html)
+* [HaaS Bootstrapping](HaaS-bootstrapping.html)
 
 ### Recursive HaaS
 Requires modifying the following to pass through:

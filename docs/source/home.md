@@ -36,14 +36,15 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [Ops tasks in Northeastern University MOC deployment](clusters/kaizen/Ops-tasks-in-Northeastern-University-MOC-deployment.html)
 
 ### MOC/Research/Design
-* [Radiology](Radiology.html)
-* [Cloud related conferences and proceedings](Cloud-related-Conferences-and-proceedings.html)
-* [Recommended Security plan By Jason Hennessey](Recommended-Security-plan-By-Jason-Hennessey.html) Proposal for security in infrastructure
+* [Radiology](research/Radiology.html)
+* [Cloud related conferences and proceedings](research/Cloud-related-Conferences-and-proceedings.html)
+* [Recommended Security plan By Jason Hennessey](research/Recommended-Security-plan-By-Jason-Hennessey.html) Proposal for security in infrastructure
 
 ### HIL
-* [Haas meeting minutes](Haas-meeting-minutes.html)
+* [HaaS](hil/HaaS.md)
+* [Haas meeting minutes](hil/Haas-meeting-minutes.html)
 * [Github link](https://github.com/CCI-MOC/hil)
-* [Meeting Information](HIL-Meeting-Information.html)
+* [Meeting Information](hil/HIL-Meeting-Information.html)
 
 ### M2
 * [Github link](https://github.com/CCI-MOC/m2)
