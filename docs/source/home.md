@@ -117,7 +117,7 @@ This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-
 * [Spark on OpenShift](Openshift-Spark.html)
 
 ### Website
-* [MOC Website](MOC-Website.html)
+* [MOC Website](website/MOC-Website.html)
 
 ### Related Reading
 * Google document describing current thinking on shared provisioning layer is available [here](https://docs.google.com/document/d/110avjh50FpwprMdMb_z2LS8n2TjUsh2xbSqHm3qAAOw/edit?usp=sharing)
