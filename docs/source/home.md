@@ -83,13 +83,13 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [Saltstack](hpc/Salt.html)
 
 ### Sahara
-* [Sahara End User Guide](Sahara-End-User-Guide.html)
-* [Install Devstack with Sahara](Install-Devstack-with-Sahara.html)
-* [Sahara comparisons](Sahara-comparisons.html)
-* [Installing Sahara on MOC Openstack](Installing-Sahara-on-MOC-Openstack.html)
-* [Sahara plugins](Sahara-plugins.html)
-* [Registering Mirantis Images](Registering-Mirantis-Images.html)
-* [Sahara interactions](Sahara-interactions.html)
+* [Sahara End User Guide](sahara/Sahara-End-User-Guide.html)
+* [Install Devstack with Sahara](sahara/Install-Devstack-with-Sahara.html)
+* [Sahara comparisons](sahara/Sahara-comparisons.html)
+* [Installing Sahara on MOC Openstack](sahara/Installing-Sahara-on-MOC-Openstack.html)
+* [Sahara plugins](sahara/Sahara-plugins.html)
+* [Registering Mirantis Images](sahara/Registering-Mirantis-Images.html)
+* [Sahara interactions](sahara/Sahara-interactions.html)
 
 ### Production/Infrastructure
 * [Foreman](infrastructure/Foreman.html)
