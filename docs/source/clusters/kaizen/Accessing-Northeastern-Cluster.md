@@ -18,7 +18,7 @@ Where `<PORT#>` is any outgoing port on your machine that is not in use.
 ### Accessing the OBMs
 Change your proxy settings to use a SOCKS proxy with the port number you used above.
 
-More instructions for this are available [here](../../Access-the-OpenStack-dashboard.html).
+More instructions for this are available [here](../../openstack/Access-the-OpenStack-dashboard.html).
 
 Now, you should be able to reach the OBM in your browser at `http://10.99.1.x`, where x is 101,102,...,148 for servers 1 through 48.
 

@@ -7,7 +7,7 @@ Each page has navigation links at the bottom to help with this).
 If you just need to review a specific step, you can find the page you need in the list below.
 
 ### Logging In    
-* [Access the OpenStack Dashboard](Access-the-OpenStack-Dashboard.html)  <<-- Start Here
+* [Access the OpenStack Dashboard](Access-the-OpenStack-dashboard.html)  <<-- Start Here
 * [Dashboard Overview](Dashboard-Overview.html) 
 
 ### Setting Up A Network
@@ -28,7 +28,7 @@ If you just need to review a specific step, you can find the page you need in th
 *  [Object Storage](Object-Storage.html)
 
 ### API Access 
-*  [API Access](API-Access.html)
+*  [API Access](../archives-page/API-Access.html) Outdated!
 *  [Python SDK](Python-SDK.html)
 *  [REST API](REST-API.html)
 *  [Python Service Clients](Python-Service-Clients.html)
@@ -44,5 +44,5 @@ If you just need to review a specific step, you can find the page you need in th
 
 ******
 
-Back to [Getting Started](how-tos/Getting-started.html)
+Back to [Getting Started](../how-tos/Getting-started.html)
 

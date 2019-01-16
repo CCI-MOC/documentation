@@ -88,5 +88,5 @@ http://144.217.78.104:8000/deployment.html
    Make sure to follow the instructions to set Trilio up as a separate instance.
 
 
-![](<a href="https://ibb.co/hKW1F7"><img src="https://preview.ibb.co/gnvTv7/Screenshot_from_2018_02_26_15_10_07.png" alt="Screenshot_from_2018_02_26_15_10_07" border="0"></a>)
+![](../_static/img/Screenshot_from_2018_02_26_15_10_07.png)
  

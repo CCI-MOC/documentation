@@ -17,7 +17,7 @@ A list of known SDKs is maintained on the official OpenStack wiki.
 
 ### Hello World script
 
-Let's jump right in with an example.  Here's a script equivalent of the `openstack image list` command we performed via the CLI on the [previous page](API-Access.html)
+Let's jump right in with an example.  Here's a script equivalent of the `openstack image list` command we performed via the CLI on the [previous page](../archives-page/API-Access.html)
 
     import os
     from openstack import connection
