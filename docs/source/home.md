@@ -112,9 +112,9 @@ This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-
 * [Optiplex BIOS Settings](Optiplex-BIOS-Settings.html)
 
 ### Openshift
-* [OpenShift](OpenShift.html)
-* [Openshift Setup ](Openshift-Setup.html)
-* [Spark on OpenShift](Openshift-Spark.html)
+* [OpenShift](openshift/OpenShift.html)
+* [Openshift Setup ](openshift/Openshift-Setup.html)
+* [Spark on OpenShift](openshift/Openshift-Spark.html)
 
 ### Website
 * [MOC Website](website/MOC-Website.html)

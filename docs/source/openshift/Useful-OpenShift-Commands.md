@@ -1,6 +1,6 @@
 # Useful OpenShift Commands
 [UP](OpenShift.html)
-* [Pruning (system cleanup)](pruning-(system-cleanup).html)
+* [Pruning (system cleanup)](pruning-system-cleanup.html)
 * [Limits](limits.html)
 * [Projects](projects.html)
 
