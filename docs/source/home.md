@@ -12,7 +12,7 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [MOC Contributors Legal Agreements version y_r201503](https://drive.google.com/folderview?id=0B3HZEpE-A8qadWVpY2piSjdYdXc&usp=sharing)
 * [Trello, burndown chart, scrum tools - what the fuss ? !!! ](how-tos/Trello.html)
 * [Kaizen Cluster User Registration](how-tos/Kaizen-Cluster-User-Registration.html)
-* [Getting Started](how-tos/Getting-Started.html)
+* [Getting Started](how-tos/Getting-started.html)
 * [Access IPMI of Nodes](how-tos/Access-IPMI-of-nodes.html)
 * [Reset Password in Kaizen Openstack](how-tos/Reset-Password-in-Kaizen-Openstack.html)
 * [Debugging VNC access](how-tos/Debugging-VNC-access.html)

@@ -4,7 +4,7 @@ Follow these steps on all nodes exposed to the public internet.
 ### Do you really need to be public?
 Please discuss things with Rado before putting a node on the public network. Many of our nodes don't need to be accessible in this way. 
 
-If you just need internet access from your node, used the `nat-public` network described here: [Accessing-Northeastern-Cluster](clusters/kaizen/Accessing-Northeastern-Cluster.html)
+If you just need internet access from your node, used the `nat-public` network described here: [Accessing-Northeastern-Cluster](../clusters/kaizen/Accessing-Northeastern-Cluster.html)
 
 ### Use Strong Passwords
 Some methods for generating passwords randomly:

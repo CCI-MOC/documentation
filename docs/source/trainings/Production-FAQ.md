@@ -1,3 +1,3 @@
 # Production FAQs
 
-* [Reason for connection drops and solution](trainings/frequent-connection-drops-to-instances.html)
+* [Reason for connection drops and solution](frequent-connection-drops-to-instances.html)
