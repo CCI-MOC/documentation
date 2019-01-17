@@ -109,7 +109,7 @@ This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-
 * [Filebeat](Filebeat.html)
 
 ### Hardware
-* [Optiplex BIOS Settings](Optiplex-BIOS-Settings.html)
+* [Optiplex BIOS Settings](hardware/Optiplex-BIOS-Settings.html)
 
 ### Openshift
 * [OpenShift](openshift/OpenShift.html)
