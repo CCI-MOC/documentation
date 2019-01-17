@@ -27,7 +27,7 @@ IP Address  Hostname/Description
 
 129.10.5.101	ov1.massopen.cloud
 129.10.5.102	ov2.massopen.cloud
-129.10.5.103	ov3.massopen.cloud 192.12.185.247 *129.10.5.103* is local only 
+129.10.5.103	ov3.massopen.cloud 192.12.185.247 *129.10.5.103* is local only
 129.10.5.104	ovirt.massopen.cloud (Web interface)
 129.10.5.105	kzn-ipmi-gw.infra.massopen.cloud
 129.10.5.106	kzn-rtr.infra.massopen.cloud (for all subnets)
@@ -155,6 +155,22 @@ IP Address  Hostname/Description
 10.254.0.3       kzn-nagios.infra.massopen.cloud
 10.254.0.255	 kzn-cacti
 ```
+
+## CSAIL-3803 Public IPs: 128.31.28.0/24 (VLAN 3803)
+
+
+```
+IP Address  Hostname/Description
+128.31.28.1     gateway
+128.31.28.240	neu-15-41 (Apoorve)
+128.31.28.248   openshift (Rob)
+128.31.28.249	openshift (Rob)
+128.31.28.251   openshift (Rob)
+128.31.28.252   openshift (Rob)
+128.31.28.253   openshift (Rob)
+128.31.28.254   openshift (Rob)
+```
+
 # Research Ceph
 ```
 IP Address  Hostname/Description, HIL managed vlan 252
