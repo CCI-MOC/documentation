@@ -19,10 +19,10 @@ Click "Build".
 
 `[ukaynar@haas-master ~]$ haas node_power_cycle cisco-11`
 
-7)Now you have to access to the IPMI console. Be sure you can access the IPMI console, possibly as described in [VM-Setup-for-Cisco-IPMI-Access](clusters/VM-Setup-for-Cisco-IPMI-Access.html). To access the IPMI console you have to do a port forwarding to the haas_master.
+7)Now you have to access to the IPMI console. Be sure you can access the IPMI console, possibly as described in [VM-Setup-for-Cisco-IPMI-Access](VM-Setup-for-Cisco-IPMI-Access.html). To access the IPMI console you have to do a port forwarding to the haas_master.
 
 Screen should be look like the following:
-![](_static/img/install_centos7_min_hd_step3.png)
+![](../_static/img/install_centos7_min_hd_step3.png)
 
 8) Start up the KVM console, and click "yes" and "continue" despite all the warnings. There are extra instructions on this, depending on your browser, in VM-Setup-for-Cisco-IPMI-Access. 
 

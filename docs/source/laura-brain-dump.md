@@ -28,7 +28,7 @@ We had a bot that is supposed to sit in the #moc IRC channel and collect logs.  
 
 It would be good to recreate the bot, this time running in an OpenStack VM inside the moc-infrastructure project.  Best bet is probably to set it up from scratch so you understand how it works:
 1. create a small VM (m1.small is plenty)
-2. Deploy supybot/Limnoria, documentation is [here]([http://doc.supybot.aperio.fr/en/latest/)  
+2. Deploy supybot/Limnoria, documentation is [here](http://doc.supybot.aperio.fr/en/latest/)  
 3. Try to set things up so the logs are pushed up to Ceph in the moc-infrastructure account instead of being stored on the VM.  You will probably need a script for this; there are some basic examples of how to use Python to interact with Ceph in the MOC Openstack Tutorial.
 
 The original bot VM's disk is still there on node 39 it's the lvm /dev/vg2/logger-bot on node 39.  Rado launched a new VM from it.  I was going to try to recreate it in OpenStack on my last day but did not have time.  There is some really outdated documentation about it at [[#MOC Channel Logs]] and in the old [[#Ops Log]] but basically the only thing that is still accurate there is the fact that it's a Limnoria bot - I mention it just in case there is something there that helps, but a lot of it dates to when the VM was on moc02 in PRB.
