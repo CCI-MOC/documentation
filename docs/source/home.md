@@ -76,11 +76,11 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [Ceilometer Deployment Guide](Ceilometer-Deployment-Guide.html)
 
 ### HPC
-* [Minutes from Meetings](Minutes-from-Meetings.html)
-* [Slurm](Slurm.html)
-* [Open MPI on Slurm cluster](Open-MPI-on-Slurm-Cluster.html)
-* [Current Slurm system](Current-Slurm-deployment-system.html)
-* [Saltstack](Salt.html)
+* [Minutes from Meetings](hpc/Minutes-from-Meetings.html)
+* [Slurm](hpc/Slurm.html)
+* [Open MPI on Slurm cluster](hpc/Open-MPI-on-Slurm-Cluster.html)
+* [Current Slurm system](hpc/Current-Slurm-deployment-system.html)
+* [Saltstack](hpc/Salt.html)
 
 ### Sahara
 * [Sahara End User Guide](Sahara-End-User-Guide.html)
