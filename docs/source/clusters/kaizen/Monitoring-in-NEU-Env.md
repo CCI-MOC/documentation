@@ -40,7 +40,7 @@ Now this VM is not set up with the network that can talk to our database -- infl
     Admin user: username: admin Password:MOCmonitor2#
     Guest user: username: moc_guest Password:moc_guest
     ```
-    More about sensu, influxDB, and Grafana can be viewed here: [Sensu](../../Sensu.html),[InfluxDB & Grafana](../../Influx-Grafana.html)
+    More about sensu, influxDB, and Grafana can be viewed here: [Sensu](../../monitoring/Sensu.html),[InfluxDB & Grafana](../../monitoring/Influx-Grafana.html)
 
 **Logstash, ElasticSearch and Kibana**
 
@@ -67,7 +67,7 @@ Now this VM is not set up with the network that can talk to our database -- infl
 
     Ceilometer use MongoDB as its default database. You can access MongoDB using the following command `mongo 10.13.37.91` (ip address is needed)
 
-    More about Ceilometer Installation can be viewed [here](../../Ceilometer-Installation-in-NE-Env.html)
+    More about Ceilometer Installation can be viewed [here](../../monitoring/Ceilometer-Installation-in-NE-Env.html)
  
 ### Log on to VMs through compute 39
 You can also log on to the VMs first by logging on to compute 39 and then use the internal IPs of each VM. But it is not recommended.

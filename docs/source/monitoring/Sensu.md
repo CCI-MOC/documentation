@@ -1,6 +1,6 @@
 # Diagram
 
-![](_static/img/05-13-15-Sensu-Diagram.png)
+![](../_static/img/05-13-15-Sensu-Diagram.png)
 
 Sensu is composed of three Sensu parts. Sensu has a Sensu Server that distributes commands, Sensu Clients that receive those commands and send the results back to the Sensu Server, and Sensu API provides the REST-like interface for Sensu's data. 
 
@@ -14,7 +14,7 @@ Sensu API depends on RabbitMQ and Redis.
 
 # Sensu Topology
 
-![](_static/img/sensu-diagram.png)
+![](../_static/img/sensu-diagram.png)
 
 # Services
 
@@ -258,7 +258,7 @@ compute-42.moc.ne.edu | 10.13.37.9 | moc-sensu
 compute-43.moc.ne.edu | 10.13.37.23 | moc-sensu
 compute-43.moc.ne.edu | 129.10.3.47 | moc-sensu, openstack-api, openstack-metrics
 
-See also [Sensu & Filebeat for Ceph in Kaizen](Sensu-&-Filebeat-for-Ceph-in-Kaizen.html)
+See also [Sensu & Filebeat for Ceph in Kaizen](../clusters/kaizen/Sensu-Filebeat-for-Ceph-in-Kaizen.html)
 
 # OpenStack
 
