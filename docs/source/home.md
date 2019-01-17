@@ -92,8 +92,8 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [Sahara interactions](Sahara-interactions.html)
 
 ### Production/Infrastructure
-* [Foreman](Foreman.html)
-* [Provisioning-machine-installation-instructions](Provisioning-machine-installation-instructions.html)
+* [Foreman](infrastructure/Foreman.html)
+* [Provisioning-machine-installation-instructions](infrastructure/Provisioning-machine-installation-instructions.html)
 
 ### ELK stack
 To install the ELK stack always refer to Elastic's documentation first.
