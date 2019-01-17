@@ -6,7 +6,7 @@ Every time I spin up a new instance of ubuntu I am unable to connect to the inte
 
 Put the DNS nameservers as specified in below links when creating/updating the private-network.
 
-[Creating/updating private network](Set-up-a-Private-Network.html)
+[Creating/updating private network](openstack/Set-up-a-Private-Network.html)
 
 ![](_static/img/create_network_details.png)
 

@@ -3,7 +3,7 @@
 
 ### Tutorials
 * [MOC OpenStack Video Tutorials (Most recently updated)](https://www.youtube.com/watch?v=2koTHWe3yzo&list=PLt4NWsdhZYQM4FfliBmzWW_2nm86WIdbt)
-* [MOC OpenStack Text & Screenshot Tutorial](OpenStack-Tutorial-Index.html)
+* [MOC OpenStack Text & Screenshot Tutorial](../openstack/OpenStack-Tutorial-Index.html)
 * [MOC OpenShift Text & Screenshot Tutorial](MOC-OpenShift-Text-&amp;-Screenshot-Tutorial.html)
 * [Older MOC Production Video tutorial](http://screencast.com/t/a1mnHDaUK)
    * *Please note: For Production (Kaizen users), you will not be able to create users or projects as shown in the video. These features are strictly for admin users.  Also, this video was created using a previous release of OpenStack* 

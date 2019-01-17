@@ -7,7 +7,7 @@ Before trying to access instances from the outside world, you need to make sure 
 
 Make note of the floating IP you have associated to your instance.
 
-![](_static/img/floatingip_is_associated.png)
+![](../_static/img/floatingip_is_associated.png)
 
 In our example, the IP is 129.10.3.66.
 
@@ -24,13 +24,13 @@ Open a Terminal window and type:
 
 Since you have never connected to this VM before, you will be asked if you are sure you want to connect. Type `yes`. 
 
-![](_static/img/ssh_to_vm.png)
+![](../_static/img/ssh_to_vm.png)
 
 Note that if you haven't added your key to ssh-agent, you may need to specify the private key file, like this:
 
       $ ssh -i ~/.ssh/cloud_key.pem cloud-user@129.10.3.66
 
-If you have problems with the SSH step, this page lists solutions to some common problems: [Troubleshooting SSH Login](Troubleshooting-SSH-Login.html)
+If you have problems with the SSH step, this page lists solutions to some common problems: [Troubleshooting SSH Login](Troubleshooting-SSH-login.html)
 
 ******
 

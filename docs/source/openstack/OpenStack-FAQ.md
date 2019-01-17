@@ -25,5 +25,5 @@ https://www.youtube.com/watch?v=ZjdrVHPjltI
 
 * Q: Why do I see too much connection-drop errors? Is there a solution for it?
 
-  A: [Reason for connection drops and solution](trainings/frequent-connection-drops-to-instances.html)
+  A: [Reason for connection drops and solution](../trainings/frequent-connection-drops-to-instances.html)
 

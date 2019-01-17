@@ -108,8 +108,9 @@ However, this isn't a very optimized  way to do complex interactions with OpenSt
 
 Next: [Python SDK](Python-SDK.html)
 
+Previous: [Object Storage](Object-Storage.html)
 
-Previous: [API Access](API-Access.html)
+Outdated: [API Access](../archives-page/API-Access.html)
 
-[Openstack Tutorial Index](Openstack-Tutorial-Index.html)
+[Openstack Tutorial Index](OpenStack-Tutorial-Index.html)
 
