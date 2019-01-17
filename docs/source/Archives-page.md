@@ -14,6 +14,7 @@
 * [OPs log](archives-page/OPs-log.html)
 * [Development Environment](archives-page/Development-Environment.html)   
 * [EC500 Instructions](archives-page/EC500-Instructions.html)
+* [EC500](archives-page/EC500.html)
 * [KVM How To](archives-page/KVM-How-To.html)
 * [Apache VCL](archives-page/Apache-VCL.html)
 * [Dell powerconnect vlan](archives-page/Dell-powerconnect-vlan.html)
@@ -26,6 +27,9 @@
 * [SPL Demo](archives-page/SPL-Demo.html)
 * [Vlan Head Nodes](archives-page/Vlan-Head-Nodes.html)
 * [Vlan settings on the switch](archives-page/Vlan-settings-on-the-switch.html)
+* [2017 Summer Space Input](archives-page/2017-Summer-space-input.html)
+* [Rouyu Daily Report 08-11-2016](archives-page/Ruoyu-Daily-Report-08-11-2016.html)
+* [Laura Brain Dump](laura-brain-dump.html)
 
 ### Vagrant stuff
 * [Install Devstack with Vagrant](archives-page/Install-Devstack-with-Vagrant.html)
@@ -38,6 +42,7 @@
 * [Ansible testing](archives-page/Ansible-testing.html)
 * [Scaling Openstack](archives-page/Scaling-Openstack.html)
 * [Puppet git workflow](archives-page/Puppet-git-workflow.html)
+* [Launching a VM](archives-page/Launching-a-VM-DEPRECATED.html)
 
 ### How tos
 * [Reprovisioning a Staging Environment](archives-page/Reprovisioning-a-Staging-Environment.html)
