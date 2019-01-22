@@ -10,7 +10,7 @@ There are three parts to monitoring data backup infrastructure
 
 Here is a picture of how these three components work together.
 
-![](http://i.imgur.com/B2biTqg.png)
+![](../_static/img/monitoring-backup-infra.png)
 First, a cron job starts everyday at 11:55 pm on the kaizen-sensu-admin vm. This backup job executes the following steps in order.
 
 1\. Determines the Swift container and object names based on today's date

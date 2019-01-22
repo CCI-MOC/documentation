@@ -12,6 +12,8 @@ Sensu Client relies on RabbitMQ to communicate with the Sensu Server.
 
 Sensu API depends on RabbitMQ and Redis.
 
+See [Installing a Sensu Client](Installing-a-Sensu-Client.html)
+
 # Sensu Topology
 
 ![](../_static/img/sensu-diagram.png)

@@ -246,6 +246,6 @@ Checks:
 
 Sensu in our Production Environment:
 * [A repository with our Sensu server code](https://github.com/LeonLee88/moc_sensu_server)
-* [Overview of Sensu in our production environment](https://github.com/CCI-MOC/moc/wiki/Sensu)
-* [Monitoring in our NEU environment](https://github.com/CCI-MOC/moc/wiki/Monitoring-in-NEU-Env.)
-* [Accessing our monitoring components](https://github.com/CCI-MOC/moc/wiki/Access-monitoring-components)
+* [Overview of Sensu in our production environment](Sensu.html)
+* [Monitoring in our NEU environment](../clusters/kaizen/Monitoring-in-NEU-Env.html)
+* [Accessing our monitoring components](Access-monitoring-components.html)
