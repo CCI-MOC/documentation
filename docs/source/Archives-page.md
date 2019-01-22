@@ -41,6 +41,7 @@
 * [New Look](archives-page/newLook.html)
 * [Hiera](archives-page/Hiera.html)
 * [Things to monitor with Sensu](archives-page/Things-to-monitor-with-Sensu.html)
+* [Big Data at MIT](archives-page/BigDataAtMIT-MRI.html)
 
 ### Vagrant stuff
 * [Install Devstack with Vagrant](archives-page/Install-Devstack-with-Vagrant.html)
