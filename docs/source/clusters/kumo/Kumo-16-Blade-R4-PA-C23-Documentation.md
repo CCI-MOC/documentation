@@ -1,6 +1,6 @@
 # Kumo 16 Blade R4 PA C23 Documentation 
 
-Documentation Spreadsheet: [R4-PA-C23 rack layout and networking](_static/xlsx/R4-PA-C23.xlsx)
+Documentation Spreadsheet: [R4-PA-C23 rack layout and networking](../../_static/xlsx/R4-PA-C23.xlsx)
 
 ### 10.10.10.0/24: VLAN 3040 
 This network is shared with Engage1, see also [[Engage1 Network Documentation]]

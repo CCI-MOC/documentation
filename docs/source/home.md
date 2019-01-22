@@ -34,6 +34,7 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [Kumo Cluster](clusters/kumo/Kumo-Cluster.html)
 * [Kaizen Bare Metal](clusters/kaizen/Kaizen-Bare-Metal.html)
 * [Ops tasks in Northeastern University MOC deployment](clusters/kaizen/Ops-tasks-in-Northeastern-University-MOC-deployment.html)
+* [Kaizen 2](clusters/kaizen2/Kaizen-2.html)
 
 ### MOC/Research/Design
 * [Radiology](research/Radiology.html)
