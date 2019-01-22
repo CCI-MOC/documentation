@@ -14,6 +14,7 @@
 * [OPs log](archives-page/OPs-log.html)
 * [Development Environment](archives-page/Development-Environment.html)   
 * [EC500 Instructions](archives-page/EC500-Instructions.html)
+* [EC500](archives-page/EC500.html)
 * [KVM How To](archives-page/KVM-How-To.html)
 * [Apache VCL](archives-page/Apache-VCL.html)
 * [Dell powerconnect vlan](archives-page/Dell-powerconnect-vlan.html)
@@ -26,6 +27,19 @@
 * [SPL Demo](archives-page/SPL-Demo.html)
 * [Vlan Head Nodes](archives-page/Vlan-Head-Nodes.html)
 * [Vlan settings on the switch](archives-page/Vlan-settings-on-the-switch.html)
+* [2017 Summer Space Input](archives-page/2017-Summer-space-input.html)
+* [Rouyu Daily Report 08-11-2016](archives-page/Ruoyu-Daily-Report-08-11-2016.html)
+* [Laura Brain Dump](laura-brain-dump.html)
+* [Security Meeting 28-Aug-2015 Minutes](archives-page/Security-Meeting-28-Aug-2015-Minutes.html)
+* [Working Group Items based on MOC retreat March 29 2018](archives-page/Working-group-items-based-on-MOC-retreat-March-29-2018.html)
+* [Forman - Issues Faced](archives-page/forman-issues-faced.html)
+* [MOC Channel Logs](archives-page/MOC-Channel-Logs.html)
+* [Incidents Log](archives-page/Incidents-Log.html)
+* [Logo](archives-page/logo.html)
+* [Related](archives-page/Related.html)
+* [Redhat Discussion](archives-page/Redhat-discussion.html)
+* [New Look](archives-page/newLook.html)
+* [Hiera](archives-page/Hiera.html)
 
 ### Vagrant stuff
 * [Install Devstack with Vagrant](archives-page/Install-Devstack-with-Vagrant.html)
@@ -38,6 +52,14 @@
 * [Ansible testing](archives-page/Ansible-testing.html)
 * [Scaling Openstack](archives-page/Scaling-Openstack.html)
 * [Puppet git workflow](archives-page/Puppet-git-workflow.html)
+* [Launching a VM](archives-page/Launching-a-VM-DEPRECATED.html)
+* [Steps for Upgrade for Kilo to Liberty](archives-page/Steps-for-upgrade-from-Kilo-to-Liberty.html)
+* [Setting up a PackStack development environment on a VM](archives-page/Setting-up-a-PackStack-development-environment-on-a-VM.html)
+* [Controller Iptables Dump](archives-page/controller-iptables-dump.html)
+* [Images](archives-page/Images.html)
+* [OpenStack Fixes](archives-page/Openstack-fixes.html)
+* [OpenStack Resources](archives-page/OpenStack-resources.html)
+* [Kumo OpenStack Nodes](archives-page/Kumo-OpenStack-notes.html)
 
 ### How tos
 * [Reprovisioning a Staging Environment](archives-page/Reprovisioning-a-Staging-Environment.html)
@@ -47,6 +69,7 @@
 * [Tempest Logs](archives-page/Tempest-Logs.html)
 * [Configuration file](archives-page/Configuration-file.html)
 * [Run Tempest on NEU BigData Clusters](archives-page/Run-Tempest-on-NEU-BigData-Clusters.html)
+* [How to Run Tempest](archives-page/How-to-Run-Tempest.html)
 
 ### MOCPOC
 * [MOCPOC Nomenclature](archives-page/MOCPOC-Nomenclature.html)
@@ -65,3 +88,5 @@
 * [Fuel openstack install (on centos)](archives-page/Fuel-openstack-install-(on-centos).html)
 * [Fuel OpenStack test deployments with Cisco switch](archives-page/Fuel-OpenStack-test-deployments-with-Cisco-switch.html)
 
+### Monasca
+* [Monasca Installation](archives-page/Monasca-Installation.html)
