@@ -16,6 +16,7 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [Access IPMI of Nodes](how-tos/Access-IPMI-of-nodes.html)
 * [Reset Password in Kaizen Openstack](how-tos/Reset-Password-in-Kaizen-Openstack.html)
 * [Debugging VNC access](how-tos/Debugging-VNC-access.html)
+* [MOC FAQs](how-tos/MOC-frequently-asked-questions.html)
 
 ### Knowledge base/Trainings
 * [Brocade  VCS training - lab session](_static/pdf/VCS_Lab.pptx.pdf)
@@ -67,6 +68,7 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [Resolving Sensu Email Alerts](monitoring/Email-Alerting-in-Sensu.html)
 * [Viewing the Monitoring Dashboards in NEU Env](monitoring/Viewing-the-Monitoring-Dashboards-in-NEU-Env.html)
 * [SNMP: CISCO switch monitoring](monitoring/SNMP-CISCO-switch-monitoring.html)
+* [Grafana](monitoring/Grafana.html)
 * [Influxdb & Grafana](monitoring/Influx-Grafana.html)
 * [Use InfluxDB handler in Sensu](monitoring/Use-InfluxDB-handler-in-Sensu.html)
 * [Logging IPMI sensor data into Sensu + Influxdb](monitoring/Logging-IPMI-sensor-data-into-Sensu-Influxdb.html)
@@ -104,6 +106,7 @@ This [tutorial](https://www.elastic.co/guide/en/beats/libbeat/current/getting-st
 
 This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html) was used when Filebeat was most recently installed.
 * [Elasticsearch](elk/Elasticsearch.html)
+* [Set Up Single Node Elasticsearch for Centos 7](elk/Set-Up-Single-Node-Elasticsearch-for-CentOS-7.html)
 * [Logstash](elk/Logstash.html)
 * [Logstash Filter](elk/Logstash-Filter.html)
 * [Kibana](elk/Kibana.html)

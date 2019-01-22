@@ -1,7 +1,9 @@
 # Archives Page
 * How to get set up if you're a [New User](archives-page/New-User.html).  Orran mentioned this page is out of date. Folks should use [To do list for New MOC Intern Member](how-tos/To-do-list-for-New-MOC-Intern-and-Member.html)
+* [User Account Request](archives-page/MOC-Production-Kaizen-User-Account-Requests.html)
 * [Harvard Cluster](archives-page/Harvard-Cluster.html)   This page is obsolete. The equipment had been repurposed.
 * [Harvard Equipment Sign Out](archives-page/Harvard-Equipment-Sign-Out.html)  This page is obsolete. The equipment had been repurposed.
+* [Harvard Cluster Ceph Troubleshooting](archives-page/Harvard-Cluster-Ceph-Troubleshooting.html)
 * [Running Tempest on Harvard Clusters](archives-page/Running-Tempest-on-Harvard-Clusters.html) This page is obsolete. The equipment had been repurposed.
 * [MRI Hardware](archives-page/MRI-Hardware.html)
 * [mri haas howto]
