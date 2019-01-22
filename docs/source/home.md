@@ -63,6 +63,7 @@ Please visit [MOC official website](https://massopen.cloud) for complete details
 * [OpenStack APIs](openstack/OpenStack-APIs.html)
 
 ### Monitoring (Definitely outdated)
+* [Monitoring Data Backup Infrastructure](monitoring/Monitoring-data-backup-infrastructure.html)
 * [Resolving Sensu Email Alerts](monitoring/Email-Alerting-in-Sensu.html)
 * [Viewing the Monitoring Dashboards in NEU Env](monitoring/Viewing-the-Monitoring-Dashboards-in-NEU-Env.html)
 * [SNMP: CISCO switch monitoring](monitoring/SNMP-CISCO-switch-monitoring.html)

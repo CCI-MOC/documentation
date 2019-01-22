@@ -11,6 +11,8 @@ I recommend having the production influxDB open while following this guide, so y
 
 I have also written a guide on basic influxDB commands so you can figure out [how to query this aggregate table and view it](InfluxDB-Crash-Course-Querying-Data.html)
 
+See [Metrics for corresponding Measurements in Influxdb](Metrics-for-corresponding-Measurements-in-Influxdb.html)
+
 ### InfluxDB and measurements
 InfluxDB is a time-series database that we use to store data from Sensu and Ceilometer. It contains tables of data, but refers to these tables as measurements. From here on out we will just say tables. 
 
