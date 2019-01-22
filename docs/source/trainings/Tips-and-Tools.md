@@ -1,5 +1,5 @@
 # Tips & Tools
- -  [Foreman-Puppet](../Foreman-Puppet.html)
+ -  [Foreman-Puppet](../infrastructure/Foreman-Puppet.html)
  -  Credential for Red Hat package subscription: see bitwarden Redhat Packages Subsciption
  -  [Transitioning from Django to AngularJS](Transitioning-from-Django-to-AngularJS.html) 
  -  [Create new vm on eos-ctl01](Create-new-vm-on-eos-ctl01.html)

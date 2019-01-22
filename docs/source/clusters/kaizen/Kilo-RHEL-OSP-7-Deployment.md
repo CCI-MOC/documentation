@@ -1,6 +1,6 @@
 # Kilo/RHEL OSP 7 Deployment
 
-[Foreman/Puppet](../../Foreman-Puppet.html)
+[Foreman/Puppet](../../infrastructure/Foreman-Puppet.html)
 
 [RHEL-OSP-7 iso installation](RHEL-OSP-7-iso-installation.html)
 

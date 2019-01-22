@@ -11,12 +11,16 @@ for complete details of current projects.
  -  [How to get involved in the OpenStack community](how-tos/How-to-Get-Involved-in-the-OpenStack-Community.html)
  -  [Security Install Best Practices](how-tos/Security-Install-Best-Practices.html)
  -  [MOC Contributors Legal Agreements version y_r201503](https://drive.google.com/folderview?id=0B3HZEpE-A8qadWVpY2piSjdYdXc&usp=sharing)
- -  [Trello, burndown chart, scrum tools  -  what the fuss ? !!!](how-tos/Trello.html)
+ -  [Trello, burndown chart, scrum tools - what the fuss ? !!! ](how-tos/Trello.html)
  -  [Kaizen Cluster User Registration](how-tos/Kaizen-Cluster-User-Registration.html)
  -  [Getting Started](how-tos/Getting-started.html)
  -  [Access IPMI of Nodes](how-tos/Access-IPMI-of-nodes.html)
  -  [Reset Password in Kaizen Openstack](how-tos/Reset-Password-in-Kaizen-Openstack.html)
  -  [Debugging VNC access](how-tos/Debugging-VNC-access.html)
+ -  [Debugging OpenvSwitch](how-tos/Debugging-openvswitch.html)
+ -  [Reducing SSH login delay](how-tos/Reducing-SSH-login-delay.html)
+ -  [Cache Networking using Openvswitch or linuxbridge](how-tos/cache-networking-using-openvswitch-or-bridge.html)
+ -  [MOC FAQs](how-tos/MOC-frequently-asked-questions.html)
 
 ### Knowledge base/Trainings
  -  [Brocade  VCS training - lab session](_static/pdf/VCS_Lab.pptx.pdf)
@@ -25,6 +29,11 @@ for complete details of current projects.
  -  [Production FAQ](trainings/Production-FAQ.html)
  -  [Tips & Tools](trainings/Tips-and-Tools.html)
  -  [Ceph](trainings/Ceph.html)
+ -  [Basic Ceph Cluster Deployment - Updates to Quick Start Guide](trainings/Basic-Ceph-Cluster-Deployment-Changes-Updates-to-Quick-Start-Guide.html)
+ -  [CephFS-notes.md](trainings/CephFS-notes.html)
+ -  [DataBase Recovoery Document](trainings/DataBase-Recovoery-Document.html)
+ -  [Generating self-signed certificates and creating-rootCA](trainings/Generating-self-signed-certificates-and-creating-rootCA.html)
+ -  [MariaDB Configuration for RHEL OSP](trainings/Maria-DB-Configuration-for-RHEL-OSP.html)
 
 ### Clusters
  -  [MOC VLAN Distribution](clusters/MOC-VLAN-Distribution.html)
@@ -57,17 +66,24 @@ for complete details of current projects.
  -  [Midonet Kilo Release](openstack/Midonet-Kilo-Release.html)
  -  [Keystone to Keystone Federation](openstack/Keystone-to-Keystone-Federation.html)
  -  [Mix and Match Federation](openstack/Mix-and-Match-Federation.html)
+ -  [Mix-and-Match Installation with Devstack](openstack/Mix-and-Match-Installation-with-Devstack.md)
  -  [Debugging-the-installed-version-of-Horizon](openstack/Debugging-the-installed-version-of-Horizon.html)
  -  [Jon Jozwiak's basic Openstack validation testing](openstack/Jon-Jozwiak-basic-Openstack-validation-testing.html)
  -  [OpenStack Glossary](openstack/OpenStack-Glossary.html)
  -  [OpenStack Notes](openstack/OpenStack-Notes.html)
  -  [OpenStack APIs](openstack/OpenStack-APIs.html)
+ -  [Bench Marking OpenStack with Rally](openstack/Benchmarking-Openstack-with-Rally.html)
+ -  [OpenStack Ceph Integration](openstack/OpenStack-Ceph-Integration.html)
+ -  [Setting up LDAP authentication](openstack/Setting-up-LDAP-authentication.html)
+ -  [Setting up the RADOS gateway.html](openstack/Setting-up-the-RADOS-gateway.html)
+ -  [MOC UI](openstack/UI.html)
 
 ### Monitoring (Definitely outdated)
  -  [Monitoring Data Backup Infrastructure](monitoring/Monitoring-data-backup-infrastructure.html)
  -  [Resolving Sensu Email Alerts](monitoring/Email-Alerting-in-Sensu.html)
  -  [Viewing the Monitoring Dashboards in NEU Env](monitoring/Viewing-the-Monitoring-Dashboards-in-NEU-Env.html)
  -  [SNMP: CISCO switch monitoring](monitoring/SNMP-CISCO-switch-monitoring.html)
+ -  [Grafana](monitoring/Grafana.html)
  -  [Influxdb & Grafana](monitoring/Influx-Grafana.html)
  -  [Use InfluxDB handler in Sensu](monitoring/Use-InfluxDB-handler-in-Sensu.html)
  -  [Logging IPMI sensor data into Sensu + Influxdb](monitoring/Logging-IPMI-sensor-data-into-Sensu-Influxdb.html)
@@ -96,7 +112,10 @@ for complete details of current projects.
 
 ### Production/Infrastructure
  -  [Foreman](infrastructure/Foreman.html)
+ -  [Foreman Puppet](infrastructure/Foreman-Puppet.html)
  -  [Provisioning-machine-installation-instructions](infrastructure/Provisioning-machine-installation-instructions.html)
+ -  [Iscsi Ceph Gateway](infrastructure/Iscsi-ceph-gateway.html)
+ -  [OpenFlow SDN](infrastructure/OpenFlow-SDN.html)
 
 ### ELK stack
 To install the ELK stack always refer to Elastic's documentation first.
@@ -104,9 +123,9 @@ To install the ELK stack always refer to Elastic's documentation first.
 This [tutorial](https://www.elastic.co/guide/en/beats/libbeat/current/getting-started.html#getting-started)
 was used when the ELK stack was most recently installed.
 
-This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html)
-was used when Filebeat was most recently installed.
+This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-getting-started.html) was used when Filebeat was most recently installed.
  -  [Elasticsearch](elk/Elasticsearch.html)
+ -  [Set Up Single Node Elasticsearch for Centos 7](elk/Set-Up-Single-Node-Elasticsearch-for-CentOS-7.html)
  -  [Logstash](elk/Logstash.html)
  -  [Logstash Filter](elk/Logstash-Filter.html)
  -  [Kibana](elk/Kibana.html)
@@ -115,6 +134,7 @@ was used when Filebeat was most recently installed.
 
 ### Hardware
  -  [Optiplex BIOS Settings](hardware/Optiplex-BIOS-Settings.html)
+ -  [MGHPCC](hardware/MGHPCC.html)
 
 ### Openshift
  -  [OpenShift](openshift/OpenShift.html)
