@@ -1,14 +1,14 @@
-# Setting Up Tempest
+## Setting Up Tempest
 These steps are after you clone the tempest-VM and try to configure your environment.
 
 ### Installation
-1. Create a public network on OpenStack.
-  * Login as admin. Then go to Admin->Networks->Create Network
-  * Give some name, select project as "admin", provider network type as "flat" and select "external network". Leave other things as it is.
-  * Once its created, click on the network and add a subnet to it. Use any subnet range you want.
-2. Create a demo tenant and demo user with some password.
-3. Edit <dir-path>/etc/tempest.conf file:
-```
+ 1. Create a public network on OpenStack.
+     -  Login as admin. Then go to Admin->Networks->Create Network
+     -  Give some name, select project as "admin", provider network type as "flat" and select "external network". Leave other things as it is.
+     -  Once its created, click on the network and add a subnet to it. Use any subnet range you want.
+ 1. Create a demo tenant and demo user with some password.
+ 1. Edit `<dir-path>/etc/tempest.conf` file:
+```shell
 [auth]
 default_credentials_domain_name=<your region name>
 # Source /root/keystonerc_admin
@@ -39,11 +39,13 @@ floating_network_name = <id of floating ip network>
 ```
 
 ### Running Tests
-```[root@tempest-xyz tempest]# ./run_tempest.sh -t tempest.api```
-
-If you get any errors like its unable to find keystone.staging.moc.edu or any DNS resolution error, add this to /etc/hosts:
-```<your-controller-ip> <dns-name1> <dns-name2> <dns-name3> ...```
+```shell
+[root@tempest-xyz tempest]# ./run_tempest.sh -t tempest.api
+```
+If you get any errors like its unable to find keystone.staging.moc.edu or any DNS resolution error, add this to `/etc/hosts`:
+```<your-controller-ip> <dns-name1> <dns-name2> <dns-name3> ...```shell
 
 **Example** :
-``10.14.37.207 compute-207.staging.moc.edu keystone.staging.moc.edu nova.staging.moc.edu glance.staging.moc.edu neutron.staging.moc.edu cinder.staging.moc.edu neutron.staging.moc.edu```
-
+```shell
+10.14.37.207 compute-207.staging.moc.edu keystone.staging.moc.edu nova.staging.moc.edu glance.staging.moc.edu neutron.staging.moc.edu cinder.staging.moc.edu neutron.staging.moc.edu
+```
