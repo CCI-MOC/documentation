@@ -66,6 +66,7 @@
 ### How tos
 * [Reprovisioning a Staging Environment](archives-page/Reprovisioning-a-Staging-Environment.html)
 * [2 Node cluster](archives-page/2-Node-cluster.html)
+* [Configure Sahara Plugins](archives-page/Configure-the-plug-ins.html)
 
 ### Tempest
 * [Tempest Logs](archives-page/Tempest-Logs.html)
@@ -92,3 +93,8 @@
 
 ### Monasca
 * [Monasca Installation](archives-page/Monasca-Installation.html)
+
+### OpenShift
+* [OpenShift Service](archives-page/OpenShift-Service.html)
+* [Spark Cluster on OpenShift](archives-page/Spark-Cluster-On-Openshift.html)
+
