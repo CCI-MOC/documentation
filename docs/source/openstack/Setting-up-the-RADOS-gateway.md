@@ -1,5 +1,4 @@
 <a name="top"></a>
-
 * [VM Configuration](#vm_config)
 * [Ceph Key and Pools](#key_pools)
 * [General Setup Steps](#gen_setup)
@@ -535,7 +534,7 @@ Civetweb debugging info goes into the radosgw logs with the preface 'civetweb:'.
 
 ***
 
-##<a name="useful_links"></a>Useful Links
+## <a name="useful_links"></a>Useful Links
 
 * [Installation/config guide from Red Hat](https://access.redhat.com/documentation/en/red-hat-ceph-storage/version-1.2.3/red-hat-ceph-storage-123-ceph-object-gateway-for-rhel-x86-64/ceph-object-gateway-for-rhel-x86-64)
 * [Ceph Docs - Firefly Object Gateway](http://docs.ceph.com/docs/v0.80.5/install/install-ceph-gateway/)
@@ -543,6 +542,7 @@ Civetweb debugging info goes into the radosgw logs with the preface 'civetweb:'.
 * Useful pages from Ceph's bug tracker:
      * [mod_proxy_fcgi](http://tracker.ceph.com/issues/10551)
      * [civetweb] (http://tracker.ceph.com/issues/7933)
-* [[Talking to the RADOS Gateway]]
+* [Talking to the RADOS Gateway](Talking-to-the-RADOS-gateway.html)
+* [Specifying Pools via RADOS Gateway](Specifying-Pools-via-Radosgw.html)
 
 [top](#top)

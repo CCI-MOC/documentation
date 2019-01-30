@@ -3,6 +3,8 @@
 
 [Midonet with MOC Kilo Openstack](Midonet-with-openstack-Kilo-release.html)
 
+[Midonet CLI Commands](Midonet-CLI-commands.html)
+
 ### Devstack installation
 Ubuntu/redhat with 8 GB RAM and 4+ VCPUs.
 ```shell

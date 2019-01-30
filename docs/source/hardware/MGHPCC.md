@@ -1,7 +1,9 @@
 * [Inventory](#inventory)
 * [Storage Cage](#storage-cage)
 * [Keys and Access](#keys-and-access)
-* [[PDU Documentation]] (link is to another wiki page)
+* [PDU Documentation](PDU-Documentation.html)
+* [MGHPCC Secure Cage Inventory](MGHPCC-Secure-Cage-Inventory.html)
+* [MGHPCC Hardware Naming Convention](MGHPCC-Hardware-Naming-Convention.html)
 
 ## Where stuff is
 
