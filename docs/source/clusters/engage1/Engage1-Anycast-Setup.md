@@ -1,115 +1,104 @@
-# Engage1 Anycast Setup  
-1. [Overview](#overview)  
-2. [VLAN Reservations](#vlan-reservations)  
-3. [IP Space Allocations](#ip-space-allocations)  
-4. [Step By Step Configuration](#step-by-step-configuration)  
-5. [DHCP Setup](#dhcp-setup)
+## Engage1 Anycast Setup  
+ 1. [Overview](#overview)  
+ 1. [VLAN Reservations](#vlan-reservations)  
+ 1. [IP Space Allocations](#ip-space-allocations)  
+ 1. [Step By Step Configuration](#step-by-step-configuration)  
+ 1. [DHCP Setup](#dhcp-setup)
 
 ### Overview
-The purpose of the Anycast setup is to allow compute nodes belonging to some arbitrary number of independent clusters to access their nearest Intel Cache Server via a fixed IP address.  
+The purpose of the Anycast setup is to allow compute nodes belonging to some arbitrary number of independent clusters 
+to access their nearest Intel Cache Server via a fixed IP address.  
 
 In addition, if a cache server fails, the nodes will be redirected to a 'backup' cache server without perceiving the difference.
 
-The network was configured based on [this document](../../_static/docx/Hadoop_Arch_v2_2016-11-09.docx) prepared by Rob Montgomery at Brocade.  The configuration steps below are from that document, although IP addresses and VLAN #'s have been changed to reflect the actual implementation
+The network was configured based on [this document](../../_static/docx/Hadoop_Arch_v2_2016-11-09.docx) prepared by Rob Montgomery at Brocade.  
+The configuration steps below are from that document, although IP addresses and VLAN #'s have been changed to reflect the actual implementation
 
 ### VLAN Reservations
 The following VLANs are reserved for use in the Anycast setup
 
-| VLAN | Description | Devices |
-| --- | --------------------------- | ------------------------ | 
-| 2000 | Cache Transit VLAN | All RBridges and Cache Nodes |
-| 2001-2032 | Cache Node VLANs | One per cache node + RBridge pair |
-| 2100-2699 | Compute VLANs | Every RBridge; one per compute cluster |
+| VLAN      | Description        | Devices                                |
+| --------- | ------------------ | -------------------------------------- | 
+| 2000      | Cache Transit VLAN | All RBridges and Cache Nodes           |
+| 2001-2032 | Cache Node VLANs   | One per cache node + RBridge pair      |
+| 2100-2699 | Compute VLANs      | Every RBridge; one per compute cluster |
 
 The Cache Node Vlans are assigned by adding 2000 to the cabinet number of the RBridge and its cache node. So, RBridge-7 + Cache Node 7 are on VLAN 2007. 
 
 There are only 24 racks in the pod, but for now extra VLANS have been blocked off in case of expansion into the BU pod.
  
 ### IP space allocations
-
 Every IP in the Anycast network must be contained in 10.128.0.0/9. 
+ -  **10.192.1.0/30** (VLANS 2007,2008,2009,2010)
+     -  Every cache node is accessible to compute nodes at 10.192.1.1/30 on its individual Cache Node Vlan.
+     -  Each switch has interface on a distinct Cache Node Vlan with IP 10.192.1.2/30
+ -  **10.224.1.0/24** (VLAN 2000)
+     -  IPs are assigned statically on the Cache Transit VLAN:
 
-  **10.192.1.0/30** (VLANS 2007,2008,2009,2010)
-  * Every cache node is accessible to compute nodes at 10.192.1.1/30 on its individual Cache Node Vlan.
-  * Each switch has interface on a distinct Cache Node Vlan with IP 10.192.1.2/30
-
-  **10.224.1.0/24** (VLAN 2000)
-  * IPs are assigned statically on the Cache Transit VLAN:
-
-| IP | Assignment |
-| ----------------- | ----------------------- |
-| 10.224.1.1 | Ve 2000 Fabric Virtual Gateway |
-| 10.224.1.7 | RBridge-7 Ve 2000 |
-| 10.224.1.8 | RBridge-8 Ve 2000 |
-| 10.224.1.9 | RBridge-9 Ve 2000 |
-| 10.224.1.28 | RBridge-104 Ve 2000 \*\* |
-| 10.224.1.10 | RBridge-10 Ve 2000 |
-| 10.224.1.107 | Cache-c07 eth5.2000 \* |
-| 10.224.1.108 | Cache-c08 eth5.2000 \* |
-| 10.224.1.109 | Cache-c09 eth5.2000 \*
-| 10.224.1.110 | Cache-c10 eth5.2000 \* |
-| 10.224.1.254 | DHCP server |
+| IP           | Assignment                     |
+| ------------ | ------------------------------ |
+| 10.224.1.1   | Ve 2000 Fabric Virtual Gateway |
+| 10.224.1.7   | RBridge-7 Ve 2000              |
+| 10.224.1.8   | RBridge-8 Ve 2000              |
+| 10.224.1.9   | RBridge-9 Ve 2000              |
+| 10.224.1.28  | RBridge-104 Ve 2000            |
+| 10.224.1.10  | RBridge-10 Ve 2000             |
+| 10.224.1.107 | Cache-c07 eth5.2000            |
+| 10.224.1.108 | Cache-c08 eth5.2000            |
+| 10.224.1.109 | Cache-c09 eth5.2000            |
+| 10.224.1.110 | Cache-c10 eth5.2000            |
+| 10.224.1.254 | DHCP server                    |
 
 *Note: the Cache server IPs on eth5.2000 are assigned statically via the DHCP server. See the [DHCP server config](#dhcp-setup) for more info. 
 
-The last octet should be 100 + rack number of the cache server.  25-28 should be used as the 'rack number' of switches 101-104 respectively, if this becomes needed*
+The last octet should be 100 + rack number of the cache server.  
+25-28 should be used as the 'rack number' of switches 101-104 respectively, if this becomes needed*
 
-*IPs and VLANs ending in 25, 26, 27, and 28 on the various networks should be assigned to RBridges 101, 102, 103, and 104 respectively, because they are located in Row 4, Cabinets 2 and 4, and using the cabinet numbers would cause overlap with RBridges 2 and 4.
+*IPs and VLANs ending in 25, 26, 27, and 28 on the various networks should be assigned to RBridges 101, 102, 103, and 104 respectively, 
+because they are located in Row 4, Cabinets 2 and 4, and using the cabinet numbers would cause overlap with RBridges 2 and 4.
 
 We do not expect to use these 4 switches in the main Anycast setup but they may be used for testing or hosting additional infrastructure.*
 
-  **10.128.X.Y/23** (COMPUTE VLANS)
-  * Each compute VLAN has an individual /23 IP space.  They are assigned in the following pattern:
+ -  **10.128.X.Y/23** (COMPUTE VLANS)
+     -  Each compute VLAN has an individual /23 IP space.  They are assigned in the following pattern:
 
-| VLAN | IP Space |
-| ----- | ---------------- |
-| 2100 | 10.128.0.0/23 |
-| 2101 | 10.128.2.0/23 |
-| 2102 | 10.128.4.0/23 |
-| 2103 | 10.128.6.0/23 |
-| 2104 | 10.128.8.0/23 |
-| 2105 | 10.128.10.0/23 |
-| 2106 | 10.128.12.0/23 |
-| 2107 | 10.128.14.0/23 |
-| 2108 | 10.128.16.0/23 |
-| 2109 | 10.128.18.0/23 |
-| ... | ... |
+| VLAN | IP Space        |
+| ---- | --------------- |
+| 2100 | 10.128.0.0/23   |
+| 2101 | 10.128.2.0/23   |
+| 2102 | 10.128.4.0/23   |
+| 2103 | 10.128.6.0/23   |
+| 2104 | 10.128.8.0/23   |
+| 2105 | 10.128.10.0/23  | 
+| 2106 | 10.128.12.0/23  |
+| 2107 | 10.128.14.0/23  |
+| 2108 | 10.128.16.0/23  |
+| 2109 | 10.128.18.0/23  |
 | 2227 | 10.128.254.0/23 |
-| 2228 | 10.129.0.0/23 |
-| ... | ... |
+| 2228 | 10.129.0.0/23   |
 | 2355 | 10.129.254.0/23 |
-| 2356 | 10.130.0.0/23 |
-| ... | ...
+| 2356 | 10.130.0.0/23   |
 | 2483 | 10.130.254.0/23 |
-| 2484 | 10.131.0.0/23 |
-| ... | ... |
+| 2484 | 10.131.0.0/23   |
 | 2611 | 10.131.254.0/23 |
-| 2612 | 10.132.0.0/23 |
-| ... | ... |
+| 2612 | 10.132.0.0/23   |
 | 2699 | 10.132.174.0/23 |
 
 On each of these VLANs, the first 32 IPs and the last 16 IPs are reserved.  Switches should always be assigned an IP of the following pattern:
-
-  **10.X.Y.Z**  where the letters stand for the following:
-  **X.Y**    The appropriate subnet for the VLAN (lower half)
-  **Z**    The cabinet number of the switch (except for 101-104, which will use 25-28 respectively)
+ -  **10.X.Y.Z**  where the letters stand for the following:
+ -  **X.Y**    The appropriate subnet for the VLAN (lower half)
+ -  **Z**    The cabinet number of the switch (except for 101-104, which will use 25-28 respectively)
 
 For example, **RBridge-7** has the following IPs:
-
-  **VLAN 2100** : 10.128.0.7
-     
-  **VLAN 2101** : 10.128.2.7
-  
-  **VLAN 2102** : 10.128.4.7
+ -  **VLAN 2100** : 10.128.0.7
+ -  **VLAN 2101** : 10.128.2.7
+ -  **VLAN 2102** : 10.128.4.7
 
 ...etc     
 
-### Step-By-Step Configuration
-
- **Virtual fabric gateway configuration**
-
+### Virtual fabric gateway configuration
 The mac address of the gateway is arbitrary, but should be a private mac address.
-
+```shell
      RBridge-101# configure terminal
      Entering configuration mode terminal
      RBridge-101(config)# router fabric-virtual-gateway
@@ -121,21 +110,23 @@ The mac address of the gateway is arbitrary, but should be a private mac address
      RBridge-101(conf-address-family-ipv4)# enable
      RBridge-101(conf-address-family-ipv4)# end
      RBridge-101#
+```
 
-  **Static Routes**
+### Static Routes
+Each switch also needs a static route to a backup cache server. Static routes have an administrative distance of 1 by default, 
+so they it will only be used if all direct connections are exhausted.
 
-Each switch also needs a static route to a backup cache server. Static routes have an administrative distance of 1 by default, so they it will only be used if all direct connections are exhausted.
-
-This means if the cache server fails, the relevant interface must be disabled on the directly connected switch before the static route can be used and failover can take place. 
+This means if the cache server fails, the relevant interface must be disabled on the directly connected switch 
+before the static route can be used and failover can take place. 
 
 The backup topology is currently:
-  
+```shell  
      RBridge-7 ---> RBridge-9 ---> RBridge-10 ---> RBridge-8 ---> RBridge-7 
-
+```
 which was determined based on the physical topology of the switches.  As more switches are added to the setup, the backup topology should be altered.
 
 The following configuration steps must be performed on each switch with a cache server directly connected. Config steps for two switches are shown.
-
+```shell
      RBridge-101# configure terminal
      Entering configuration mode terminal
      RBridge-101(config)# rbridge-id 7
@@ -146,29 +137,29 @@ The following configuration steps must be performed on each switch with a cache 
      RBridge-101(config-rbridge-id-2)# ip route 0.0.0.0/0 10.224.100.104
      RBridge-101(config-rbridge-id-2)# ip route 10.192.1.0/30 10.224.1.7
      RBridge-101(config-rbridge-id-2)# end
-    
-If the compute vlan is expected to handle outgoing traffic, each switch also needs a default route to the edge router (assuming this network will handle outgoing traffic).
+```
+If the compute vlan is expected to handle outgoing traffic, each switch also needs a default route to the edge router 
+(assuming this network will handle outgoing traffic).
 
 In that case, the static route supplied to the nodes by the dhcp server can be a default route to the edge router.
 
-**Cache Transit Vlan**
-
+### Cache Transit Vlan
 The Cache Transit Vlan is on Vlan 2000.
 
 First we create the Vlan :
-
+```shell
      RBridge-101# configure terminal
      Entering configuration mode terminal
      RBridge-101(config)# interface vlan 2000
      RBridge-101(config-Vlan-2000)# name anycast_Cache_Transit
      RBridge-101(config-Vlan-2000)# end
      RBridge-101#
-     
+```
 Next, create a Virtual Ethernet Interface on each switch in the setup. The config below should be repeated for each switch, and each switch should have
 its own IP (see the table above).
 
 Config for switches 7 and 8 are shown in the example.
-     
+```shell  
      RBridge-101# configure terminal
      Entering configuration mode terminal
      RBridge-101(config)# rbridge-id 7
@@ -182,11 +173,11 @@ Config for switches 7 and 8 are shown in the example.
      RBridge-101(config-rbridge-Ve-2000)# no shutdown
      RBridge-101(config-rbridge-Ve-2000)# end
      RBridge-101#
-     
+```
 Configure the Fabric Virtual Gateway interface. Attach all the switches which you created Ve 2000 in the previous step. 
 
 In the example, switches 7 and 8 are attached.
-     
+```shell  
      RBridge-101# configure terminal
      Entering configuration mode terminal
      RBridge-101(config)# interface ve 2000
@@ -200,23 +191,26 @@ In the example, switches 7 and 8 are attached.
      RBridge-101(config-ip-fabric-virtual-gw)# enable
      RBridge-101(config-ip-fabric-virtual-gw)# end
      RBridge-101#
-
+```
 The original instructions from Rob included this step here:
-     
+```shell  
      RBridge-101(config-ip-fabric-virtual-gw)# load-balancing-disable
+```
+But this causes all traffic to get forwarded to the designated ARP router for the gateway, 
+which in turn means that all traffic to the cache node IP ends up at the cache node under that router, 
+which is definitely not desired behavior.
 
-But this causes all traffic to get forwarded to the designated ARP router for the gateway, which in turn means that all traffic to the cache node IP ends up at the cache node under that router, which is definitely not desired behavior.
+### Cache Node VLANs
 
- **Cache Node VLANs**
-
-A separate VLAN must be created for each cache node.  The VLAN number should be 2000 + cabinet number of the cache node.  This cabinet number is also used in the hostname of the cache node and as the RBridge-ID of the TOR switch.
+A separate VLAN must be created for each cache node.  The VLAN number should be 2000 + cabinet number of the cache node.  
+This cabinet number is also used in the hostname of the cache node and as the RBridge-ID of the TOR switch.
 
 So for example, cache-c07-01 is in cabinet 7, its TOR swich is RBridge-7, and its Cache Node VLAN is 2007.
 
 In the example, cache transit vlans are created for cache nodes 7 and 8.
 
 Create the VLANS:
-
+```shell
      RBridge-101# configure terminal
      Entering configuration mode terminal
      RBridge-101(config)# interface vlan 2007
@@ -226,10 +220,9 @@ Create the VLANS:
      RBridge-101(config-Vlan-2008)# name anycast_Cache-C08
      RBridge-101(config-Vlan-2008)# end
      RBridge-101# 
-     
-     
+```
 Configure the Virtual Ethernet interfaces that connect to each VLAN. Notice that the IP is the same on every virtual interface.
-     
+```shell 
      RBridge-101# configure terminal
      Entering configuration mode terminal
      RBridge-101(config)# rbridge-id 7
@@ -243,15 +236,17 @@ Configure the Virtual Ethernet interfaces that connect to each VLAN. Notice that
      RBridge-101(config-rbridge-Ve-2008)# no shutdown
      RBridge-101(config-rbridge-Ve-2008)# end
      RBridge-101# 
+```
 
-  **Connect each Cache Server to the approriate VLANs**
-
+### Connect each Cache Server to the approriate VLANs**
 For each Cache Node, the individual Cache Node VLAN and the Cache Transit VLAN should be added added to the relevant port on the switch. 
 
-In the current setup the cache nodes have two 40Gb connections to the TOR switch.  The first, in port 51, is an access mode port reserved for Ceph traffic.  We should add the correct VLAN to the trunk port 52 on each switch.
+In the current setup the cache nodes have two 40Gb connections to the TOR switch.  
+The first, in port 51, is an access mode port reserved for Ceph traffic.  \
+We should add the correct VLAN to the trunk port 52 on each switch.
 
 This is shown for RBridges 7 and 8.
-
+```shell
      RBridge-101# configure terminal
      Entering configuration mode terminal
      RBridge-101(config)# interface fortygigabitethernet 7/0/52
@@ -269,16 +264,16 @@ This is shown for RBridges 7 and 8.
      RBridge-101(conf-if-fo-8/0/52)# no shutdown
      RBridge-101(conf-if-fo-8/0/52)# end
      RBridge-101#
+```
 
-
-  **Compute VLANs**
-
+### Compute VLANs
 Each individual physical or virtual compute cluster will have its own VLAN.
 
-We have reserved VLANs 2100-2699 for this purpose, but currently only VLANs 2100-2109 are configured.  The infrastructure cannot support more than about 600 simultaneous clusters.
+We have reserved VLANs 2100-2699 for this purpose, but currently only VLANs 2100-2109 are configured.  
+The infrastructure cannot support more than about 600 simultaneous clusters.
 
 The configuration is shown is for Vlan 2100 and 2101, but should be done for each compute vlan that is to be made available.
-
+```shell
      RBridge-101# configure terminal
      Entering configuration mode terminal
      RBridge-101(config)# interface vlan 2100
@@ -288,13 +283,14 @@ The configuration is shown is for Vlan 2100 and 2101, but should be done for eac
      RBridge-101(config-Vlan-2101)# name anycast_Compute_2101
      RBridge-101(config-Vlan-2101)# end
      RBridge-101#
-
-Create the Virtual Ethernet Interfaces.  Each switch has a unique IP address on each interfacd.  These should be assigned in the pattern described in the IP Space section above.
+```
+Create the Virtual Ethernet Interfaces.  Each switch has a unique IP address on each interfacd.  
+These should be assigned in the pattern described in the IP Space section above.
 
 The ip dhcp relay address points to a DHCP server which is configured to serve all the subnets used by compute vlans. 
 
 These config steps should be performed on every switch. The example shows config for RBridges 7 and 8.
-
+```shell
      RBridge-101# configure terminal
      Entering configuration mode terminal
      RBridge-101(config)# rbridge-id 7
@@ -320,9 +316,9 @@ These config steps should be performed on every switch. The example shows config
      RBridge-101(config-rbridge-Ve-2101)# no shutdown
      RBridge-101(config-rbridge-Ve-2101)# end
      RBridge-101#
-
+```
 Create the Fabric Virtual Gateway for the compute VLANs, and attach all switches.
-
+```shell
      RBridge-101# configure terminal
      Entering configuration mode terminal
      RBridge-101(config)# interface ve 2100
@@ -346,15 +342,15 @@ Create the Fabric Virtual Gateway for the compute VLANs, and attach all switches
      RBridge-101(config-ip-fabric-virtual-gw)# enable
      RBridge-101(config-ip-fabric-virtual-gw)# end
      RBridge-101#
+```
 
-  **Connecting Compute Nodes to switches**
-
+### Connecting Compute Nodes to switches
 In general, this task should be handled by HIL.  However, this is the procedure if you are doing it manually for testing purposes. 
 
 For these examples, assume 3 physical nodes connected to ports 1, 2, and 3 respectively on RBridge-7.
 
 Physical node #1 will be part of a physical compute cluster using vlan 2100, and we wish this compute VLAN to be the native VLAN:
-
+```shell
      RBridge-101# configure terminal
      Entering configuration mode terminal
      RBridge-101(config)# interface tengigabitethernet 7/0/1
@@ -369,10 +365,10 @@ Physical node #1 will be part of a physical compute cluster using vlan 2100, and
      RBridge-101(conf-if-te-1/0/1)# no shutdown
      RBridge-101(conf-if-te-1/0/1)# end
      RBridge-101#
-
+```
 
 Physical node #2 will be part of a physical compute cluster on vlan 2101, but it won't be the native vlan:
-
+```shell
      RBridge-101# configure terminal
      Entering configuration mode terminal 
      RBridge-101(config)# interface tengigabitethernet 7/0/2
@@ -382,9 +378,12 @@ Physical node #2 will be part of a physical compute cluster on vlan 2101, but it
      RBridge-101(conf-if-te-7/0/2)# no shutdown
      RBridge-101(conf-if-te-7/0/2)# end
      RBridge-101#
-
-Physical node #3 will host virtual compute nodes which could be part of any cluster.  We attach all possible vlans (in this case, 2100-2109) to it. Appropriate bridging will need to be configured on the node itself, which will depend on the method being used to deploy virtual clusters.  That configuration is beyond the scope of this page.
-
+```
+Physical node #3 will host virtual compute nodes which could be part of any cluster.  
+We attach all possible vlans (in this case, 2100-2109) to it. Appropriate bridging will need to be configured on the node itself, 
+which will depend on the method being used to deploy virtual clusters.  
+That configuration is beyond the scope of this page.
+```shell
      RBridge-101# configure terminal
      Entering configuration mode terminal
      RBridge-101(config)# interface tengigabitethernet 7/0/3
@@ -394,20 +393,21 @@ Physical node #3 will host virtual compute nodes which could be part of any clus
      RBridge-101(conf-if-te-7/0/3)# no shutdown
      RBridge-101(conf-if-te-7/0/3)# end
      RBridge-101#
+```
 
-  **DHCP setup**
-
+### DHCP setup
 The DHCP server is running on moc-services and can be reached from moc-services at `10.13.66.14`.
 
 It also has an IP of 10.224.1.254 on the Cache Transit VLAN.
 
 It is configured to:
-1. give static IPs to the cache servers on the Cache Transit VLAN.
-2. give random IPs to phyisical or virtual compute nodes on the compute vlans.  
-3. push a static route to the physical and virtual compute nodes which directs 10.128.0.0/9 traffic to the gateway of the compute vlan, where it can be routed to cache servers as appropriate.
+ 1. give static IPs to the cache servers on the Cache Transit VLAN.
+ 1. give random IPs to phyisical or virtual compute nodes on the compute vlans.  
+ 1. push a static route to the physical and virtual compute nodes which directs 10.128.0.0/9 traffic to 
+ the gateway of the compute vlan, where it can be routed to cache servers as appropriate.
 
 Currently, VLANS 2100-2109 are configured for DHCP. As more VLANs are added to the cluster, they will need to be added to `/etc/dhcpd.conf`.
-     
+```shell   
      # In/etc/dhcp/dhcpd.conf
      #
      # DHCP Server Configuration file.
@@ -561,4 +561,4 @@ Currently, VLANS 2100-2109 are configured for DHCP. As more VLANs are added to t
          option rfc3442-classless-static-routes 9, 10, 128, 10, 128, 18, 1, 10, 128, 18, 1;
          #option routers 10.128.18.1;
      }
-
+```

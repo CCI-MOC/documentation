@@ -1,28 +1,21 @@
-# Fujitsu CD10000
+## Fujitsu CD10000
 
 ### Login Info
-  
-**Web URL** : https://129.10.3.253/dashboard (note - web server no longer responding on this address)
-  
-**User/Password** : bitwarden Kaizen Fujitsu CD10000 User
-
-**SSH User/Password** : bitwarden Kaizen Fujitsu CD10000 SSH User
+ -  **Web URL** : `https://129.10.3.253/dashboard` (note - web server no longer responding on this address)
+ -  **User/Password** : bitwarden Kaizen Fujitsu CD10000 User
+ -  **SSH User/Password** : bitwarden Kaizen Fujitsu CD10000 SSH User
 
 ### IPMI
-
-**IPMI of the management server** : 10.99.1.14 (accessible via HIL master or emergency box)
-
-* current user/password: bitwarden Kaizen Fujitsu CD10000 Management
-
-**IPMI of the individual nodes**: 192.168.10.11-14 which (accessible from the management server, brocade 1g switches vlan 10 in fujitsu appliance cage)
-
-* current user/password is still set at the default, see bitwarden Kaizen Fujitsu CD10000 Nodes
-* those should be accessible from haas-master after 7/13 visit
+ -  **IPMI of the management server** : 10.99.1.14 (accessible via HIL master or emergency box)
+     -  current user/password: bitwarden Kaizen Fujitsu CD10000 Management
+ -  **IPMI of the individual nodes**: 192.168.10.11-14 which (accessible from the management server, brocade 1g switches vlan 10 in fujitsu appliance cage)
+     -  current user/password is still set at the default, see bitwarden Kaizen Fujitsu CD10000 Nodes
+     -  those should be accessible from haas-master after 7/13 visit
 
 ### Documentation 
-* User guide can be found at [Link](../../_static/pdf/cd10000-ug-en_v1.0SP2.pdf)
-* Spreadsheet layout of the CD10K deployment [Link](../../_static/xlsx/MOC_CD10K_Master_Worksheet_052915_DM.xlsx)
-* System Admin training material can be found at [Link]<!--(CD10000-MOC-Training.7z)-->
+ -  User guide can be found at [Link](../../_static/pdf/cd10000-ug-en_v1.0SP2.pdf)
+ -  Spreadsheet layout of the CD10K deployment [Link](../../_static/xlsx/MOC_CD10K_Master_Worksheet_052915_DM.xlsx)
+ -  System Admin training material can be found at [Link](CD10000-MOC-Training.7z)
 
 ### How to open a support call to Fujitsu 
 
@@ -31,10 +24,10 @@
 ![](../../_static/img/HowToOpenAsupportCallWithFai.png)
 
 **Via Web** (low priority issues only)
-* [Link](https://iportal.shopfujitsu.com/portal/page/portal/EnterpriseCustomerPortal/Home)
-* The first prompt will ask for serial number. YM2D001007 is the serial number for your CD10000. This information can be displayed with the following command when executed on the CD10000 management node:
-
-```
+ -  [Link](https://iportal.shopfujitsu.com/portal/page/portal/EnterpriseCustomerPortal/Home)
+ -  The first prompt will ask for serial number. YM2D001007 is the serial number for your CD10000. 
+ This information can be displayed with the following command when executed on the CD10000 management node:
+```shell
 [root@pmgmt ~]# cd10000 ip cluster show
 +------------+--------------------+--------------------+-----------------+-----------------+-----------------+
 | Cluster SN | Management node SN | Administration net |     IRMC net    |   Cluster net   |    Switch net   |
@@ -45,27 +38,18 @@
 
 ### Networking 
 There are three networks on CD10000's switch. The storage nodes are on all three networks; anything else on those networks is explicitly noted.   
-
-**192.168.20.0/24**
-
-* 2 bonded 1G ethernet
-* Connects to CD10000 management node
-  
-**192.168.28.0/24** 
-
-* 2 bonded 10G ethernet
-* Connects to main switch; user data plane
-  
-**192.168.40.0/24**  
-
-* 2 bonded infiniband
-* internal Ceph data transfer
-
-**192.168.50.11**
-
-* brocade 1G stack of 2 switches
-
-```
+ -  **192.168.20.0/24**
+     -  2 bonded 1G ethernet
+     -  Connects to CD10000 management node
+ -  **192.168.28.0/24** 
+     -  2 bonded 10G ethernet
+     -  Connects to main switch; user data plane
+ -  **192.168.40.0/24**  
+     -  2 bonded infiniband
+     -  internal Ceph data transfer
+ -  **192.168.50.11**
+     -  brocade 1G stack of 2 switches
+```shell
 telnet@br001>sh vlan
 Total PORT-VLAN entries: 3
 Maximum PORT-VLAN entries: 64
@@ -564,4 +548,3 @@ The system started at 00:11:37 GMT+00 Wed May 24 2017
  The system : started=cold start
 My stack unit ID = 1, bootup role = active
 ```
-
