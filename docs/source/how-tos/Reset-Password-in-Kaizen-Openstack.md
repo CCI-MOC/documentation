@@ -1,4 +1,4 @@
-# Reset Password in Kaizen Openstack
+## Reset Password in Kaizen Openstack
 
 ### Instructions
 This document describes how to reset the password.
@@ -10,7 +10,7 @@ For example:
 `moc reset-password user@example.com 1321`
 
 The command will return
-```
+```shell
 Password successfully reset for user user@example.com
 ```
 

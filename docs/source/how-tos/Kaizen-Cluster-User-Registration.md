@@ -1,4 +1,4 @@
-# Kaizen User Registratin
+## Kaizen User Registratin
 To work on user registration for the kaizen clusters, install [moc-openstack-tools](https://github.com/CCI-MOC/moc-openstack-tools) 
 and [setpass](https://github.com/CCI-MOC/setpass) on separate virtual machines on the same network. 
 
@@ -34,7 +34,7 @@ The function parse_rows in addusers.py handles parsing the spreadsheet data, you
 
 ### Setup
 During initial setup, run these commands to install the required dependencies:
-```
+```shell
 *Possibly in a virtual environment*
 $ pip install -r requirements.txt 
 ```
@@ -44,13 +44,13 @@ Copy the examplee_settings.ini to settings.ini and then fill the fields required
 
 ### Mail Server Config
 The mail server needs to have TLS enabled. If using postfix, add the following lines to /etc/postfix/main.cf:
-```
+```shell
      smtpd_tls_cert_file = /path/to/cert/file
      smtpd_tls_key_file = /path/to/key/file
      smtpd_tls_security_level = may
 ```
 If no certificate exists, one can be generated:
-```  
+```shell
      openssl req -new -x509 -nodes -out /etc/postfix/postfix.pem -keyout /etc/postfix/postfix.pem -days 3650
 
 ```
@@ -70,8 +70,9 @@ The administrator then adds the user_id and password to setpass, receiving a tok
 This will be the first factor of authentication, and its time validity is set in the configuration file.
 
 This token is sent to the user as part of a url, for example:
-
-``https://example.com/?token=c35ee31e-3ee2-4a38-9eae-e738bafdccb5``
+```shell
+https://example.com/?token=c35ee31e-3ee2-4a38-9eae-e738bafdccb5
+```
 
 The user will input the his 4-digit pin, and his desired password.
 
@@ -81,21 +82,21 @@ one.
 ### Usage
 To run it:
 
-```
+```shell
 # Possibly in a virtual environment
 $ pip install -r requirements.txt
 $ python -m setpass.api
 ```
 
 ### Adding a new user
-
+```shell
 | URL      | /token/\<user_id\>                               |
 |----------|--------------------------------------------------|
 | Method   | PUT                                              |
 | Headers  | X-Auth-Token                                     |
 | Body     | {password: \<random_pass\>, pin: \<user_pin\>}   |
 | Response | Token                                            |
-
+```
 Please note, to authorize the request to add a new user, setpass checks for a valid token in ``x-auth-token``. If it is able to use this token to scope to
 the admin project, then the call is authorized.
 

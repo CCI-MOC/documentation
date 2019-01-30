@@ -1,4 +1,4 @@
-# Ceph Tutorials
+## Ceph Tutorials
 A basic tutorial for people to start with Ceph (Currently under construction)
 *This page is maintained by Jethro, questions are welcome!*
 

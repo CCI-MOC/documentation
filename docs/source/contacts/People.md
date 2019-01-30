@@ -1,4 +1,4 @@
-# People
+## People
 Please visit [MOC official website](https://massopen.cloud/team/) for the more up-to-date team list. 
 
 ### Boston University

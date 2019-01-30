@@ -1,8 +1,8 @@
-# Debugging VNC Access
+## Debugging VNC Access
 We are using vnc to share access for debugging current deployment.  Contact one of the developers to add your public key for ssh access.
 
 Add following to your `.ssh/config`:
-```
+```shell
 Host mocdebug
   HostName moc02.bu.edu
   ForwardX11 yes
@@ -16,7 +16,7 @@ There are two vncservers we will keep running there, a small one on port '5909 (
 There are aliases in bash to restart them if they go down.
 
 Once you have shed into mocdebug, you will be able to connect your favorite vncclient to either one on your localhost, e.g.:
-```
+```shell
 	vncclient localhost:8
 ``
 The password is bitwarden VM VNC Access password

@@ -1,4 +1,4 @@
-# Ceph
+## Ceph
 ### Architecture
  -  [Ceph](http://www.ibm.com/developerworks/library/l-ceph/)
  -  [Ceph Architecture](http://ceph.com/docs/master/architecture/)

@@ -1,4 +1,4 @@
-# Transitioning from Django to AngularJS
+## Transitioning from Django to AngularJS
 This write-up is made for quickly let you understand AngularJS and able to participate in the development of Horizon in Openstack by using AngularJS.
 
 ### Prerequisite

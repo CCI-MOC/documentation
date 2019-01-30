@@ -1,4 +1,4 @@
-# To Do List for New MOC Intern and Member
+## To Do List for New MOC Intern and Member
 
 In order to become part of the MOC team, there are a few things that you need to do:
  -  Add your name and contact information at [this URL](../contacts/People.html)
@@ -14,50 +14,45 @@ See [example](https://trello.com/c/NF4xQCuq/102-sirine-benbrahim)
 
 ### Team calendars
 We use Google calendars as a collaboration tool. We have the following calendars:
-
-  **MOC** -  administrative
-
-  **MOC - Activities** -  team-wide activities and meetings
-
-  **MOC - Engineers** -  MOC engineers and embedded engineers' office hours, OpenStack meetings that engineers attend on regular basis, etc.
-
-  **MOC - Interns** -   interns/students' hours working as part of the MOC.
+ -  **MOC** -  administrative
+ -  **MOC - Activities** -  team-wide activities and meetings
+ -  **MOC - Engineers** -  MOC engineers and embedded engineers' office hours, 
+ OpenStack meetings that engineers attend on regular basis, etc.
+ -  **MOC - Interns** -   interns/students' hours working as part of the MOC.
 
 Please share your the time slots when you plan to spend time in the MOC and/or on the MOC related projects.
 Send a request to msd@bu.edu to be added to the appropriate calendar.
 
 ### Get familiar with OpenStack, github, Python and Red Hat Enterprise software
-
-  **OpenStack** -  : There are many tutorials online for OpenStack.
-  Going over the official [getting start guide](http://docs.openstack.org/admin-guide-cloud/content/ch_getting-started-with-openstack.html) can be helpful.
+ -  **OpenStack** -  : There are many tutorials online for OpenStack.
+  Going over the official 
+  [getting start guide](http://docs.openstack.org/admin-guide-cloud/content/ch_getting-started-with-openstack.html) can be helpful.
   The MOC team tutorial on how to use our production system can be found at [Getting started wiki] (Getting-started.html)
-
-  **Python** -  : You may want to consider using [iPython](http://ipython.org/) or other interactive Python tool to learn to code in Python.
+ -  **Python** -  : You may want to consider using [iPython](http://ipython.org/) or other interactive Python tool to learn to code in Python.
   Similar to OpenStack, there are quite a few online tutorials. The [official Python](https://www.python.org/) site is here.
-
-  **github** -  : If you are not already familiar with github, you can start at its [official site](https://github.com/) for the "how-to".
+ -  **github** -  : If you are not already familiar with github, you can start at its [official site](https://github.com/) for the "how-to".
 
 ### MOC Individual Contributor License Agreement (ICLA)
-Contributors to the MOC are required to sign the [Individual Contributor Agreement](https://massopen.cloud/blog/individual-contributor-license-agreement/).
+Contributors to the MOC are required to sign the 
+[Individual Contributor Agreement](https://massopen.cloud/blog/individual-contributor-license-agreement/).
 Send Jennifer Stacy (jstacy@bu.edu) a quick note when you are done with this step.
 Note that you will not be allowed to contribute to any code base unless you sign the agreement.
 
 ### Team Communication
-
-  **Standup** -  : the MOC team is an Agile team. Twice a week, Tues. and Thur., we have standup in the MOC team room.
-  Face-to-face communication is best. However, if you cannot attend in person, you can dial in
-```
+ -  **Standup** -  : the MOC team is an Agile team. Twice a week, Tues. and Thur., we have standup in the MOC team room.
+ Face-to-face communication is best. However, if you cannot attend in person, you can dial in
+```shell
     Phone: 866-715-6499
 
     Guest: 675-377-3302
 
     TYPE-IN-RANDOM-NUMBER-FOLLOWED-BY-#
 ```
-  **Team Slack room** -  : For private team conversation, a good alternative channel of communication is the [massopencloud.slack.com](https://massopencloud.slack.com/).
-  If you don't have a slack account, go to [slack.com](https://slack.com) and create one.
-  If you do have a slack account already, you can access the **massopencloud** -  room as you wish. Contact msd@bu.edu if you have any problem.
-
-  **MOC team email mailing list** -  : Go to the following the following URL to subscribe yourself to the MOC [team mailing list](https://mail.massopen.cloud/mailman/listinfo/team)
+ -  **Team Slack room** -  : For private team conversation, a good alternative channel of communication is the [massopencloud.slack.com](https://massopencloud.slack.com/).
+ If you don't have a slack account, go to [slack.com](https://slack.com) and create one.
+ If you do have a slack account already, you can access the **massopencloud** -  room as you wish. Contact msd@bu.edu if you have any problem.
+ -  **MOC team email mailing list** -  : Go to the following the following URL to subscribe yourself to the 
+ MOC [team mailing list](https://mail.massopen.cloud/mailman/listinfo/team)
 
 Contact msd@bu.edu if you have any question/problem.
 
@@ -90,7 +85,8 @@ You can expect at most a couple of questions in a day, and likely less.
 ### Special Interest Mailing
 `moc-research-list@bu.edu` : for those who are interested in research related activities in the MOC.
 
-If you need help subscribing to this mailing list, instruction can be found under the first part of [this wiki](../archives-page/Outdated-To-do-list-for-New-MOC-Intern-Member.html)
+If you need help subscribing to this mailing list, instruction can be found under the first part of 
+[this wiki](../archives-page/Outdated-To-do-list-for-New-MOC-Intern-Member.html)
 
 ### Stipend
 If you have not already done so...

@@ -1,4 +1,4 @@
-# How to get involved in the OpenStack community
+## How to get involved in the OpenStack community
 
 ### OpenStack Community
 [Community - OpenStack is open source software for creating private and public clouds.](https://www.openstack.org/community)

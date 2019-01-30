@@ -1,4 +1,4 @@
-# How to Install Twiki in Ubuntu 14.04.02 LTS
+## How to Install Twiki in Ubuntu 14.04.02 LTS
 
 ### What is TWiki?
 TWiki is a Perl-based structured wiki application typically used to run a collaboration platform, 
@@ -13,11 +13,11 @@ while much of the developer community forked off to join the Foswiki project.
 
 ### Prerequisite
 Packages you need to install
-```
+```shell
 sudo apt-get install rcs
 ```
 Check perl version on your machine. 
-```
+```shell
 /usr/bin/perl -v
 ```
 It works well if you see the following words on your terminal. 
@@ -27,61 +27,61 @@ This is perl 5, version 18, subversion 2 (v5.18.2) built for x86_64-linux-gnu-th
 
 ### Installation
 Download the 6.0.1 version of Twiki: 
-```
+```shell
 wget "http://downloads.sourceforge.net/project/twiki/TWiki%20for%20all%20Platforms/TWiki-6.0.1/TWiki-6.0.1.tgzr=http%3A%2F%2Fsourceforge.net%2Fprojects%2Ftwiki%2Ffiles%2FTWiki%2520for%2520all%2520Platforms%2FTWiki-6.0.1%2F&ts=1419896584&use_mirror=superb-dca3" -O Twiki-6.0.1.tgz `
 ```
 Unzip the package: 
-```
+```shell
 tar -xvf Twiki-6.0.1.tgz
 ```
 Copy the entire Twiki package to the Apache directory in Ubuntu 
-```
+```shell
 sudo cp twiki/ /var/www/html/ -r
 ```
 Give the root access to the user:
-```
+```shell
 sudo chown www-data /var/www/html/twiki -R
 sudo chgrp www-data /var/www/html/twiki -R
 ```
-Create the `LocalLib.cfg`. One simple way is to copy `LocalLib.cfg.txt` as LocalLib.cfg: 
-```
+Create the `LocalLib.cfg`. One simple way is to copy `LocalLib.cfg.txt` as `LocalLib.cfg`: 
+```shell
 cd /var/www/html/twiki/bin
 sudo cp LocalLib.cfg.txt LocalLib.cfg
 sudo vim LocalLib.cfg
 ```
 If you put twiki under `/var/www/html/twiki`，you need to change: 
-```
+```shell
 $twikiLibPath = "/var/www/html/twiki/lib";
 ```
 [Set up Apache](http://twiki.org/cgi-bin/view/TWiki/ApacheConfigGenerator)
 
 under the `/var/www/html/twiki/bin`, we need to do: 
-```
+```shell
 cd /var/www/html/twiki/bin
 sudo cp .htaccess.txt .htaccess
 ```
 Set up Apache
-```
+```shell
 cd /etc/apache2/conf-available
 ``` 
 Vim a new file called `twiki.conf`: 
-```
+```shell
 sudo vim twiki.conf
 ```
 Copy everything you have done to this file and save
 
 Link the `twiki.conf` file: 
-```
+```shell
 cd .. 
 cd conf-enabled
 sudo ln -s ../conf-available/twiki.conf twiki.conf
 ```
 Restart the Apache 
-```
+```shell
 sudo a2enmod rewrite cgi
 ```
 Under `/etc/apache2/` to find `apache2.conf` and rewrite: 
-```
+```shell
 <Directory /var/www>
 Options Indexes FollowSymLinks
 AllowOverride All   
@@ -89,7 +89,7 @@ Require all granted
 </Directory>
 ```
 Restart the Apache service
-```
+```shell
 sudo service apache2 restart
 ```
 Go to your broswer and find `http://yourserveraddress/twiki/bin/configure`
