@@ -64,6 +64,7 @@
  -  [OpenStack Fixes](archives-page/Openstack-fixes.html)
  -  [OpenStack Resources](archives-page/OpenStack-resources.html)
  -  [Kumo OpenStack Nodes](archives-page/Kumo-OpenStack-notes.html)
+ -  [FAQ](archives-page/FAQ.html)
 
 ### How tos
  -  [Reprovisioning a Staging Environment](archives-page/Reprovisioning-a-Staging-Environment.html)

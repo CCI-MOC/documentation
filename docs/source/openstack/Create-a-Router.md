@@ -1,7 +1,8 @@
-# Create Router
+## Create Router
 A router acts as a gateway for external connectivity.
 
-By connecting your private network to the public network via a router, you can connect your instance to the Internet, install packages, etc. without needing to associate it with a public IP address.
+By connecting your private network to the public network via a router, you can connect your instance to the Internet, 
+install packages, etc. without needing to associate it with a public IP address.
 
 From the Network Topology page click on Create Router.  
 
@@ -49,7 +50,7 @@ You can also access more information about the router by navigating to Networks 
 
 ![](../_static/img/routers-interfaces.png)
 
-******
+---
 
 Next: [Security Groups](Security-Groups.html)
 

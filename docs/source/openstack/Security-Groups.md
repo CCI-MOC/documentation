@@ -1,4 +1,4 @@
-# Security Groups 
+## Security Groups 
 Before you launch a VM, you must configure some security settings so that you will be able to log in via ssh.
 
 Navigate to Project -> Compute -> Access and Security
@@ -13,7 +13,8 @@ Security groups are profiles that control the firewall settings which allow or b
  
 The default security group allows traffic only between members of the security group, so by default you can always connect between VMs in this group.
 
-However, it blocks all traffic from outside, including incoming SSH connections.  In order to access instances via a public IP, an additional security group is needed.
+However, it blocks all traffic from outside, including incoming SSH connections.  
+In order to access instances via a public IP, an additional security group is needed.
 
 Security groups are very highly configurable, so you can create different security groups for different types of VMs used in your project.
 
@@ -48,25 +49,23 @@ The new rule now appears in the list.
 
 ![](../_static/img/security_rules_02.png)
 
-**Allowing Ping**
-
-The default configuration blocks ping responses, so you will need to add an additional group and/or rule if you want your public IPs to respond to ping requests. 
+### Allowing Ping
+The default configuration blocks ping responses, so you will need to add an additional group and/or rule 
+if you want your public IPs to respond to ping requests. 
 
 Ping is ICMP traffic, so the easiest way to allow it is to add a new rule and choose "ALL ICMP" from the dropdown.
 
 ![](../_static/img/security_add_rule_ping.png)
 
-More on different types of ICMP codes can be found at [this link](http://www.nthelp.com/icmp.html).
-
+More on different types of ICMP codes can be found at [this link](http://www.nthelp.com/icmp.html). 
 *Note that due to a [known bug](https://bugs.launchpad.net/horizon/+bug/1511748) setting a specific ICMP type may give an error message.*
 
 Make sure to add VMs with public IPs you want to ping to the security group containing this rule.
 
-******
+---
  
 Next: [Create a Key Pair](Create-a-Key-Pair.html)  
 
 Previous:  [Create a Router](Create-a-Router.html)  
 
 [Openstack Tutorial Index](OpenStack-Tutorial-Index.html)
-
