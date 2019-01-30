@@ -77,6 +77,7 @@ for complete details of current projects.
  -  [Setting up LDAP authentication](openstack/Setting-up-LDAP-authentication.html)
  -  [Setting up the RADOS gateway.html](openstack/Setting-up-the-RADOS-gateway.html)
  -  [MOC UI](openstack/UI.html)
+ -  [Updating Tutorial Screenshots](openstack/Updating-Tutorial-Screenshots.html)
 
 ### Monitoring (Definitely outdated)
  -  [Monitoring Data Backup Infrastructure](monitoring/Monitoring-data-backup-infrastructure.html)
@@ -116,6 +117,7 @@ for complete details of current projects.
  -  [Provisioning-machine-installation-instructions](infrastructure/Provisioning-machine-installation-instructions.html)
  -  [Iscsi Ceph Gateway](infrastructure/Iscsi-ceph-gateway.html)
  -  [OpenFlow SDN](infrastructure/OpenFlow-SDN.html)
+ -  [Kaizen Production Backups](infrastructure/Kaizen-Production-Backups.html)
 
 ### ELK stack
 To install the ELK stack always refer to Elastic's documentation first.
