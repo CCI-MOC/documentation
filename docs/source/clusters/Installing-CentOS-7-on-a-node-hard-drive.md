@@ -1,9 +1,10 @@
-# Installing Centos 7 on Node Harddrive
-*Note: Some of this information may become irrelevant once we get network booting fully figured out, Evan W. has already created a network boot image for CentOS 7 minimal*
+## Installing Centos 7 on Node Harddrive
+*Note: Some of this information may become irrelevant once we get network booting fully figured out, 
+Evan W. has already created a network boot image for CentOS 7 minimal*
 
 Be sure you can [access the IPMI console](VM-Setup-for-Cisco-IPMI-Access.html)
 
-Download the [CentOS 7 minimal image](https://www.centos.org/download/ in the VM you can access the IPMI console from)
+Download the [CentOS 7 minimal image](https://www.centos.org/download/) in the VM you can access the IPMI console from
 
 ![](../_static/img/install_centos7_min_hd_step2.png)
 
@@ -15,13 +16,15 @@ It may be necessary to perform a BIOS fix to CentOS 7 properly installs. First p
 
 ![](../_static/img/install_centos7_min_hd_step4a.png)
 
-... then go to BIOS -> Configure BIOS -> Advanced -> Onboard Storage, and make sure "Onboard SCU Store SW Stack" says "Intel RSTe".
+... then go to BIOS -> Configure BIOS -> Advanced -> Onboard Storage, 
+and make sure "Onboard SCU Store SW Stack" says "Intel RSTe".
 
 ![](../_static/img/install_centos7_min_hd_step4b.png)
 
-Start up the KVM console, and click "yes" and "continue" despite all the warnings. There are extra instructions on this, depending on your browser. 
- * Click Virtual Media -> Activate Virtual Devices, click yes on warning.
- * Click Virtual Media -> Map CD/DVD -> Browse -> Select CentOS 7 image -> Click Map Device.
+Start up the KVM console, and click "yes" and "continue" despite all the warnings. 
+There are extra instructions on this, depending on your browser. 
+ -  Click Virtual Media -> Activate Virtual Devices, click yes on warning.
+ -  Click Virtual Media -> Map CD/DVD -> Browse -> Select CentOS 7 image -> Click Map Device.
 
 ![](../_static/img/install_centos7_min_hd_step5a.png)
 
@@ -59,11 +62,13 @@ Click "Done," which brings you to "Manual Partitioning".
 
 ![](../_static/img/install_centos7_min_hd_step11c.png)
 
-If there are any listed entries besides "New CentOS 7 Installation", delete them by clicking on the listed entries then pressing the "-" button below.
+If there are any listed entries besides "New CentOS 7 Installation", 
+delete them by clicking on the listed entries then pressing the "-" button below.
 
 ![](../_static/img/install_centos7_min_hd_step11d.png)
 
-Under "New CentOS 7 Installation" → "New mount points will use the following partitioning scheme:", pick "Standard Partition". (Remark: Partitioning as LVM ultimately is what causes the issue I warned about.) Next, click "Click here to partition them automatically."
+Under "New CentOS 7 Installation" → "New mount points will use the following partitioning scheme:", pick "Standard Partition". 
+*Remark: Partitioning as LVM ultimately is what causes the issue I warned about.) Next, click "Click here to partition them automatically."*
 
 ![](../_static/img/install_centos7_min_hd_step11e.png)
 
@@ -95,7 +100,8 @@ Click "User Creation".
 
 ![](../_static/img/install_centos7_min_hd_step15a.png)
 
-Enter a username and password. I chose to click to make the user an administrator to use "sudo" without going to "su". Next, click "Done". (You may have to do this twice if CentOS 7 deems your password weak.)
+Enter a username and password. I chose to click to make the user an administrator to use "sudo" without going to "su". 
+Next, click "Done". (You may have to do this twice if CentOS 7 deems your password weak.)
 
 ![](../_static/img/install_centos7_min_hd_step15b.png)
 
@@ -104,4 +110,3 @@ Wait! Your CentOS 7 install is finishing up. Click "Reboot" when it's done!
 ![](../_static/img/install_centos7_min_hd_step16.png)
 
 Enjoy!
-

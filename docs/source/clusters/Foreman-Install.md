@@ -1,10 +1,10 @@
-# Foreman Install
+## Foreman Install
 
 ### Install base centos 7 OS
 *NOTE: Set a dns name for foreman (foreman.moc.edu for example). This will be used in future and can't be changed.*
 
 ### Install foreman on the foreman vm
-```
+```shell
 http://theforeman.org/manuals/1.10/index.html#2.Quickstart
 rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
 yum -y install epel-release http://yum.theforeman.org/releases/1.10/el7/x86_64/foreman-release.rpm
@@ -15,12 +15,14 @@ foreman-installer --foreman-proxy-dhcp=true --foreman-proxy-dhcp-interface=eth0 
 puppet agent -t
 ```
 
-If provisioning network is larger than /24 foreman installer will not create reverse DNS zones and creating hosts will fail. Add zone definitions manually in `/etc/zones.conf` and actual db files in`/var/named/dynamic/` - use `db.100.168.192.in-addr.arpa` as template
+If provisioning network is larger than /24 foreman installer will not create reverse DNS zones and creating hosts will fail. 
+Add zone definitions manually in `/etc/zones.conf` and actual db files in`/var/named/dynamic/` - use `db.100.168.192.in-addr.arpa` as template
 
 We then added the rhel iso (which we got by wget'ing from red hat website) to the webserver with `mount -o loop [iso-name] /usr/share/foreman/public/rhel`
 
-Had to create a soft link to the hiera config file, and comment out the hiera config line in /etc/puppet/puppet.conf to get puppet and hiera to talk
-```
+Had to create a soft link to the hiera config file, 
+and comment out the hiera config line in `/etc/puppet/puppet.conf` to get puppet and hiera to talk
+```shell
 ln -s /etc/hiera.yaml /etc/puppet/hiera.yaml
 ## comment out hiera-config location in /etc/puppet/puppet.conf
 systemctl restart puppet
@@ -28,22 +30,26 @@ systemctl restart puppet
 
 We installed git, and git cloned kilo-puppet repo to `/etc/puppet/environments/production/modules`
 
-In the web interface, we configured the host groups moc-controller and moc-compute, added the foreman ip as a custom mirror for the rhel image, and configured the operating system with default rhel pxeboot and rhel kickstart files.
+In the web interface, we configured the host groups moc-controller and moc-compute, 
+added the foreman ip as a custom mirror for the rhel image, 
+and configured the operating system with default rhel pxeboot and rhel kickstart files.
 
 We had to turn selinux to permissive mode to be able to serve tftp files from the foreman machine.
 
 [Some issues faced](https://groups.google.com/forum/#!topic/foreman-users/q-k5twYKNJI)
 
-Didn't specify DNS subnet to control, needed to add needed to add `--foreman-proxy-dns-reverse=10.in-addr.arpa`, found info [here](http://projects.theforeman.org/issues/8603)
+Didn't specify DNS subnet to control, needed to add needed to add 
+`--foreman-proxy-dns-reverse=10.in-addr.arpa`, found info [here](http://projects.theforeman.org/issues/8603)
 
-DHCP doesn't work by default in advertising the right Gateway ip-address. Had to modify `/etc/dhcp/dhcpd.conf` file and add these entries there
-```
+DHCP doesn't work by default in advertising the right Gateway ip-address. 
+Had to modify `/etc/dhcp/dhcpd.conf` file and add these entries there
+```shell
 option domain-name-servers 10.14.37.50, 8.8.8.8, 209.244.0.3;
 option routers 10.13.37.254;
 ```
 
 Make sure that the initrd and vmlinuz files are of appropriate size. Else, copy them from the ISO.
-```
+```shell
 [root@dev-foreman1 tftpboot]# ls /usr/share/foreman/public/rhel/images/pxeboot/ -lrt
 total 74754
 -r-xr-xr-x. 2 root root  5026624 Jan 29  2015 vmlinuz
@@ -67,14 +73,16 @@ total 40700
 
 When we did `nslookup compute-25.staging.moc.edu`, it was failing on both foreman and the node. 
 
-We went to domain settings on foreman, modified and set the dns-proxy. We had to then delete and readd the host on foreman. It started working after that.
+We went to domain settings on foreman, modified and set the dns-proxy. 
+We had to then delete and readd the host on foreman. It started working after that.
 
-  **Updating the cert-requests for running puppet**
-```
+**Updating the cert-requests for running puppet**
+```shell
 [root@compute-25 ~]# puppet agent -t
 Exiting; no certificate found and waitforcert is disabled
-
-On master node:-
+```
+On master node
+```shell
 [root@dev-foreman1 hiera]# puppet cert --list
   "compute-25.staging.moc.edu-42c9df2a-33af-4375-a2a5-3625a6b3e3de" (SHA256) CF:5E:7A:B2:CE:5C:E0:4B:63:B2:F7:30:C7:78:4B:48:E5:E4:FE:F3:1D:9D:71:E9:C1:72:61:3C:81:84:03:4A
 
@@ -85,13 +93,11 @@ Notice: Removing file Puppet::SSL::CertificateRequest compute-25.staging.moc.edu
 
 puppet cert list --all;
 ```
-
-  **DNS fix**
-```
+**DNS fix**
+```shell
 # vi /etc/zones.conf <-------- fix the addresses in this file
 # cd /var/named/dynamic/
 # cp db.100.168.192.in-addr.arpa db.96.13.10.in-addr.arpa
 Modify and fix the ip address in copied file
 # service named restart
 ```
-
