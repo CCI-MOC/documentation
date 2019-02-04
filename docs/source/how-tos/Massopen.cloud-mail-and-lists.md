@@ -1,4 +1,4 @@
-# MassOpen.cloud Mail and Lists
+## MassOpen.cloud Mail and Lists
 
 ### General info and FAQ on using mail and lists @ massopen.cloud
 To view lists and subscribe/unsubscribe visit [https://mail.massopen.cloud/mailman/listinfo](https://mail.massopen.cloud/mailman/listinfoand) 

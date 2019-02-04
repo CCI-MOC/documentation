@@ -1,4 +1,4 @@
-# Setup a Private Network
+## Setup a Private Network
 
 ### Create a Network
 You can view your network topology by clicking Project, then click Network and choose Network Topology from the menu that appears.
@@ -7,21 +7,22 @@ You should see the public network which is accessible to all projects.
 
 ![](../_static/img/network_topology_01-lg.png)
 
-Click the "Create Network" button on the right side of the screen, above the network topology map. Give your network a name, and leave the two checkboxes with the default settings.  
+Click the "Create Network" button on the right side of the screen, above the network topology map. 
+Give your network a name, and leave the two checkboxes with the default settings.  
 
 ![](../_static/img/create_network.png)
 
 Next, click "Subnet" and set up your private network's subnet.
 
 For your private networks, you should use IP addresses which fall within the ranges that are specifically reserved for private networks: 
-```
+```shell
 10.0.0.0/8   
 172.16.0.0/12   
 192.168.0.0/16   
 ```
-In the example below, we configure a network containing addresses 192.168.100.1 to 192.168.100.255.
-
-*Technically, your private network will still work if you choose any IP outside these ranges, but this causes problems with connecting to IPs in the outside world - so don't do it!*
+In the example below, we configure a network containing addresses 192.168.100.1 to 192.168.100.255. 
+*Technically, your private network will still work if you choose any IP outside these ranges, 
+but this causes problems with connecting to IPs in the outside world - so don't do it!*
 
 ![](../_static/img/create_network_subnet.png)
 
@@ -37,11 +38,10 @@ The Network Topology should now show your virtual private network next to the pu
 
 ![](../_static/img/network_topology_02.png)
 
-******
+---
 
 Next: [Create a Router](Create-a-Router.html)
 
 Previous: [Dashboard Overview](Dashboard-Overview.html)   
 
 [Openstack Tutorial Index](OpenStack-Tutorial-Index.html)
-

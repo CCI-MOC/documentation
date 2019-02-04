@@ -1,15 +1,15 @@
-#### Listing all the flows present in vswitch
+## Listing all the flows present in vswitch
 This is the default flow present which allows all the traffic.
-```
+```shell
 [root@compute-202-tammy libvirt]# ovs-ofctl dump-flows br-cache
 NXST_FLOW reply (xid=0x4):
  cookie=0x0, duration=2005.504s, table=0, n_packets=1435, n_bytes=133878, idle_age=216, priority=0 actions=NORMAL
 [root@compute-202-tammy libvirt]# 
 ```
 
-#### When a vlan tag is added to a particular port
+### When a vlan tag is added to a particular port
 Let's add a vlan tag to the nic of vm attached to openvswitch. This can be achieved by adding this to the libvirt XML:-
-```
+```shell
   <interface id=...>
       ...
       <vlan>
@@ -19,7 +19,7 @@ Let's add a vlan tag to the nic of vm attached to openvswitch. This can be achie
   </interface>
 ```
 This puts the vm on vlan 2001.
-```
+```shell
 # ovs-vsctl show
 
     Bridge br-cache
@@ -40,7 +40,7 @@ This puts the vm on vlan 2001.
             Interface cache-uoildwal
 ```
 To tag the port as trunk and add multiple vlans, one can use:
-```
+```shell
       <vlan trunk='yes'>
         <tag id='2001'/>
         <tag id='2002'/>

@@ -1,4 +1,4 @@
-# Archives Page
+## Archives Page
  -  How to get set up if you're a [New User](archives-page/New-User.html). Orran mentioned this page is out of date. Folks should use [To do list for New MOC Intern Member](how-tos/To-do-list-for-New-MOC-Intern-and-Member.html)
  -  [Harvard Cluster](archives-page/Harvard-Cluster.html) This page is obsolete, the equipment had been repurposed.
  -  [Harvard Equipment Sign Out](archives-page/Harvard-Equipment-Sign-Out.html)  This page is obsolete. The equipment had been repurposed.
@@ -64,6 +64,7 @@
  -  [OpenStack Fixes](archives-page/Openstack-fixes.html)
  -  [OpenStack Resources](archives-page/OpenStack-resources.html)
  -  [Kumo OpenStack Nodes](archives-page/Kumo-OpenStack-notes.html)
+ -  [FAQ](archives-page/FAQ.html)
 
 ### How tos
  -  [Reprovisioning a Staging Environment](archives-page/Reprovisioning-a-Staging-Environment.html)

@@ -1,31 +1,33 @@
+## Specifying Pools with RADOS Gateway
 Suppose your radosgw stores data in `.rgw.buckets` by default, but you want users to be able to specify a different pool called `target-pool`.
 
-*Note: This walkthrough assumes 2 machines, a radosgw and a client of the radosgw.  Pay attention to which step is to be done on which machine.  If you are just testing radosgw functionality, it is possible to do the client steps on the same machine that is running the radosgw service.*
+*Note: This walkthrough assumes 2 machines, a radosgw and a client of the radosgw.  
+Pay attention to which step is to be done on which machine.  If you are just testing radosgw functionality, 
+it is possible to do the client steps on the same machine that is running the radosgw service.*
 
-* [Create the placement target](#create-the-placement-target)
-* [Using the placement target](#using-the-placement-target)
+ -  [Create the placement target](#create-the-placement-target)
+ -  [Using the placement target](#using-the-placement-target)
 
 ### Create the placement target
-
 On the radosgw machine, get a copy of the current region and  zone configurations, and make backups:
-
+```shell
      [root@radosgw ~]# radosgw-admin region get > region_conf.json
      [root@radosgw ~]# cp region_conf.json region_conf.json.BKP
      [root@radosgw ~]# radosgw-admin zone get > zone_conf.json
      [root@radosgw ~]# cp zone_conf.json zone_conf.json.BKP
-
+```
   
 Open region_conf.json in your favorite text editor.  Find the placement targets configuration, which by default looks like this:
-
+```shell
     "placement_targets": [
         {
             "name": "default-placement",
             "tags": []
         }
     ],
-
+```
 Add a new placement target to the list for your target pool.  We'll call it `custom-target`:
-
+```shell
     "placement_targets": [
         {
             "name": "custom-target",
@@ -36,9 +38,9 @@ Add a new placement target to the list for your target pool.  We'll call it `cus
             "tags": []
         }
     ],
-
+```
 Now open zone_conf.json, and find the `placement pools` section, which looks something like this:
-
+```shell
     "placement_pools": [
         {
             "key": "default-placement",
@@ -49,10 +51,10 @@ Now open zone_conf.json, and find the `placement pools` section, which looks som
             }
         }
     ]
-
+```
 
 Add an additional placement pool.  Make sure the 'key' field matches the name of the placement target you configured above, which was `custom-target`
-
+```shell
      "placement_pools": [
         {
             "key": "custom-target",
@@ -71,30 +73,34 @@ Add an additional placement pool.  Make sure the 'key' field matches the name of
             }
         }
     ]
-
-You will need to create the pool `target-pool.index`.  Technically, it will work if you just use the default `.rgw.index pool` for both placement targets, but I'm not really sure what the implications are, so best to separate everything out.
+```
+You will need to create the pool `target-pool.index`.  Technically, it will work if you just use the default `.rgw.index pool` 
+for both placement targets, but I'm not really sure what the implications are, so best to separate everything out.
 
 Apply the new configuration and restart the radosgw:
-
+```shell
      [root@radosgw ~]# radosgw-admin region set < region_conf.json
      [root@radosgw ~]# radosgw-admin zone set < zone_conf.json
      [root@radosgw ~]# radosgw-admin regionmap update           # this might take some time
      [root@radosgw ~]# systemctl restart ceph-radosgw
-
+```
 ### Using the placement target
-
-Currently only the S3 interface supports placement targets.  You can use the python-boto library for this. Install the python-boto package on the machine that will be your 
+Currently only the S3 interface supports placement targets.  You can use the python-boto library for this. 
+Install the python-boto package on the machine that will be your 
+```shell
      [root@client ~]# yum install python-boto
      [root@client ~]# yum install python-keystoneclient
+```
+Make sure you are installing Boto 2.x (yum info python-boto should show the version number) - there is a newer version Boto 3 
+but it is very different and I haven't found any info on how to make it work with Radosgw.
 
-Make sure you are installing Boto 2.x (yum info python-boto should show the version number) - there is a newer version Boto 3 but it is very different and I haven't found any info on how to make it work with Radosgw.
-
-In order to use the s3 interface your OpenStack user needs to create S3 credentials.  With the appopriate OS_USERNAME, OS_TENANT_NAME, OS_PASSWORD, OS_AUTH_URL variables set, run:
-     
+In order to use the s3 interface your OpenStack user needs to create S3 credentials.  
+With the appropriate `OS_USERNAME`, `OS_TENANT_NAME`, `OS_PASSWORD`, `OS_AUTH_URL` variables set, run:
+```shell     
      [root@client ~]# openstack ec2 credentials create
-
+```
 Output should look like this:
-
+```shell
      +------------+----------------------------------+
      | Field      | Value                            |
      +------------+----------------------------------+
@@ -104,9 +110,10 @@ Output should look like this:
      | trust_id   | None                             |
      | user_id    | <your openstack user ID>         |
      +------------+----------------------------------+
-
-The access and secret fields are the relevant ones.  On the machine that is a client of the radosgw, create a python script s3test.py and assign these key strings to the appropriate variables:
-
+```
+The access and secret fields are the relevant ones.  On the machine that is a client of the radosgw, 
+create a python script `s3test.py` and assign these key strings to the appropriate variables:
+```shell
      import boto
      import boto.s3.connection
 
@@ -132,18 +139,18 @@ The access and secret fields are the relevant ones.  On the machine that is a cl
              name = bucket.name,
              created = bucket.creation_date,
          )
-
+```
 Run the script.  This is what the output would look like if you already had some other buckets called `bucket_1` and `bucket_2`:
-
+```shell
      # python s3test.py
      bucket_1   2016-05-01T18:54:00.000Z
      bucket_2   2016-05-27T12:20:27.000Z
      my_bucket   2016-06-29T21:41:56.000Z
-
+```
 If you had no other buckets before, you would only see the line for `my_bucket`.
 
 From the radosgw, check that your bucket was created in the correct pool.
-
+```shell
       # radosgw-admin bucket stats --bucket=my_bucket
         {
             "bucket": "my_bucket",
@@ -153,12 +160,12 @@ From the radosgw, check that your bucket was created in the correct pool.
             "marker": "default.39837434.1",
              < other output omitted >
         }
-
+```
 Notice the 'marker' field - we will see this again later.
 
-##### Upload a small object (<5GB)
+### Upload a small object (<5GB)
 Create a dummy file called `dummy.txt`.  Then create another python script:
-
+```shell
      import boto
      import boto.s3.connection
      from boto.s3.key import Key
@@ -186,21 +193,22 @@ Create a dummy file called `dummy.txt`.  Then create another python script:
          mykey = Key(b)
          mykey.key = 'my_dummy_file'  #this will be the name of your store dobject
          mykey.set_contents_from_filename(source_path)
-  
+```  
      
-Run this script (there should be no output), and then from the radosgw check to see that 'my_dummy_file' appears inside your target-pool:
-
+Run this script (there should be no output), and then from the radosgw check to see that `my_dummy_file` appears inside your target-pool:
+```shell
          [root@radosgw ~]# rados -p target-pool ls | grep dummy
-         
+```         
 You should see output like this:
-         
+```shell
          default.39837434.1_my_dummy_file
-
+```
 Where the `default.39837434.1` prefix matches the 'marker' field that was in the bucket stats you retrieved earlier.
 
-##### Script for larger files (>5GB)
-Here is a script that will handle files larger than 5GB by splitting them into multiple parts.  You will need to run `pip install FileChunkIO` if you do not already have the FileChunkIO library.        
-
+### Script for larger files (>5GB)
+Here is a script that will handle files larger than 5GB by splitting them into multiple parts.  
+You will need to run `pip install FileChunkIO` if you do not already have the FileChunkIO library.        
+```shell
         import math, os
         import boto
         import boto.s3.connection
@@ -251,9 +259,9 @@ Here is a script that will handle files larger than 5GB by splitting them into m
         
         # Finish the upload
         mp.complete_upload()
-
+```
 
 These are only basic examples of how to use python-boto, for more examples see:
-* [Boto S3 Documentation](http://boto.cloudhackers.com/en/latest/ref/s3.html#)
-* [Boto Tutorial](http://boto.cloudhackers.com/en/latest/s3_tut.html)
-* [Ceph Docs - Python S3 Examples](http://docs.ceph.com/docs/master/radosgw/s3/python/)
+ -  [Boto S3 Documentation](http://boto.cloudhackers.com/en/latest/ref/s3.html#)
+ -  [Boto Tutorial](http://boto.cloudhackers.com/en/latest/s3_tut.html)
+ -  [Ceph Docs - Python S3 Examples](http://docs.ceph.com/docs/master/radosgw/s3/python/)

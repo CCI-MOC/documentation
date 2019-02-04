@@ -1,35 +1,35 @@
-# Access IPMI of Nodes
+## Access IPMI of Nodes
 Follow these steps to access the IPMI (OBM) of nodes in any of our clusters.
 
 ### Get javaws
 You need java web start to launch the remote console.
  -  On Ubuntu you could install icedtea:
-```
+```shell
     sudo apt-get install icedtea-netx -y
 ```
   and then from the command line you could execute `jnlp` files using `javaws file.jnlp`
   You can also install icedtea-plugin package to integrate with web browser.
-```
+```shell
     sudo apt-get install icedtea-plugin -y
 ```
  -  On CentOS, run:
-```
+```shell
     sudo yum install javaws -y
 ```
 ### Install sshuttle
 Install [sshuttle](https://github.com/apenwarr/sshuttle#obtaining-sshuttle)
 
 You can install it by either downloading from github or from PyPI using pip.
-```
+```shell
     pip install sshuttle
 ```
 ### Connect to the remote host with sshuttle
 Open a terminal window execute this command (put in your remote host, duh)
-```
+```shell
    sshuttle -r username@remotehost -N --dns
 ```
  -  You could use alias from your ssh config files instead of specifying
-```
+```shell
     username@remotehost` in the command above.
 ```
  -  `-r` specifies the remote host.
@@ -37,8 +37,7 @@ Open a terminal window execute this command (put in your remote host, duh)
     it route those automatically.
  -  `--dns` will capture local DNS requests and forward to the remote DNS server.
 
-Minimize this terminal window and let it do it's thing.
-
+Minimize this terminal window and let it do it's thing. 
 *Note: You won't be able to ping the ipmi address of the nodes even if you are connected with sshuttle. That traffic isn't forwarded.*
 
 ### Launch the  web browser on your local machine

@@ -1,32 +1,34 @@
-Using pfioh with mount-dir and pman with swarm
-----------------------------------------------
+## Using pfioh with mount-dir and pman with swarm
 
-**APIs**
+### APIs (swarm)
+ 1. pfioh: mount-dir
+ 1. pman: swarm
+ 1. pfcon
+ 1. pfurl (curl like api)
 
-1. pfioh: mount-dir
-2. pman: swarm
-3. pfcon
-4. pfurl (curl like api)
-
-**Staring the services**
-
-**pfioh startup**
-
+### Staring the services (swarm)
+pfioh startup
+```shell
     bin/pfioh --forever --httpResponse --storeBase=/tmp/share --createDirsAsNeeded
+```
 
-**pman startup**
-
+pman startup
+```shell
     bin/pman --rawmode=1 --http --port=5010 --listeners=12
+```
 
-**pfcon startup**
-
+pfcon startup
+```shell
     bin/pfcon --forever --httpResponse
+```
 
-**Add pfioh and pman IPs in pfcon.py Gd_internalvar service:'moc'**
-
+Add pfioh and pman IPs in `pfcon.py` 
+```shell
+Gd_internalvar service:'moc'
+```
 
 Run the following command from pfurl
-
+```shell
     bin/pfurl --verb POST --raw --http <pfcon ip:port>/api/v1/cmd --httpResponseBodyParse --jsonwrapper 'payload' --msg '
            {
        "action":"coordinate",
@@ -85,41 +87,40 @@ Run the following command from pfurl
           "service":"moc"
        }
     }'
+```
+---
 
+## Using pfioh with swift and pman with OpenShift
 
-***
+### APIs (OpenShift)
+ 1. pfioh: swift-store
+ 1. pman: openshift
+ 1. pfcon
+ 1. pfurl (curl like api)
 
-
-Using pfioh with swift and pman with OpenShift
-----------------------------------------------
-
-**APIs**
-
-1. pfioh: swift-store
-2. pman: openshift
-3. pfcon
-4. pfurl (curl like api)
-
-**Staring the services**
-
-**pfioh startup**
-
+### Staring the services (OpenShift)
+pfioh startup
+```shell
     bin/pfioh --forever --httpResponse --swift-storage --createDirsAsNeeded
+```
 
- 
-
-**pman startup**
-
+pman startup
+```shell
     bin/pman --rawmode=1 --http --port=5010 --listeners=12 --container-env=openshift
+```
 
-**pfcon startup**
-
+pfcon startup
+```shell
     bin/pfcon --forever --httpResponse
+```
 
-**Add pfioh and pman IPs in pfcon.py Gd_internalvar service:'moc'**
+Add pfioh and pman IPs in `pfcon.py`
+```shell
+Gd_internalvar service:'moc'
+```
 
 Run the following command from pfurl
-
+```shell
     bin/pfurl --verb POST --raw --http <pfcon ip:port>/api/v1/cmd --httpResponseBodyParse --jsonwrapper 'payload' --msg '
     {
        "action":"coordinate",
@@ -164,6 +165,4 @@ Run the following command from pfurl
           "service":"moc"
         }      
     }'
-
-
-
+```

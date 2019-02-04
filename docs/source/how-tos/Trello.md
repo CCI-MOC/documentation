@@ -1,4 +1,4 @@
-# Trello, burndown chart, scrum tools
+## Trello, burndown chart, scrum tools
 
 ### Why Burndown chart ? What's the fuss ?
 There are many sources on the internet that explains what a burndown chart is and why it is done.

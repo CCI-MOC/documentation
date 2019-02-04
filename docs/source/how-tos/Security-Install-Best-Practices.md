@@ -1,4 +1,4 @@
-# Security Install Best Practices
+## Security Install Best Practices
 Follow these steps on all nodes exposed to the public internet.
 
 ### Do you really need to be public?
@@ -10,24 +10,24 @@ If you just need internet access from your node, used the `nat-public` network d
 Some methods for generating passwords randomly:
 
 **Random String**
-```
+```shell
     $ cat /dev/urandom | base64 | dd count=14 bs=1
     pFt0wCQUFKTL4c14+0 records in
 ```
 Adjust "count" to change the length of the password, and remove the `<count>+0 records in` from the end of the output. 
 
 **Random dictionary words**
-```
+```shell
     $ shuf -n2 /usr/share/dict/words
 ```
 Replace '2' with the number words you want to generate (but always use at least 2).
 
 A slower alternative if your system doesn't have `shuf`:
-```    
+```shell
     $ cat /usr/share/dict/words | sort -R | head -n 2
 ```
 An alternative that works on Mac OSX. It only generates one word at a time:
-```
+```shell
      $ head -$(jot -r 1 1 $(cat /usr/share/dict/words | wc -l)) /usr/share/dict/words | tail -1
 ```
 Also, keep the passwords a secret!  Don't send passwords via unencrypted email, post them to #MOC, or put them in a public git repository.
@@ -37,10 +37,8 @@ Create a user account with your own name, and sudo when you need root permission
  This allows disabling remote root login (see below), and also makes it easier to see who is doing what, or fix things if someone's key is compromised.
 
 ### SSH
-**Add public SSH keys to user accounts**
-
-You will need root privileges to do this for any user that is not yourself.
-```
+**Add public SSH keys to user accounts** You will need root privileges to do this for any user that is not yourself.
+```shell
     # mkdir /home/lihua/.ssh                        // Create .ssh directory in the user's home folder
     # vim /home/lihua/.ssh/authorized_keys          // Copy the user's public key to this file
     # chown -R lihua:lihua /home/lihua/.ssh         // Change owner:group of .ssh/ and its contents to the user
@@ -48,11 +46,11 @@ You will need root privileges to do this for any user that is not yourself.
     # chmod 600 /home/lihua/.ssh/authorized_keys    // Set permissions on authorized_keys file
 ```
 It is important to set the permissions correctly, otherwise key authentication will not work.  To double check, type:
-```
+```shell
     # ls -al /home/lihua/.ssh/
 ```
 The output should look like this (known_hosts may or may not be there):
-```
+```shell
     drwx------. 2 lihua lihua   46 Aug 13 09:41 .
     drwx------. 3 lihua lihua 4096 Aug 13 12:09 ..
     -rw-------. 1 lihua lihua  741 Aug 13 06:19 authorized_keys
@@ -60,11 +58,10 @@ The output should look like this (known_hosts may or may not be there):
 ```
 
 ### Disable password authentication and remote root login
-
 *Important: Make sure to set up your own account with public key authentication **and check that it works** -  before making these changes.*  
 
 Edit the file `/etc/ssh/sshd_config`. Make sure the following settings are set to `no`:
-```
+```shell
     PermitRootLogin no
     PasswordAuthentication no
     ChallengeResponseAuthentication no
@@ -72,11 +69,11 @@ Edit the file `/etc/ssh/sshd_config`. Make sure the following settings are set t
     UseDNS no
 ```
 Then restart sshd:
-```
+```shell
     # systemctl restart sshd
 ```
 Before logging out, make sure to test that ssh works by logging in from a separate shell, or typing:
-```
+```shell
     $ ssh localhost
 ```
 Once this step is complete, an admin will have to create accounts and add keys for any new users who need to log into the machine.
@@ -85,13 +82,11 @@ Once this step is complete, an admin will have to create accounts and add keys f
 In order to prevent the wasting of resources as well as
 [lookup vulnerabilities](http://arstechnica.com/security/2016/02/extremely-severe-bug-leaves-dizzying-number-of-apps-and-devices-vulnerable/),
 include in sshd_config:
-
-```
+```shell
 UseDNS no
 ```
 
 ### Enable sshguard or something similar
-
 sshguard is available on Ubuntu by running `apt-get install sshguard` and prevents automated brute-force attacks
 that can be used to attack passwords as well as vunerabilities such as defeating ASLR.
 
@@ -111,7 +106,7 @@ CentOS/RHEL users should use chrony:
 
 BU machines can use ntp{1,2,3}.bu.edu as their time server. This can be done by replacing the `server` lines with 
 these:
-```
+```shell
 server ntp1.bu.edu
 server ntp2.bu.edu
 server ntp3.bu.edu
@@ -125,7 +120,7 @@ We don't use IPv6 for anything. Also, many firewalls don't protect against it
 by default, effectively meaning there is no firewall if it is enabled.
 
 For CentOS, RHEL and Ubuntu, add this to /etc/sysctl.conf:
-```
+```shell
 net.ipv6.conf.all.disable_ipv6 = 1
 ```
 
