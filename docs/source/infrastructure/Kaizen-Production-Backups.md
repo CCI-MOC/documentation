@@ -25,4 +25,4 @@ A copy is also in this repo:
 [openstack_db_bkp.sh](https://github.com/CCI-MOC/moc/blob/master/scripts/openstack_db_bkp.sh)
 
 ### Remote Backups to BU's SCC Cluster   
-[Kaizen Backups SCC Overview](../clusters/kaizen/Kaizen-Backups-SCC-Overview.html)
+[Kaizen Backups SCC Overview](../clusters/kaizen/Kaizen-Backups-Overview.html)
