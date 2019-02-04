@@ -1,12 +1,12 @@
-# Elastic Search
-Elasticsearch is a popular open source search server that is used for real-time distributed search and analysis of data. The operating system used in this tutorial is CentOS 7. 
+## Elastic Search
+Elasticsearch is a popular open source search server that is used for real-time distributed search 
+and analysis of data. The operating system used in this tutorial is CentOS 7. 
 
 This tutorial is for single node elasticsearch deployment (cluster size is 1).
 
 ### Install Elasticsearch
 Elasticsearch requires at least Java 8.
-
-```
+```shell
 cd ~
 wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jdk-8u73-linux-x64.rpm"
 sudo yum -y localinstall jdk-8u73-linux-x64.rpm
@@ -15,16 +15,15 @@ sudo yum -y localinstall jdk-8u73-linux-x64.rpm
 Now Java should be installed at `/usr/java/jdk1.8.0_73/jre/bin/java`, and linked from `/usr/bin/java`.
 
 You may delete the archive file that you downloaded earlier:
-
+```shell
 	rm ~/jdk-8u73-linux-x64.rpm
-
-Run the following command to import the Elasticsearch public GPG key into rpm:
-
-	sudo rpm --import http://packages.elastic.co/GPG-KEY-elasticsearch
-
-Create a new yum repository file for Elasticsearch.
-
 ```
+Run the following command to import the Elasticsearch public GPG key into rpm:
+```shell
+	sudo rpm --import http://packages.elastic.co/GPG-KEY-elasticsearch
+```
+Create a new yum repository file for Elasticsearch.
+```shell
 echo '[elasticsearch-2.x]
 name=Elasticsearch repository for 2.x packages
 baseurl=http://packages.elastic.co/elasticsearch/2.x/centos
@@ -35,73 +34,81 @@ enabled=1
 ```
 
 Install Elasticsearch with this command:
-
+```shell
 	sudo yum -y install elasticsearch
+```
 
 ### Configure Elasticsearch
 Open the Elasticsearch configuration file for editing:
-
+```shell
 	sudo vi /etc/elasticsearch/elasticsearch.yml
+```
+Though in this tutorial we will only deploy elasticsearch in one node. It is recommended to set a cluster name for 
+future deployment when we want to set a cluster nodes of elasticsearch. 
+You will want to use a descriptive name that is unique (within your network).
 
-Though in this tutorial we will only deploy elasticsearch in one node. It is recommended to set a cluster name for future deployment when we want to set a cluster nodes of elasticsearch. You will want to use a descriptive name that is unique (within your network).
-
-Find the line that specifies `cluster.name`, uncomment it, and replace its value with your desired cluster name. In this tutorial, we will name our cluster "moc-elasticsearch"
-
+Find the line that specifies `cluster.name`, uncomment it, and replace its value with your desired cluster name. 
+In this tutorial, we will name our cluster "moc-elasticsearch"
+```shell
 	cluster.name: moc-elasticsearch
-
+```
 Next, we will set the name of each node. This should be a descriptive name that is unique within the cluster.
 
-Find the line that specifies `node.name`, uncomment it, and replace its value with your desired node name. In this tutorial, we will set node name to the hostname of server by using the `${HOSTNAME}` environment variable:
-
+Find the line that specifies `node.name`, uncomment it, and replace its value with your desired node name. 
+In this tutorial, we will set node name to the hostname of server by using the `${HOSTNAME}` environment variable:
+```shell
 	node.name: ${HOSTNAME}
-
-Elastic recommends to avoid swapping the Elasticsearch process at all costs, due to its negative effects on performance and stability. One way avoid excessive swapping is to configure Elasticsearch to lock the memory that it needs.
+```
+Elastic recommends to avoid swapping the Elasticsearch process at all costs, 
+due to its negative effects on performance and stability. 
+One way avoid excessive swapping is to configure Elasticsearch to lock the memory that it needs.
 
 Find the line that specifies `bootstrap.mlockall` and uncomment it:
-
+```shell
 	bootstrap.mlockall: true
-
+```
 Save and exit.
 
 Next, open the `/etc/sysconfig/elasticsearch` file for editing
-
+```shell
 	sudo vi /etc/sysconfig/elasticsearch
-
-First, find `ES_HEAP_SIZE`, uncomment it, and set it to about 50% of your available memory. For example, if you have about 8 GB free, you should set this to 4 GB (4g):
-
+```
+First, find `ES_HEAP_SIZE`, uncomment it, and set it to about 50% of your available memory. 
+For example, if you have about 8 GB free, you should set this to 4 GB (4g):
+```shell
 	ES_HEAP_SIZE=4g
-
+```
 Next, find and uncomment `MAX_LOCKED_MEMORY=unlimited`. It should look like this when you're done:
-
+```shell
 	MAX_LOCKED_MEMORY=unlimited
-
+```
 Save and exit.
 
 The last file to edit is the Elasticsearch systemd unit file. Open it up for editing:
-
+```shell
 	sudo vi /usr/lib/systemd/system/elasticsearch.service
-
+```
 Find and uncomment `LimitMEMLOCK=infinity`. It should look like this when you're done:
-
+```shell
 	LimitMEMLOCK=infinity
-
+```
 Save and exit.
 
 Now reload the systemctl daemon and start Elasticsearch:
-
-```
+```shell
 sudo systemctl daemon-reload
 sudo systemctl start elasticsearch
 sudo systemctl enable elasticsearch
 ```
 
 ### Verify installation
-If everything was configured correctly, your Elasticsearch cluster should be up and running. You could use this command to check the health of your cluster (which has one node currently):
-
+If everything was configured correctly, your Elasticsearch cluster should be up and running. 
+You could use this command to check the health of your cluster (which has one node currently):
+```shell
 	curl -XGET http://localhost:9200/_cluster/health?pretty
-
-Elasticsearch is running in good condition if you get response that looks like this:
 ```
+Elasticsearch is running in good condition if you get response that looks like this:
+```json
 {
   "cluster_name" : "elasticsearch",
   "status" : "green",
@@ -122,51 +129,45 @@ Elasticsearch is running in good condition if you get response that looks like t
 ```
 
 ### Indexing
-While we may want to use ElasticSearch primarily for searching the first step is to populate an index with some data, meaning the "Create" of CRUD, or rather, "indexing".
+While we may want to use ElasticSearch primarily for searching the first step is to populate an index 
+with some data, meaning the "Create" of CRUD, or rather, "indexing".
 
-In ElasticSearch indexing corresponds to both "Create" and "Update" in CRUD - if we index a document with a given type and ID that doesn't already exists it's inserted. If a document with the same type and ID already exists it's overwritten.
+In ElasticSearch indexing corresponds to both "Create" and "Update" in CRUD - if we index a document with a given type 
+and ID that doesn't already exists it's inserted. If a document with the same type and ID already exists it's overwritten.
 
-**Document**
+**Document** - JSON document stored in ES. Like row in table in Relational DB. 
+Documents are collections of fields, and comprise the base unit of storage in elasticsearch.
 
-JSON document stored in ES. Like row in table in Relational DB. Documents are collections of fields, and comprise the base unit of storage in elasticsearch.
+**Index** - The largest single unit of data in elasticsearch is an index. 
+Like Database in relational db, logical namespace which maps to primary and replica shard.
 
-**Index** 
+**Id** - Uniquely identifies a document.
 
-The largest single unit of data in elasticsearch is an index. Like Database in relational db, logical namespace which maps to primary and replica shard.
+**Field** - Key-value pairs. Like column in Relational DB 
+ -  Simple value like string, integer, date
+ -  Array or an object
 
-**Id**
+**Type** - Like a table in relational DB. Has a lot of fields
 
-Uniquely identifies a document.
+**Document** (oriented) - Stores entire objects or documents 
+(also indexes the contents of each document in order to make them searchable)
 
-**Field**
-
-Key-value pairs. Like column in Relational DB 
-* Simple value like string, integer, date
-* Array or an object
-
-**Type** 
-
-Like a table in relational DB. Has a lot of fields
-
-**Document**
-
-oriented - Stores entire objects or documents (also indexes the contents of each document in order to make them searchable)
-
-## ELK Stack Configuration
-* In Elasticsearch configuration `elasticsearch.yml` should listen on an address `network.host: ES_private_IP` that is accessible to Logstash and Kibana.
-* In Kibana configuration `kibana.yml` `elasticsearch_url` should be set to Elasticsearch's listening IP/port `elasticsearch_url: "http://ES_private_IP:9200"`.
-* Logstash needs its output configured to point to the Elasticsearch server.
+### ELK Stack Configuration
+ -  In Elasticsearch configuration `elasticsearch.yml` should listen on an address 
+ `network.host: ES_private_IP` that is accessible to Logstash and Kibana.
+ -  In Kibana configuration `kibana.yml` `elasticsearch_url` should be set to Elasticsearch's 
+ listening IP/port `elasticsearch_url: "http://ES_private_IP:9200"`.
+ -  Logstash needs its output configured to point to the Elasticsearch server.
 
 ### Elasticsearch requests
-
-```
+```shell
 # curl -X<VERB> '<PROTOCOL>://<HOST>/<PATH>' -d '<BODY>'
 # curl -X<VERB> '<PROTOCOL>://<HOST>/<PATH>?<QUERY_STRING>'
 ```
 
-In the example below, the PUT request is used to index a first JSON object to the REST API to a URL made up of the index name, type name and ID. ID is optional (if you don't specify an ID, elasticsearch will provide one).
-
-```
+In the example below, the PUT request is used to index a first JSON object to the REST API to a URL 
+made up of the index name, type name and ID. ID is optional (if you don't specify an ID, elasticsearch will provide one).
+```shell
 # curl -XPUT 'http://localhost:9200/index_1/type_1/id_1' -d'
 {
 	"email": "john@smith.com",
@@ -180,21 +181,22 @@ In the example below, the PUT request is used to index a first JSON object to th
 ```
 
 ### Sense 
-Interactive console (chrome plugin) tool to query elasticsearch. Can be downloaded from [Sense](https://chrome.google.com/webstore/detail/sense-beta/lhjgkmllcaadmopgmanpapmpjgmfcfig?hl=en). Easy to use with shortcuts and organizes output into human-readable format. 
+Interactive console (chrome plugin) tool to query elasticsearch. Can be downloaded from 
+[Sense](https://chrome.google.com/webstore/detail/sense-beta/lhjgkmllcaadmopgmanpapmpjgmfcfig?hl=en). 
+Easy to use with shortcuts and organizes output into human-readable format. 
 
 example shortcuts
-
+```shell
 	<VERB> /<PATH> '<body>'
-
+```
 instead of 
-
+```shell
 	curl -X<VERB> '<PROTOCOL>://<HOST>/<PATH>' -d '<BODY>'
-
+```
 ![](http://cdn.shahed.me/es-fulltext.png)
 
-
 ### Simple CRUD example
-```
+```shell
 // Create a type called 'hacker'(the index planet must be created first)
 # curl -XPUT "https://localhost:9200/planet/hacker/_mapping" -d'
 {
@@ -220,4 +222,3 @@ instead of
 // Create an index named 'planet'
 # curl -XPUT "http:localhost:9200/planet"
 ```
-
