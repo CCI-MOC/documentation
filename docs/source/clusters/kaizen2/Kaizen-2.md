@@ -51,6 +51,7 @@ IP Address  Hostname/Description
 129.10.5.126	kumo-e.massopen.cloud
 129.10.5.127    kzn-hil.massopen.cloud
 129.10.5.128    kzn-ovpn.massopen.cloud
+129.10.5.130    neu-15-41 (for apoorve)
 ```
 
 ## IPMI network: 10.0.0.0/19 (ACCESS MODE)
@@ -154,7 +155,6 @@ IP Address  Hostname/Description
 ```shell
 IP Address  Hostname/Description
 128.31.28.1     gateway
-128.31.28.240	neu-15-41 (Apoorve)
 128.31.28.248   openshift (Rob)
 128.31.28.249	openshift (Rob)
 128.31.28.251   openshift (Rob)
