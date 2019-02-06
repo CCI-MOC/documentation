@@ -18,7 +18,7 @@ There are aliases in bash to restart them if they go down.
 Once you have shed into mocdebug, you will be able to connect your favorite vncclient to either one on your localhost, e.g.:
 ```shell
 	vncclient localhost:8
-``
+```
 The password is bitwarden VM VNC Access password
 
 Firefox is already set up with socks forwarding, and there is an entry in the `.ssh/config` file to ssh into the gateway server.

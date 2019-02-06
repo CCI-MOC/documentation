@@ -1,4 +1,4 @@
-## Info
+## Reducing SSH Login Delay
 Setting `UseDNS no` in the VM's `/etc/ssh/sshd_config` or `/etc/sshd_config` has made it much faster to ssh into VMs.
 
 centos@128.31.24.158 is a m1.small VM in Kaizen with a public IP.
@@ -13,7 +13,7 @@ More info about the UseDNS option to see if you actually need it enabled:
  -  [What's the point of usedns option?](http://unix.stackexchange.com/questions/56941/what-is-the-point-of-sshd-usedns-option)
  -  [OpenSSH Bug Report](https://bugs.launchpad.net/ubuntu/+source/openssh/+bug/424371)
 
-### How To
+To configure:
  1. `sudo vim /etc/ssh/sshd_config` or `sudo vim /etc/sshd_config`
  1. Change `UseDNS yes` to `UseDNS no` or add `UseDNS no` to the file, then quit vim
  1. Restart ssh `sudo service sshd restart`

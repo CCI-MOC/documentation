@@ -1,6 +1,4 @@
 ## Current Slurm Deployment
-*Updated Slurm cluster layout can be found [here](https://github.com/CCI-MOC/hpc/wiki/Current-Slurm-cluster)*
-
 This page talks about the current SLURM system we can deploy using the existing script. 
 These scripts and findings from these configurations will be used to deploy SLURM cluster 
 using BMI and HAAS on baremetal nodes. That part is yet to be worked on.    

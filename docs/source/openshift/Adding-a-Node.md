@@ -7,8 +7,8 @@
      -  [Adding Masters](Adding-Masters.html)
      -  [Adding Nodes](Adding-Nodes.html)
  1. Confirm all nodes were added:
-```shell
+    ```shell
         oc get nodes
-```
+    ```
  1. If yes, merge `[new_masters]` section with `[masters]` and delete the `[new_masters]` 
  and merge `[new_nodes]` section with `[nodes]` and delete the `[new_nodes]` section.

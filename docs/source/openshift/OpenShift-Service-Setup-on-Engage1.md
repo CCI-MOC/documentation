@@ -17,15 +17,15 @@ Goal, install OpenShift on Engage1 with the following features:
 [Instructions](https://docs.openshift.com/container-platform/3.5/install_config/install/quick_install.html)
 
  1. A shared network must exist between master and node hosts
-```shell
-   --> this may limit a general instance to one project, and instances for private data to individual projects.
+    ```shell
+       --> this may limit a general instance to one project, and instances for private data to individual projects.
 
-   --> The OpenStack subnetwork is set to 10.0.0.0/20 (IPv4) GatewayIP 10.0.0.1
+       --> The OpenStack subnetwork is set to 10.0.0.0/20 (IPv4) GatewayIP 10.0.0.1
 
-   --> The OpenShift service subnetwork is set to 172.30.0.0/16
-```
+       --> The OpenShift service subnetwork is set to 172.30.0.0/16
+    ```
  1. 2 sets of VMs were created as other people also need this:
-```shell
+    ```shell
         Name        internal ip external ip  VCPU RAM(GB)  node domain  volume(GB)
         master-1    10.0.0.6    128.31.22.70    8      16        infra         300
         master-2    10.0.0.5    128.31.22.69    8      16        infra         300
@@ -44,17 +44,17 @@ Goal, install OpenShift on Engage1 with the following features:
         n-1         10.1.0.10   128.31.22.76    2       4        infra          80
         n-2         10.1.0.19   128.31.22.75    2       4        infra          80
         n-3         10.1.0.6    128.31.22.82    2       4      default          80
-```
- These were registered in a subdomain using an external DNS server.
- By default, SELinix is enabled - to check:
-```shell
-   view: `/etc/selinux/config`
+    ```
+    These were registered in a subdomain using an external DNS server.
+    By default, SELinix is enabled - to check:
+    ```shell
+       view: `/etc/selinux/config`
 
-        SELINUX = enforcing
-        SELINUXTYPE=targeted
-```
+            SELINUX = enforcing
+            SELINUXTYPE=targeted
+    ```
  1. on every VM, run the following perl script:
-```shell
+    ```shell
         #!/usr/perl
         
         #read the pool id from the subscription
@@ -151,38 +151,38 @@ Goal, install OpenShift on Engage1 with the following features:
             print $fh $erics_key."\n";
             close($fh);
             }
-```
- *Note: setup storage for containers*
- options:
+    ```
+    *Note: setup storage for containers*
+    options:
      -  Option A) Use an additional block device
      -  Option B) Use an existing, specified volume group
      -  Option C) Use the remaining free space from the volume group where your root file is located
- For either A or B (uses the volumes created in step 3), On each system:
-```shell
+    For either A or B (uses the volumes created in step 3), On each system:
+    ```shell
         vi /etc/sysconfig/docker
-```        
- The file only needs these 2 lines:
-```shell
+    ```        
+    The file only needs these 2 lines:
+    ```shell
             DEVS=vdb
             VG=docker-vg
-```
- *Note: the OpenShift and Redhat documentation will have `DEVS=/dev/vdc`, however the mount point is `/dev/vdb` 
- and the docker-storage-setup script will give an error saying '/dev//dev/vdb` does not exist', so just use vdb.*
- run:
-```shell     
+    ```
+    *Note: the OpenShift and Redhat documentation will have `DEVS=/dev/vdc`, however the mount point is `/dev/vdb` 
+    and the docker-storage-setup script will give an error saying '/dev//dev/vdb` does not exist', so just use vdb.*
+    run:
+    ```shell     
             docker-storage-setup
-```
+    ```
  1. Ensure host Access
-```shell
-    use ssh key forwarding, and from the host ensure access to each node just using the short name (m-1, m-2, e-1, e-2, e-3, n-1, n-2, n-3).
-```
+    ```shell
+     use ssh key forwarding, and from the host ensure access to each node just using the short name (m-1, m-2, e-1, e-2, e-3, n-1, n-2, n-3).
+    ```
  1. Follow the Advanced Install for OpenShift:
- On the master edit `/etc/ansible/hosts` file
-```shell   
-        vi /etc/ansible/hosts
-```
- File contents:
-```shell
+     -  On the master edit `/etc/ansible/hosts` file
+    ```shell   
+         vi /etc/ansible/hosts
+    ```
+     -  File contents:
+    ```shell
         [OSEv3:children]
         masters
         etcd
@@ -193,7 +193,8 @@ Goal, install OpenShift on Engage1 with the following features:
         ansible_ssh_user=root
         
         #use keystone as the identity provider
-        openshift_master_identity_providers=[{'name': 'keystone_auth', 'login': 'true', 'challenge': 'true', 'url': '[OpenStack Keystone URL]', 'domainName': 'default', 'kind': 'KeystonePasswordIdentityProvider'}]
+        openshift_master_identity_providers=[{'name': 'keystone_auth', 'login': 'true', 'challenge': 'true', 'url': '[OpenStack Keystone URL]', 
+	'domainName': 'default', 'kind': 'KeystonePasswordIdentityProvider'}]
 
         # use OpenStack as the cloud provider
         # Openstack
@@ -233,16 +234,19 @@ Goal, install OpenShift on Engage1 with the following features:
         e-3 openshift_hostname=e-3 openshift_public_hostname=128.31.22.73 openshift_public_ip=128.31.22.73
 
         [nodes]
-        m-1 openshift_hostname=m-1 openshift_public_hostname=128.31.22.40 openshift_public_ip=128.31.22.40 openshift_node_labels="{'region':'infra','zone':'default'}" openshift_schedulable=false
-        m-2 openshift_hostname=m-2 openshift_public_hostname=128.31.22.68 openshift_public_ip=128.31.22.68 openshift_node_labels="{'region':'infra','zone':'default'}" openshift_schedulable=false
+        m-1 openshift_hostname=m-1 openshift_public_hostname=128.31.22.40 openshift_public_ip=128.31.22.40 
+	openshift_node_labels="{'region':'infra','zone':'default'}" openshift_schedulable=false
+        m-2 openshift_hostname=m-2 openshift_public_hostname=128.31.22.68 openshift_public_ip=128.31.22.68 
+	openshift_node_labels="{'region':'infra','zone':'default'}" openshift_schedulable=false
         n-1 openshift_hostname=n-1 openshift_public_hostname=128.31.22.76 openshift_public_ip=128.31.22.76 openshift_node_labels="{'region':'infra','zone':'default'}"
         n-2 openshift_hostname=n-2 openshift_public_hostname=128.31.22.75 openshift_public_ip=128.31.22.75 openshift_node_labels="{'region':'infra','zone':'default'}"
         n-3 openshift_hostname=n-3 openshift_public_hostname=128.31.22.82 openshift_public_ip=128.31.22.82 openshift_node_labels="{'region':'default','zone':'default'}"
-```
- run:
-```shell
+    ```
+     -  run:
+    ```shell
         ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/config.yml    
-```
+    ```
+
 At this point we have achieved the following:
  -  High Availability
  -  Multi-tenant networking
@@ -257,7 +261,8 @@ Notes:
  1. The master node should not be schedulable.
  1. Nodes can be reassigned a region with 'oc label node shiftnode1.moclocal region=infra --overwrite=true'
  1. Before deleting a virtual machine, run: 
-```shell
+    ```shell
 	subscription-manager unregister
-```
+    ```
+
 To unsubscribe it from RH.

@@ -22,7 +22,7 @@ There are many interconnected steps in the process of adding a new user.  The fl
  1. wordpress plugin sends an email notification to Piyanai
  1. Piyanai marks the request approved (or moves it to Spam)
  1. The helpdesk notification script checks the spreadsheet periodically, and when it finds a new approved request, 
- it sends an email to the UMass helpdesk to generate a ticket
+    it sends an email to the UMass helpdesk to generate a ticket
  1. The helpdesk runs the addusers script to process the request
  1. addusers script uses the [service account](#google-api-project-and-service-account) to get access to the spreadsheet
  1. addusers script reads data from the spreadsheet and creates new users/projects
@@ -165,15 +165,15 @@ The addusers directory already has a .gitignore configured to prevent it being c
      -  Double check that all the entries seem legit - if someone filled out form, Piyanai approved them, 
      and then someone else filled out the form before you checked it, that entry could be bogus.
  1. Log into the addusers VM and run the script.  Make sure to use the latest code:
-```shell
-    $ ssh <yourusername>@128.31.24.185 -p 2222
-    $ cd moc/scripts/addusers           # assuming you cloned the repo in your home directory
-    $ git status                        # make sure you are on the master branch
-    $ git pull 	                        # get the latest code
-    $ sudo python addusers.py
-```
+    ```shell
+     $ ssh <yourusername>@128.31.24.185 -p 2222
+     $ cd moc/scripts/addusers           # assuming you cloned the repo in your home directory
+     $ git status                        # make sure you are on the master branch
+     $ git pull 	                        # get the latest code
+     $ sudo python addusers.py
+    ```
  1. Check script output for errors
- The script performs the following tasks:
+     The script performs the following tasks:
      1. Read and parse new user data from the spreadsheet
      1. Create new OpenStack projects and users based on the data
      1. Add all new users, passwords, and PINs to the Setpass service database

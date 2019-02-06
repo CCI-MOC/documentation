@@ -1,5 +1,5 @@
 ## OpenShift Certificates
-[UP](OpenShift-Debugging.html)
+[UP](OpenShift.html)
 
  1. to see if there are multiple certificates with hawkular or ...
 ```shell

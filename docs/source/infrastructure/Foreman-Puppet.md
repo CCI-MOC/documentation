@@ -4,26 +4,26 @@ to pxe boot and puppet provision our openstack nodes in the North-Eastern cluste
 
 ### Create HIL project, network, and headnode
  1. Create project
-```shell
-haas project_create moc-prod
-```
+    ```shell
+    haas project_create moc-prod
+    ```
  1. Create network
-```shell
-haas network_create moc-provision moc-prod moc-prod ""
-```
+    ```shell
+     haas network_create moc-provision moc-prod moc-prod ""
+    ```
  1. Create headnode
-```shell
-haas headnode_create prod-foreman moc-prod centos_base
-haas headnode_create_hnic prod-foreman eth0
-haas headnode_connect_network prod-foreman eth0 moc-provision
-```
+    ```shell
+     haas headnode_create prod-foreman moc-prod centos_base
+     haas headnode_create_hnic prod-foreman eth0
+     haas headnode_connect_network prod-foreman eth0 moc-provision
+    ```
  1. Attach nodes to project / network
-```shell
-haas project_connect_node moc-prod cisco-46
-haas node_connect_network cisco-46 enp130s0f0 moc-provision vlan/native
-haas project_connect_node moc-prod cisco-47
-haas node_connect_network cisco-47 enp130s0f0 moc-provision vlan/native
-```
+    ```shell
+     haas project_connect_node moc-prod cisco-46
+     haas node_connect_network cisco-46 enp130s0f0 moc-provision vlan/native
+     haas project_connect_node moc-prod cisco-47
+     haas node_connect_network cisco-47 enp130s0f0 moc-provision vlan/native
+    ```
 
 Resulting haas configuration:
  -  haas project: moc-prod

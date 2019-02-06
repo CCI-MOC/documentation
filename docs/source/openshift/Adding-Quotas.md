@@ -12,11 +12,11 @@ See
  -  [Template for New Projects](https://docs.openshift.org/latest/admin_guide/managing_projects.html#template-for-new-projects)
 
  1. Get the previous template:
-```shell
+    ```shell
         oadm create-bootstrap-project-template -o yaml > project_template_20170609.yaml
-```
+    ```
  1. Just for completeness, this returned:
-```yaml
+    ```yaml
         apiVersion: v1
         kind: Template
         metadata:
@@ -96,9 +96,9 @@ See
         - name: PROJECT_DESCRIPTION
         - name: PROJECT_ADMIN_USER
         - name: PROJECT_REQUESTING_USER
-```
+    ```
  1. Here is a new project-template with limits:
-```json
+    ```json
         {
             "kind": "Template",
             "apiVersion": "v1",
@@ -327,20 +327,20 @@ See
                 }
             ]
         }
-```
+    ```
  1. to load the new project template:
-```shell
+    ```shell
         oc create -f project_template.yaml -n default
-```
+    ```
  1. Change the master-config to refer to the new project-template:
-```yaml
+    ```yaml
         ...
         projectConfig:
           projectRequestTemplate: "default/project-request"
           ...
-```
+    ```
  1. Restart the masters (in this case both masters)
-```shell
+    ```shell
         systemctl restart atomic-openshift-master-api
         systemctl restart atomic-openshift-master-controllers
-```
+    ```
