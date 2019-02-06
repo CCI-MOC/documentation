@@ -1,8 +1,8 @@
-# HaaS Bootstrapping
+## HaaS Bootstrapping
 The script below is an example of how to populate the HaaS with nodes.  
 
-It also configures the switch accordingly. This is the script that was used to add the extra rack of servers into the northeastern cluster's HaaS.
-
+It also configures the switch accordingly. This is the script that was used to add the extra 
+rack of servers into the northeastern cluster's HaaS.
 ```python
 import json
 import pexpect
@@ -49,11 +49,12 @@ for node in range(1, 25):
                       "node": "cisco-%02d" % node,
                       "nic": "enp130s0f0",
                   }))
+```
 
-# activate all of the allocation pool's networks.
+### Activate all of the allocation pool's networks
+```python
 for vlan in range(1000,1100):
     conn.sendline('vlan %d' % vlan)
     conn.sendline('state active')
     conn.sendline('exit')
 ```
-

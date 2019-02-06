@@ -45,6 +45,8 @@
  -  [RedHat KickStart-File which is working](archives-page/RedHat-KickStart-File-which-is-working.html)
  -  [Foreman PXE Tepmlae which is working](archives-page/Foreman-PXE-Template-which-is-workiing.html)
  -  [Helpdesk Automation](archives-page/Helpdesk-Automation.html)
+ -  [HPC Meeting Minutes](archives-page/Minutes-from-Meetings.html)
+ -  [HaaS Meeting Minutes](archives-page/Haas-meeting-minutes.html)
 
 ### Vagrant stuff
  -  [Install Devstack with Vagrant](archives-page/Install-Devstack-with-Vagrant.html)
