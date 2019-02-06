@@ -37,7 +37,7 @@ Let's jump right in with an example.  Here's a script that will list all instanc
                              project_name,
                              auth_url) 
 ```
-Here's an [example script] that shows how to set up clients for the different services and retrieve some basic information about existing resources.
+Here's an example script that shows how to set up clients for the different services and retrieve some basic information about existing resources.
 
 You need to make sure your environment variables are set in order for it to work. 
 
@@ -86,7 +86,7 @@ Run your script from a terminal where you have sourced the openstackrc script:
 ```
 If you log into the Horizon GUI, you can see your instance.
 
-The [example script] is available for download.
+The example script is available for download.
 
 Make sure to fill in the appropriate image, flavor, keypair, and network names, and to set your environment variables.
 

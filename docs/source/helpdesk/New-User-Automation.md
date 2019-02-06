@@ -113,7 +113,8 @@ They will log into the helpdesk VM:
 ```
 And use the `moc` interface to run the script.  This is a bash function layered in between the helpdesk user 
 and the actual scripts - the intention is to prevent all the helpdesk users from having access to 
-the `settings.ini` file which contains passwords.  More information about this is at [[Configuration of the Helpdesk VM]].
+the `settings.ini` file which contains passwords.  
+More information about this is at [Configuration of the Helpdesk VM](Configuration-of-the-Helpdesk-VMs.html).
 
 ## Addusers python script
 The addusers script is stored in the private 'moc' repo at and named `addusers.py`.

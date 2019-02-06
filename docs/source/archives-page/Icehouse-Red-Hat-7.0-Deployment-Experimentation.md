@@ -32,8 +32,6 @@ Following are the approaches I tried for installing Centos 6.5 and Centos 6.3 us
 OS installation procedure gets loaded correctly.
 At the stage of selecting the location of driver, when I select the same DVD as location, it shows the following message.
 
-![](../../_static/img/selectDvdFordriver.png)
-
  -  OS as virtual disk (.iso) and drivers burned on  a CD (only the .img file). status: FAIL
  -  On trying to select the DVD for the location of the driver, I again got the same error as above.
  -  **06/09/2015 - Sahil** Today I, Apoorve and Ravi were troubleshooting the issue of installing RH7.0 on the Cisco Server. 
@@ -42,11 +40,9 @@ At the stage of selecting the location of driver, when I select the same DVD as 
 
 The current status is as follows: A new set of drivers 'ucs-cxxx-drivers.2.0.4a.iso' were released by Cisco for its server (UCS C220 M3 SFF) on 05 June 2015. 
 
-![](../../_static/img/nuNewDriverRelease.png)
+![](../_static/img/nuNewDriverRelease.png)
 
 The interoperability matrix shows that it supports upto RH7.1 but when I looked into the iso, it clearly mentions that there is not support for RH 7.0. 
-
-![](../../_static/img/SupportInfo-newDriver.png)
 
 Out idea was to install the server with the RH version that works and then upgrade it to RH7.0
 
@@ -80,15 +76,15 @@ Trying to burn the OS iso and driver image together as a single iso also gave er
      This means that any machine has access to every single machine's OBM, which is a serious security problem. 
      As shown in this back plane of the UCS servers photo provided by NU, the dedicated management ports do not have any cable plugged in. 
 
-![](../../_static/img/UCSnetworkCabling.png)
+![](../_static/img/UCSnetworkCabling.png)
 
 The image of the full back plane of the UCS server is also provided next. The image was taken from page 7 of the [UCS C220-M3S Spec. Sheet](https://www.cisco.com/c/dam/en/us/products/collateral/servers-unified-computing/ucs-c-series-rack-servers/C220M3_SFF_SpecSheet.pdf).
 
-![](../../_static/img/Pg7ChassisRearViewUCS_C220-M3S.png)
+![](../_static/img/Pg7ChassisRearViewUCS_C220-M3S.png)
 
  -  **06/05/2015 - Ravi**
 
-![](../../_static/img/RaviMegaRaidScreenShot2.png)
+![](../_static/img/RaviMegaRaidScreenShot2.png)
 
  -  Issues
      -  As of now, we are not able to install Redhat family OS on the Cisco gear. 

@@ -2,7 +2,5 @@
 
 cd $(git rev-parse --show-toplevel)
 find docs \
-	-name archives-page -prune -o \
-	-name Archives-page.md -prune -o \
 	-type f -name '*.md' -print0 |
 	xargs -0 scripts/markdown-check-links --docroot $PWD/docs/source "$@"

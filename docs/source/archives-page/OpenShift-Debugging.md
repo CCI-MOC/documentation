@@ -1,6 +1,6 @@
 ## OpenShift Debugging
-[UP](OpenShift.html)
+[UP](../openshift/OpenShift.html)
 
 [Network Debugging](Network-Debugging.html)
 
-[Certificates](Certificates.html)
+[Certificates](../openshift/Certificates.html)

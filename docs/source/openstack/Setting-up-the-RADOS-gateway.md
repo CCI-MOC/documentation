@@ -101,7 +101,7 @@ If you accidentally create a pool, delete it like this:
 ```shell
      ceph osd pool delete <pool_name> <pool_name> --yes-i-really-really-mean-it
 ```
-Make sure you really mean it! *(Fun fact: it is possible to name a pool "[pool_name]".)*
+Make sure you really mean it! *(Fun fact: it is possible to name a pool `[pool_name]`.)*
 
 [top](#top)
 
@@ -429,7 +429,8 @@ Links to useful Red Hat docs:
 (This section mostly reproduces the instructions in the [Ceph Documentation](http://docs.ceph.com/docs/master/radosgw/config/) 
 but with some additional notes/comments)
 
-For more information about using the RADOS gateway to do operations, see [[Talking to the RADOS Gateway]]
+For more information about using the RADOS gateway to do operations, 
+see [Talking to the RADOS Gateway](Talking-to-the-RADOS-gateway.html)
 
 ### User Setup
 Create a gateway user and a swift subuser with a swift secret key:

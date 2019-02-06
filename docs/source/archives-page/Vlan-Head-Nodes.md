@@ -120,7 +120,7 @@ with one line per slave node. The mac address corresponds to the interface on th
 
 To get the various scripts we need onto the headnode, we can do:
 
-    git clone git://github.com/CCI-MOC/moc-public
+    git clone git://github.comhttps://github.com/CCI-MOC/moc-public
     cd moc-public/python-mocutils
     python setup.py build && sudo python setup.py install
 
@@ -229,10 +229,10 @@ traffic.
 
 # Puppet
 
-We have a puppetmaster set up, as described at [[MOCPOC: Puppet Openstack Install (on Ubuntu)]] and 
-[[MOCPOC: Puppet Openstack Install (on Centos)]]
+We have a puppetmaster set up, as described at [MOCPOC: Puppet Openstack Install (on Ubuntu)](MOCPOC-Puppet-Openstack-Install-on-Ubuntu.html) and 
+[MOCPOC: Puppet Openstack Install (on Centos)](MOCPOC-Puppet-Openstack-Install-on-Centos.html)
 
 # TODO:
 
-[1]: /CCI-MOC/moc-public/blob/master/ks.cfg
-[2]: /CCI-MOC/moc-public/python-mocutils/scripts/linky.py
+[1]: https://github.com/CCI-MOC/moc-public/blob/master/ks.cfg
+[2]: https://github.com/CCI-MOC/moc-public/python-mocutils/scripts/linky.py

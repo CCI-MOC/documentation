@@ -1090,14 +1090,14 @@ I found that we could get VM creation and deletion events information in nova lo
 
 Every time we successfully create a new instance. There will be a log message in nova says 'Instance spawned successfully'. Thus, we could put these words in our kibana filter to get VM creation events over time.
 The example log message is as follows:
-
+```
 2016-08-16 12:06:38.219 2937 INFO nova.virt.libvirt.driver [-] [instance: 273863eb-2569-4fd2-93bd-c0af732570c7] Instance spawned successfully.
-
+```
 Each time we delete a instance.
 The nova log message is as follows:
-
+```
 2016-08-16 13:29:25.525 2937 INFO nova.virt.libvirt.driver [req-42de551d-bb4c-4cbd-ad7e-c965cca19dfd 71a0408904b1463083094115bad34608 07b813c3b1f24cae8f85b108ff05ce4a - - -] [instance: 4a6095b6-06ff-423e-a9dc-225823f40bf6] Deletion of /var/lib/nova/instances/4a6095b6-06ff-423e-a9dc-225823f40bf6_del complete
-
+```
 There are 'delete' and 'complete' keywords in the log file. We could filter the log message base on this.
 
 I still need to figure out how to get 'number of active users in the system over time’ information from openstack log files.

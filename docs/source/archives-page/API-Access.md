@@ -6,10 +6,10 @@ Most of this tutorial has been focused on interacting with OpenStack via the Hor
 But anything you can do in Horizon can also be done by interacting directly with the Openstack API.
 
 There are several options:
-* [OpenStack CLI](OpenStack-CLI.html) - Open (similar to the swift client used in the [Object Storage](Object-Storage.html) part of the tutorial)
-* [Python SDK](Python-SDK.html) - A unified front for the various OpenStack service clients
-* [REST API](REST-API.html) - writing your application to communicate directly with the OpenStack RESTful API endpoints
-* [Python Service Clients](Python-Service-Clients.html) - using the OpenStack Python libraries (or libraries that may exist for other languages) to integrate OpenStack into your application
+* [OpenStack CLI](../openstack/OpenStack-CLI.html) - Open (similar to the swift client used in the [Object Storage](../openstack/Object-Storage.html) part of the tutorial)
+* [Python SDK](../openstack/Python-SDK.html) - A unified front for the various OpenStack service clients
+* [REST API](../openstack/REST-API.html) - writing your application to communicate directly with the OpenStack RESTful API endpoints
+* [Python Service Clients](../openstack/Python-Service-Clients.html) - using the OpenStack Python libraries (or libraries that may exist for other languages) to integrate OpenStack into your application
 
 The steps in this section may be performed from any machine with Internet access.
 
@@ -44,7 +44,7 @@ However there are many libraries available for other language, with varying leve
 
 You can read more about these here: [Software Development Kits](https://wiki.openstack.org/wiki/SDKs). 
 
-Detailed instructions on installing openstack clients can be found in the End User Guide page on [command line clients][1].
+Detailed instructions on installing openstack clients can be found in the End User Guide page on command line clients.
 
 The official instructions recommend using pip to install the clients, but if for some reason you need to avoid pip, you may be able to install the packagages from your OS package manager.
 
@@ -68,13 +68,13 @@ The individual service clients are dependencies of python-openstackclient, but i
 
 where $PROJECT is the service name, such as `cinder`, `nova`, or `neutron`.
 
-The full list of clients can be found in the [guide][1], although keep in mind that not all the listed services are offered in the MOC OpenStack installation.
+The full list of clients can be found in the guide, although keep in mind that not all the listed services are offered in the MOC OpenStack installation.
 
 ******
 
-Next: [OpenStack CLI](OpenStack-CLI.html)
+Next: [OpenStack CLI](../openstack/OpenStack-CLI.html)
 
-Previous: [Object Storage](Object-Storage.html)
+Previous: [Object Storage](../openstack/Object-Storage.html)
 
-[Openstack Tutorial Index](OpenStack-Tutorial-Index.html)
+[Openstack Tutorial Index](../openstack/OpenStack-Tutorial-Index.html)
 

@@ -4,10 +4,6 @@ we use 'InfluxDB v0.8' as the backend database and grafana as the visualization 
 
 We installed influxdb and grafana in moc-sensu server `10.31.27.157`. 
 
-This diagram shows how Sensu,InfluxDB and Grafana interact with each other. 
-
-![](../_static/img/influxdb.png)
-
 **Influxdb** is a time series, metrics, and analytics database. It’s written in Go and has no external dependencies. 
 
 ### Influxdb Configuration
