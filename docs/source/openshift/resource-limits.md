@@ -1,8 +1,8 @@
-# OpenShift Resource Limits
+## OpenShift Resource Limits
 [UP](Adding-Limits.html)
 
 Create a file containing:
-
+```yaml
         apiVersion: "v1"
         kind: "LimitRange"
         metadata:
@@ -43,5 +43,4 @@ Create a file containing:
                 storage: "500Mi"
               max:
                 storage: "5Gi"
-
-
+```
