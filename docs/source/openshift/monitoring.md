@@ -3,70 +3,70 @@
 
  1. Create a VM running the cloud forms image.
  1. Add a service account in openshift
-```shell
-oadm new-project management-infra --description="Management Infrastructure"
-$ oc create -n management-infra -f - <<EOF
-  apiVersion: v1
-  kind: ServiceAccount
-  metadata:
-  name: management-admin
-EOF
+    ```shell
+    oadm new-project management-infra --description="Management Infrastructure"
+    $ oc create -n management-infra -f - <<EOF
+      apiVersion: v1
+      kind: ServiceAccount
+      metadata:
+      name: management-admin
+    EOF
 
-$ oc create -f - <<EOF
-  apiVersion: v1
-  kind: ClusterRole
-  metadata:
-    name: management-infra-admin
-  rules:
-  - resources:
-    - pods/proxy
-    verbs:
-    - '*'
-EOF
+    $ oc create -f - <<EOF
+      apiVersion: v1
+      kind: ClusterRole
+      metadata:
+        name: management-infra-admin
+      rules:
+      - resources:
+        - pods/proxy
+        verbs:
+        - '*'
+    EOF
 
-$ oadm policy add-role-to-user -n management-infra admin -z management-admin
-$ oadm policy add-role-to-user -n management-infra management-infra-admin -z management-admin
-$ oadm policy add-cluster-role-to-user cluster-reader -z management-admin
-$ oadm policy add-scc-to-user privileged system:serviceaccount:management-infra:management-admin
-```
+    $ oadm policy add-role-to-user -n management-infra admin -z management-admin
+    $ oadm policy add-role-to-user -n management-infra management-infra-admin -z management-admin
+    $ oadm policy add-cluster-role-to-user cluster-reader -z management-admin
+    $ oadm policy add-scc-to-user privileged system:serviceaccount:management-infra:management-admin
+    ```
  1. Get the token for the service account:
-```shell
+    ```shell
         oc get -n management-infra sa/management-admin --template='{{range .secrets}}{{printf "%s\n" .name}}{{end}}'
-```
- This returns:
-```shell
+    ```
+    This returns:
+    ```shell
         management-admin-dockercfg-xxxxxx
         management-admin-token-xxxxxx
-```
- Use the `management-admin-token-*`
-```shell
+    ```
+    Use the `management-admin-token-*`
+    ```shell
         oc get -n management-infra secrets management-admin-token-xxxxxx --template='{{.data.token}}' | base64 -d
-```
- This returns the token.
+    ```
+    This returns the token.
  1. Install/enable metrics using defaults and persistent storage:
-```shell
-$ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
-       -e openshift_metrics_install_metrics=True \
-       -e openshift_metrics_hawkular_hostname=hawkular-metrics.apps.osh.massopen.cloud \
-       -e openshift_metrics_cassandra_storage_type=pv
-```
+    ```shell
+    $ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+           -e openshift_metrics_install_metrics=True \
+           -e openshift_metrics_hawkular_hostname=hawkular-metrics.apps.osh.massopen.cloud \
+           -e openshift_metrics_cassandra_storage_type=pv
+    ```
  1. Deploy agents to the nodes:
      -  Gather 2 config files
-```shell
+    ```shell
         wget https://raw.githubusercontent.com/openshift/origin-metrics/enterprise/hawkular-openshift-agent/hawkular-openshift-agent-configmap.yaml
         wget https://raw.githubusercontent.com/openshift/origin-metrics/enterprise/hawkular-openshift-agent/hawkular-openshift-agent.yaml
-```
- Add to default project
-```shell
+    ```
+     -  Add to default project
+    ```shell
         oc create -f hawkular-openshift-agent-configmap.yaml -n default
         oc create -f hawkular-openshift-agent.yaml -n default
-```
+    ```
  1. Deploy the heapster endpoint (the router on the master)
-```shell
-oadm router management-metrics \
--n default \
---service-account=router --ports='443:5000' \
---selector='kubernetes.io/hostname=<master>' \
---stats-port=1937 \
---host-network=false
-```
+    ```shell
+    oadm router management-metrics \
+    -n default \
+    --service-account=router --ports='443:5000' \
+    --selector='kubernetes.io/hostname=<master>' \
+    --stats-port=1937 \
+    --host-network=false
+    ```

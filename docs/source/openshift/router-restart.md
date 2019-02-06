@@ -3,9 +3,8 @@
 [UP](OpenShift.html)
 
 If the router didn't come up cleanly.
-
  1. Delete the router information in the following order
-```shell
+    ```shell
         [root@m-1 quotas]# oc get dc
         NAME               REVISION   DESIRED   CURRENT   TRIGGERED BY
         docker-registry    4          2         2         config
@@ -56,9 +55,9 @@ If the router didn't come up cleanly.
 
         [root@m-1 quotas]# oc delete secrets/router-certs
         secret "router-certs" deleted
-```
+    ```
  1. Create the new router + service account ...
-```shell
+    ```shell
         [root@m-1 quotas]# oadm router router --replicas=2 --selector='region=infra' --service-account=router
         info: password for stats user admin has been set to mq1rXhOZ4D
         --> Creating router router ...
@@ -67,4 +66,4 @@ If the router didn't come up cleanly.
             deploymentconfig "router" created
             service "router" created
         --> Success
-```
+    ```

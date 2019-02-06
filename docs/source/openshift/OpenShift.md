@@ -27,6 +27,6 @@ OpenShift on Engage1 is now an HA configuration with multiple masters, 3 etcd no
 
 [Useful OpenShift Commands](Useful-OpenShift-Commands.html)
 
-[OpenShift Debugging](OpenShift-Debugging.html)
+[OpenShift Certificates](Certificates.html)
 
 [OpenShift Usage Hints](OpenShift-Usage-Hints.html)

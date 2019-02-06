@@ -1,4 +1,4 @@
-### Organization of the image files
+## Updating Tutorial Screenshots
 
 ### Deciding which images to update
 Each time a new OpenStack release is deployed in Kaizen, check through the images.  

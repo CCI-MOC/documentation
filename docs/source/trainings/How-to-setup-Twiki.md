@@ -94,10 +94,6 @@ sudo service apache2 restart
 ```
 Go to your broswer and find `http://yourserveraddress/twiki/bin/configure`
 
-![](https://github.com/xuhang57/MOC/blob/master/graphs/twiki/unnamed-1.png)
-
 Reset the password
-
-![](https://github.com/xuhang57/MOC/blob/master/graphs/twiki/unnamed-2.png)
 
 [Reference](http://chaoman.com/tech/servers/17-ubuntu-14-04-1-lts)

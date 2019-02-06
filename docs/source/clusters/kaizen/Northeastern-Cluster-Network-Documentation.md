@@ -74,7 +74,7 @@
  -  **129.10.5.{57,58}**  --- unused --
  -  **129.10.5.{65-254}** OpenStack Floating IPs
 
-##: VLAN 250
+### VLAN 250
  -  FUJITSU STORAGE VLAN
  -  192.168.28.0/24
  -  **192.168.28.{11-14}** Fujitsu Storage Nodes

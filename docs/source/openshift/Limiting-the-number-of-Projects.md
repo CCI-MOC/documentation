@@ -5,11 +5,11 @@ Limiting the number of projects a user can have.
 
 On each master do the following:
  1. Ensure the new-project-template has the following line:
-```shell
-objects: kind: Project, metadata: annotations: {..."openshift.io/requester": "${PROJECT_REQUESTING_USER}"...}
-```
+    ```shell
+     objects: kind: Project, metadata: annotations: {..."openshift.io/requester": "${PROJECT_REQUESTING_USER}"...}
+    ```
  1. Add the following to the `/etc/origin/master/master-config.yaml` file:
-```yaml
+    ```yaml
         admissionConfig:
           pluginConfig:
             ProjectRequestLimit:
@@ -23,11 +23,11 @@ objects: kind: Project, metadata: annotations: {..."openshift.io/requester": "${
                     level: advanced
                   maxProjects: 10
                 - maxProjects: 2
-```
- This means that user accounts labeled with admin can create an unlimited number of projects, 
- user accounts labeled with "advance" can create 10 projects, and all other user accounts can create only 2 projects.
+    ```
+    This means that user accounts labeled with admin can create an unlimited number of projects, 
+    user accounts labeled with "advance" can create 10 projects, and all other user accounts can create only 2 projects.
  1. Restart the master:
-```shell
+    ```shell
         systemctl restart atomic-openshift-master-api
         systemctl restart atomic-openshift-master-controllers 
-```
+    ```

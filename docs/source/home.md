@@ -25,8 +25,7 @@ for complete details of current projects.
 ### Knowledge base/Trainings
  -  [Brocade  VCS training - lab session](_static/pdf/VCS_Lab.pptx.pdf)
  -  [Brocade training - instruction session](_static/pdf/VCS_Training_01.pdf)
- -  [Ceph Tutorials](trainings/Ceph-Tutorials.html)
- -  [Production FAQ](trainings/Production-FAQ.html)
+ -  [Reason for frequent connection drops and solution](trainings/frequent-connection-drops-to-instances.html)
  -  [Tips & Tools](trainings/Tips-and-Tools.html)
  -  [Ceph](trainings/Ceph.html)
  -  [Basic Ceph Cluster Deployment - Updates to Quick Start Guide](trainings/Basic-Ceph-Cluster-Deployment-Changes-Updates-to-Quick-Start-Guide.html)
@@ -52,7 +51,7 @@ for complete details of current projects.
  -  [Recommended Security plan By Jason Hennessey](research/Recommended-Security-plan-By-Jason-Hennessey.html) Proposal for security in infrastructure
 
 ### HIL
- -  [HaaS](hil/HaaS.md)
+ -  [HIL](hil/HaaS.md)
  -  [Github link](https://github.com/CCI-MOC/hil)
  -  [Meeting Information](hil/HIL-Meeting-Information.html)
 
@@ -61,8 +60,6 @@ for complete details of current projects.
 
 ### OpenStack
  -  [OpenStack Tutorial Index](openstack/OpenStack-Tutorial-Index.html)
- -  [OpenStack Summit Tokyo](openstack/OpenStack-Summit-Tokyo.html)
- -  [Midonet Kilo Release](openstack/Midonet-Kilo-Release.html)
  -  [Keystone to Keystone Federation](openstack/Keystone-to-Keystone-Federation.html)
  -  [Mix and Match Federation](openstack/Mix-and-Match-Federation.html)
  -  [Mix-and-Match Installation with Devstack](openstack/Mix-and-Match-Installation-with-Devstack.md)
@@ -74,7 +71,7 @@ for complete details of current projects.
  -  [Bench Marking OpenStack with Rally](openstack/Benchmarking-Openstack-with-Rally.html)
  -  [OpenStack Ceph Integration](openstack/OpenStack-Ceph-Integration.html)
  -  [Setting up LDAP authentication](openstack/Setting-up-LDAP-authentication.html)
- -  [Setting up the RADOS gateway.html](openstack/Setting-up-the-RADOS-gateway.html)
+ -  [Setting up the RADOS gateway](openstack/Setting-up-the-RADOS-gateway.html)
  -  [MOC UI](openstack/UI.html)
  -  [Updating Tutorial Screenshots](openstack/Updating-Tutorial-Screenshots.html)
 
@@ -110,7 +107,7 @@ for complete details of current projects.
  -  [Sahara interactions](sahara/Sahara-interactions.html)
 
 ### Production/Infrastructure
- -  [Foreman](infrastructure/Foreman.html)
+ -  [Foreman Issues](infrastructure/Foreman.html)
  -  [Foreman Puppet](infrastructure/Foreman-Puppet.html)
  -  [Provisioning-machine-installation-instructions](infrastructure/Provisioning-machine-installation-instructions.html)
  -  [Iscsi Ceph Gateway](infrastructure/Iscsi-ceph-gateway.html)

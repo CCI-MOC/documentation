@@ -92,21 +92,9 @@ For more information, check the documentation [here](https://www.elastic.co/guid
  -  Create and view custom dashboards from the **Dashboard** page
 
 From Kibana’s Discover page, we can submit search queries, filter the results, and examine the data 
-in the returned documents. For example, we can get all trips completed by the Tube during the week 
-by excluding incomplete trips and trips by bus:
-
-![](https://www.elastic.co/guide/en/kibana/current/images/TFL-CompletedTrips.jpg)
+in the returned documents.
 
 You can construct visualizations of your search results from the Visualization page. 
 Each visualization is associated with a search.
 
-For example, we can create a histogram that shows the weekly London commute traffic via the Tube using our previous search. 
-The Y-axis shows the number of trips. The X-axis shows the day and time. 
-By adding a sub-aggregation, we can see the top 3 end stations during each hour:
-
-![](https://www.elastic.co/guide/en/kibana/current/images/TFL-CommuteHistogram.jpg)
-
 You can save and share visualizations and combine them into dashboards to make it easy to correlate related information. 
-For example, we could create a dashboard that displays several visualizations of the TFL data:
-
-![](https://www.elastic.co/guide/en/kibana/current/images/TFL-Dashboard.jpg)

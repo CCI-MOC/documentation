@@ -10,7 +10,7 @@ The advantage of using rsync and bash is portability - it is easy to include a w
  -  **OpenStack Nodes** :
      -  Puppet handles installation of the backup scripts on OpenStack controller and compute nodes
      -  Class 'backups' is defined in `puppet:///modules/quickstack/manifests/backups.pp`
-     -  The class is declared in controller_common.pp and compute_common.pp
+     -  The class is declared in `controller_common.pp` and `compute_common.pp`
      -  The class declaration is essentially the same for both controller and compute, but a different script is installed. 
      The different scripts are stored in `puppet://modules/quickstack/files/` and are customized for the specific type of node.
      -  Puppet configures a backup user with appropriate authorized_keys file and limited sudo permissions.

@@ -30,8 +30,9 @@ Instructions for [Accessing Northeastern Cluster](Accessing-Northeastern-Cluster
  -  **Networks** [Northeastern Cluster Network Documentation](Northeastern-Cluster-Network-Documentation.html)
 
 ### Setup/Configuration
- -  [Kilo/RHEL-OSP-7 Deployment](Kilo-RHEL-OSP-7-Deployment.html)
- -  [Icehouse/Red Hat 7.0 Deployment Experimentation](Icehouse-Red-Hat-7.0-Deployment-Experimentation.html)
+ -  [Foreman/Puppet](../../infrastructure/Foreman-Puppet.html)
+ -  [Large Packet Problem](../Large-packet-problem.html)
+ -  [Setting up External Network on RHEL 7 Nodes](../Setting-up-external-network-on-RHEL7.1-nodes.html)
  -  [Installing CentOS 7 on a node hard drive](../Installing-CentOS-7-on-a-node-hard-drive.html)
 
 ### Miscellaneous

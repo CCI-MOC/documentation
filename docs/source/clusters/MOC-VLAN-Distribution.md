@@ -10,7 +10,8 @@ We have a 3 node oVirt setup for hosting crucial services like DHCP, DNS, FreeIP
 
 All these services are highly available VMs.
 
-**Configuration of oVirt nodes**
+**Configuration of oVirt nodes**:
+
 | Name               | RAM    | Cores/threads | Storage |
 | =----------------- | ------ | ------------- | ------- |
 | ov1.massopen.cloud | 384 GB | 24/48         | 10X1TB  |
@@ -39,7 +40,8 @@ Each environment gets around 300 to 400 VLANs which will leave room for expansio
 Below is the detailed distribution of the VLANs.
 
 ### MOC VLANs
-**VLANs common to all environments**
+**VLANs common to all environments**:
+
 | VLAN(s)   | Description                                                                  | Subnet(s)       |
 | --------- | ---------------------------------------------------------------------------- | --------------- |
 | 1 to 200  | Reserved by University's IS&T for providing public IPs                       | -               |

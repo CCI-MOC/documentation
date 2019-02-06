@@ -21,7 +21,7 @@ Rough diagram of the Ceph storage:
 ![](../../_static/img/engage1_ceph.png)
 
 ### VLANs
- 
+  
 | VLAN ID   | Used for                                                        |
 | --------- | --------------------------------------------------------------- | 
 | 10        | Public Internet via CSAIL (old)                                 |

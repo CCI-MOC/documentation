@@ -1,4 +1,4 @@
-## Kaizen User Registratin
+## Kaizen User Registration
 To work on user registration for the kaizen clusters, install [moc-openstack-tools](https://github.com/CCI-MOC/moc-openstack-tools) 
 and [setpass](https://github.com/CCI-MOC/setpass) on separate virtual machines on the same network. 
 
@@ -89,14 +89,14 @@ $ python -m setpass.api
 ```
 
 ### Adding a new user
-```shell
+
 | URL      | /token/\<user_id\>                               |
 |----------|--------------------------------------------------|
 | Method   | PUT                                              |
 | Headers  | X-Auth-Token                                     |
 | Body     | {password: \<random_pass\>, pin: \<user_pin\>}   |
 | Response | Token                                            |
-```
+
 Please note, to authorize the request to add a new user, setpass checks for a valid token in ``x-auth-token``. If it is able to use this token to scope to
 the admin project, then the call is authorized.
 

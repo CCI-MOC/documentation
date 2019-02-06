@@ -47,6 +47,8 @@
  -  [Helpdesk Automation](archives-page/Helpdesk-Automation.html)
  -  [HPC Meeting Minutes](archives-page/Minutes-from-Meetings.html)
  -  [HaaS Meeting Minutes](archives-page/Haas-meeting-minutes.html)
+ -  [Ceph Tutorials](archives-page/Ceph-Tutorials.html)
+ -  [Production FAQ](archives-page/Production-FAQ.html) Not a lot of useful info here, just linked page in home directly
 
 ### Vagrant stuff
  -  [Install Devstack with Vagrant](archives-page/Install-Devstack-with-Vagrant.html)
@@ -68,6 +70,10 @@
  -  [OpenStack Resources](archives-page/OpenStack-resources.html)
  -  [Kumo OpenStack Nodes](archives-page/Kumo-OpenStack-notes.html)
  -  [FAQ](archives-page/FAQ.html)
+ -  [Icehouse Redhat 7.0 Deployment Experimentation](archives-page/Icehouse-Red-Hat-7.0-Deployment-Experimentation.html)
+ -  [Kilo RHEL OSP 7 Deployment](archives-page/Kilo-RHEL-OSP-7-Deployment.html)
+ -  [OpenStack Tokyo Summit](archives-page/OpenStack-Summit-Tokyo.html)
+ -  [Midonet Kilo Release](archives-page/Midonet-Kilo-Release.html)
 
 ### How tos
  -  [Reprovisioning a Staging Environment](archives-page/Reprovisioning-a-Staging-Environment.html)
@@ -103,3 +109,4 @@
 ### OpenShift
  -  [OpenShift Service](archives-page/OpenShift-Service.html)
  -  [Spark Cluster on OpenShift](archives-page/Spark-Cluster-On-Openshift.html)
+ -  [OpenShift Debugging](archives-page/OpenShift-Debugging.html)
