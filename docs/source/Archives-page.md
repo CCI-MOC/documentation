@@ -42,8 +42,9 @@
  -  [Things to monitor with Sensu](archives-page/Things-to-monitor-with-Sensu.html)
  -  [Big Data at MIT](archives-page/BigDataAtMIT-MRI.html)
  -  [Help Desk Changes Log](archives-page/Helpdesk-Changes-Log.html)
- -  [RedHat KickStart-File which is working](RedHat-KickStart-File-which-is-working.html)
- -  [Foreman PXE Tepmlae which is working](Foreman-PXE-Template-which-is-workiing.html)
+ -  [RedHat KickStart-File which is working](archives-page/RedHat-KickStart-File-which-is-working.html)
+ -  [Foreman PXE Tepmlae which is working](archives-page/Foreman-PXE-Template-which-is-workiing.html)
+ -  [Helpdesk Automation](archives-page/Helpdesk-Automation.html)
 
 ### Vagrant stuff
  -  [Install Devstack with Vagrant](archives-page/Install-Devstack-with-Vagrant.html)

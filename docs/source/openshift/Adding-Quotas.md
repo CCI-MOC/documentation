@@ -1,5 +1,4 @@
-# Adding Quotas
-
+## Adding Quotas
 [UP](OpenShift.html)
 
 Quotas are set to ensure that the docker containers conform to both usage and size restrictions of the cluster.
@@ -9,15 +8,15 @@ They are set on both the container level, the project level and sets of projects
 To set up a default quota for all new projects, search for self provisioning projects.  
 
 See
-* [Project Quotas](https://github.com/openshift/origin/tree/master/examples/project-quota)
-* [Template for New Projects](https://docs.openshift.org/latest/admin_guide/managing_projects.html#template-for-new-projects)
+ -  [Project Quotas](https://github.com/openshift/origin/tree/master/examples/project-quota)
+ -  [Template for New Projects](https://docs.openshift.org/latest/admin_guide/managing_projects.html#template-for-new-projects)
 
-1) Get the previous template:
-
+ 1. Get the previous template:
+```shell
         oadm create-bootstrap-project-template -o yaml > project_template_20170609.yaml
-
-2) Just for completeness, this returned:
-
+```
+ 1. Just for completeness, this returned:
+```yaml
         apiVersion: v1
         kind: Template
         metadata:
@@ -97,9 +96,9 @@ See
         - name: PROJECT_DESCRIPTION
         - name: PROJECT_ADMIN_USER
         - name: PROJECT_REQUESTING_USER
-
-3) Here is a new project-template with limits:
-
+```
+ 1. Here is a new project-template with limits:
+```json
         {
             "kind": "Template",
             "apiVersion": "v1",
@@ -328,20 +327,20 @@ See
                 }
             ]
         }
-
-4) to load the new project template:
-
+```
+ 1. to load the new project template:
+```shell
         oc create -f project_template.yaml -n default
-
-5) Change the master-config to refer to the new project-template:
-
+```
+ 1. Change the master-config to refer to the new project-template:
+```yaml
         ...
         projectConfig:
           projectRequestTemplate: "default/project-request"
           ...
-
-6) Restart the masters (in this case both masters)
-
+```
+ 1. Restart the masters (in this case both masters)
+```shell
         systemctl restart atomic-openshift-master-api
         systemctl restart atomic-openshift-master-controllers
-
+```

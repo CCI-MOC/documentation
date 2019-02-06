@@ -27,7 +27,7 @@ The default settings allow any LOM port to be used to access the IPMI, and the d
 We use the dedicated management port for these systems, so it will need to be re-enabled if the machines
 ever get restored to factory defaults. *WARNING: This is not something you want to try remotely - it involves 
 cutting yourself off from the server until you move the cable to the management port.  
-So * ONLY * do this if you have physical access to the server!*
+So ONLY do this if you have physical access to the server!*
 
 To enable access via the management port:
  -  Connect the Ethernet cable to one of the two LOM ports

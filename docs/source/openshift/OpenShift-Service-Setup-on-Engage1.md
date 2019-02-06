@@ -1,32 +1,31 @@
-# OpenShift Service Setup on Engage1
-
+## OpenShift Service Setup on Engage1
 [UP](OpenShift.html)
 
 Goal, install OpenShift on Engage1 with the following features:
-* High Availability
-* Multi-tenant networking
-* Using Keystone Authentication
-* multiple docker registries using swift
-* dynamically allocated persistent volumes using cinder
-* Pruning of image/deployments/builds
-* Monitoring
-* cluster resource contraints
-* default project contraints
-* define roles in open shift and map them to keystone
-* cluster topology 
+ -  High Availability
+ -  Multi-tenant networking
+ -  Using Keystone Authentication
+ -  multiple docker registries using swift
+ -  dynamically allocated persistent volumes using cinder
+ -  Pruning of image/deployments/builds
+ -  Monitoring
+ -  cluster resource contraints
+ -  default project contraints
+ -  define roles in open shift and map them to keystone
+ -  cluster topology 
 
 [Instructions](https://docs.openshift.com/container-platform/3.5/install_config/install/quick_install.html)
 
-1) A shared network must exist between master and node hosts
-
+ 1. A shared network must exist between master and node hosts
+```shell
    --> this may limit a general instance to one project, and instances for private data to individual projects.
 
    --> The OpenStack subnetwork is set to 10.0.0.0/20 (IPv4) GatewayIP 10.0.0.1
 
    --> The OpenShift service subnetwork is set to 172.30.0.0/16
-
-2) 2 sets of VMs were created as other people also need this:
-
+```
+ 1. 2 sets of VMs were created as other people also need this:
+```shell
         Name        internal ip external ip  VCPU RAM(GB)  node domain  volume(GB)
         master-1    10.0.0.6    128.31.22.70    8      16        infra         300
         master-2    10.0.0.5    128.31.22.69    8      16        infra         300
@@ -45,17 +44,17 @@ Goal, install OpenShift on Engage1 with the following features:
         n-1         10.1.0.10   128.31.22.76    2       4        infra          80
         n-2         10.1.0.19   128.31.22.75    2       4        infra          80
         n-3         10.1.0.6    128.31.22.82    2       4      default          80
-
-   These were registered in a subdomain using an external DNS server.
-
-   By default, SELinix is enabled - to check:
-     view: `/etc/selinux/config`
+```
+ These were registered in a subdomain using an external DNS server.
+ By default, SELinix is enabled - to check:
+```shell
+   view: `/etc/selinux/config`
 
         SELINUX = enforcing
         SELINUXTYPE=targeted
-
-3) on every VM, run the following perl script:
-
+```
+ 1. on every VM, run the following perl script:
+```shell
         #!/usr/perl
         
         #read the pool id from the subscription
@@ -152,44 +151,38 @@ Goal, install OpenShift on Engage1 with the following features:
             print $fh $erics_key."\n";
             close($fh);
             }
-
-
-    Note: setup storage for containers
-    options:
-        Option A) Use an additional block device
-        Option B) Use an existing, specified volume group
-        Option C) Use the remaining free space from the volume group where your root file is located
-
-    For either A or B (uses the volumes created in step 3), On each system:
-
+```
+ *Note: setup storage for containers*
+ options:
+     -  Option A) Use an additional block device
+     -  Option B) Use an existing, specified volume group
+     -  Option C) Use the remaining free space from the volume group where your root file is located
+ For either A or B (uses the volumes created in step 3), On each system:
+```shell
         vi /etc/sysconfig/docker
-        
-        The file only needs these 2 lines:
-
+```        
+ The file only needs these 2 lines:
+```shell
             DEVS=vdb
             VG=docker-vg
-
-        Note: the OpenShift and Redhat documentation will have DEVS=/dev/vdc, however the mount 
-              point is /dev/vdb and the docker-storage-setup script will give an error saying 
-              '/dev//dev/vdb does not exist', so just use vdb.
-
-        run:
-     
+```
+ *Note: the OpenShift and Redhat documentation will have `DEVS=/dev/vdc`, however the mount point is `/dev/vdb` 
+ and the docker-storage-setup script will give an error saying '/dev//dev/vdb` does not exist', so just use vdb.*
+ run:
+```shell     
             docker-storage-setup
-  
-13) Ensure host Access
-
+```
+ 1. Ensure host Access
+```shell
     use ssh key forwarding, and from the host ensure access to each node just using the short name (m-1, m-2, e-1, e-2, e-3, n-1, n-2, n-3).
-
-
-14) Follow the Advanced Install for OpenShift
-
-    On the master edit `/etc/ansible/hosts` file
-    
+```
+ 1. Follow the Advanced Install for OpenShift:
+ On the master edit `/etc/ansible/hosts` file
+```shell   
         vi /etc/ansible/hosts
-
-    File contents:
-
+```
+ File contents:
+```shell
         [OSEv3:children]
         masters
         etcd
@@ -245,27 +238,26 @@ Goal, install OpenShift on Engage1 with the following features:
         n-1 openshift_hostname=n-1 openshift_public_hostname=128.31.22.76 openshift_public_ip=128.31.22.76 openshift_node_labels="{'region':'infra','zone':'default'}"
         n-2 openshift_hostname=n-2 openshift_public_hostname=128.31.22.75 openshift_public_ip=128.31.22.75 openshift_node_labels="{'region':'infra','zone':'default'}"
         n-3 openshift_hostname=n-3 openshift_public_hostname=128.31.22.82 openshift_public_ip=128.31.22.82 openshift_node_labels="{'region':'default','zone':'default'}"
-
-
-    run:
-
+```
+ run:
+```shell
         ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/config.yml    
-
+```
 At this point we have achieved the following:
-* High Availability
-* Multi-tenant networking
-* Keystone Authentication
-* Native Cloud Support (about 1/2 to persistent volumes).
+ -  High Availability
+ -  Multi-tenant networking
+ -  Keystone Authentication
+ -  Native Cloud Support (about 1/2 to persistent volumes).
 
 Notes: 
-1. There are several values that need to be changed when the virtual machines are restarted
-2. Will need clean virtual machines after every run as the ansible scripts don't clean up after themselves.  It is faster to reinitialize the VMs.
-3. Generally need to have 2 or three Infra nodes - all other nodes can be region 'Default'
-4. The master node should not be schedulable.
-5. Nodes can be reassigned a region with 'oc label node shiftnode1.moclocal region=infra --overwrite=true'
-6. Before deleting a virtual machine, run: 
-
+ 1. There are several values that need to be changed when the virtual machines are restarted
+ 1. Will need clean virtual machines after every run as the ansible scripts don't clean up 
+ after themselves.  It is faster to reinitialize the VMs.
+ 1. Generally need to have 2 or three Infra nodes - all other nodes can be region 'Default'
+ 1. The master node should not be schedulable.
+ 1. Nodes can be reassigned a region with 'oc label node shiftnode1.moclocal region=infra --overwrite=true'
+ 1. Before deleting a virtual machine, run: 
+```shell
 	subscription-manager unregister
-
+```
 To unsubscribe it from RH.
-

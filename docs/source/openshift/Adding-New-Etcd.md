@@ -1,27 +1,25 @@
-# Adding New Etcd
-
-1) run the `os_p.pl` script. Don't worry about the docker stuff in that script - it will fail on that
-
-2) Install etcd but don't start it on the new etcd (e004)
-
+## Adding New Etcd
+ 1. run the `os_p.pl` script. Don't worry about the docker stuff in that script - it will fail on that
+ 1. Install etcd but don't start it on the new etcd (e004)
+```shell
         yum install etcd
-
-3) Add iptable rules on the new etcd
-
+```
+ 1. Add iptable rules on the new etcd
+```shell
         systemctl enable iptables.service --now
 
         iptables -N OS_FIREWALL_ALLOW
         iptables -t filter -I INPUT -j OS_FIREWALL_ALLOW
         iptables -A OS_FIREWALL_ALLOW -p tcp -m state --state NEW -m tcp --dport 2379 -j ACCEPT
         iptables -A OS_FIREWALL_ALLOW -p tcp -m state --state NEW -m tcp --dport 2380 -j ACCEPT
-
-   save the iptables (RHEL 7)
-
+```
+ save the iptables (RHEL 7)
+```shell
         yum install iptables-services  # should already be installed
         service iptables save
-
-4) Login in to a member of the etcd cluster.  And generate the new etcd server certificates there
-
+```
+ 1. Login in to a member of the etcd cluster.  And generate the new etcd server certificates there
+```shell
         ssh e001
         e001# cd /etc/etcd
         e001# export NEW_ETCD="e004.osh.massopen.cloud"
@@ -32,9 +30,9 @@
         e001# export SAN="IP:10.0.0.11"
         e001# export PREFIX="./generated_certs/etcd-$CN/"
         e001# mkdir ${PREFIX}
-
-    Create the `server.csr` and `server.crt`
-
+```
+ Create the `server.csr` and `server.crt`
+```shell
         e001# openssl req -new -keyout ${PREFIX}server.key \
         -config ca/openssl.cnf \
         -out ${PREFIX}server.csr \
@@ -45,9 +43,9 @@
         -out ${PREFIX}server.crt \
         -in ${PREFIX}server.csr \
         -extensions etcd_v3_ca_server -batch
-
-    Create the `peer.csr` and `peer.crt`
-
+```
+ Create the `peer.csr` and `peer.crt`
+```shell
         e001# openssl req -new -keyout ${PREFIX}peer.key \
         -config ca/openssl.cnf \
         -out ${PREFIX}peer.csr \
@@ -71,4 +69,4 @@
         ETCD_INITIAL_CLUSTER="e001=https://10.0.0.13:2380,e002=https://10.0.0.24:2380,
         e003=https://10.0.0.23:2380,e004=https://e004:2380"
         ETCD_INITIAL_CLUSTER_STATE="existing"
-
+```

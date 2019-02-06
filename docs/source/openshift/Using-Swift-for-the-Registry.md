@@ -1,13 +1,13 @@
-# Using Swift for the Registry
+## Using Swift for the Registry
 [UP](OpenShift.html)
 
 Reference:
-* [Overall](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.5/html/installation_and_configuration/setting-up-the-registry)
-* [Extended Configuration](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.5/html/installation_and_configuration/setting-up-the-registry#install-config-registry-extended-configuration)
-* [Swift Specific](https://docs.docker.com/registry/storage-drivers/swift/)
+ -  [Overall](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.5/html/installation_and_configuration/setting-up-the-registry)
+ -  [Extended Configuration](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.5/html/installation_and_configuration/setting-up-the-registry#install-config-registry-extended-configuration)
+ -  [Swift Specific](https://docs.docker.com/registry/storage-drivers/swift/)
 
-1) Create a registry-config file
-
+ 1. Create a registry-config file
+```yaml
         # registry-config.yml
         version: 0.1
         log:
@@ -45,51 +45,51 @@ Reference:
                 blobrepositorycachettl: 10m
           storage:
             - name: openshift
-
-2) Delete the registry configuration *(shouldn't need to do this)*
-
+```
+ 1. Delete the registry configuration *(shouldn't need to do this)*
+```shell
         oc delete svc/docker-registry dc/docker-registry
-
-3) Create a default registry
-
+```
+ 1. Create a default registry
+```shell	
         oadm -n default registry --create=true
-
-4) Create a new secret from the registry-config.yml file (from step 1)
-
+```
+ 1. Create a new secret from the registry-config.yml file (from step 1)
+```shell
         oc -n default secrets new registry-config config.yml=/home/cloud-user/registry/registry-contfig.yml
-
-
-5) Add the registry-config secret as a volume to the registry's deployment configuration and mount it at /etc/docker/registry
-
+```
+ 1. Add the registry-config secret as a volume to the registry's deployment configuration 
+ and mount it at `/etc/docker/registry`
+```shell
         oc -n default volume dc/docker-registry --add --type=secret --secret-name=registry-config -m /etc/docker/registry/
-
-6) Updates the registry to reference the configuration path by adding the REGISTRY_CONFIGURATION_PATH environment variable.
-
+```
+ 1. Updates the registry to reference the configuration path by adding 
+ the `REGISTRY_CONFIGURATION_PATH` environment variable.
+```shell
         oc -n default env dc/docker-registry REGISTRY_CONFIGURATION_PATH=/etc/docker/registry/config.yml
-
-7) Add replicas
-
+```
+ 1. Add replicas
+```shell
         oc -n default edit dc/docker-registry
-
-   make:
-
+```
+ make:
+```shell
         spec: replicas: 2
-
-8) Redeploy the registry
-
+```
+ 1. Redeploy the registry
+```shell
         oc -n default rollout latest docker-registry
-
-9) As the registry is cached - restart the OpenShift service
-
+```
+ 1. As the registry is cached - restart the OpenShift service
+```shell
         systemctl restart atomic-openshift-master-api
         systemctl restart atomic-openshift-master-controllers
-
-10) As a simple confirmation, start a test project.  The registry should appear in Horizon:
-
+```
+ 1. As a simple confirmation, start a test project.  The registry should appear in Horizon:
+```shell
     Project tab
        +-> Object Store tab
-             
+```     
 Look for a container with the name specified in the registry-config file under storage.swift.container.
 
 That container is the one being used as the OpenShift Registry.
-

@@ -1,57 +1,62 @@
-# Installing Spark on Openshift
-Before starting this step, there are a few prerequisites which are necessary to ensure you have the proper tools and resources to complete the work.
-1. Access to an [OpenShift cluster](https://openshift.massopen.cloud)
-2. A terminal with the oc command available
-3. A new project in OpenShift to store your work. (You created this in step 3 above).  
-4. The Oshinko templates available in your project. (Step 4)
-5. An editor to work on your source files
-6. An online space for a Git repository to store your code, such as GitHub or BitBucket
+## Installing Spark on Openshift
+Before starting this step, there are a few prerequisites which are necessary to ensure 
+you have the proper tools and resources to complete the work.
+ 1. Access to an [OpenShift cluster](https://openshift.massopen.cloud)
+ 1. A terminal with the oc command available
+ 1. A new project in OpenShift to store your work. (You created this in step 3 above).  
+ 1. The Oshinko templates available in your project. (Step 4)
+ 1. An editor to work on your source files
+ 1. An online space for a Git repository to store your code, such as GitHub or BitBucket
 
 With these in place you are ready to begin creating your microservice.
 
 ### Building SparkPi in Python with Flask
 These instructions will help you to create a SparkPi microservice using the Python language and the Flask framework.
 
-**Create the application source file**
+**Create the application source file**: This application is relatively compact and will 
+only need a single source file for the implementation we have chosen. 
 
-This application is relatively compact and will only need a single source file for the implementation we have chosen. 
-
-By default, the Python language source-to-image builder will look for a file named `app.py` in the root of your repository as the entry point for the application.
+By default, the Python language source-to-image builder will look for a file named `app.py` in 
+the root of your repository as the entry point for the application.
 
 This can be modified by passing a parameter to the build command, but for now let’s keep things simple and create this file.
 
 Fork [this project](https://github.com/husky-parul/sparkpi.git)
 
-**Add dependencies**
+**Add dependencies**: There is one additional file that we will need to make our application work. 
+If you are familiar with Python dependency management then you may have seen `requirements.txt` files before. 
+This file is used by the source-to-image builder to install any extra dependencies we may need.
 
-There is one additional file that we will need to make our application work. If you are familiar with Python dependency management then you may have seen `requirements.txt` files before. This file is used by the source-to-image builder to install any extra dependencies we may need.
+Since we are using Flask for our HTTP framework, and it is not part of Python’s default packages, 
+we will need to install it through this file.
 
-Since we are using Flask for our HTTP framework, and it is not part of Python’s default packages, we will need to install it through this file.
+Create a file named `requirements.txt` in the root of your project and add the following contents. 
+This line will ensure that the proper version of Flask is installed into our application image. 
+(It's already present in the git repo you forked.)
 
-Create a file named `requirements.txt` in the root of your project and add the following contents. This line will ensure that the proper version of Flask is installed into our application image. (It's already present in the git repo you forked.)
+**Commit your code**: The last step before we can build and run our application is to check in the files 
+and push them to your repository.
 
-**Commit your code**
-
-The last step before we can build and run our application is to check in the files and push them to your repository.
-
-If you have followed the setup instructions and cloned your repository from an upstream of your creation, this should be as simple as running the following commands:
-
+If you have followed the setup instructions and cloned your repository from an upstream of your creation, 
+this should be as simple as running the following commands:
+```shell
     git add .
     git commit -m "add initial files"
     git push
-
+```
 Make sure to note the location of your remote repository as you will need it in the next step.
 
-**Build and run the application**
+**Build and run the application**: Now that all your files have been created, checked in and pushed to your online repository 
+you are ready to command OpenShift to build and run your application. 
 
-Now that all your files have been created, checked in and pushed to your online repository you are ready to command OpenShift to build and run your application. 
-
-The following command will start the process, you can see that we are telling OpenShift to use the oshinko-pyspark-build-dc template for our application. 
+The following command will start the process, you can see that we are telling OpenShift to use the 
+`oshinko-pyspark-build-dc` template for our application. 
 
 This template contains the necessary components to invoke the Oshinko source-to-image builder. 
 
-We also give our application a name and tell the builder where to find our source code. Issue the following command, making sure to enter your repository location for the GIT_URI parameter`:
-```
+We also give our application a name and tell the builder where to find our source code. 
+Issue the following command, making sure to enter your repository location for the `GIT_URI` parameter:
+```shell
 $ oc new-app --template oshinko-pyspark-build-dc -p APPLICATION_NAME=sparkpi -p GIT_URI=YOUR_REPOSITORY_URI_HERE
 
      --> Deploying template "pi/oshinko-pyspark-build-dc" to project pi
@@ -89,12 +94,14 @@ $ oc new-app --template oshinko-pyspark-build-dc -p APPLICATION_NAME=sparkpi -p 
         Run 'oc status' to view your app.
 ```
 
-**Your application is now being built on OpenShift!**
+Your application is now being built on OpenShift!
 
-A common task when building and running applications on OpenShift is to monitor the logs. You can even see a suggestion at the bottom of the oc new-app command output that suggests we run `oc logs -f bc/sparkpi`. 
+A common task when building and running applications on OpenShift is to monitor the logs. 
+You can even see a suggestion at the bottom of the oc new-app command output that suggests we run `oc logs -f bc/sparkpi`. 
 
-Running this command will follow(-f) the BuildConfig(bc) for your application sparkpi. When you run that command you should see something that begins like this:
-```
+Running this command will follow(-f) the BuildConfig(bc) for your application sparkpi. 
+When you run that command you should see something that begins like this:
+```shell
 $ oc logs -f bc/sparkpi
 
 
@@ -110,10 +117,12 @@ $ oc logs -f bc/sparkpi
     Collecting Flask==0.12.1 (from -r requirements.txt (line 1))
     ...
 ```
-The output from this call may be quite long depending on the steps required to build the application, but at the end you should see the source-to-image builder pushing the newly created image into OpenShift.
+The output from this call may be quite long depending on the steps required to build the application, 
+but at the end you should see the source-to-image builder pushing the newly created image into OpenShift.
 
-You may or may not see all the "Pushed" status lines due to output buffer logging, but at the end you should see "Push successful", like this:
-```
+You may or may not see all the "Pushed" status lines due to output buffer logging, 
+but at the end you should see "Push successful", like this:
+```shell
 $ oc logs -f dc/sparkpi
 
 
@@ -122,8 +131,10 @@ $ oc logs -f dc/sparkpi
     --> Success
 ```
 
-If you see this output, it just means that you have caught the logs before the DeploymentConfig has generated anything from your application. Run the command again and you should start to see the output from the application, which should be similar to this:
-```
+If you see this output, it just means that you have caught the logs before the DeploymentConfig has generated anything 
+from your application. Run the command again and you should start to see the output from the application, 
+which should be similar to this:
+```shell
 $ oc logs -f dc/sparkpi`
 
 
@@ -143,24 +154,31 @@ $ oc logs -f dc/sparkpi`
         * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
 ```
 
-Let’s break this down a little. These first few lines are actually being generated by the Oshinko source-to-image tooling. They show that no Apache Spark cluster has been specified for the application, and as such it must create an ephemeral cluster.
+Let’s break this down a little. These first few lines are actually being generated by the Oshinko 
+source-to-image tooling. They show that no Apache Spark cluster has been specified for the application, 
+and as such it must create an ephemeral cluster.
 
 It then waits for the cluster to become fully active before launching the application.
 
-On the last two lines you see the spark-submit command which will run the application and the output from Flask informing us that it is listening on the host and port we specified.
+On the last two lines you see the spark-submit command which will run the application and the output 
+from Flask informing us that it is listening on the host and port we specified.
 
-**Become a user**
+**Become a user**: At this point you should have created a code repository for your microservice, 
+populated the repository with source files, built an application image and launched that image on OpenShift. 
+The final stage in this tutorial is to expose your microservice outside of OpenShift 
+and begin interacting with it as a user would.
 
-At this point you should have created a code repository for your microservice, populated the repository with source files, built an application image and launched that image on OpenShift. The final stage in this tutorial is to expose your microservice outside of OpenShift and begin interacting with it as a user would.
+The first step in this process is to expose a route to your microservice. 
+OpenShift contains an edge router which will associate domain name URIs with services.
 
-The first step in this process is to expose a route to your microservice. OpenShift contains an edge router which will associate domain name URIs with services.
-
-By default, applications you create through source-to-image have services that can expose routes which will contain their name, the project name and a hostname for the OpenShift server. You can create these routes by using the following command:
-
+By default, applications you create through source-to-image have services that can expose routes 
+which will contain their name, the project name and a hostname for the OpenShift server. 
+You can create these routes by using the following command:
+```shell
     oc expose svc/sparkpi
-
+```
 To see the routes available in your project, run oc get routes, you should see something like this:
-
+```shell
      $ oc get route
      NAME                      HOST/PORT                                      PATH      SERVICES            PORT       
      TERMINATION   WILDCARD
@@ -168,4 +186,4 @@ To see the routes available in your project, run oc get routes, you should see s
        None
        sparkpi                 sparkpi-pi.10.0.1.109.xip.io                              sparkpi            8080-tcp                 
        None
-
+```

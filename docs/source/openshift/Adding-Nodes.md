@@ -1,5 +1,4 @@
-# Adding Nodes
-
+## Adding Nodes
 [UP](Adding-a-Node.html)
 
 [Reference](https://docs.openshift.com/container-platform/3.5/install_config/adding_hosts_to_existing_cluster.html#adding-nodes-advanced)
@@ -9,21 +8,19 @@
 [Reference](https://docs.openshift.com/container-platform/3.5/install_config/adding_hosts_to_existing_cluster.html#adding-nodes-advanced)
 
 ### To add new nodes
-
 On the new Node follow steps 0-13 [here](OpenShift-Service-Setup-on-Engage1.html)
 
 ### Master
-1) This will update all of the ansible playbooks:
-
+ 1. This will update all of the ansible playbooks:
+```shell
         yum update atomic-openshift-utils
-
-2) Edit `/etc/ansible/hosts` 
-  * add 'new_nodes' to the [OSEv3:children] 
-  * Add a new section called [new_nodes] to the 
-  * Add the new nodes under the [new_nodes] section
-
-File should look like:
-
+```
+ 1. Edit `/etc/ansible/hosts` 
+     -  add 'new_nodes' to the `[OSEv3:children]` 
+     -  Add a new section called `[new_nodes]` to the 
+     -  Add the new nodes under the `[new_nodes]` section
+ File should look like:
+```shell
             [OSEv3:children]
             masters
             nodes
@@ -44,18 +41,18 @@ File should look like:
             node-006 openshift_node_lables="{'region':'default', 'zone':'default'}"
             node-007 openshift_node_lables="{'region':'default', 'zone':'default'}"
             node-008 openshift_node_lables="{'region':'default', 'zone':'default'}"
-
-3) for each of the nodes, ensure that the node network plugin matches the master network plugins:
-
+```
+ 1. for each of the nodes, ensure that the node network plugin matches the master network plugins:
+```shell
         vi /etc/origin/master/master-config.yaml
         vi /etc/origin/node/node-config.yaml
-
-For the MOC, we are running the multitentant plugin, so everything should match
-
+```
+ For the MOC, we are running the multitentant plugin, so everything should match
+```shell
 	networkConfig:networkPluginName: "rehat/openshift-ovs-multitenant"
-
-3) run the following sensible playbook:
-  
+```
+ 1. run the following sensible playbook:
+```shell
         ansible-playbook [-i /path/to/hostsFile] \
             /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-node/scaleup.yml
-
+```

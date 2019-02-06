@@ -1,5 +1,4 @@
-# Adding Masters
-
+## Adding Masters
 [UP](https://github.com/CCI-MOC/moc-public/wiki/Adding-a-Node)
 
 [Reference](https://docs.openshift.com/container-platform/3.5/install_config/adding_hosts_to_existing_cluster.html#adding-nodes-advanced)
@@ -14,18 +13,16 @@ This cannot be used to change the masters to the HA (5 node configuration) form.
 On the new master follow steps 0-13 [here](OpenShift-Service-Setup-on-Engage1.html)
 
 Master:
-
-1) This will update all of the sensible playbooks:
-
+ 1. This will update all of the sensible playbooks:
+```shell
         yum update atmoic-openshift-utils
-
-2) Edit `/etc/ansible/hosts`
-  * Add 'new_masters' and 'new_nodes' to the [OSEv3:children] 
-  * Add a new section called [new_nodes] to the 
-  * Add the new nodes under the [new_nodes] section
-
-File should look like:
-
+```
+ 1. Edit `/etc/ansible/hosts`
+     -  Add 'new_masters' and 'new_nodes' to the `[OSEv3:children]` 
+     -  Add a new section called `[new_nodes]` to the 
+     -  Add the new nodes under the `[new_nodes]` section
+ File should look like:
+```shell
         [OSEv3:children]
         masters
         nodes
@@ -49,8 +46,9 @@ File should look like:
         [new_nodes]
         smaster002 openshift_node_lables="{'region':'infra', 'zone':'default'}" open shift_schedulable=false
         smaster003 openshift_node_lables="{'region':'infra', 'zone':'default'}" open shift_schedulable=false
-3) run the following ansible playbook:
-  
+```
+ 1. run the following ansible playbook:
+```shell
         ansible-playbook [-i /path/to/hostsFile] \
             /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-master/scaleup.yml
-
+```

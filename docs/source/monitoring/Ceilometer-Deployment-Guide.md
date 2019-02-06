@@ -90,12 +90,12 @@ database connection mongodb://localhost:27017/ceilometer
 source /root/keystonerc_admin
 ```
  -  **Create the ceilometer user**:
-```shell
-keystone user-create --name ceilometer --tenant PROJECTID --pass PASSWORD --email CEILOMETER_EMAIL --enabled TRUE
-```
      -  Replace **PROJECTID** with the project ID, you could find by the command "OpenStack project list".
      -  Replace **PASSWORD** with the password that will be used by the Telemetry service when authenticating with the Identity service.
      -  Replace **CEILOMETER_EMAIL** with the email address used by the Telemetry service.
+```shell
+keystone user-create --name ceilometer --tenant PROJECTID --pass PASSWORD --email CEILOMETER_EMAIL --enabled TRUE
+```
  -  **Create the ResellerAdmin role**:
 ```shell
 keystone role-create --name ResellerAdmin
