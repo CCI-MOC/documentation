@@ -67,7 +67,7 @@ The UMass Helpdesk will see the Access Request and Change Quota Request tickets 
 
     $ ssh helpdesk@128.31.25.252
 
-and use the `moc` interface to run the script.  This is a bash function layered in between the helpdesk user and the actual scripts - the intention is to prevent all the helpdesk users from having access to the `settings.ini` file which contains passwords.  More information about this is at [[Deploying a Helpdesk VM]].
+and use the `moc` interface to run the script.  This is a bash function layered in between the helpdesk user and the actual scripts - the intention is to prevent all the helpdesk users from having access to the `settings.ini` file which contains passwords.  More information about this is at [Deploying a Helpdesk VM](../helpdesk/Deploying-a-Helpdesk-VM.html).
 
 
 
@@ -136,7 +136,7 @@ The copying/delete steps are batched and happen after user creation is finished 
 
 ## Mailing list
 
-See [[Deploying a Helpdesk VM]] for more information on the mailing list.
+See [Deploying a Helpdesk VM](../helpdesk/Deploying-a-Helpdesk-VM.html) for more information on the mailing list.
 
 ## Setpass
 [Setpass][setpass github] is a tool originally created by Kristi which allows users to set their own passwords securely. 

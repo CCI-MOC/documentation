@@ -18,4 +18,4 @@ You can either create an Image or use Existing Images. If you need to create you
 talk to one of the Instructors.   
 
 ### Launch the VM instructions
-[[Launching a VM]]
+[Launching a VM](Launching-a-VM-DEPRECATED.html)

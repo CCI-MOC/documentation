@@ -12,7 +12,7 @@ The network consists of the following:
 
 The unmanaged switch provides a "public," (but behind a NAT) network. We treat this as if it were on the public internet; The NAT's purpose is to ensure that we don't cause problems for other users of our BU subnet if we e.g. misconfigure a dhcp server. Machines on this network are in the 192.168.3.0/24 range, and we refer to this as "nat-public".
 
-The managed switch is used to isolate "tenants" in the network - each of which consists of a [[head node|Vlan Head Nodes]], and a subset of the dell workstations. It uses vlans for this purpose. port 16 on the managed switch is hooked in to death-star, and configured as trunking. (the relevant nic on death-star is vlan aware, and death-star is responsible for routing vlan traffic to the correct head node.)
+The managed switch is used to isolate "tenants" in the network - each of which consists of a [Vlan Head Nodes](Vlan-Head-Nodes.html), and a subset of the dell workstations. It uses vlans for this purpose. port 16 on the managed switch is hooked in to death-star, and configured as trunking. (the relevant nic on death-star is vlan aware, and death-star is responsible for routing vlan traffic to the correct head node.)
 
 A few machines are connected directly to BU, and have globally routable ip addresses. These are "public" ip addresses.
 
@@ -24,7 +24,7 @@ A few machines are connected directly to BU, and have globally routable ip addre
 
 ## MOCPOC cluster IPs:
 
- - death-star ([[Death Star VM configuration]])
+ - death-star ([Death Star VM configuration](Death-Star-VM-configuration.html))
    - nat-public : 192.168.3.254
    - public: 128.197.44.203
 

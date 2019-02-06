@@ -1,6 +1,6 @@
 # Diagram
 
-[Harvard Equipment Sign Out](archives-page/Harvard-Equipment-Sign-Out.html)
+[Harvard Equipment Sign Out](Harvard-Equipment-Sign-Out.html)
 
 ![](../_static/img/Harvard-network-topology.png)
 
@@ -355,7 +355,7 @@ Everything is under the moc.rc.fas.harvard.edu subdomain. You must be VPN'd in t
 * SSL currently disabled (we think just Horizon uses)... didn't have an SSL cert to supply
 * Had to manually create SSL certs on control for both horizon and AMQ
 * Puppet is overriding a rabbitmq parameter that is setting SSL use as true, because it is missing a parameter in this version. As a temporary workaround we will run puppet appy on the nodes, then disable puppet, and set this parameter as true in the related files through sed. The command is listed in Jon's doc
-* Sensu is set up, but actually doing anything. See [[Things to monitor with Sensu]]
+* Sensu is set up, but actually doing anything. See [Things to monitor with Sensu](Things-to-monitor-with-Sensu.html)
 
 ## Boot NICs
 

@@ -89,7 +89,7 @@ Notes/Todos:
 * Each OpenStack component has its own *_config type. Grep the manifests in the openstack module to see more examples.
 
 ### Physical Configuration
-* Puppet Master will run on Deathstar in the moc-nova VM (see: [[Networking Configuration of MOC POC]])
+* Puppet Master will run on Deathstar in the moc-nova VM (see: [Networking Configuration of MOC POC](Networking-Configuration-of-MOC-POC.html)
 * Puppet Slave is in the PXE booted cluster, using Temple with ip address 192.168.3.11, nat'ed through Deathstar to outside world
 
 ### Installing puppet master and connecting to client
