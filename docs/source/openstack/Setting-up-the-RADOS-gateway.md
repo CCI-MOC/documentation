@@ -110,12 +110,12 @@ Make sure you really mean it! *(Fun fact: it is possible to name a pool "[pool_n
 ## Radosgw for Ceph Firefly 
 Ceph Firefly is v. 0.80.x which corresponds to Red Hat Ceph 1.2.3
 
-### Enable repos
+Enable repos
 ```shell    
     # subscription-manager repos --enable=rhel-7-server-rh-common-rpms
 ```
 
-### Configure hostname
+Configure hostname
 ```shell
      # hostnamectl set-hostname production-radosgw.moc.ne.edu
 ```
@@ -124,11 +124,11 @@ Also add the IP address and hostname to `/etc/hosts` /:
      # 129.10.3.x     production-radosgw.moc.ne.edu production-radosgw
 ```   
 
-### Install and configure Apache web server
+Install and configure Apache web server
 ```shell
      # yum install httpd
 ```
-### httpd.conf
+
 Make the following changes to `/etc/httpd/conf/httpd.conf`\:
  -  Change `Listen 80` to specify the public IP of gateway.
 ```shell     
@@ -139,7 +139,6 @@ Make the following changes to `/etc/httpd/conf/httpd.conf`\:
      `ServerName production-radosgw.moc.ne.edu`
 ```
 
-### rgw.conf
 Create the file `/etc/httpd/conf.d/rgw.conf` with the following content.  Fill in the appropriate public IP address.  
 Comment/uncomment the appropriate lines for TCP or UDS (in RHEL 7.x, use UDS) :
 ```shell
@@ -169,14 +168,12 @@ Comment/uncomment the appropriate lines for TCP or UDS (in RHEL 7.x, use UDS) :
      </VirtualHost>
 ```
 
-### FastCGI script
 Create the file `/var/www/html/s3gw.fcgi` with the following content.  
 ```shell
      #!/bin/sh
      exec /usr/bin/radosgw -c /etc/ceph/ceph.conf -n client.radosgw.production
 ```
 
-### Install radosgw
 Install the radosgw package
 ```shell     
      # yum install ceph-radosgw -y
@@ -186,7 +183,6 @@ If using a federated configuration, you should also install radosgw-agent
      # yum install radosgw-agent -y
 ```
 
-### Configure radosgw
 Create the file `/etc/ceph/ceph.conf` with the following contents.
 These values are for the Fujitsu Ceph Storage node; for a different setup, make sure to use the correct value 
 for mon_initial_members and mon_host, as well as the correct client names and keyrings.  
@@ -221,11 +217,9 @@ Also comment/uncomment the appropriate sections for TCP or UDS depending on the 
 	rgw print continue = false
 ```
 
-### Add keyrings to radosgw
 Copy the files with the admin keyring and the radosgw keyring from the ceph admin node to `/etc/ceph/` on the rados gatway.  
 Make sure the keyring file names match what it is in `/etc/ceph/ceph.conf`.
 
-### Configure File/Directory Permissions
 Run the following series of commands to set up the correct file permissions:
 ```shell
      chown apache:apache /var/www/html/s3gw.fcgi
@@ -241,13 +235,12 @@ You will need to run `chown -R apache:apache /var/run/ceph` every time you resta
 because restarting it recreates the socket files and returns them to being owned by root.  
 This prevents apache from accessing them until you make apache the owner.
 
-### Disable requiretty
-Edit `/etc/sudoers` (using the command `# visudo`) and comment out this line:
+Disable requiretty. Edit `/etc/sudoers` (using the command `# visudo`) and comment out this line:
 ```shell
      Defaults    requiretty
 ```
 
-### Start Apache and Radosgw
+Start Apache and Radosgw
 ```shell
      # systemctl start httpd
      # systemctl start ceph-radosgw
@@ -272,7 +265,7 @@ This should be run as root on the VM after RHEL is installed and the correct net
 ## Radosgw for Ceph Hammer 
 Ceph Hammer is v.0.94.x which corresponds to Red Hat Ceph 1.3
 
-### Enable repos
+Enable repos
 ```shell
      # subscription-manager repos --enable=rhel-7-server-rh-common-rpms
 ```
@@ -306,7 +299,7 @@ Create `/etc/yum.repos.d/ceph.repo` with the following content:
 	gpgkey=http://download.ceph.com/keys/release.asc
 ```
 
-### Configure hostname
+Configure hostname
 ```shell
      # hostnamectl set-hostname production-radosgw.moc.ne.edu
 ```
@@ -315,7 +308,6 @@ Also add the IP address and hostname to `/etc/hosts` /:
      # 129.10.3.x     production-radosgw.moc.ne.edu  production-radosgw
 ```
 
-### Install radosgw
 Install the radosgw package
 ```shell     
      # yum install ceph-radosgw -y
@@ -325,8 +317,7 @@ If using a federated configuration, you should also install radosgw-agent
      # yum install radosgw-agent -y
 ```
 
-### Configure radosgw
-Create the file `/etc/ceph/ceph.conf` with the following contents.
+Configure radosgw. Create the file `/etc/ceph/ceph.conf` with the following contents.
 These values are for the Fujitsu Ceph Storage node; for a different setup, 
 make sure to use the correct value for `mon_initial_members` and `mon_host`, as well as the correct client names and keyrings.  
 Also comment/uncomment the appropriate sections for TCP or UDS (see Configuring Apache).

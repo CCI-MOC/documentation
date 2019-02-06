@@ -56,7 +56,7 @@ $ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-
         wget https://raw.githubusercontent.com/openshift/origin-metrics/enterprise/hawkular-openshift-agent/hawkular-openshift-agent-configmap.yaml
         wget https://raw.githubusercontent.com/openshift/origin-metrics/enterprise/hawkular-openshift-agent/hawkular-openshift-agent.yaml
 ```
-     -  Add to default project
+ Add to default project
 ```shell
         oc create -f hawkular-openshift-agent-configmap.yaml -n default
         oc create -f hawkular-openshift-agent.yaml -n default

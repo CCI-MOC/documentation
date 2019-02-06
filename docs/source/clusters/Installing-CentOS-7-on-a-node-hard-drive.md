@@ -48,7 +48,8 @@ Click "Software Selection", choose "Compute Node". I've only tried the default s
 
 ![](../_static/img/install_centos7_min_hd_step9.png)
 
-**THE NEXT STEPS NEED TO BE FOLLOWED EXACTLY, OTHERWISE THE INSTALLER CRASHES AND YOU NEED TO RESTART FROM "POWER ON SERVER"**
+Note: *THE NEXT STEPS NEED TO BE FOLLOWED EXACTLY, OTHERWISE THE INSTALLER CRASHES 
+AND YOU NEED TO RESTART FROM "POWER ON SERVER"*
 
 Click “Installation Destination”.
 

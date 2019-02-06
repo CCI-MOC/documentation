@@ -11,7 +11,7 @@ for complete details of current projects.
  -  [How to get involved in the OpenStack community](how-tos/How-to-Get-Involved-in-the-OpenStack-Community.html)
  -  [Security Install Best Practices](how-tos/Security-Install-Best-Practices.html)
  -  [MOC Contributors Legal Agreements version y_r201503](https://drive.google.com/folderview?id=0B3HZEpE-A8qadWVpY2piSjdYdXc&usp=sharing)
- -  [Trello, burndown chart, scrum tools - what the fuss ? !!! ](how-tos/Trello.html)
+ -  [Trello, burndown chart, scrum tools - what the fuss ? !!!](how-tos/Trello.html)
  -  [Kaizen Cluster User Registration](how-tos/Kaizen-Cluster-User-Registration.html)
  -  [Getting Started](how-tos/Getting-started.html)
  -  [Access IPMI of Nodes](how-tos/Access-IPMI-of-nodes.html)

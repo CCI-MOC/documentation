@@ -24,7 +24,7 @@
         wget https://github.com/openshift/origin-metrics/blob/enterprise/hawkular-openshift-agent/hawkular-openshift-agent-configmap.yaml
         wget https://github.com/openshift/origin-metrics/blob/enterprise/hawkular-openshift-agent/hawkular-openshift-agent.yaml
 ```
-     -  To deploy the agent:
+ To deploy the agent:
 ```shell
         oc create -f hawkular-openshift-agent-configmap.yaml -n default
         oc process -f hawkular-openshift-agent.yaml | oc create -n default -f -

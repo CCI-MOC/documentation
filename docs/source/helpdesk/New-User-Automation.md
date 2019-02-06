@@ -116,7 +116,7 @@ and the actual scripts - the intention is to prevent all the helpdesk users from
 the `settings.ini` file which contains passwords.  More information about this is at [[Configuration of the Helpdesk VM]].
 
 ## Addusers python script
-The addusers script is stored in the private 'moc' repo at [this link][addusers.py].
+The addusers script is stored in the private 'moc' repo at and named `addusers.py`.
 
 ### Initial setup
 You will need an account on the addusers VM, contact Laura (kamfonik at bu.edu) to get one. 

@@ -1,4 +1,4 @@
-## Create A Key Pair
+## OpenStack Key Pairs
 *NOTE: If you will be using PuTTY on Windows, please read [this first](#ssh-keys-with-putty-on-windows).*
 
 ### Add a Key Pair

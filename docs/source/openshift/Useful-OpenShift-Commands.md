@@ -53,7 +53,7 @@
 ```shell
 oc edit dc/[project name]
 ```
-     - Either add or edit
+ Either add or edit
 ```shell
         spec:
           template:
@@ -61,7 +61,7 @@ oc edit dc/[project name]
                   nodeSelector:
                       region: [region name]
 ```
-     -  Redeploy the project:
+ Redeploy the project:
 ```shell
         oc -n default rollout latest docker-registry
 ```

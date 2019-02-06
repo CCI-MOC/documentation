@@ -24,12 +24,11 @@ of the codebase as developers constantly add to it.
 ### Set Up Deployment Pipeline
 **Login with your OpenShift user credentials**: Make sure you have OpenShift Command Line Tools and login
 
-**Run pipeline automation command (Python)**: 
+**Run pipeline automation command (Python)**: *Note: **app-name** must be consistent with you github repo name.*
 [openshift-pipeline.py](https://github.com/jadedh/openshift-cicd-pipeline/tree/master/openshift-pipeline/openshift-pipeline)
 ```shell
 python openshift-pipeline.py --cicd [jenkins/gocd] [cicdname] --appname [appname] --stages [stages ...] [--command (optional)]
 ```
-*Note: **app-name** must be consistent with you github repo name.*
 
 What the setup script does...
  1. Create projects for your OpenShift account

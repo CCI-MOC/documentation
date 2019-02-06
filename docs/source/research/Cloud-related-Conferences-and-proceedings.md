@@ -11,7 +11,7 @@ all of these conferences are rated about equally, appearing in the first 100 ran
 | Feb-End of April         | ACM Symposium on Principles of Distributed Computing                     | [link](http://www.podc.org)                                                            |
 | March-April              | Usenix HotCloud                                                          | -                                                                                      |
 | March 2016-03            | International conference on distributed computing systems                | [link](http://icdcs-2015.cse.ohio-state.edu/index.html)                                |
-| March (17,19)            | SOSP	                                                              | [link](http://sosp.org)                                                                |
+| March (17,19)            | SOSP                                                                     | [link](http://sosp.org)                                                                |
 | May-July 1               | IEEE Cluster Conference                                                  | [link](http://research.ac.upc.edu/conferencies/ClusterXY/Cluster_Conference/Home.html) |
 | May                      | Usenix symposium on OS Design & Impl                                     | [link](https://www.usenix.org/conference/osdi14/call-for-papers)                       |
 | May                      | 2015 IEEE Cloud and Autonomic Computing Conference (CAC)                 | [link](http://www.autonomic-conference.org/)                                           |

@@ -14,25 +14,25 @@ download latest https://golang.org/dl/
 wget https://storage.googleapis.com/golang/go1.6.3.linux-amd64.tar.gz
 tar xzvf go1.6.3.linux-amd64.tar.gz
 ```
-     - system wide install
+ system wide install
 ```shell
 	sudo mv go /usr/local/
 ```
-     -  add system wide path
+ add system wide path
 ```shell
         sudo vi /etc/profile
 ```
-     -  add this to bottom
+ add this to bottom
 ```shell
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=/usr/local/go/dev
 export PATH=$PATH:$GOPATH/bin
 ```
-     -  reload
+ reload
 ```shell
         source /etc/profile
 ```
-     -  test go
+ test go
 ```shell
         go version
 ```
