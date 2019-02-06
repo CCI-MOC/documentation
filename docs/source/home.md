@@ -53,7 +53,6 @@ for complete details of current projects.
 
 ### HIL
  -  [HaaS](hil/HaaS.md)
- -  [Haas meeting minutes](hil/Haas-meeting-minutes.html)
  -  [Github link](https://github.com/CCI-MOC/hil)
  -  [Meeting Information](hil/HIL-Meeting-Information.html)
 
@@ -96,7 +95,6 @@ for complete details of current projects.
  -  [Ceilometer Deployment Guide](monitoring/Ceilometer-Deployment-Guide.html)
 
 ### HPC
- -  [Minutes from Meetings](hpc/Minutes-from-Meetings.html)
  -  [Slurm](hpc/Slurm.html)
  -  [Open MPI on Slurm cluster](hpc/Open-MPI-on-Slurm-Cluster.html)
  -  [Current Slurm system](hpc/Current-Slurm-deployment-system.html)

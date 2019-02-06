@@ -1,16 +1,14 @@
-### HaaS (Hardware as a Service)
-
-* [HaaS Repo](https://github.com/CCI-MOC/haas)
-* [Bug Tracker](https://github.com/CCI-MOC/Haas/issues Bug Tracker)
-* [HaaS Interface](Haas-interface.html)
-* [HaaS Bootstrapping](HaaS-bootstrapping.html)
+## HaaS (Hardware as a Service)
+ -  [HaaS Repo](https://github.com/CCI-MOC/haas)
+ -  [Bug Tracker](https://github.com/CCI-MOC/Haas/issues)
+ -  [HaaS Interface](Haas-interface.html)
+ -  [HaaS Bootstrapping](HaaS-bootstrapping.html)
 
 ### Recursive HaaS
 Requires modifying the following to pass through:
-* Node allocate/free
-* IPMI operations (reset, console)
-* Headnode operations (create, assign networks, console access)
+ -  Node allocate/free
+ -  IPMI operations (reset, console)
+ -  Headnode operations (create, assign networks, console access)
 
 ### Fast Provisioning 
-* stretch goal: TPM-attested boot loader
-
+stretch goal: TPM-attested boot loader
