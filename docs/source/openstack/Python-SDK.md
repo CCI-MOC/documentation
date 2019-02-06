@@ -76,7 +76,7 @@ Pro Tip: if you'd like the output of the above to be a bit more readable, you ca
 
 Most OpenStack resource objects have this `to_dict()` function, since they inherit it from the base Resource class.
 
-Here's an [example script] that makes use of the code above.  You need to make sure your environment variables are set in order for it to work.
+Here's an example script that makes use of the code above.  You need to make sure your environment variables are set in order for it to work.
 
 ### Launch an instance
 OK, enough looking at images, let's get some work done and launch an instance. 
@@ -125,7 +125,7 @@ Run your script:
 
 It should print the attributes of your server, and you should see your new instance appear in the Instances list in the Horizon GUI.
 
-An [example script] is available for download - make sure to fill in the appropriate image, flavor, keypair, and network names.
+An example script is available for download - make sure to fill in the appropriate image, flavor, keypair, and network names.
 
 ---
 

@@ -99,7 +99,7 @@ Next, create a non-default user:
     create user pduadmin
 ```
 Enter the user's password when prompted.  Please set (and document) an actual secure password, not PASSWORD.  
-(For tips on creating secure passwords, see [[Security Best Practices]]).
+(For tips on creating secure passwords, see [Security Best Practices](../how-tos/Security-Install-Best-Practices.html).
 ```shell
     Password: PASSWORD
     Verify:   PASSWORD

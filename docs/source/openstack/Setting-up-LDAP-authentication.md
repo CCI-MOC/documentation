@@ -4,8 +4,8 @@ I'm not going to weigh in on LDAP vs. Kerberos. However here's how you can get L
 first, assume we have a DNS of `moc-ldap.bu.edu` for the LDAP server. (it can be a VM on moc02, 
 as long as it has an IP address reachable from all the clients)
 
-client setup - Fedora / Centos - [to do - I've had it working on an FC13 machine at NU for a couple of years, 
-but I'll have to see if the setup needs updating for FC20]
+client setup - Fedora / Centos - (to do - I've had it working on an FC13 machine at NU for a couple of years, 
+but I'll have to see if the setup needs updating for FC20)
 
 Client setup - Ubuntu
 ```shell

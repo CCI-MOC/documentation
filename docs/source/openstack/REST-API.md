@@ -155,7 +155,7 @@ ice-discovery
         print "******"
 ```
 
-Download the above script: [REST_example.py]
+Download the above script: `REST_example.py`
 
 ---
 
