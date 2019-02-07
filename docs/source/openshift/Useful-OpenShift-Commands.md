@@ -1,13 +1,7 @@
 ## Useful OpenShift Commands
 [UP](OpenShift.html)
- -  [Pruning (system cleanup)](pruning-system-cleanup.html)
  -  [Limits](limits.html)
- -  [Projects](projects.html)
 
- 1. Restarts the master service:
-    ```shell 
-        systemctl restart atomic-openshift-master
-    ```
  1. Log in: 
     ```shell
         oc login -u <username>:<password>
