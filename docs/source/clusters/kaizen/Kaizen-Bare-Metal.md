@@ -5,13 +5,7 @@ duration.
 
 ## SSH to kaizen machines.
 
-Create a `config` file in your `.ssh` directory, and edit & paste the following:
-
-```shell
-Host kznbmi
-    User <username>
-    Hostname kaizenbm.massopen.cloud
-```
+`ssh username@kaizenbm.massopen.cloud`
 
 ## How to provision nodes using HIL and BMI
 
