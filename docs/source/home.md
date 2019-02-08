@@ -135,7 +135,6 @@ This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-
 
 ### Openshift
  -  [OpenShift](openshift/OpenShift.html)
- -  [Openshift Setup](openshift/Openshift-Setup.html)
  
 ### Website
  -  [MOC Website](website/MOC-Website.html)
