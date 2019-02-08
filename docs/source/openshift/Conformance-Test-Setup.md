@@ -1,5 +1,4 @@
 ## Conformance Test Setup
-[UP](Testing-OpenShift.html)
 
 [Reference](https://github.com/openshift/svt/tree/master/conformance)
 
