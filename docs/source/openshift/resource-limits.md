@@ -1,5 +1,4 @@
 ## OpenShift Resource Limits
-[UP](Adding-Limits.html)
 
 Create a file containing:
 ```yaml

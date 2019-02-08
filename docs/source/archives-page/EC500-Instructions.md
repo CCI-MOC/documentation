@@ -4,7 +4,7 @@ So you are a student and excited to get access  to a cloud computing environment
 
 But first things first, there are a few pre-requisites. Please review the instructions!
 
-* [Prerequisites](../openshift/Prerequisites.html)
+* [Prerequisites]
 * [Access the OpenStack dashboard]
 * [Launching a VM](Launching-a-VM-DEPRECATED.html)
 * [SSH to Cloud VM](../openstack/SSH-to-Cloud-VM.html)

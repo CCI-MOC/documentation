@@ -108,5 +108,5 @@
 
 ### OpenShift
  -  [OpenShift Service](archives-page/OpenShift-Service.html)
- -  [Spark Cluster on OpenShift](archives-page/Spark-Cluster-On-Openshift.html)
- -  [OpenShift Debugging](archives-page/OpenShift-Debugging.html)
+ -  [Spark Cluster on OpenShift]
+ -  [OpenShift Debugging]
