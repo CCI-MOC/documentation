@@ -201,3 +201,8 @@ For 1 GB U number goes to the same port number.
 
 For 10GB U1 goes to ports 1 and 2 on lower Brocade switch, U2 - ports 3,4 up to U20.
 U21 goes to ports 1,2 on upper switch and so on.
+
+### Lenovo Ceph - for P9
+210 	192.168.96.0/19
+211 	192.168.128.0/19
+
