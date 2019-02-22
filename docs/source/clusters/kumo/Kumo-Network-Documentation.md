@@ -50,6 +50,8 @@
      -  Kumo-Storage  192.168.18.113
      -  bmi-amin          192.168.18.114
      -  dell-4 amin       192.168.18.115
+     -  dell-16 ironic    192.168.18.116
+     -  dell-1 ironic-naved    192.168.18.117
      -  bmi-dan           192.168.18.174
      -  bmi-dan-clone     192.168.18.175
      -  DHCP         192.168.19.0/24
@@ -81,8 +83,9 @@
  -  10.1.11.13     Kumo hil (keystone; VM) (to be deleted)
  -  10.1.11.14     Kumo hil master (non-keysone; VM)
  -  10.1.11.15     Mellanox M405EX (mlx001), see bitwarden Kumo Mellanox M405EX password
- -  10.1.11.16     Mellanox M405EX (mlx002), see bitwarden Kumo Mellanox M405EX password
+ -  10.1.11.16     Dell-16 (Current Ironic Controller)
  -  10.1.11.17     kumo-ipmi-gw managing port
+ -  10.1.11.18     Dell-1 (Naved's Test ironic node)
  -  10.1.10.1-16      Dell Blades
  -  Dell-3,13,14,15,16 have been moved to a different subnet temporarily for Tzu-Mainn to access. Their IPs are moved
  -  from 10.1.10.X to 10.1.12.X. kumo-hil has the ip 10.1.12.254. 
