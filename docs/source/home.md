@@ -15,6 +15,7 @@ for complete details of current projects.
  -  [Kaizen Cluster User Registration](how-tos/Kaizen-Cluster-User-Registration.html)
  -  [Getting Started](how-tos/Getting-started.html)
  -  [Access IPMI of Nodes](how-tos/Access-IPMI-of-nodes.html)
+ -  [Use OpenVPN](how-tos/Use-OpenVPN.html)
  -  [Reset Password in Kaizen Openstack](how-tos/Reset-Password-in-Kaizen-Openstack.html)
  -  [Debugging VNC access](how-tos/Debugging-VNC-access.html)
  -  [Debugging OpenvSwitch](how-tos/Debugging-openvswitch.html)
@@ -135,7 +136,7 @@ This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-
 
 ### Openshift
  -  [OpenShift](openshift/OpenShift.html)
- 
+
 ### Website
  -  [MOC Website](website/MOC-Website.html)
 
