@@ -163,13 +163,15 @@ IP Address  Hostname/Description
 128.31.28.254   openshift (Rob)
 ```
 
-### Research Ceph
+### Research Ceph (VLAN 252)
 ```shell
 IP Address  Hostname/Description, HIL managed vlan 252
 192.168.32.1 kzn-rmon1 kzn-rmon1.infra.massopen.cloud
 192.168.32.2 kzn-rmon2 kzn-rmon2.infra.massopen.cloud
 192.168.32.3 kzn-rmon3 kzn-rmon3.infra.massopen.cloud
 192.168.32.4 kzn-ssh.infra.massopen.cloud
+192.168.32.5 kzn-rtr.infra.massopen.cloud
+192.168.32.6 kzn-zabbix
 
 192.168.35.21 neu-3-21 neu-3-21.infra.massopen.cloud
 192.168.35.22 neu-3-22 neu-3-22.infra.massopen.cloud
