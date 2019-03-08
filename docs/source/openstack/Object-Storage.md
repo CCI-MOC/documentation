@@ -88,10 +88,48 @@ To download a file:
 You can make a public container private by clicking the dropdown next to the container and clicking Make Private.  
 This will deactivate the public URL of the container.
 
-### API Access
-You can also use a Swift or Amazon S3 client to interact with the object store.
+### S3 Interface
+The Ceph Object Gateway [supports basic operations through the Amazon S3 interface](http://docs.ceph.com/docs/master/radosgw/s3/). This enables compatibility with libraries and applications which have been developed to target the S3 interface.
 
-### Swift interface
+To access this interface you must login through the OpenStack Dashboard and navigate to "Projects > API Access" where you can click on "Download OpenStack RC File" and select "EC2 Credentials."
+
+![](../_static/img/ec2_credentials.png)
+
+This will download a file similar to the one below. The important parts are `EC2_ACCESS_KEY` and `EC2_SECRET_KEY`.
+
+```shell
+    #!/bin/bash
+
+    NOVARC=$(readlink -f "${BASH_SOURCE:-${0}}" 2>/dev/null) || NOVARC=$(python -c 'import os,sys; print os.path.abspath(os.path.realpath(sys.argv[1]))' "${BASH_SOURCE:-${0}}")
+    NOVA_KEY_DIR=${NOVARC%/*}
+    export EC2_ACCESS_KEY=25ff4004d5f64b0681e4e9ca87dcab4d
+    export EC2_SECRET_KEY=db8cff9f059441bdbf8e190b356379fc
+    export EC2_URL=https://kaizen.massopen.cloud:13788
+    export EC2_USER_ID=42 # nova does not use user id, but bundling requires it
+    export EC2_PRIVATE_KEY=${NOVA_KEY_DIR}/pk.pem
+    export EC2_CERT=${NOVA_KEY_DIR}/cert.pem
+    export NOVA_CERT=${NOVA_KEY_DIR}/cacert.pem
+    export EUCALYPTUS_CERT=${NOVA_CERT} # euca-bundle-image seems to require this set
+
+    alias ec2-bundle-image="ec2-bundle-image --cert ${EC2_CERT} --privatekey ${EC2_PRIVATE_KEY} --user 42 --ec2cert ${NOVA_CERT}"
+    alias ec2-upload-bundle="ec2-upload-bundle -a ${EC2_ACCESS_KEY} -s ${EC2_SECRET_KEY} --url ${S3_URL} --ec2cert ${NOVA_CERT}"
+```
+
+The keys can then be plugged into your application. See below example using the Python boto library, which connects through the S3 API interface through EC2 credentials, and requests a listing of all the buckets that the user has access to.
+
+```python
+    connection = boto.s3.connection.S3Connection(
+        aws_access_key_id='25ff4004d5f64b0681e4e9ca87dcab4d',
+        aws_secret_access_key='db8cff9f059441bdbf8e190b356379fc',
+        port=443,
+        host='kzn-swift.massopen.cloud',
+        is_secure=True,
+        calling_format=boto.s3.connection.OrdinaryCallingFormat())
+
+    connection.get_all_buckets()
+```
+
+### Swift Interface
 There are a number of Swift clients available.  In this tutorial we will use python-swiftclient.
 ```shell
     # yum install python-swiftclient
