@@ -13,7 +13,7 @@ All these services are highly available VMs.
 **Configuration of oVirt nodes**:
 
 | Name               | RAM    | Cores/threads | Storage |
-| =----------------- | ------ | ------------- | ------- |
+| ------------------ | ------ | ------------- | ------- |
 | ov1.massopen.cloud | 384 GB | 24/48         | 10X1TB  |
 | ov2.massopen.cloud | 384 GB | 20/40         | 10X1TB  |
 | ov3.massopen.cloud | 384 GB | 20/40         | 10X1TB  |
@@ -75,6 +75,11 @@ Below is the detailed distribution of the VLANs.
 | 206  | OStack isolation native vlan for trunk only ports       | N/A            |
 | 249  | Ceph Cluster (internal)                                 | --             |
 | 250  | Ceph public (for clients)                               | 192.168.0.0/19 |
+| 259  | Staging - Foreman                                       | 172.17.0.0/19  |
+| 270  | Staging - Internal API                                  | To be decided  |
+| 271  | Staging - Tenant Network                                | To be decided  |
+| 272  | Staging - Public Network                                | To be decided  |
+| 273  | Staging - OS Stack isolation for trunk only ports       | To be decided  |
 | 3802 | OpenStack Tenant Floating IPs                           | 128.31.24.0/22 |
 
 IPs in VLAN 204 will be assigned based on rack and unit number, rest will be regular DHCP.
