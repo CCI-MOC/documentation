@@ -55,7 +55,7 @@ IP Address  Hostname/Description
 ```
 
 ## IPMI network: 10.0.0.0/19 (ACCESS MODE)
- -  IP assignment: 10.0.rack-number.u(nit)-number, servers bigger than 1 U get the lowest U number, 
+ -  IP assignment: 10.0.rack-number.u(nit)-number, servers bigger than 1 U get the lowest U number,
  numbering increases from bottom to top.
  -  10.0.0.X (X froom 1 to 255, 255 is valid because prefix is 19) (for VMs that can be anywhere)
 ```shell
@@ -127,6 +127,17 @@ IP Address  Hostname/Description
 ```
  -  Defauly gateway at 172.16.96.1 connects to internet. Will be registered in HIL so nodes can access internet.
 
+### Staging Foreman: 172.17.0.0/19 (VLAN 269)
+```shell
+IP Address  Hostname/Description
+172.17.0.1    	kzn-router.infra.massopen.cloud
+172.17.0.3      Foreman
+172.17.0.5      Undercloud VM for staging
+172.17.0.5      kzn-ipmi-gw.infra.massopen.cloud
+
+```
+
+
 ### BMI Provisioning (VLAN 500)
  -  dhcp-range=10.255.0.45,10.255.0.254,7d
 ```shell
@@ -187,11 +198,11 @@ IP Address  Hostname/Description, HIL managed vlan 252
 ```
  -  HIL/BMI users need to have access to ceph-public network (HIL admin operation),
  add it to their project/nodes/nics and configure an ip, ip is calculated as described below (user operations)
- -  For client IPs use 192.168.32+Cnum.Unum mask 255.255.224.0, 
+ -  For client IPs use 192.168.32+Cnum.Unum mask 255.255.224.0,
  where Cnum is cage number and Unum is U number. Cage and U numbers are used in node mame - neu-1-21 means Cage 1, U 21 and the ip would be 192.168.33.21
- -  Ssh access is by using FreeIpa accounts, nodes are accessible from BMI provision 
+ -  Ssh access is by using FreeIpa accounts, nodes are accessible from BMI provision
  subnet (500) by name. Ssh to monitor nodes to get ceph.conf and admin keyring.
- -  Please use ecrbd pool for rbd images to save disk space. To create an image using erasure 
+ -  Please use ecrbd pool for rbd images to save disk space. To create an image using erasure
  coded pool for data storage use `rbd create mynewrbdimage --data-pool ecrbd --size xxxG`
  -  *Be careful with the number of placement groups if creating new pools*
 
@@ -206,6 +217,6 @@ U21 goes to ports 1,2 on upper switch and so on.
 
 ### Lenovo Ceph - for IBM Power9 (VLAN 210 and 211)
 
-VLAN 210 - 	192.168.96.0/19   
-VLAN 211 - 	192.168.128.0/19  
+VLAN 210 - 	192.168.96.0/19
+VLAN 211 - 	192.168.128.0/19
 
