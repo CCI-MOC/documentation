@@ -26,7 +26,7 @@ Repeat this command to add more nodes to your project.
 3. Enable OBM on your nodes so you can power cycle, power off, or view node's serial console.
 
 ```
-hil node enable obm <node>
+hil node obm enable <node>
 ```
 
 4. Connect the node the BMI provisioning network.
