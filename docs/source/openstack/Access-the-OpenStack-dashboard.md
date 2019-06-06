@@ -6,7 +6,7 @@ The MOC supports logging in with you university accounts and it is the reccomend
 
 ![](../_static/img/openstack_login.png)
 
-You can now select your university by using the search box and clicking "Log On." You will now be redirected to your institution's website where you can login with your normal credentials. The MOC does not see or have access to your institutional account credentials. To reset "Remember this selection" you must clear your browser cookies.
+You can now select your university by using the search box and clicking "Log On." You will now be redirected to your institution's website where you can login with your normal credentials. The MOC does not see or have access to your institutional account credentials. To reset "Remember this selection", visit [cilogon.org/me](https://cilogon.org/me) and select "Delete Browser Cookies".
 
 ![](../_static/img/cilogon.png)
 
