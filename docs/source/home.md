@@ -22,6 +22,7 @@ for complete details of current projects.
  -  [Reducing SSH login delay](how-tos/Reducing-SSH-login-delay.html)
  -  [Cache Networking using Openvswitch or linuxbridge](how-tos/cache-networking-using-openvswitch-or-bridge.html)
  -  [MOC FAQs](how-tos/MOC-frequently-asked-questions.html)
+ -  [MGHPCC Shutdown](how-tos/MGHPCC-Shutdown.html)
 
 ### Knowledge base/Trainings
  -  [Brocade  VCS training - lab session](_static/pdf/VCS_Lab.pptx.pdf)
