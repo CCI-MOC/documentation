@@ -7,6 +7,7 @@
 
 **Public (via BU)**
  -  192.12.185.010-100  OSP director managed
+ - 192.12.185.246       lars - dell15
  -  192.12.185.247      kzn-e.massopen.cloud
  -  192.12.185.248      kumo-rgw1
  -  192.12.185.249      kumo-rgw2
