@@ -6,16 +6,17 @@
  -  128.31.28.11        Recursive DNS server
 
 **Public (via BU)**
- -  192.12.185.010-100  OSP director managed
- - 192.12.185.246       lars - dell15
- -  192.12.185.247      kzn-e.massopen.cloud
- -  192.12.185.248      kumo-rgw1
- -  192.12.185.249      kumo-rgw2
- -  192.12.185.250      kumo-ssh
- -  192.12.185.251      kumo-hil-client
- -  192.12.185.252      kumo-impi-gw
- -  192.12.185.253      kumo-services
- -  192.12.185.254      kumo-emergency **129.10.5.126**
+ - 192.12.185.010-100  OSP director managed
+ - 192.12.185.245      lars - esi-sandbox (dell??)
+ - 192.12.185.246      lars - dell15
+ - 192.12.185.247      kzn-e.massopen.cloud
+ - 192.12.185.248      kumo-rgw1
+ - 192.12.185.249      kumo-rgw2
+ - 192.12.185.250      kumo-ssh
+ - 192.12.185.251      kumo-hil-client
+ - 192.12.185.252      kumo-impi-gw
+ - 192.12.185.253      kumo-services
+ - 192.12.185.254      kumo-emergency **129.10.5.126**
      -  publicly accessible, 192.12.185.254 is local only
 
 ### VLANs
