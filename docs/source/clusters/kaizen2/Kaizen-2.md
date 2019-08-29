@@ -193,14 +193,17 @@ IP Address  Hostname/Description, HIL managed vlan 252
 192.168.35.21 neu-3-21 neu-3-21.infra.massopen.cloud
 192.168.35.22 neu-3-22 neu-3-22.infra.massopen.cloud
 192.168.35.23 neu-3-23 neu-3-23.infra.massopen.cloud
+192.168.35.41 neu-3-41 neu-3-41.infra.massopen.cloud (cache-server)
 
 192.168.37.21 neu-5-21 neu-5-21.infra.massopen.cloud
 192.168.37.22 neu-5-22 neu-5-22.infra.massopen.cloud
 192.168.37.23 neu-5-23 neu-5-23.infra.massopen.cloud
+192.168.37.41 neu-5-41 neu-5-41.infra.massopen.cloud (cache-server)
 
 192.168.47.21 neu-15-21 neu-15-21.infra.massopen.cloud
 192.168.47.22 neu-15-22 neu-15-22.infra.massopen.cloud
 192.168.47.23 neu-15-23 neu-15-23.infra.massopen.cloud
+192.168.47.41 neu-15-41 neu-15-41.infra.massopen.cloud (cache-server)
 ```
  -  HIL/BMI users need to have access to ceph-public network (HIL admin operation),
  add it to their project/nodes/nics and configure an ip, ip is calculated as described below (user operations)
