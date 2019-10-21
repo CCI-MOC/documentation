@@ -74,6 +74,23 @@ IP Address  Hostname/Description
 10.0.5.140    ov2.massopen.cloud
 10.0.15.140   ov1.massopen.cloud
 ```
+## Ceph cluster/replication (VLAN 248)
+ -  Subnet: 192.168.255.0/24
+```shell
+IP Address  Hostname/Description
+1   ov1
+2   ov2
+3   ov3
+250 nfs-ha virtual ip
+251 nfs1
+252 nfs2
+```
+## Ceph cluster/replication (VLAN 249)
+ -  Subnet: 192.168.40.0/23
+```shell
+IP Address  Hostname/Description
+TBD
+```
 ## Ceph client (VLAN 250)
  -  Subnet: 192.168.0.0/19
 ```shell
