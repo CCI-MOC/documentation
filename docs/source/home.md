@@ -16,6 +16,7 @@ for complete details of current projects.
  -  [Getting Started](how-tos/Getting-started.html)
  -  [Access IPMI of Nodes](how-tos/Access-IPMI-of-nodes.html)
  -  [Use OpenVPN](how-tos/Use-OpenVPN.html)
+ -  [Restore ovirt VMs from backup](how-tos/Restore-ovirt-VMs.md)
  -  [Reset Password in Kaizen Openstack](how-tos/Reset-Password-in-Kaizen-Openstack.html)
  -  [Debugging VNC access](how-tos/Debugging-VNC-access.html)
  -  [Debugging OpenvSwitch](how-tos/Debugging-openvswitch.html)
