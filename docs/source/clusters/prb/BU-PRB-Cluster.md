@@ -1,7 +1,7 @@
 ## BU PRB Cluster
 
 ### Nodes
-  
+
 Node names in haas and other places  are {super,len}-\<last octet of IPMI IP\> and reflect the manufacturer.
  -  Example: sun-10, super-42
 
@@ -27,7 +27,7 @@ We try to keep the numbers for particular node types together.
 | 4  | cisco-203       | UCS C220 M3         | 10.86.1.203    | 96     | 2         | 6       | Xeon E-2630             | Yes             | Cisco People | Owned by Cisco not MOC!                   |
 | 5  | cisco-204       | UCS C220 M3         | 10.10.0.204    | 160    | 2         | 6       | Xeon E-2630             | Yes             | Jeremy       | "Gifting" to MOC from Cisco for Sahara CI |
 | 6  | cisco-205       | UCS C220 M3         | 10.86.1.205    | 128    | 2         | 4       | Unknown                 | No              | Cisco People | Owned by Cisco not MOC!                   |
-| 7  | moc01 (dell-58) | Dell PowerEdge R620 | 10.10.1.58     | 32     | 2         | 10      | Xeon E5-2670 v2         | Yes             |  Naved       | used as prb-services                      |
+| 7  | moc01 (dell-58) | Dell PowerEdge R620 | 10.10.1.58     | 32     | 2         | 10      | Xeon E5-2670 v2         | Yes             |  Naved       | shut off			                        |
 | 8  | moc02 (dell-XX) | Dell PowerEdge R620 | Unknown        | 32     | 2         | 10      | Xeon E5-2670 v2         | Yes             | Amin         | backing up Seccloud stuff from it         |
 | 9  | hack-n-hil      | Dell PowerEdge R610 | None           | 32     | 2         | 4       | X5570 @2.93GHz          | Yes             | Amin         | backing up Seccloud stuff from it         |
 | 10 | super-36        | SYS-5018A-MLTN4     | 10.10.0.36     | 16     | 1         | 4       | Intel Atom C2550 2.4GHz | No              | Naved        | Haas Beta                                 |
@@ -41,8 +41,8 @@ We try to keep the numbers for particular node types together.
 | 18 | super-44        | SYS-5018A-MLTN4     | 10.10.0.44     | 16     | 1         | 4       | Intel Atom C2550 2.4GHz | No              | Naved        | Used as moc-haas-deploy                   |
 | 19 | super-45        | SYS-5018A-MLTN4     | 10.10.0.45     | 16     | 1         | 4       | Intel Atom C2550 2.4GHz | No              | Free         | IPMI Down                                 |
 | 20 | super-46        | SYS-5018A-MLTN4     | 10.10.0.46     | 16     | 1         | 4       | Intel Atom C2550 2.4GHz | No              | Free         | IPMI Down                                 |
-| 21 | intel-50        | S2600WTT            | 10.10.0.50     | 128    | 2         | 14      | Xeon                    | Yes             | Ian          | For Foreman/M2 development                |
-| 22 | intel-51        | S2600WTT            | 10.10.0.51     | 128    | 2         | 14      | Xeon                    | Yes             | Naved        | For his experiments                       |
+| 21 | intel-50        | S2600WTT            | 10.10.0.50     | 128    | 2         | 14      | Xeon                    | Yes             | Peter (pjd)  | He took it to NEU to put FPGAs on Nov 21, 2019|
+| 22 | intel-51        | S2600WTT            | 10.10.0.51     | 128    | 2         | 14      | Xeon                    | Yes             | Apoorve,Mania,Mohammad | For their experiments            |
 | 23 | lenovo-60       | x3550 M5            | 10.10.1.60     | 128    | 2         | 10      | E5-2600 v4              | Yes             |  SecCloud    | IPMI Down                                 |
 | 24 | lenovo-61       | x3550 M5            | 10.10.1.60     | 128    | 2         | 10      | E5-2600 v4              | Yes             | SecCloud     | IPMI Down                                 |
 | 25 | lenovo-62       | x3550 M5            | 10.10.1.60     | 128    | 2         | 10      | E5-2600 v4              | Yes             | SecCloud     | -                                         |
@@ -56,18 +56,18 @@ We try to keep the numbers for particular node types together.
  -  `think-65` is flashed to coreboot/Heads
  -  `think-66` is flashed and loaned to Gerardo Ravago
  -  `think-67` is still running stock firmware
- -  Cisco-200 and Cisco-204 are registered with our central freeIPA server as 
+ -  Cisco-200 and Cisco-204 are registered with our central freeIPA server as
  `prb-cisco-200.infra.massopen.cloud` and `prb-cisco-204.infra.massopen.cloud` respectively.
 
 ### KVM switch
-There is a Keyboard Video Mouse (KVM) switch that can be used to administer nodes. 
-You can switch which node's console you are using by pressing the "Print Screen" button, and selecting a port. 
+There is a Keyboard Video Mouse (KVM) switch that can be used to administer nodes.
+You can switch which node's console you are using by pressing the "Print Screen" button, and selecting a port.
 
 The port number corresponds to which port the KVM dongle is connected to on the back of the KVM switch.
 
 A data sheet describing its functionality can be found [here](https://lenovopress.com/tips0730).
 
-All the cables to kvm have been disconnected to reduce clutter. 
+All the cables to kvm have been disconnected to reduce clutter.
 It is recommended that you use IPMI to access the nodes, if the IPMI network is
 down then please use the KVM switch.
 
@@ -81,9 +81,9 @@ To **pass information through the gateway**, you can use several methods:
  1. including "ssh -D" combined with your browser's SOCKS proxy support
  1. [sshuttle](https://sshuttle.readthedocs.io/en/stable/). A good command to transfer just traffic for the remote networks would be: `sshuttle -r user@ssh-gateway -N --dns`
 
-**Hardware** Our network is served by primarily 4 gigabit switches: 
+**Hardware** Our network is served by primarily 4 gigabit switches:
  -  **dell-{0,1,2,3}** (in the HIL rack with supermicros) and **tp-0** (located in the other rack)
- -  dell-0 is the "hub" switch to which all other switches are connected. 
+ -  dell-0 is the "hub" switch to which all other switches are connected.
  -  dell-0 has 10G connections to dell-1 and dell-2, and a regular 1G cable running to tp-0.
 
 All of the switches have Multiple STP enabled to prevent loops.
@@ -169,8 +169,8 @@ HIL instances are allocated 500 or less VLANs, starting at 1000. VLANs with an i
      -  **10.10.0.149** : dhcp-vm (DHCP server)
      -  **10.10.0.{150-200}** : DHCP (served from dhcp-vm)
 
-**VLAN 6** : External IPMI. 
-This network is for sharing IPMI of certain systems with external users 
+**VLAN 6** : External IPMI.
+This network is for sharing IPMI of certain systems with external users
 (like the lenovo and moc01 with our Secure Cloud/BMI collaborators)
  -  **Subnet** : 10.10.1.0/24
      -  **10.10.1.2** moc-haas-master.bu.edu
@@ -213,7 +213,7 @@ This network is for sharing IPMI of certain systems with external users
 ---
 
 ### IPMI Credentials
-  
+
 **For moc01 aka dell-58 IPMI** :
  -  **IPMI username/password** : see bitwarden PRB dell-58
  -  **Disk-installed OS creds** (ubuntu 16.04): user / password
@@ -260,7 +260,7 @@ done
 | 1    | -             | -                                                | -                                    |
 | 3    | Internet      | Internet uplink                                  | -                                    |
 | 4    | tp-0          | tp-0 switch in non-haas rack / All VLANs trunked | -                                    |
-| 5    | -             | len-61 eth0                                      | -                                    |      
+| 5    | -             | len-61 eth0                                      | -                                    |
 | 6    | -             | len-62 eth0                                      | Secure Cloud                         |
 | 13   | 0x13          | super-38                                         | beta                                 |
 | 14   | 0x14          | super-39                                         | Kristi (port shutdown)               |
@@ -403,16 +403,16 @@ done
 ### Equipment
 We have a rack in the PRB server room with hardware for development work on HaaS. Here's what's up there:
  -  **3 Dell Powerconnect 5524 switches** (24 ports each).
-     -  The **administrative interface** for these switches are listening on VLAN 1 to 
+     -  The **administrative interface** for these switches are listening on VLAN 1 to
      IP address `192.168.3.[245-247]`. These are referred to as dell-0 through dell-2, and are labeled.
      -  **username/Password** see bitwarden PRB Dell Switches
      -  [CLI Manual](../../_static/pdf/powerconnect5500_cliref_en-us.pdf). [Dell's support website](http://www.dell.com/support/home/us/en/4/product-support/product/powerconnect-5524/manuals)
- -  **8 servers based on Supermicro's [SuperServer 5018A-MLTN4][1]**. 
- These have [Super A1SAM-2550F](http://www.supermicro.com/products/motherboard/Atom/X10/A1SAM-2550F.cfm) 
- motherboards. We added 16GiB of memory and a 750GB SATA disk (pulled from the ATLAS array). 
+ -  **8 servers based on Supermicro's [SuperServer 5018A-MLTN4][1]**.
+ These have [Super A1SAM-2550F](http://www.supermicro.com/products/motherboard/Atom/X10/A1SAM-2550F.cfm)
+ motherboards. We added 16GiB of memory and a 750GB SATA disk (pulled from the ATLAS array).
  These are x86_64 Atom processors with VT and IPMI 2.0.
      -  IPMI IP addresses are: `10.10.0.[40-47]`
- -  **2 Intel nodes**. They will probably be reunited with their family in engage1, 
+ -  **2 Intel nodes**. They will probably be reunited with their family in engage1,
  but for now we can use them. Each node has two 14 core Xeons and 256 GB memory.
      -  **IPMI addresses are**: `10.10.0.[50-51]`
      -  **IPMI username:password**: see bitwarden PRB Intel Nodes
