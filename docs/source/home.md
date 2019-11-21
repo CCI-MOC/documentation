@@ -24,6 +24,7 @@ for complete details of current projects.
  -  [Cache Networking using Openvswitch or linuxbridge](how-tos/cache-networking-using-openvswitch-or-bridge.html)
  -  [MOC FAQs](how-tos/MOC-frequently-asked-questions.html)
  -  [MGHPCC Shutdown](how-tos/MGHPCC-Shutdown.html)
+ -  [Setup Kaizen Baremetal Accounts HIL/BMI](how-tos/kaizen-baremetal-accounts.md)
 
 ### Knowledge base/Trainings
  -  [Brocade  VCS training - lab session](_static/pdf/VCS_Lab.pptx.pdf)
