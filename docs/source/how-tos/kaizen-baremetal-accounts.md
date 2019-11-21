@@ -24,6 +24,7 @@ Last login: Thu Nov 21 14:41:29 2019 from 128.197.41.186
 ```
 
 2. Switch user to naved because his acocunt has passwordless sudo which is required for running the scripts. `sudo su -l naved`.
+
 ```
 [rado@kzn-vbmi01res ~]$ sudo su -l naved
 Last login: Thu Nov 21 14:41:33 EST 2019 on pts/2
@@ -35,6 +36,7 @@ becomeadmin
 ```
 
 3. `source ~/becomeadmin` to source HIL admin credentials.
+
 ```
 [naved@kzn-vbmi01res ~]$ source becomeadmin
 [naved@kzn-vbmi01res ~]$ cd bmi-automation/
@@ -47,7 +49,7 @@ This script will:
 * put the HIL credentials in the users bashrc `/home/$USERNAME/.bashrc`.
 * A message in their bashrc that tells them their project name.
 
-##. BMI Images
+## BMI Images
 
 1. Set `$KEY` environment variable to their ssh public key.
 ```
@@ -55,6 +57,7 @@ export KEY='ssh-rsa blabhalbh-blah...
 ```
 
 2. Run `./insert-key.sh $PROJECT_NAME $IMAGE_NAME`
+
 This script will:
 * Import a bootable image into their bmi project.
 * and then insert their key into it.
