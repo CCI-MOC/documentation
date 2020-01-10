@@ -88,6 +88,7 @@
  -  10.1.11.16     Dell-16 (Current Ironic Controller)
  -  10.1.11.17     kumo-ipmi-gw managing port
  -  10.1.11.18     Dell-1 (Naved's Test ironic node)
+ -  10.1.11.19     MaaS controller (to manage kumo hosts)
  -  10.1.10.1-16      Dell Blades
  -  Dell-3,13,14,15,16 have been moved to a different subnet temporarily for Tzu-Mainn to access. Their IPs are moved
  -  from 10.1.10.X to 10.1.12.X. kumo-hil has the ip 10.1.12.254. 
