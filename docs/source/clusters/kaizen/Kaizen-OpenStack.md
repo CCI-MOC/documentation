@@ -49,7 +49,7 @@ Server configuration:
 | RAM | 128 GB DDR4 |
 | Model | PowerEdge R730xd |
 | Networking | Dual 10GB Nics |
-| Storage | 10 X 10TB drives for OSD |
+| Storage | 10 X 10TB 7.2k rpm drives for OSD |
 | Storage | 2 X 128GB drives for OS |
 | Storage | 2 X 1.6 TB drives for journal |
 
@@ -69,7 +69,7 @@ Server configuration:
 | RAM | 256 GB DDR3 |
 | Model | PRIMERGY RX300 S8 |
 | Networking | Dual 10GB Nics |
-| Storage | 38 X 1TB drive for OSD |
+| Storage | 38 X 1TB 10k rpm drive for OSD |
 | Storage | 2 X 1TB drives for OS |
 
 OSD servers for "performance" root:
