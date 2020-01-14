@@ -39,15 +39,16 @@ for complete details of current projects.
  -  [MariaDB Configuration for RHEL OSP](trainings/Maria-DB-Configuration-for-RHEL-OSP.html)
 
 ### Clusters
+ -  [Kaizen OpenStack](clusters/kaizen/Kaizen-OpenStack.html)
  -  [MOC VLAN Distribution](clusters/MOC-VLAN-Distribution.html)
- -  [Northeastern Cluster](clusters/kaizen/Northeastern-Cluster.html)
+ -  [Kaizen Bare Metal](clusters/kaizen/Kaizen-Bare-Metal.html)
+ -  [Kaizen 2 networking](clusters/kaizen2/Kaizen-2.html)
  -  [BU PRB Cluster](clusters/prb/BU-PRB-Cluster.html)
- -  [CSAIL at Holyoke](clusters/CSAIL-at-Holyoke.html)
  -  [Engage1 Cluster](clusters/engage1/Engage1-Cluster.html)
  -  [Kumo Cluster](clusters/kumo/Kumo-Cluster.html)
- -  [Kaizen Bare Metal](clusters/kaizen/Kaizen-Bare-Metal.html)
+ -  [CSAIL at Holyoke](clusters/CSAIL-at-Holyoke.html)
  -  [Ops tasks in Northeastern University MOC deployment](clusters/kaizen/Ops-tasks-in-Northeastern-University-MOC-deployment.html)
- -  [Kaizen 2](clusters/kaizen2/Kaizen-2.html)
+ -  [Northeastern Cluster - outdated](clusters/kaizen/Northeastern-Cluster.html)
 
 ### MOC/Research/Design
  -  [Radiology](research/Radiology.html)
