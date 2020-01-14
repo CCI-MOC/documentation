@@ -30,7 +30,7 @@ The ceph cluster used for our openstack and baremetal environments is made up of
 
 4 OSD servers are used for "size" root, while the other 4 provide the "performance" root.
 
-Everything is triple replicated except RGWs.
+Everything is triple replicated except RGW storage pools.
 
 ### Size root
 
