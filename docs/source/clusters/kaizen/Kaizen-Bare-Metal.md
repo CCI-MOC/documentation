@@ -1,7 +1,15 @@
 # Kaizen Bare Metal
 
+We have a variety of baremetal servers available to be leased.
+
+* Cisco servers with 12 cores/24 threads (intel sandybridge) and 128 GB RAM each.
+* Dell servers with 16 cores/32 threads (intel sandybridge) and 128 GB RAM.
+* Few Lenovo servers with similar configuration.
+
 Please email kaizenbm@lists.massopen.cloud if you wish to schedule nodes for a longer
 duration.
+
+
 
 ## SSH to kaizen machines.
 
