@@ -7,7 +7,7 @@ We have a variety of baremetal servers available to be leased.
 * Few Lenovo servers with similar configuration.
 
 Please email kaizenbm@lists.massopen.cloud if you wish to schedule nodes for a longer
-duration.
+duration. Open a ticket at osticket.massopen.cloud for any questions/clarifications.
 
 
 
@@ -73,6 +73,15 @@ ssh 10.255.X.Y -l root
 
 ## How to deprovision a node and return it to free pool.
 
+### Fast method:
+
+1. Pass the `force` flag to the `project node remove` command. This will automatically remove all networks, power off the node, disable obm and remove the node from the project.
+
+```
+hil project node remove <project> <node> --force
+```
+
+### Slow method:
 1. Power off the node
 
 ```
@@ -110,7 +119,7 @@ hil project node remove <project> <node>
  -  Each node has 2 nics labelled nic1 and nic2.
  -  Currently the nodes don't have a lease time, but a leasing system will be added soon.
  -  For provisioning, we connect `nic1` to the bmi provisioning network natively using HIL.
- -  If you require a public IP address for your node, talk to Naved/Rado.
+ -  If you require a public IP address for your node, open a ticket at osticket.massopen.cloud
 
 ## Using HIL from your local machine
 
@@ -150,6 +159,7 @@ when you login (you could figure out it's equivalent if you are using a differen
  -  to find the vlan-id of a network, run `hil network show <network-name>`
  -  `hil node network detach <node-name> <nic-name> <network-name>`
   this will remove <network-name> from your node's nic.
+ -  `hil node nic revert <node-name> <nic-name>` will remove all networks from a nic, if any.
  -  `hil node obm enable <node-name>` to enable OBM which lets your perform all
   power commands, and view console.
  -  `hil node obm disable <node-name>` to disable OBM.
