@@ -110,3 +110,25 @@
  -  [OpenShift Service](archives-page/OpenShift-Service.html)
  -  [Spark Cluster on OpenShift]
  -  [OpenShift Debugging]
+
+### Clusters
+ -  [Northeastern Cluster - outdated](archives-page/Northeastern-Cluster.html)
+
+### Monitoring (Definitely outdated)
+ -  [Monitoring Data Backup Infrastructure](archives-page/monitoring/Monitoring-data-backup-infrastructure.html)
+ -  [Resolving Sensu Email Alerts](archives-page/monitoring/Email-Alerting-in-Sensu.html)
+ -  [Viewing the Monitoring Dashboards in NEU Env](archives-page/monitoring/Viewing-the-Monitoring-Dashboards-in-NEU-Env.html)
+ -  [SNMP: CISCO switch monitoring](archives-page/monitoring/SNMP-CISCO-switch-monitoring.html)
+ -  [Grafana](archives-page/monitoring/Grafana.html)
+ -  [Influxdb & Grafana](archives-page/monitoring/Influx-Grafana.html)
+ -  [Use InfluxDB handler in Sensu](archives-page/monitoring/Use-InfluxDB-handler-in-Sensu.html)
+ -  [Logging IPMI sensor data into Sensu + Influxdb](archives-page/monitoring/Logging-IPMI-sensor-data-into-Sensu-Influxdb.html)
+ -  [Where to find the IPMI checks](archives-page/monitoring/Where-to-find-the-IPMI-checks.html)
+ -  [Ceilometer Introduction](archives-page/monitoring/Ceilometer-Introduction.html)
+ -  [Ceilometer Installation in NE Env.](archives-page/monitoring/Ceilometer-Installation-in-NE-Env.html)
+ -  [InfluxDB Crash Course: Querying Data](archives-page/monitoring/InfluxDB-Crash-Course-Querying-Data.html)
+ -  [Aggregate Data in InfluxDB](archives-page/monitoring/Aggregate-Data-in-InfluxDB.html)
+ -  [Ceilometer Deployment Guide](archives-page/monitoring/Ceilometer-Deployment-Guide.html)
+
+
+

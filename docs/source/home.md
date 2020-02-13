@@ -48,7 +48,7 @@ for complete details of current projects.
  -  [Kumo Cluster](clusters/kumo/Kumo-Cluster.html)
  -  [CSAIL at Holyoke](clusters/CSAIL-at-Holyoke.html)
  -  [Ops tasks in Northeastern University MOC deployment](clusters/kaizen/Ops-tasks-in-Northeastern-University-MOC-deployment.html)
- -  [Northeastern Cluster - outdated](clusters/kaizen/Northeastern-Cluster.html)
+
 
 ### MOC/Research/Design
  -  [Radiology](research/Radiology.html)
@@ -79,22 +79,6 @@ for complete details of current projects.
  -  [Setting up the RADOS gateway](openstack/Setting-up-the-RADOS-gateway.html)
  -  [MOC UI](openstack/UI.html)
  -  [Updating Tutorial Screenshots](openstack/Updating-Tutorial-Screenshots.html)
-
-### Monitoring (Definitely outdated)
- -  [Monitoring Data Backup Infrastructure](monitoring/Monitoring-data-backup-infrastructure.html)
- -  [Resolving Sensu Email Alerts](monitoring/Email-Alerting-in-Sensu.html)
- -  [Viewing the Monitoring Dashboards in NEU Env](monitoring/Viewing-the-Monitoring-Dashboards-in-NEU-Env.html)
- -  [SNMP: CISCO switch monitoring](monitoring/SNMP-CISCO-switch-monitoring.html)
- -  [Grafana](monitoring/Grafana.html)
- -  [Influxdb & Grafana](monitoring/Influx-Grafana.html)
- -  [Use InfluxDB handler in Sensu](monitoring/Use-InfluxDB-handler-in-Sensu.html)
- -  [Logging IPMI sensor data into Sensu + Influxdb](monitoring/Logging-IPMI-sensor-data-into-Sensu-Influxdb.html)
- -  [Where to find the IPMI checks](monitoring/Where-to-find-the-IPMI-checks.html)
- -  [Ceilometer Introduction](monitoring/Ceilometer-Introduction.html)
- -  [Ceilometer Installation in NE Env.](monitoring/Ceilometer-Installation-in-NE-Env.html)
- -  [InfluxDB Crash Course: Querying Data](monitoring/InfluxDB-Crash-Course-Querying-Data.html)
- -  [Aggregate Data in InfluxDB](monitoring/Aggregate-Data-in-InfluxDB.html)
- -  [Ceilometer Deployment Guide](monitoring/Ceilometer-Deployment-Guide.html)
 
 ### HPC
  -  [Slurm](hpc/Slurm.html)
