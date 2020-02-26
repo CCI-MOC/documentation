@@ -62,6 +62,9 @@ for complete details of current projects.
 ### M2
  -  [Github link](https://github.com/CCI-MOC/m2)
 
+### Monitoring
+ -  [Monitoring](monitoring/monitoring.html)
+
 ### OpenStack
  -  [OpenStack Tutorial Index](openstack/OpenStack-Tutorial-Index.html)
  -  [Keystone to Keystone Federation](openstack/Keystone-to-Keystone-Federation.html)
