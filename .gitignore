@@ -105,3 +105,4 @@ venv.bak/
 
 #Vim temporary files
 *.un~
+*.swp
