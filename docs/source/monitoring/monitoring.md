@@ -6,7 +6,7 @@ This document describes how we monitor our infrastructure and various services.
 
 We wanted a system that could:
 
-1. Monitor out infrastructure/services availibility. 
+1. Monitor out infrastructure/services availibility.
 2. Send notifications for alerts and triggers.
 3. Gather metrics
 4. Should be completely free
@@ -30,7 +30,7 @@ For zabbix databases, we use nvme SSDs on HA-NFS (2 nodes).
 1. Producition zabbix - zabbix.massopen.cloud for most of our monitoring.
 2. Research Zabbix - rz.massopen.cloud (currently used for discovering and collecting metrics of our openstack VMs.)
 3. ELK stack - elk.massopen.cloud (for log collections and analysis)
-4. Grafana - For graphing zabbix data. 
+4. Grafana - For graphing zabbix data.
   - status.massopen.cloud for Production Zabbix (it's running on the same host as the zabbix server)
   - rz.massopen.cloud/grafana for Research Zabbix (no graphs here at the moment)
 5. Cacti - still functional from our old setup. (graphing data)
@@ -54,15 +54,15 @@ We also use custom parameters with zabbix agents. We add those to zabbix agent c
 
 ### Notes about physical hosts
 
-For physical hosts, we also monitor the ipmi controller. 
+For physical hosts, we also monitor the ipmi controller.
 - Ping the ipmi controller to check for availibilty.
 - Most IPMI controllers also provide metrics and alerts over SNMP. This way we can get alerts in zabbix for drive failuers, RAID issues, various sensor informations etc.
 - Baremetal hosts provided to users via HIL/BMI do not have zabbix agents, so we only monitor the ipmi controller.
-- Baremetal hosts provided to users via MaaS have zabbix agents installed on them. We let users know of this and they are free to remove the agents. We only collect metrics data, no triggers or alerts are generated in this case.
+- Baremetal hosts provided to users via MaaS have zabbix agents installed on them if they use our custom images. We let users know of this and they are free to remove the agents. We only collect metrics data, no triggers or alerts are generated in this case.
 
 ### Services
 
-We monitor http, dns, dhcp, and some other services.	
+We monitor http, dns, dhcp, and some other services.
 
 - For http services, the zabbix server calls an external script (that is on the same host) to check http response. We should switch to using the internal zabbix tools for this.
 - We monitor dns and dhcp similarly too.
@@ -88,7 +88,7 @@ Here's the script that does that: https://github.com/CCI-MOC/zabbix-config/blob/
 
 ### Calculated metrics and graphs
 
-We calculate aggregate usage of CPU, RAM, GPU accross various clusters (openstack computes, ovirt, power9). We also have custom graphs representing these. 
+We calculate aggregate usage of CPU, RAM, GPU accross various clusters (openstack computes, ovirt, power9). We also have custom graphs representing these.
 
 ## Research Zabbix
 
@@ -116,7 +116,7 @@ Grafana looks pretty and you can make nice dashboards with it. Both of our zabbi
 
 ### For primary zabbix
 
-This grafana dashboard is available at status.massopen.cloud and has very few graphs at the moment. No authentication is required to see the dashboards here. 
+This grafana dashboard is available at status.massopen.cloud and has very few graphs at the moment. No authentication is required to see the dashboards here.
 The idea is to make this the status page of massopen.cloud (as the url suggest) so the front page will/should have information useful for public.
 
 ### For research zabbix
