@@ -55,6 +55,10 @@ IP Address  Hostname/Description
 129.10.5.130    neu-15-41 (for apoorve)
 129.10.5.131    zabbix.massopen.cloud
 129.10.5.132    freeipa2.infra.massopen.cloud
+129.10.5.133    rz.massopen.cloud (Research Zabbix)
+129.10.5.134    mondata.massopen.cloud
+129.10.5.135    chat.massopen.cloud
+129.10.5.136    elkmassopen.cloud
 129.10.5.137  promtest.infra.massopen.cloud
 ```
 
