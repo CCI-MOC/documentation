@@ -55,6 +55,7 @@ IP Address  Hostname/Description
 129.10.5.130    neu-15-41 (for apoorve)
 129.10.5.131    zabbix.massopen.cloud
 129.10.5.132    freeipa2.infra.massopen.cloud
+129.10.5.137  promtest.infra.massopen.cloud
 ```
 
 ## IPMI network: 10.0.0.0/19 (ACCESS MODE)
