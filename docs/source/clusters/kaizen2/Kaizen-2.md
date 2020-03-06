@@ -59,7 +59,7 @@ IP Address  Hostname/Description
 129.10.5.134    mondata.massopen.cloud
 129.10.5.135    chat.massopen.cloud
 129.10.5.136    elkmassopen.cloud
-129.10.5.137    prometheus test-instance (lars)
+129.10.5.137  promtest.infra.massopen.cloud
 ```
 
 ## IPMI network: 10.0.0.0/19 (ACCESS MODE)
