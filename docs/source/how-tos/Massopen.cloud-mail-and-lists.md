@@ -1,7 +1,7 @@
 ## MassOpen.cloud Mail and Lists
 
 ### General info and FAQ on using mail and lists @ massopen.cloud
-To view lists and subscribe/unsubscribe visit [https://mail.massopen.cloud/mailman/listinfo](https://mail.massopen.cloud/mailman/listinfoand) 
+To view lists and subscribe/unsubscribe visit [https://mail.massopen.cloud/mailman/listinfo](https://mail.massopen.cloud/mailman/listinfo) 
 read the instructions provided by Mailman.
 
 ### I lost my email communication from mailman, how can I retrieve my password?
