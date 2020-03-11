@@ -136,8 +136,6 @@ VLAN 751 to 1000 will be reserved for HIL and BMI.
 | ---- | ------------------------------------------------------- | --------------- |
 | 105  | Public IPs from BU                                      | 192.12.185.0/24 |
 | 1004 | Intranet (routable to internet). SNMP for client nodes. | 172.18.0.0/19   |
-| 7049 | Ceph Cluster (internal)                                 | --              |
-| 1050 | Ceph public (for clients)                               | --              |
 | 3808 | Public IPs                                              | 128.31.28.0/24  |
 
  -  Rest of the VLANs will be reserved for HIL in this environment.
