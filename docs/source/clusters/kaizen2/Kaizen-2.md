@@ -74,6 +74,8 @@ IP Address  Hostname/Description
 10.0.0.4    kzn-nagios.infra.massopen.cloud
 10.0.0.5    zabbix.massopen.cloud
 10.0.0.6    kzn-ipmi2-gw.infra.massopen.cloud ***ON 1GB VLAN 2 TAGGED ***
+10.0.0.7    switchback.massopen.cloud (The host that backs up switch configurations).
+10.0.0.8    promtest.massopen.cloud (Test promotheus instance. Talk to Lars/Naved about it).
 10.0.0.255  kzn-h.infra.massopen.cloud
 10.0.3.140    ov3.massopen.cloud/kzn-e.massopen.cloud over BU public IPs from Kumo
 10.0.5.140    ov2.massopen.cloud
