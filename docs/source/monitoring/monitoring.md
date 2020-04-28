@@ -1,6 +1,6 @@
 # Monitoring
 
-This document describes how we monitor our infrastructure and various services.
+This document describes how we monitor our infrastructure and various services. To view monitoring data, visit our monitoring system at https://zabbix.massopen.cloud and login as the guest user.
 
 ## Requirements
 
