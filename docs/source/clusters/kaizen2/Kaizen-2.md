@@ -60,6 +60,7 @@ IP Address  Hostname/Description
 129.10.5.135    chat.massopen.cloud
 129.10.5.136    elkmassopen.cloud
 129.10.5.137  promtest.infra.massopen.cloud
+129.10.5.138  p9con.massopen.cloud
 ```
 
 ## IPMI network: 10.0.0.0/19 (ACCESS MODE)
