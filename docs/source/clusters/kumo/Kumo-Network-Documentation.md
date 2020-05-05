@@ -7,6 +7,9 @@
 
 **Public (via BU)**
  - 192.12.185.010-100  OSP director managed
+ - 192.12.185.242      Rob - x86 bare metal openshift
+ - 192.12.185.243      Rob - x86 bare metal openshift
+ - 192.12.185.244      Rob - x86 bare metal openshift
  - 192.12.185.245      lars - esi-sandbox (dell??)
  - 192.12.185.246      lars - dell15
  - 192.12.185.247      kzn-e.massopen.cloud
