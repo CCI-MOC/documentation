@@ -5,20 +5,25 @@
 ### For everyone
 
 1. Be able to run IRC and Slack
-  - #moc, #openinfralabs, #openinfralabs-monitoring on freenode.
+  * `#moc`, `#openinfralabs`, `#openinfralabs-monitoring` on freenode.
+
   (usually folks use ZNC bouncer, some of us use irccloud which as a built in bouncer - #openinfralabs is archived so a bouncer may not be needed.)
+
 
 2. Checkout docs.massopen.cloud
   If you find things which may be improved you are encouraged to do a pull request and fix them.
   Understand how to use SSH and generate their public keys.
 
-3. Share contact info and subscribe to the team mailing list.
- -  Add your name and contact information at [this URL](../contacts/People.html)
- -  Subscribe to the [team mailing lists](https://lists.massopen.cloud)
 
-4. **Trello**: Send mail to msd@bu.edu with your Trello user name and you will be added to the appropriate organization.
+3. Share contact info and subscribe to the team mailing list.
+    *  Add your name and contact information at [this URL](../contacts/People.html)
+    *  Subscribe to the [team mailing lists](https://lists.massopen.cloud)
+
+4. Trello: Send mail to msd@bu.edu with your Trello user name and you will be added to the appropriate organization.
+
 
 5. TODO: Contact Jen on how she would like to gather information on new people to publish to the website.
+
 
 ### For Support Types
 
@@ -26,56 +31,72 @@ Some of the items below require levels of access that must be earned over time, 
 
 Please familiarize yourself with the following topics:
 
-1. OSTicket
-    1. Look at the knowledgebase to know what's already covered.
+1. [OSTicket](https://osticket.massopen.cloud/)
+    * Look at the [knowledgebase](https://osticket.massopen.cloud/kb/index.php) to know what's already covered.
+
 2. Terminology
-    2. Kaizen
-    3. Openshift
-    4. Kubernetes
-    5. Engage1
-    6. Openstack
-    7. Version of SW
-        1. How to tell which Openstack
-        2. How to tell which openshift
-        3. How to tell
-    8. CEPH
-    9. Gluster
-    10. Object Store
-    11. Volume Store
-    12. Flavors
-    13. OVirt
+    * [Kaizen](https://kaizen.massopen.cloud)
+        - The MOC team tutorial on how to use our production system can be found at (here)[https://example.com]
+    * [Openshift](https://k-openshift.osh.massopen.cloud:8443)
+    * Kubernetes
+    * [Engage1](https://engage1.massopen.cloud)
+    * [Openstack](https://www.openstack.org/)
+        - [Getting started guide](http://docs.openstack.org/admin-guide-cloud/content/ch_getting-started-with-openstack.html) can be helpful.
+    * Version of SW
+        - How to tell which Openstack
+        - How to tell which Openshift
+    * [Ceph](https://ceph.io/)
+    * [Object Store](https://en.wikipedia.org/wiki/Object_storage)
+        - [S3](https://aws.amazon.com/s3/)
+        - [Openstack Swift](https://wiki.openstack.org/wiki/Swift)
+    * [Block Storage](https://en.wikipedia.org/wiki/Block_(data_storage)
+        - [Ceph RBD](https://docs.ceph.com/docs/master/rbd/)
+        - [Openstack Cinder](https://wiki.openstack.org/wiki/Cinder)
+    * [Flavors](https://docs.openstack.org/nova/latest/user/flavors.html)
+    * [RHEV](https://www.redhat.com/en/technologies/virtualization/enterprise-virtualization)
+        - [MOC's deployment of RHEV](https://ovirt.massopen.cloud) is also called oVirt.
+        - [oVirt](https://www.ovirt.org/) is the upstream project.
+        - [PRB ovirt deployment](https://pov.massopen.cloud)
+
 3. Openstack Tools
-    14. Horizon
-        4. Watch online tutorials, read up documentation. Would recommend creating instances, routers, security groups etc at least once.
-    15. Command Line
-        5. How to configure on your computer
+    * [Horizon](https://kaizen.massopen.cloud)
+        - Watch online tutorials, read up documentation. Would recommend creating instances, routers, security groups etc at least once.
+    * Command Line
+        - How to configure on your computer
+
 4. Monitoring System
-    16. Zabbix Dashboard navigation
-    17. Which zabbix URL for which information
-5. MAAS
+    * [Zabbix Dashboard](https://zabbix.massopen.cloud/) navigation
+    * Which zabbix URL for which information
+
+5. [MAAS](https://maas.io/)
+* Our deployment is at https://maas.massopen.cloud
+
 6. HIL/BMI
-7. FreeIPA
+    * HIL: https://github.com/cci-moc/hil
+    * BMI/M2: https://github.com/cci-moc/m2
+    * How to: https://docs.massopen.cloud/en/latest/clusters/kaizen/Kaizen-Bare-Metal.html
+
+7. [FreeIPA](https://www.freeipa.org/)
+    * Our deployment is at https://freeipa.infra.massopen.cloud/ipa/ui/
+
 8. Access to RH MOC account
-    18. How to research for existing bugs
-    19. How to open a ticket?  (Chris Wawak?)
+    * How to research for existing bugs
+    * How to [open a ticket](https://access.redhat.com/)
+
 
 ### For Software Developers
 
-1. (Start by reviewing pull requests - if you click approve you equally guilty as the person who wrote bad code that you approved)
+1.  Python: You may want to consider using [iPython](http://ipython.org/) or other interactive Python tool to learn to code in Python.
 
-2. Suggestion: if writing python code, use some static analysis tools (e.g. pylint, black). Helpful in highlighting unused imports, variables, functions, bad return types etc before you submit your code for review.
+2. Start by reviewing pull requests - if you click approve you are equally guilty as the person who wrote bad code that you approved
 
-3. Read/understand the git workflow.
+3. Suggestion: if writing python code, use some static analysis tools (e.g. pylint, black). Helpful in highlighting unused imports, variables, functions, bad return types etc before you submit your code for review.
 
+4. Familiarize yourself with [GitHub](https://guides.github.com/) and git.
 
-### Get familiar with OpenStack, github, Python and Red Hat Enterprise software
- -  **OpenStack** -  : There are many tutorials online for OpenStack.
-  Going over the official 
-  [getting start guide](http://docs.openstack.org/admin-guide-cloud/content/ch_getting-started-with-openstack.html) can be helpful.
-  The MOC team tutorial on how to use our production system can be found at [here](https://correctlink.com)
- -  **Python** -  : You may want to consider using [iPython](http://ipython.org/) or other interactive Python tool to learn to code in Python.
-  Similar to OpenStack, there are quite a few online tutorials. The [official Python](https://www.python.org/) site is here.
- -  **github** -  : If you are not already familiar with github, you can start at its [official site](https://github.com/) for the "how-to".
+5. Automated testing (unit/integration tests) to confirm that your project works:
+    * Python: pytest
+    * TravisCI, Jenkins, CircleCI
 
 ## MOC Individual Contributor License Agreement (ICLA)
 Contributors to the MOC are required to sign the 
@@ -120,7 +141,7 @@ You can expect at most a couple of questions in a day, and likely less.
  If you get more than that, then contact admin@lists.massopen.cloud and we will get you more help.
  We think this will be a great learning experience for everyone, and help increase the engagements across the team.
 
-## Special Interest Mailing
+## Special Interest Mailing Lists
 
 
 `moc-research-list@bu.edu` : for those who are interested in research related activities in the MOC. 
