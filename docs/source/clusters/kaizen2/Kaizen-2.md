@@ -1,11 +1,12 @@
-## Kaizen Networks
+# Kaizen Networks
 This documents lists out all hosts on all Kaizen VLANs.
 
-### Public Neu (VLAN 127)
- -  192.12.185.247      kzn-e.massopen.cloud emergency connection is through BU public net
- -  Subnet: 129.10.5.0/24
+## Public Neu (VLAN 127)
 
-```shell
+-  192.12.185.247      kzn-e.massopen.cloud emergency connection is through BU public net
+-  Subnet: 129.10.5.0/24
+
+```
 IP Address  Hostname/Description
 129.10.5.4	kzn-hil-client.infra.massopen.cloud
 129.10.5.32	node-32 (old kaizen controller-1)
@@ -63,11 +64,35 @@ IP Address  Hostname/Description
 129.10.5.138  p9con.massopen.cloud
 ```
 
+## Public BU (VLAN 105)
+
+-  Subnet: 192.12.185.0/24
+
+```
+IP Address      Hostname/Description
+192.12.185.1    default gateway
+192.12.185.101  dhcp1.cnv.massopen.cloud
+192.12.185.102  dhcp2.cnv.massopen.cloud
+192.12.185.103  provisioner.cnv.massopen.cloud
+192.12.185.104  api.cnv.massopen.cloud
+192.12.185.105  ingres-lb.cnv.massopen.cloud
+192.12.185.106  ns1.cnv.massopen.cloud
+192.12.185.107  bootstrap.cnv.massopen.cloud
+192.12.185.110  openshift-master-0.cnv.massopen.cloud
+192.12.185.111  openshift-master-1.cnv.massopen.cloud
+192.12.185.112  openshift-master-2.cnv.massopen.cloud
+192.12.185.115  openshift-worker-0.cnv.massopen.cloud
+192.12.185.115  openshift-worker-1.cnv.massopen.cloud
+192.12.185.115  openshift-worker-2.cnv.massopen.cloud
+```
+
 ## IPMI network: 10.0.0.0/19 (ACCESS MODE)
+
  -  IP assignment: 10.0.rack-number.u(nit)-number, servers bigger than 1 U get the lowest U number,
  numbering increases from bottom to top.
  -  10.0.0.X (X froom 1 to 255, 255 is valid because prefix is 19) (for VMs that can be anywhere)
-```shell
+
+```
 IP Address  Hostname/Description
 10.0.0.1    kzn-ipmi-gw.infra.massopen.cloud
 10.0.0.2    kzn-cacti
@@ -84,8 +109,10 @@ IP Address  Hostname/Description
 10.0.15.140   ov1.massopen.cloud
 ```
 ## Ceph cluster/replication (VLAN 248)
+
  -  Subnet: 192.168.255.0/24
-```shell
+
+```
 IP Address  Hostname/Description
 1   ov1
 2   ov2
@@ -95,14 +122,18 @@ IP Address  Hostname/Description
 252 nfs2
 ```
 ## Ceph cluster/replication (VLAN 249)
- -  Subnet: 192.168.40.0/23
-```shell
+
+-  Subnet: 192.168.40.0/23
+
+```
 IP Address  Hostname/Description
 TBD
 ```
 ## Ceph client (VLAN 250)
- -  Subnet: 192.168.0.0/19
-```shell
+
+-  Subnet: 192.168.0.0/19
+
+```
 IP Address  Hostname/Description
 Range for Dirctor 192.168.0.0 - 192.168.3.255
 192.168.28.1    kzn-osd01
@@ -129,10 +160,12 @@ Range for Dirctor 192.168.0.0 - 192.168.3.255
 192.168.28.214  kzn-vbmi02stack.kzn.moc
 ```
 
-### Provision/SNMP network
- -  172.16.0.0/19, Undercloud network
- -  192.168.255.0/24 both on (VLAN 201)
-```shell
+## Provision/SNMP network
+
+-  172.16.0.0/19, Undercloud network
+-  192.168.255.0/24 both on (VLAN 201)
+
+```
 IP Address  Hostname/Description
 172.16.0.1	 kzn-router.infra.massopen.cloud
 172.16.0.3	 kzn-foreman.infra.massopen.cloud, kzn-foreman.moc.int
@@ -147,8 +180,9 @@ IP assignment - same as IPMI network. BMI has to configure additional tagged int
 
 See [rack numbers and details](https://docs.google.com/spreadsheets/d/1kKNx2HKtuTL_UZFDsOMfKqk-9KJ3Yd46lvJRn6P-3Zc/edit#gid=0)
 
-### Intranet: 172.16.96.0/19 (VLAN 204)
-```shell
+## Intranet: 172.16.96.0/19 (VLAN 204)
+
+```
 IP Address  Hostname/Description
 172.16.96.1	kzn-router.infra.massopen.cloud
 172.16.96.2     kzn-hil-server.infra.massopen.cloud
@@ -159,8 +193,9 @@ IP Address  Hostname/Description
 ```
  -  Defauly gateway at 172.16.96.1 connects to internet. Will be registered in HIL so nodes can access internet.
 
-### Staging Foreman: 172.17.0.0/19 (VLAN 269)
-```shell
+## Staging Foreman: 172.17.0.0/19 (VLAN 269)
+
+```
 IP Address  Hostname/Description
 172.17.0.1    	kzn-router.infra.massopen.cloud
 172.17.0.3      Foreman
@@ -170,9 +205,11 @@ IP Address  Hostname/Description
 ```
 
 
-### BMI Provisioning (VLAN 500)
- -  dhcp-range=10.255.0.45,10.255.0.254,7d
-```shell
+## BMI Provisioning (VLAN 500)
+
+-  dhcp-range=10.255.0.45,10.255.0.254,7d
+
+```
 IP Address  Hostname/Description
 10.255.0.1       kzn-vbmi01res
 10.255.0.2       kzn-vbmi02res
@@ -185,8 +222,9 @@ IP Address  Hostname/Description
 10.255.0.255	 kzn-cacti
 ```
 
-### Stack BMI provision network: 10.254.0.0/19 (VLAN 501)
-```shell
+## Stack BMI provision network: 10.254.0.0/19 (VLAN 501)
+
+```
 IP Address  Hostname/Description
 10.254.0.1       kzn-vbmi01stack
 10.254.0.2       kzn-vbmi02stack
@@ -194,8 +232,9 @@ IP Address  Hostname/Description
 10.254.0.255	 kzn-cacti
 ```
 
-### CSAIL-3803 Public IPs: 128.31.28.0/24 (VLAN 3803)
-```shell
+## CSAIL-3803 Public IPs: 128.31.28.0/24 (VLAN 3803)
+
+```
 IP Address  Hostname/Description
 128.31.28.1     gateway
 128.31.28.248   openshift (Rob)
@@ -206,8 +245,9 @@ IP Address  Hostname/Description
 128.31.28.254   openshift (Rob)
 ```
 
-### Research Ceph (VLAN 252)
-```shell
+## Research Ceph (VLAN 252)
+
+```
 IP Address  Hostname/Description, HIL managed vlan 252
 192.168.32.1 kzn-rmon1 kzn-rmon1.infra.massopen.cloud
 192.168.32.2 kzn-rmon2 kzn-rmon2.infra.massopen.cloud
@@ -241,17 +281,18 @@ IP Address  Hostname/Description, HIL managed vlan 252
  coded pool for data storage use `rbd create mynewrbdimage --data-pool ecrbd --size xxxG`
  -  *Be careful with the number of placement groups if creating new pools*
 
-### VPN range
+## VPN range
+
 172.31.224.0/19
 
-### Network connections
+## Network connections
+
 For 1 GB U number goes to the same port number.
 
 For 10GB U1 goes to ports 1 and 2 on lower Brocade switch, U2 - ports 3,4 up to U20.
 U21 goes to ports 1,2 on upper switch and so on.
 
-### Lenovo Ceph - for IBM Power9 (VLAN 210 and 211)
+## Lenovo Ceph - for IBM Power9 (VLAN 210 and 211)
 
 VLAN 210 - 	192.168.96.0/19
 VLAN 211 - 	192.168.128.0/19
-
