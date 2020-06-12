@@ -20,6 +20,8 @@ IP Address       Hostname/Description
 129.10.5.48      kzn-h.infra.massopen.cloud (node-48)
 129.10.5.50      Virtual IP for openstack horizon (kaizen.massopen.cloud)
 129.10.5.52      Repo server
+129.10.5.55      dhcp1.cnv.massopen.cloud
+129.10.5.56      dhcp2.cnv.massopen.cloud
 129.10.5.100     kaizen.massopen.cloud
 129.10.5.101     ov1.massopen.cloud
 129.10.5.102     ov2.massopen.cloud
@@ -67,8 +69,8 @@ IP Address       Hostname/Description
 ```
 IP Address       Hostname/Description
 192.12.185.1     default gateway
-192.12.185.101   dhcp1.cnv.massopen.cloud
-192.12.185.102   dhcp2.cnv.massopen.cloud
+192.12.185.101   dhcp1-bm.cnv.massopen.cloud
+192.12.185.102   dhcp2-bm.cnv.massopen.cloud
 192.12.185.103   provisioner.cnv.massopen.cloud
 192.12.185.104   api.cnv.massopen.cloud
 192.12.185.105   ingres-lb.cnv.massopen.cloud
