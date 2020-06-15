@@ -22,9 +22,6 @@
 4. Trello: Send mail to msd@bu.edu with your Trello user name and you will be added to the appropriate organization.
 
 
-5. TODO: Contact Jen on how she would like to gather information on new people to publish to the website.
-
-
 ### For Support Types
 
 Some of the items below require levels of access that must be earned over time, based on proving knowledge and judgement.  Leveling Up is encouraged!
