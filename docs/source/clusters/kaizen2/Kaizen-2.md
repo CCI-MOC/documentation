@@ -88,6 +88,18 @@ IP Address       Hostname/Description
 192.12.185.123   m04.osh.massopen.cloud
 192.12.185.124   m05.osh.massopen.cloud
 192.12.185.125   m06.osh.massopen.cloud
+192.12.185.130   dynamic range start
+192.12.185.135   dynamic range stop
+192.12.185.140   provisioner.cnv2.massopen.cloud
+192.12.185.141   api.cnv2.massopen.cloud
+192.12.185.142   ns1.cnv2.massopen.cloud
+192.12.185.143   lb.cnv2.massopen.cloud
+192.12.185.144   bootstrap.cnv2.massopen.cloud
+192.12.185.145   openshift-master-0.cnv2.massopen.cloud
+192.12.185.146   openshift-master-1.cnv2.massopen.cloud
+192.12.185.147   openshift-master-2.cnv2.massopen.cloud
+192.12.185.148   openshift-worker-0.cnv2.massopen.cloud
+192.12.185.149   openshift-worker-1.cnv2.massopen.cloud
 192.12.185.251   kumo-hil-client.infra.massopen.cloud
 ```
 
