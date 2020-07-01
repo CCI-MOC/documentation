@@ -1,5 +1,27 @@
 ## Engage1 Network Documentation
 
+### Switches and Gateway
+
+The emergency gateway to login to engage1 is e1-e.massopen.cloud (129.10.5.129). Regular gateway is at 128.52.62.147 (moc-services).
+
+From that host, you can login to the master brocade switch at 10.10.10.65. Rest of the switches are as follows:
+
+```shell
+RBridge-102# show vcs | include Online
+2                10:00:50:EB:1A:A4:29:AC        10.10.10.68     Online           Online               RBridge-2
+3                10:00:50:EB:1A:CF:43:28        10.10.10.69     Online           Online               RBridge-3
+5                10:00:50:EB:1A:A4:0B:C0        10.10.10.71     Online           Online               RBridge-5
+9                10:00:50:EB:1A:DE:AF:2C        10.10.10.75     Online           Online               RBridge-9
+10               10:00:50:EB:1A:63:15:14        10.10.10.76     Online           Online               RBridge-10
+13               10:00:50:EB:1A:AE:97:EC        10.10.10.78     Online           Online               RBridge-13
+14               10:00:50:EB:1A:AE:7D:04        10.10.10.79     Online           Online               RBridge-14
+19               10:00:50:EB:1A:E7:60:CC        10.10.10.83     Online           Online               RBridge-19
+101              10:00:50:EB:1A:A4:19:D8        10.10.10.64     Online           Online               RBridge-101
+102             >10:00:50:EB:1A:A4:2A:F4*       10.10.10.65     Online           Online               RBridge-102
+103              10:00:50:EB:1A:DE:B0:74        10.10.10.66     Online           Online               RBridge-103
+104              10:00:50:EB:1A:E7:86:F8        10.10.10.67     Online           Online               RBridge-104
+```
+
 ### Hardware and Networking Layout
 Where is everything, and what is connected to what ? These spreadsheets will tell you:  
  -  [Engage1_networks.xlsx](../../_static/xlsx/Engage1_networks.xlsx)

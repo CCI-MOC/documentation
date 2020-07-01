@@ -1,36 +1,22 @@
 ## Kumo Network Documentation
 
+Since we have merged the networks/VLANs in Kumo and Kaizen, all networking related upates should go here: https://moc-documents.readthedocs.io/en/latest/clusters/kaizen2/Kaizen-2.html?#public-bu-vlan-105
+
+
 ### IP addresses
 
 **Public (via CSAIL)**
  -  128.31.28.11        Recursive DNS server
 
-**Public (via BU)**
- - 192.12.185.010-100  OSP director managed
- - 192.12.185.242      Rob - x86 bare metal openshift
- - 192.12.185.243      Rob - x86 bare metal openshift
- - 192.12.185.244      Rob - x86 bare metal openshift
- - 192.12.185.245      lars - esi-sandbox (dell??)
- - 192.12.185.246      lars - dell15
- - 192.12.185.247      kzn-e.massopen.cloud
- - 192.12.185.248      kumo-rgw1
- - 192.12.185.249      kumo-rgw2
- - 192.12.185.250      kumo-ssh
- - 192.12.185.251      kumo-hil-client
- - 192.12.185.252      kumo-impi-gw
- - 192.12.185.253      kumo-services
- - 192.12.185.254      kumo-emergency **129.10.5.126**
-     -  publicly accessible, 192.12.185.254 is local only
+**Public (via BU VLAN 105)**
+
+This VLAN is now documented here: https://moc-documents.readthedocs.io/en/latest/clusters/kaizen2/Kaizen-2.html?#public-bu-vlan-105
+
 
 ### VLANs
  -  0010(10G)      connection to engage1 Public/Csail, dhcp
  -  0105(10G)      Public/BU - infrastructure, 192.12.185.0/24
  -  200(10G)       Internet Access via NATing gateway. HIL admin network.
- -  300-401        HIL controlled networks.
- -  500-501(10G)   BMI Provisioning Networks (HIL Admin Networks)
- -  502            RHEL Repo Server Network (HIL Admin Network)
- -  503            BMI-VJ
- -  510            BMI TEST for RedHat Demo
  -  3699(10G)      Foreman provision 10G, 172.16.0.0/22
  -  172.16.0.\*
      -  001     Foreman
@@ -53,12 +39,6 @@
  -  Openstack  hosts  192.168.17.0/24
  -  BMI  192.168.18.0/24
      -  Kumo-Storage  192.168.18.113
-     -  bmi-amin          192.168.18.114
-     -  dell-4 amin       192.168.18.115
-     -  dell-16 ironic    192.168.18.116
-     -  dell-1 ironic-naved    192.168.18.117
-     -  bmi-dan           192.168.18.174
-     -  bmi-dan-clone     192.168.18.175
      -  DHCP         192.168.19.0/24
  -  3701(10G)      ceph cluster network, 192.168.20.0/22
  -  3702(10G)      openstack private net, 192.168.32.0/22
@@ -73,6 +53,7 @@
  -  4014(1G)      provisioning/foremnan, 10.13.96.0/22
 
 ## IPMI IPs
+
  -  10.1.11.1      Cisco Catalyst Switch, see bitwarden Kumo Cisco Catalyst password
  -  10.1.11.2      Cisco Nexus Switch, see bitwarden Kumo Nexus passord
  -  10.1.11.3      Kumo emergency managing port
@@ -85,16 +66,19 @@
  -  10.1.11.10     kumo-cacti
  -  10.1.11.11     Kumo emergency IPMI access, see bitwarden Kumo Emergency IPMI password
  -  10.1.11.12     Kumo services IPMI access, see bitwarden Kumo Services IPMI password
- -  10.1.11.13     Kumo hil (keystone; VM) (to be deleted)
  -  10.1.11.14     Kumo hil master (non-keysone; VM)
  -  10.1.11.15     Mellanox M405EX (mlx001), see bitwarden Kumo Mellanox M405EX password
  -  10.1.11.16     Dell-16 (Current Ironic Controller)
  -  10.1.11.17     kumo-ipmi-gw managing port
- -  10.1.11.18     Dell-1 (Naved's Test ironic node)
  -  10.1.11.19     MaaS controller (to manage kumo hosts)
  -  10.1.10.1-16      Dell Blades
- -  Dell-3,13,14,15,16 have been moved to a different subnet temporarily for Tzu-Mainn to access. Their IPs are moved
- -  from 10.1.10.X to 10.1.12.X. kumo-hil has the ip 10.1.12.254. 
+ -  10.1.10.2      Dell Blade 2
+ -  10.1.10.3      Dell Blade 3
+ -  10.1.10.12      Dell Blade 12
+ -  10.1.10.13      Dell Blade 14
+ -  10.1.10.14      Dell Blade 16
+ -  10.1.10.16      Dell Blades
+ -  10.0.23.100+x   Dell Blade X (Rest of the dell blades that are on kaizen IPMI network now)
 
 ### Provisioning network static IPs
 *check Foreman for current hosts*
@@ -126,10 +110,6 @@ out of those projects.
 ### kumo-hil-client
  -  Runs the HIL Client
  -  Acts as the public gateway for HIL services (and BMI)
- -  Acts as the NATing gateway to internet (over VLAN 200)
- -  DHCP server for VLAN 200 (internet access).
-
-So connect your nodes to VLAN 200 to access internet.
 
 ### Port mapping
  -  dell-X's 2 ports, em1 and em2, are connected to Ethernet1/X and Ethernet1/(X+24)

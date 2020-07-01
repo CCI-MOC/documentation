@@ -100,7 +100,10 @@ IP Address       Hostname/Description
 192.12.185.147   openshift-master-2.cnv2.massopen.cloud
 192.12.185.148   openshift-worker-0.cnv2.massopen.cloud
 192.12.185.149   openshift-worker-1.cnv2.massopen.cloud
+
 192.12.185.251   kumo-hil-client.infra.massopen.cloud
+
+192.12.185.254   ov3.massopen.cloud (though this name resolves to 129.10.5.103)
 ```
 
 ## IPMI network: 10.0.0.0/19 (ACCESS MODE)
