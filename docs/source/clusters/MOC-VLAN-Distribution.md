@@ -157,3 +157,8 @@ VLAN 751 to 1000 will be reserved for HIL and BMI.
 
 undercloud needs these - 2476, 2477 (edited)
 NERC checking with nNck see if it's possible get 2476 to be a 192.168.24.0/24 CIDR (edited)
+
+
+### OCT/cloudlab
+
+Cloudlab side is fully dynamic, they'd block out MOC vlans to avoid conflict, and agree on a range. The proposed range right now is < 1024 for cloudlab, > 1024 for OCT (with cloudlab blocking MOC existing vlan IDs). The only VLANs are for public net, and Hakan will reach out to networking to get those IDs.
