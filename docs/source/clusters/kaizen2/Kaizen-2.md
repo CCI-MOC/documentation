@@ -60,6 +60,7 @@ IP Address       Hostname/Description
 129.10.5.136     elkmassopen.cloud
 129.10.5.137     promtest.infra.massopen.cloud
 129.10.5.138     p9con.massopen.cloud
+129.10.5.139     kumo-hil-client.infra.massopen.cloud (because BU network is down).
 ```
 
 ## Public BU (VLAN 105)
