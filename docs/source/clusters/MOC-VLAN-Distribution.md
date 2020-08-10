@@ -140,3 +140,20 @@ VLAN 751 to 1000 will be reserved for HIL and BMI.
 
  -  Rest of the VLANs will be reserved for HIL in this environment.
  -  This leaves us with VLANs 1300 to 4094 for expansion in the future
+
+
+### NERC
+
+
+| VLAN | Description                                             | Subnet          |
+| ---- | ------------------------------------------------------- | --------------- |
+| 2476 | NERC-Admin network 1->eth0:provisioning network(vlan 100)-deploying images/DHCP> PAT out | 10.255.0.0/24 |
+| 2472 | eth0.101: internal api (vlan 101) - internal to node | 172.18.0.0/23|
+| 2473 | eth0.102: tenant private (vlan 102) - VMs sit here, private network/VXLAN | 172.18.4.0/23  |
+| 2477 | NERC - OBM/MGMT Network 1 -> eth1: management/ipmi - undercloud to DRAC/BMC 10.255 | 10.255.1.0/24 |
+| 2478 | eth2: storage (vlan 103) - ceph/jumboframe? 10.255 | 10.255.2.0/24  |
+| 2471 | *eth3: external network (vlan 200) - public API / endpoints | 140.247.152.0/27  |
+| 2470 | *eth4: floating ip (vlan 201) - tenant public IPs | 140.247.152.128/25  |
+
+undercloud needs these - 2476, 2477 (edited)
+NERC checking with nNck see if it's possible get 2476 to be a 192.168.24.0/24 CIDR (edited)
