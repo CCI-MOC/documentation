@@ -161,4 +161,8 @@ NERC checking with nNck see if it's possible get 2476 to be a 192.168.24.0/24 CI
 
 ### OCT/cloudlab
 
-Cloudlab side is fully dynamic, they'd block out MOC vlans to avoid conflict, and agree on a range. The proposed range right now is < 1024 for cloudlab, > 1024 for OCT (with cloudlab blocking MOC existing vlan IDs). The only VLANs are for public net, and Hakan will reach out to networking to get those IDs.
+Cloudlab side's dataplane is fully dynamic, they'd block out MOC vlans to avoid conflict, and agree on a range. The proposed range right now is < 1024 for cloudlab, > 1024 for OCT (with cloudlab blocking MOC existing vlan IDs).
+
+| VLAN | Description                                             | Subnet          |
+| ---- | ------------------------------------------------------- | --------------- |
+| 84   | cloudlab-1 UMass Public IPs                             | 198.22.255.0/24 |
