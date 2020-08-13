@@ -70,6 +70,8 @@ IP Address       Hostname/Description
 ```
 IP Address       Hostname/Description
 192.12.185.1     default gateway
+192.12.185.32    start cnv loadbalancer range (192.12.185.32/27)
+192.12.185.63    end cnv loadbalancer range
 192.12.185.101   dhcp1-bm.cnv.massopen.cloud
 192.12.185.102   dhcp2-bm.cnv.massopen.cloud
 192.12.185.103   provisioner.cnv.massopen.cloud
@@ -77,12 +79,12 @@ IP Address       Hostname/Description
 192.12.185.105   ingres-lb.cnv.massopen.cloud
 192.12.185.106   ns1.cnv.massopen.cloud
 192.12.185.107   bootstrap.cnv.massopen.cloud
-192.12.185.110   openshift-master-0.cnv.massopen.cloud
-192.12.185.111   openshift-master-1.cnv.massopen.cloud
-192.12.185.112   openshift-master-2.cnv.massopen.cloud
-192.12.185.115   openshift-worker-0.cnv.massopen.cloud
-192.12.185.116   openshift-worker-1.cnv.massopen.cloud
-192.12.185.117   openshift-worker-2.cnv.massopen.cloud
+192.12.185.110   os-mgr-0.cnv.massopen.cloud
+192.12.185.111   os-mgr-1.cnv.massopen.cloud
+192.12.185.112   os-mgr-2.cnv.massopen.cloud
+192.12.185.115   os-wrk-0.cnv.massopen.cloud
+192.12.185.116   os-wrk-1.cnv.massopen.cloud
+192.12.185.117   os-wrk-2.cnv.massopen.cloud
 192.12.185.120   m01.osh.massopen.cloud
 192.12.185.121   m02.osh.massopen.cloud
 192.12.185.122   m03.osh.massopen.cloud
