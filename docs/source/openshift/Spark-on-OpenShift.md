@@ -1,3 +1,10 @@
+# Apache Spark on OpenShift
+
+This work in heavily inspired by the
+[radanalytics.io SparkPi Tutorial](https://radanalytics.io/my-first-radanalytics-app.html),
+please see the [Python application instructions](https://radanalytics.io/assets/my-first-radanalytics-app/sparkpi-python-flask.html)
+for more information.
+
 ## Installing Spark on Openshift
 Before starting this step, there are a few prerequisites which are necessary to ensure 
 you have the proper tools and resources to complete the work.
