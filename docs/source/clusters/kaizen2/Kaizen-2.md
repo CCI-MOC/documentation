@@ -72,6 +72,8 @@ IP Address       Hostname/Description
 192.12.185.1     default gateway
 192.12.185.32    start cnv loadbalancer range (192.12.185.32/27)
 192.12.185.63    end cnv loadbalancer range
+192.12.185.64    general dynamic range start
+192.12.185.100   general dynamic range stop
 192.12.185.101   dhcp1-bm.cnv.massopen.cloud
 192.12.185.102   dhcp2-bm.cnv.massopen.cloud
 192.12.185.103   provisioner.cnv.massopen.cloud
@@ -91,8 +93,6 @@ IP Address       Hostname/Description
 192.12.185.123   m04.osh.massopen.cloud
 192.12.185.124   m05.osh.massopen.cloud
 192.12.185.125   m06.osh.massopen.cloud
-192.12.185.130   dynamic range start
-192.12.185.135   dynamic range stop
 192.12.185.140   provisioner.cnv2.massopen.cloud
 192.12.185.141   api.cnv2.massopen.cloud
 192.12.185.142   ns1.cnv2.massopen.cloud
