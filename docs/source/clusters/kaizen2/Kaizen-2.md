@@ -104,7 +104,16 @@ IP Address       Hostname/Description
 192.12.185.148   openshift-worker-0.cnv2.massopen.cloud
 192.12.185.149   openshift-worker-1.cnv2.massopen.cloud
 
-192.12.185.251   kumo-hil-client.infra.massopen.cloud
+192.12.185.150   provisioner.ocp.massopen.cloud (neu-5-3)
+192.12.185.151   api.ocp.massopen.cloud
+192.12.185.152   ns1.ocp.massopen.cloud
+192.12.185.153   lb.ocp.massopen.cloud
+192.12.185.154   bootstrap.ocp.massopen.cloud
+192.12.185.155   openshift-master-0.ocp.massopen.cloud (neu-3-11)
+192.12.185.156   openshift-master-1.ocp.massopen.cloud (neu-5-10)
+192.12.185.157   openshift-master-2.ocp.massopen.cloud (neu-15-9)
+192.12.185.158   openshift-worker-0.ocp.massopen.cloud (neu-5-4)
+192.12.185.159   openshift-worker-1.ocp.massopen.cloud (neu-15-4)
 
 192.12.185.254   ov3.massopen.cloud (though this name resolves to 129.10.5.103)
 ```
