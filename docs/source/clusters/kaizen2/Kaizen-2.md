@@ -93,6 +93,9 @@ IP Address       Hostname/Description
 192.12.185.123   m04.osh.massopen.cloud
 192.12.185.124   m05.osh.massopen.cloud
 192.12.185.125   m06.osh.massopen.cloud
+192.12.185.130   os-sto-0.cnv.massopen.cloud
+192.12.185.131   os-sto-1.cnv.massopen.cloud
+192.12.185.132   os-sto-2.cnv.massopen.cloud
 192.12.185.140   provisioner.cnv2.massopen.cloud
 192.12.185.141   api.cnv2.massopen.cloud
 192.12.185.142   ns1.cnv2.massopen.cloud
