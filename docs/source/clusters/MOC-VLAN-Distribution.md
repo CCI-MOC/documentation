@@ -170,6 +170,7 @@ Cloudlab side's dataplane is fully dynamic, they'd block out MOC vlans to avoid 
 
 ### MOC connections to OCT/Umass
 
-| Description | MOC switchport | OCT/Umass switchport |
-| 40G cable for data plane | Cage 15 Unit 43 Brocade (FortyGigabitEthernet 2/0/52) (Port Channel 1) | - |
-| 1G cable for IPMI network | Cage 15 Unit 44 port 45 | - |
+| Description                         | MOC switchport                                          | OCT/Umass switchport |
+| ----------------------------------- | ------------------------------------------------------- | -------------------- |
+| 40G cable for data plane            | Cage 15 Unit 43 Brocade (Fo 2/0/52) (Port Channel 1)    |         -            |
+| 1G cable for IPMI network           | Cage 15 Unit 44 port 45                                 |         -            |
