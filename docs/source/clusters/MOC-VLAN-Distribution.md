@@ -73,6 +73,7 @@ Below is the detailed distribution of the VLANs.
 | 204  | Intranet (routable to internet). SNMP for client nodes. | 172.16.96.0/19 |
 | 205  | Gluster/VM migration - oVirt                            | 192.168.0.0/24 |
 | 206  | OStack isolation native vlan for trunk only ports       | N/A            |
+| 207  | For OCT/UMass Switch Management                         | 10.1.0.0/24    |
 | 249  | Ceph Cluster (internal)                                 | --             |
 | 250  | Ceph public (for clients)                               | 192.168.0.0/19 |
 | 259  | Staging - Foreman                                       | 172.17.0.0/19  |
@@ -166,3 +167,9 @@ Cloudlab side's dataplane is fully dynamic, they'd block out MOC vlans to avoid 
 | VLAN | Description                                             | Subnet          |
 | ---- | ------------------------------------------------------- | --------------- |
 | 84   | cloudlab-1 UMass Public IPs                             | 198.22.255.0/24 |
+
+### MOC connections to OCT/Umass
+
+| Description | MOC switchport | OCT/Umass switchport |
+| 40G cable for data plane | Cage 15 Unit 43 Brocade (FortyGigabitEthernet 2/0/52) (Port Channel 1) | - |
+| 1G cable for IPMI network | Cage 15 Unit 44 port 45 | - |

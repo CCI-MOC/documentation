@@ -121,7 +121,7 @@ IP Address       Hostname/Description
 192.12.185.254   ov3.massopen.cloud (though this name resolves to 129.10.5.103)
 ```
 
-## IPMI network: 10.0.0.0/19 (ACCESS MODE)
+## IPMI network: 10.0.0.0/19 (VLAN 1 on 1G network, untagged)
 
  -  IP assignment: 10.0.rack-number.u(nit)-number, servers bigger than 1 U get the lowest U number,
  numbering increases from bottom to top.
@@ -145,6 +145,28 @@ IP Address       Hostname/Description
 10.0.5.140       ov2.massopen.cloud
 10.0.15.140      ov1.massopen.cloud
 ```
+
+## IPMI network (for accessing OCT/Umass nodes): 10.2.0.0/24 (VLAN 2 on 1G network, untagged)
+
+There's dnsmasq on `kzn-ipmi-gw.infra.massopen.cloud` to serve IPs to UMass nodes' BMCs.
+
+```
+IP Address       Hostname/Description
+10.2.0.1         kzn-ipmi-gw.infra.massopen.cloud
+10.2.0.2         kzn-ipmi-gw2.infra.massopen.cloud
+```
+
+## OCT/Umass Switch Management (VLAN 207): 10.1.0.0/24
+
+```
+IP Address       Hostname/Description
+10.1.0.1         kzn-hil-server.infra.massopen.cloud
+10.1.0.11         OCT1 10G switch (Dell S40480-ON)
+10.1.0.12         OCT2 10G switch (Dell S40480-ON)
+10.1.0.13         OCT3 10G switch (Dell S40480-ON)
+10.1.0.14         OCT4 10G switch (Dell S40480-ON)
+```
+
 ## Ceph cluster/replication (VLAN 248)
 
  -  Subnet: 192.168.255.0/24
