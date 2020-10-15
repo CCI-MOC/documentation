@@ -127,6 +127,9 @@ This [tutorial](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-
 ### Openshift
  -  [OpenShift](openshift/OpenShift.html)
 
+### Operations
+ -  [Operations](operations/operations.html)
+
 ### Website
  -  [MOC Website](website/MOC-Website.html)
 
