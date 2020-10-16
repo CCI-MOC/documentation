@@ -17,6 +17,8 @@
 ## Turn off the power9 cluster.
 1. power it off,
 
+## Turn off CNV and OCP cluster
+1. We want to cleanly shut down the OCS cluster that's part of the CNV environment.
 
 ## Turn off Engage1
 1. Power off openstack VMs, then computes and then controllers.
