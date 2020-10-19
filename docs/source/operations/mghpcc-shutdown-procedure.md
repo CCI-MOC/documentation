@@ -14,11 +14,28 @@
 3. Power off all the openstack VMs. This includes k-openshift.
 4. Then power off the computes, and then the controllers.
 
+For shutting down OpenStack (and bringing it back up), see this Red Hat
+knowledge base article: https://access.redhat.com/solutions/1977013
+
+A handy command line for stopping all running Nova instances:
+
+```
+openstack server list --status active --all-projects -f value -c ID |
+  xargs -P10 -n1 openstack server stop
+```
+
 ## Turn off the power9 cluster.
 1. power it off,
 
 ## Turn off CNV and OCP cluster
-1. We want to cleanly shut down the OCS cluster that's part of the CNV environment.
+1. Take an `etcd` backup
+2. Shut down the the worker nodes
+3. Shut down the controller nodes
+
+For more information on shutting down and restarting OpenShift, see:
+
+- https://docs.openshift.com/container-platform/4.5/backup_and_restore/graceful-cluster-shutdown.html
+- https://docs.openshift.com/container-platform/4.5/backup_and_restore/graceful-cluster-restart.html#graceful-restart-cluster
 
 ## Turn off Engage1
 1. Power off openstack VMs, then computes and then controllers.
