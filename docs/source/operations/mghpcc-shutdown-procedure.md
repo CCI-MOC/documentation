@@ -53,5 +53,11 @@ For more information on shutting down and restarting OpenShift, see:
 1. Simply power off all the VMs except for the hosted engine. Might want to turn off the ipmi-gw and dns server last.
 1. Do not turn off the ovirt hosts. They will come online when power is restored.
 
+### SSO hosts
+
+https://galeracluster.com/library/training/tutorials/safe-to-bootstrap-feature.html
+
+1. Turn off one SSO host at a time so we don't mess up galera/mariadb.
+
 ## Power off the 2 SSD NFS servers
 1. some oVirt VMs are using storage here, so we want to turn these off after the oVIrt VMs.
