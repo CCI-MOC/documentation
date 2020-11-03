@@ -189,33 +189,8 @@ Previously the two switches were on different subnets, but these have been merge
      -  **192.168.67.10**      cache-c10-01
      -  **192.168.67.11**      e1-radosgw-01 (VM on e1-emergency)
 
-### IPMI Access
-IPMI can be accessed from either moc-services or engage1-emergency.  It is recommended to use moc-services because you can use X forwarding to get a GUI.
-```shell
-        [you@your-local-box]$ ssh 128.52.62.147 -X -Y
-        [you@moc-services]$ firefox
-```
-Firefox should open, assuming you have appropriate X forwarding software installed on your local machine.  For a Mac, you need to install XQuartz.
-
-Connecting via engage1-emergency requires some other solution to get a GUI.  
-If you have a [dedicated VM](../VM-Setup-for-Cisco-IPMI-Access.html) set up for 
-IPMI access with redsocks proxy utility, you can use that.  
-
-You can also configure the browser on your local machine to use a SOCKS proxy.  
-You may need to install a Java web plugin and/or browser flash plugin in order to use the IPMI web GUI.  
-
-Depending on your system and configuration, some of the advanced functionality (like mounting a remote disk via IPMI) might not work in this setup.
-
-First, connect to the emergency-box, using the port you configured in your SOCKS proxy - in this example, it is port 9000:
-```shell
-        [you@your-local-box]$ ssh -D 9000 128.52.60.97
-        [you@engage1-emergency]$
-```
-Next, open a browser window, and navigate to the appropriate IP for the server you want.
-
 ### Dell Switch
-MRI Dell Switch (for cache server IPMI) - located in r5-pA-c1.  It is accessed via an MIT gateway, 
-so please talk to Laura, Rado, or Rahul if you need something configured there.
+MRI Dell Switch (for cache server IPMI) - located in r5-pA-c1.  It is accessed via an MIT gateway.
 
 Instructions for how to log in are [here](Accessing-the-MRI-Dell-Switch.html)
 
