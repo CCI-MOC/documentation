@@ -11,8 +11,6 @@ RBridge-102# show vcs | include Online
 2                10:00:50:EB:1A:A4:29:AC        10.10.10.68     Online           Online               RBridge-2
 3                10:00:50:EB:1A:CF:43:28        10.10.10.69     Online           Online               RBridge-3
 5                10:00:50:EB:1A:A4:0B:C0        10.10.10.71     Online           Online               RBridge-5
-9                10:00:50:EB:1A:DE:AF:2C        10.10.10.75     Online           Online               RBridge-9
-10               10:00:50:EB:1A:63:15:14        10.10.10.76     Online           Online               RBridge-10
 13               10:00:50:EB:1A:AE:97:EC        10.10.10.78     Online           Online               RBridge-13
 14               10:00:50:EB:1A:AE:7D:04        10.10.10.79     Online           Online               RBridge-14
 19               10:00:50:EB:1A:E7:60:CC        10.10.10.83     Online           Online               RBridge-19
@@ -77,11 +75,13 @@ Rough diagram of the Ceph storage:
 | 4080      | ?                                                               |
 
 ### IP addresses
- -  **Public (via CSAIL)**
-     -  **VLAN 10** - infrastructure, DHCP
+ -  **Public (via CSAIL)** 
+     -  **VLAN 10** - infrastructure, DHCP also comes from CSAIL so makes it difficult to use.
      -  **128.52.60.97**      engage1-emergency (enp4s0f0)
      -  **128.52.62.147**     moc-services (br10,eth0.10)
-     -  **128.31.20.0/22**    VLAN 3801
+     -  **128.31.20.0/22**    VLAN 3801 - engage1 - mit/bu brocade fabric
+     vlan 3802 - kaizen floaqting - 2 cisco switch
+     vlan 3803 - kumo - bu cisco
 *see details [below](#vlan-3801)*
 
 ### VLAN 3801
@@ -100,49 +100,28 @@ Includes OBM network for servers in MOC racks, as well as the cache servers in M
 
 Previously the two switches were on different subnets, but these have been merged into a single 10.10.10.0/24 network as of 22 Jan 2016.
  -  **(.1 to .15 Network Reserved)**
-     -  **10.10.10.1**   e1-r4pAc04-mgmt (Cisco), see bitwarden Engage1 egg1-r4pAc04-mgmt password
-     -  **10.10.10.2**   e1-r4pAc02-mgmt (Cisco), see bitwarden Engage1 egg1-r4pAc02-mgmt password
-     -  **10.10.10.3**   kumo switch
-     -  **10.10.10.4**   e1-cacti
-     -  **10.10.10.5**   e1-r4pAc04-mgmt-02 (Juniper)  (credentials: see Engage1 egg1-r4pAc04-mgmt-02) 
+     -  **10.10.10.1**   e1-r4pAc04-mgmt (Cisco WS-C3650), see bitwarden Engage1 egg1-r4pAc04-mgmt password - e1ipmi
+     -  **10.10.10.2**   e1-r4pAc02-mgmt (Cisco WS-C3650), see bitwarden Engage1 egg1-r4pAc02-mgmt password - e1ipmi
+     -  **10.10.10.3**   kumo switch r4-pA-c23-catalyst3650 (Cisco WS-C3650), other ip is 10.1.11.1 in kumo/kaizen - brdige between e1 and kumo ipmi.
+     -  **10.10.10.4**   e1-cacti - VM on services or emergency
+     -  **10.10.10.5**   e1-r4pAc04-mgmt-02 (Juniper)  (credentials: see Engage1 egg1-r4pAc04-mgmt-02)  - e1ipmi
      See [Kumo documentation](../kumo/Kumo-Network-Documentation.html) for Kumo switches
-     -  **10.10.10.15**  moc-haas01 - network managing port
- -  **OpenStack Kilo servers** (.16 to .47)
-     -  **10.10.10.16**    moc-haas01 - IPMI port        
+     -  **10.10.10.15**  moc-haas01 - HIL's interface on the ipmi network
+     -  **10.10.10.16**    moc-haas01 (pyhiscal server's IPMI port) (48 gig, 8 cores/16 threads E5640)
      -  **10.10.10.17**    moc-services01    
      -  **10.10.10.18**    moc-sdn01
      -  **10.10.10.19**    moc-controller01
      -  **10.10.10.20**    moc-controller02
      -  **10.10.10.21**    moc-compute03
      -  **10.10.10.22**    moc-emergency
-     -  **10.10.10.23**    e1-compute-04 (openstack compute)
-     -  **10.10.10.24**    e1-compute-05 (openstack compute)
-     -  **10.10.10.25**    e1-compute-06 (openstack compute)
-     -  **10.10.10.26**    e1-compute-07 (openstack compute)
+
      -  **10.10.10.27**    e1-compute-08 (openstack compute)
      -  **10.10.10.28**    e1-compute-09 (openstack compute)
      -  **10.10.10.29**    e1-vmhost-10 (staging kvm host)
-     -  **10.10.10.30**    e1-bmi-11 (bmi)
-     -  **10.10.10.31**    e1-bmi-12 (bmi)
-     -  **10.10.10.32**    intel server 
-     -  **10.10.10.33**    intel server 
-     -  **10.10.10.34**   currently used by R4-PA-C4 PDUL
-     -  **10.10.10.35**   currently used by R4-PA-C4 PDUR
-     -  **10.10.10.36**    intel server 
-     -  **10.10.10.37**    intel server
-     -  **10.10.10.45**    e1-gcompute-10 (dell r730)
-     -  **10.10.10.46**    e1-gpu2 (dell r730)
-     -  **10.10.10.47**    e1-gpu3 (dell r730)
- -  **PDUS** (.56 to .63)
- *Note - from the hot aisle, PDU A is on the right and PDU B on the left*
-     -  **10.10.10.56**   reserved for R4-PA-C2 PDU A
-     -  **10.10.10.57**   reserved for R4-PA-C2 PDU B 
-     -  **10.10.10.58**   reserved for R4-PA-C4 PDU A 
-     -  **10.10.10.59**   reserved for R4-PA-C4 PDU B
-     -  **10.10.10.60**   reserved for R4-PA-C23 PDU A
-     -  **10.10.10.61**   reserved for R4-PA-C23 PDU B
-     -  **10.10.10.62**   --- available ---
-     -  **10.10.10.63**   --- available ---
+
+     -  **10.10.10.34**   currently used by R4-PA-C4 PDUL (password not known)
+     -  **10.10.10.35**   currently used by R4-PA-C4 PDUR (password not known)
+
  -  **Brocade Switches** (.64 to .95)
      -  **10.10.10.64**    RBridge-101 (A1)
      -  **10.10.10.65**    RBridge-102 (B1)
@@ -150,30 +129,17 @@ Previously the two switches were on different subnets, but these have been merge
      -  **10.10.10.67**    RBridge-104 (D6)
      -  **10.10.10.68**    RBridge-2 (D5)
      -  **10.10.10.69**    RBridge-3 (A2)
-     -  **10.10.10.70**    RBridge-4 (D4)
      -  **10.10.10.71**    reserved for RBridge-5 (A6)
-     -  **10.10.10.72**    RBridge-6 (D3)
-     -  **10.10.10.73**    RBridge-7 (A3)
-     -  **10.10.10.74**    RBridge-8 (D2)
-     -  **10.10.10.75**    RBridge-9 (A5)
-     -  **10.10.10.76**    RBridge-10 (D1)
-     -  **10.10.10.77**    RBridge-11 (A4)
      -  **10.10.10.78**    RBridge-13 (C2)
      -  **10.10.10.79**    RBridge-14 (C5)
-     -  **10.10.10.80**    RBridge-15 (C3)
-     -  **10.10.10.81**    RBridge-16 (C4)
-     -  **10.10.10.82**    RBridge-17 (B2)
      -  **10.10.10.83**    RBridge-19 (B5)
-     -  **10.10.10.84**    RBridge-21 (B3)
-     -  **10.10.10.85**    RBridge-23 (B4)
-     -  **10.10.10.90**    OpenFlow switch (r4pAc04)
  -  **Ceph Storage**  (.96 to .119)
-     -  **10.10.10.101**     ceph-lenovo01      
+     -  **10.10.10.101**     ceph-lenovo01 - 14 bays per server, 2 for OS (4TB), 3 SSDs for journal (we are using filestore here,with bluestore the size of ssd is too small, 9 OSD X 4tb), SSDs can be used as block cache though it's not supported.
      -  **10.10.10.102**     ceph-lenovo02
      -  **10.10.10.103**     ceph-lenovo03
      -  **10.10.10.104**     ceph-lenovo04
      -  **10.10.10.105**     ceph-lenovo05
-     -  **10.10.10.106**     ceph-lenovo06
+     -  **10.10.10.106**     ceph-lenovo06 (unreachable)
      -  **10.10.10.107**     ceph-lenovo07
      -  **10.10.10.108**     ceph-lenovo08
      -  **10.10.10.109**     ceph-lenovo09
@@ -184,50 +150,6 @@ Previously the two switches were on different subnets, but these have been merge
  -  **Admin Nodes**  (.120 to .127)
      -  **10.10.10.124**    moc-services01 (in-band access interface)
      -  **10.10.10.126**    engage1-emergency (in-band access interface)
- -  **Cache Servers**  (.172 to 191)
-     -  **10.10.10.172**    reserved for C2 cache server
-     -  **10.10.10.173**    reserved for C2 cache server
-     -  **10.10.10.174**    reserved for C2 cache server
-     -  **10.10.10.175**    reserved for C5 cache server (still in use by Chris Hill)
-     -  **10.10.10.176**    reserved for C6 cache server
-     -  **10.10.10.177**    cache-c7-01
-     -  **10.10.10.178**    cache-c8-01
-     -  **10.10.10.179**    cache-c9-01
-     -  **10.10.10.180**    cache-c10-01
-     -  **10.10.10.181**    cache-c13-01    <--- eventually this will be switched to c11 cache server
-     -  **10.10.10.182**    (reserved for ? just to keep the pattern)
-     -  **10.10.10.183**    reserved for C13 cache server
-     -  **10.10.10.184**    reserved for C14 cache server
-     -  **10.10.10.185**    reserved for C15 cache server
-     -  **10.10.10.186**    reserved for C16 cache server
-     -  **10.10.10.187**    reserved for C17 cache server  <-- note that the pattern breaks down after this
-     -  **10.10.10.188**    reserved for C19 cache server 
-     -  **10.10.10.189**    reserved for C21 cache server
-     -  **10.10.10.190**    reserved for C23 cache server
-     -  **10.10.10.191**    cache-104-01 (in row 4 pod b c04)
- -  **Available** (.192-.199)
- -  **10.10.10.{200-254}** reserved for R4-PA-C23 deployment, see [R4-PA-C23 Documentation]()
-
-### OpenFlow DMZ (VLAN 4000)
-Various virtual machines and switches for the OpenFlow researchers
-     -  **10.0.10.1**   e1-services
-     -  **10.0.10.2**   --*reserved for moc-sdn01h (hardware host)*--
-     -  **10.0.10.3**   e1-sdn01 (virtual machine on moc-sdn01h)
-     -  **10.0.10.4**   mininet-dhcp (virtual machine on moc-sdn01h)
-     -  **10.0.10.5**   (formerly e1-compute-11)
-     -  **10.0.10.6**   (formerly e1-compute-12)
-     -  **10.0.10.11**  e1-openflow-01 (vm on e1-vmhost-10)
-     -  **10.0.10.12**  e1-openflow-02 (vm on e1-vmhost-10)
-     -  **10.0.10.16**  e4-r4pAc04-oflow01 management
-
-### OpenFlow VLANs (VLAN 4003 and 4005)
-These are used to force packets traveling between the openflow research VMs to pass through the OpenFLow switch
- -  **4003**
-     -  **192.168.156.1**      moc-sdn01h br0 via enp2s0f1
-     -  **192.168.156.11**     e1-openflow-01
- -  **4005**
-     -  **192.168.156.1**      moc-sdn01h br0 via enp2s0f0.4005
-     -  **192.168.156.12**     e1-openflow-02
 
 ### Ceph Client Network (VLAN 4050)
  -  **192.168.64.0/22**
@@ -246,9 +168,9 @@ These are used to force packets traveling between the openflow research VMs to p
      -  **192.168.64.18**      ceph-lenovo08
      -  **192.168.64.19**      ceph-lenovo09
      -  **192.168.64.20**      ceph-lenovo10
+
      -  **192.168.64.100**     ?
-     -  **192.168.64.111**     kumo-emergency 
-     -  **192.168.64.112**     kumo-services
+
      -  **192.168.64.126**     engage1-emergency
      -  **192.168.64.201**     ceph-quanta01
      -  **192.168.64.202**     ceph-quanta02
