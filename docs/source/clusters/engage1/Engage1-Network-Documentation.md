@@ -20,30 +20,34 @@ RBridge-102# show vcs | include Online
 104              10:00:50:EB:1A:E7:86:F8        10.10.10.67     Online           Online               RBridge-104
 ```
 
+Note: Switches with ID 101, 102, 103 and 104 are in BU cages, the rest of the brocade switches are in MIT cages.
+Furthermore, the management port on those switches is unreachable from our end; so they apprear online to the fabric
+but we can't SSH to those so it is important that the principal node is on our end.
+
 ### Hardware and Networking Layout
-Where is everything, and what is connected to what ? These spreadsheets will tell you:  
+Where is everything, and what is connected to what ? These spreadsheets will tell you:
  -  [Engage1_networks.xlsx](../../_static/xlsx/Engage1_networks.xlsx)
  -  [Engage1_racks_and_hardware.xlsx](../../_static/xlsx/Engage1_racks_and_hardware.xlsx)
  -  [Engage1_Brocade_cable_map.xlsx](../../_static/xlsx/Engage1_Brocade_cable_map.xlsx)
 
-New management cable map can be found here: [Engage1 Management Cable Map](Engage1-Management-Cable-Map.html)   
+New management cable map can be found here: [Engage1 Management Cable Map](Engage1-Management-Cable-Map.html)
 
 Old document is [here](../../_static/xlsx/Engage1_1G_cable_map.xlsx) just in case, but is completely outdated.)
 
-Following is the snapshot of what the rack layout is as of March 2015 
+Following is the snapshot of what the rack layout is as of March 2015
 
 ![](../../_static/img/MGHPCCRackLocation.png)
 
 [MGHPCCRackAssignments032015.pptx](../../_static/MGHPCCRackAssignments032015.pptx)
 
-Rough diagram of the Ceph storage: 
-   
+Rough diagram of the Ceph storage:
+
 ![](../../_static/img/engage1_ceph.png)
 
 ### VLANs
-  
+
 | VLAN ID   | Used for                                                        |
-| --------- | --------------------------------------------------------------- | 
+| --------- | --------------------------------------------------------------- |
 | 10        | Public Internet via CSAIL (old)                                 |
 | 11        | ?                                                               |
 | 105       | ?                                                               |
@@ -75,7 +79,7 @@ Rough diagram of the Ceph storage:
 | 4080      | ?                                                               |
 
 ### IP addresses
- -  **Public (via CSAIL)** 
+ -  **Public (via CSAIL)**
      -  **VLAN 10** - infrastructure, DHCP also comes from CSAIL so makes it difficult to use.
      -  **128.52.60.97**      engage1-emergency (enp4s0f0)
      -  **128.52.62.147**     moc-services (br10,eth0.10)
@@ -88,15 +92,15 @@ Rough diagram of the Ceph storage:
 floating IPs, infrastructure with direct connection to Kai/Kumo 128.31.20.0/22
  -  **infrastructure**
      -  128.31.20.1 to 128.31.20.10 are reserved by CSAIL for network uses
-     -  128.31.20.11 to 128.31.20.14 are reserved by MOC 
+     -  128.31.20.11 to 128.31.20.14 are reserved by MOC
      -  128.31.20.15 e1-radosgw-01  (VM on engage1-emergency)
- -  **OpenStack floating IPs** : 128.31.22.0 to 128.31.23.254 
+ -  **OpenStack floating IPs** : 128.31.22.0 to 128.31.23.254
 
-### Anycast (VLANS 2000-2699) 
+### Anycast (VLANS 2000-2699)
 See [Engage1 Anycast Setup](Engage1-Anycast-Setup.html)
 
 ### OBM (VLAN 3040)
-Includes OBM network for servers in MOC racks, as well as the cache servers in MIT's rack, via the Dell Switch in r5-pA-c1. 
+Includes OBM network for servers in MOC racks, as well as the cache servers in MIT's rack, via the Dell Switch in r5-pA-c1.
 
 Previously the two switches were on different subnets, but these have been merged into a single 10.10.10.0/24 network as of 22 Jan 2016.
  -  **(.1 to .15 Network Reserved)**
@@ -108,7 +112,7 @@ Previously the two switches were on different subnets, but these have been merge
      See [Kumo documentation](../kumo/Kumo-Network-Documentation.html) for Kumo switches
      -  **10.10.10.15**  moc-haas01 - HIL's interface on the ipmi network
      -  **10.10.10.16**    moc-haas01 (pyhiscal server's IPMI port) (48 gig, 8 cores/16 threads E5640)
-     -  **10.10.10.17**    moc-services01    
+     -  **10.10.10.17**    moc-services01
      -  **10.10.10.18**    moc-sdn01
      -  **10.10.10.19**    moc-controller01
      -  **10.10.10.20**    moc-controller02
@@ -134,7 +138,12 @@ Previously the two switches were on different subnets, but these have been merge
      -  **10.10.10.79**    RBridge-14 (C5)
      -  **10.10.10.83**    RBridge-19 (B5)
  -  **Ceph Storage**  (.96 to .119)
-     -  **10.10.10.101**     ceph-lenovo01 - 14 bays per server, 2 for OS (4TB), 3 SSDs for journal (we are using filestore here,with bluestore the size of ssd is too small, 9 OSD X 4tb), SSDs can be used as block cache though it's not supported.
+
+  14 bays per server, 2 for OS (4TB), 3 SSDs for journal
+  (we are using filestore here,with bluestore the size of ssd is too small, 9 OSD X 4tb).
+  SSDs can be used as block cache though it's not supported configuration.
+
+     -  **10.10.10.101**     ceph-lenovo01
      -  **10.10.10.102**     ceph-lenovo02
      -  **10.10.10.103**     ceph-lenovo03
      -  **10.10.10.104**     ceph-lenovo04
@@ -194,27 +203,27 @@ MRI Dell Switch (for cache server IPMI) - located in r5-pA-c1.  It is accessed v
 
 Instructions for how to log in are [here](Accessing-the-MRI-Dell-Switch.html)
 
-### Login credentials  
+### Login credentials
 *These are likely to change away from the defaults in the near future.*
- -  **Quanta QSSC-S99-1U** (all 6 Kilo servers, 3 ceph-quanta servers, engage1-emergency)   
+ -  **Quanta QSSC-S99-1U** (all 6 Kilo servers, 3 ceph-quanta servers, engage1-emergency)
      -  **Default credentials** : see bitwarden Engage1 Quanta QSSC-S99-1U
      -  **Default IPMI address**: 192.168.001.002
- -  **Lenovo Servers** (10 ceph-lenovo servers)  
+ -  **Lenovo Servers** (10 ceph-lenovo servers)
      -  **Default credentials** : see bitwarden Lenovo servers
      -  **Default IPMI address** : 192.168.70.125
  -  **BU Intel servers** (cache-c104, e1-compute-08, e1-compute-09, e1-compute-10)
      -  NO DEFAULT CREDENTIALS OR IP - must be set in BIOS
      -  **Currently set to** : see bitwarden Engage1 BU Intel servers
- -  **Cache servers**  (6 Intel servers)  
+ -  **Cache servers**  (6 Intel servers)
      -  **Default credential**: see bitwarden Engage1 Cache Servers
      -  [Video](http://www.screencast.com/t/gazhGb8H)
- -  **Brocade Switches** (22 Brocade VDX 6740)  
+ -  **Brocade Switches** (22 Brocade VDX 6740)
      -  **Credentials** : see bitwarden Engage1 Brocade Switches
      -  **Default credentials** : see bitwarden Engage1 Brocade switches
      -  **Default console IP** : none, set to DHCP
 
 ### Temporary Connections
-Because I didn't have 10G cables or connectors, I connected one 1G NIC on the each of the new dell nodes to cisco-04 management switch. 
+Because I didn't have 10G cables or connectors, I connected one 1G NIC on the each of the new dell nodes to cisco-04 management switch.
  -  **dell-45 = port 21**
  -  **dell-46 = port 22**
  -  **dell-47 = port 23**
