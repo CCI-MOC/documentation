@@ -80,7 +80,7 @@ Rough diagram of the Ceph storage:
 
 ### IP addresses
  -  **Public (via CSAIL)**
-     -  **VLAN 10** - infrastructure, DHCP also comes from CSAIL so makes it difficult to use.
+     -  **VLAN 10** - infrastructure, CSAIL runs DHCP so that limits what can be done with it.
      -  **128.52.60.97**      engage1-emergency (enp4s0f0)
      -  **128.52.62.147**     moc-services (br10,eth0.10)
      -  **128.31.20.0/22**    VLAN 3801 - engage1 - mit/bu brocade fabric
