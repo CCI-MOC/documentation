@@ -74,6 +74,7 @@ Below is the detailed distribution of the VLANs.
 | 205  | Gluster/VM migration - oVirt                            | 192.168.0.0/24 |
 | 206  | OStack isolation native vlan for trunk only ports       | N/A            |
 | 207  | For OCT/UMass Switch Management                         | 10.1.0.0/24    |
+| 208  | ESI control plane                                       | --             |
 | 249  | Ceph Cluster (internal)                                 | --             |
 | 250  | Ceph public (for clients)                               | 192.168.0.0/19 |
 | 259  | Staging - Foreman                                       | 172.17.0.0/19  |
