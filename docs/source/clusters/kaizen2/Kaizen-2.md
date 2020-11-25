@@ -66,6 +66,7 @@ IP Address       Hostname/Description
 129.10.5.141     esi-controller-0.massopen.cloud
 129.10.5.142     esi-controller-1.massopen.cloud
 129.10.5.143     esi-controller-2.massopen.cloud
+129.10.5.144     rubicone-foreman.massopen.cloud
 ```
 
 ## Public BU (VLAN 105)
