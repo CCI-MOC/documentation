@@ -32,6 +32,7 @@ IP Address       Hostname/Description
 129.10.5.107     kzn-ssh.infra.massopen.cloud
 129.10.5.108     mochat.infra.massopen.cloud (shared repo server)
 129.10.5.109     kzn-nagios.infra.massopen.cloud
+129.10.5.110     rhel-6-repomirror.massopen.cloud
 129.10.5.111     control1.massopen.cloud
 129.10.5.112     control2.massopen.cloud
 129.10.5.113     control3.massopen.cloud
@@ -61,6 +62,10 @@ IP Address       Hostname/Description
 129.10.5.137     promtest.infra.massopen.cloud
 129.10.5.138     p9con.massopen.cloud
 129.10.5.139     kumo-hil-client.infra.massopen.cloud (because BU network is down).
+129.10.5.140     esi-undercloud.massopen.cloud
+129.10.5.141     esi-controller-0.massopen.cloud
+129.10.5.142     esi-controller-1.massopen.cloud
+129.10.5.143     esi-controller-2.massopen.cloud
 ```
 
 ## Public BU (VLAN 105)
