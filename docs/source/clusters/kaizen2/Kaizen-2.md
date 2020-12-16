@@ -82,6 +82,8 @@ IP Address       Hostname/Description
 ```
 IP Address       Hostname/Description
 192.12.185.1     default gateway
+192.12.185.21    api.ocp4-aio.cnv2.massopen.cloud
+192.12.185.22    *.apps.ocp4-aio.cnv2.massopen.cloud
 192.12.185.32    start cnv loadbalancer range (192.12.185.32/27)
 192.12.185.63    end cnv loadbalancer range
 192.12.185.64    general dynamic range start
