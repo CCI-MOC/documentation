@@ -12,16 +12,21 @@ IP Address       Hostname/Description
 129.10.5.2       Router IP (on cisco switch)
 129.10.5.3       Router IP (on cisco switch)
 129.10.5.4       kzn-hil-client.infra.massopen.cloud
+
 129.10.5.32      node-32 (old kaizen controller-1)
+
 129.10.5.39      node-39 (old kaizen services box)
 129.10.5.40      dns server for openshift subdomains (openapp.cloud, mocapps.cloud, massopen.cloud test subdomains)
 129.10.5.41      dns server for massopen.cloud
+
 129.10.5.47      node-47 (old kaizen controller-2)
 129.10.5.48      kzn-h.infra.massopen.cloud (node-48)
+
 129.10.5.50      Virtual IP for openstack horizon (kaizen.massopen.cloud)
-129.10.5.52      Repo server
+
 129.10.5.55      dhcp1.cnv.massopen.cloud
 129.10.5.56      dhcp2.cnv.massopen.cloud
+
 129.10.5.100     kaizen.massopen.cloud
 129.10.5.101     ov1.massopen.cloud
 129.10.5.102     ov2.massopen.cloud
@@ -52,13 +57,13 @@ IP Address       Hostname/Description
 129.10.5.127     kzn-hil.massopen.cloud
 129.10.5.128     kzn-ovpn.massopen.cloud
 129.10.5.129     e1-emergency.massopen.cloud
-129.10.5.130     neu-15-41 (for apoorve)
-129.10.5.131     zabbix.massopen.cloud
-129.10.5.132     freeipa2.infra.massopen.cloud
+
+129.10.5.132     zabbix.massopen.cloud
+
 129.10.5.133     rz.massopen.cloud (Research Zabbix)
 129.10.5.134     mondata.massopen.cloud
-129.10.5.135     chat.massopen.cloud
-129.10.5.136     elkmassopen.cloud
+
+129.10.5.136     elk.massopen.cloud (powered off, so ping won't respond)
 129.10.5.137     promtest.infra.massopen.cloud
 129.10.5.138     p9con.massopen.cloud
 129.10.5.139     kumo-hil-client.infra.massopen.cloud (because BU network is down).
