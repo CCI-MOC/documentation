@@ -129,6 +129,7 @@ IP Address       Hostname/Description
 192.12.185.158   openshift-worker-0.ocp.massopen.cloud (neu-5-4)
 192.12.185.159   openshift-worker-1.ocp.massopen.cloud (neu-15-4)
 
+192.12.185.253   bu-23-111 (for Surbhi and Gagan)
 192.12.185.254   ov3.massopen.cloud (though this name resolves to 129.10.5.103)
 ```
 
