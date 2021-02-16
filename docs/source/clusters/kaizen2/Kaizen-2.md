@@ -133,7 +133,10 @@ IP Address       Hostname/Description
 192.12.185.180   metallb range start
 192.12.185.250   metallb range stop
 
+192.12.185.251   my dumb router (so OCP workers can reach nvcr.io)
 
+192.12.185.253   bu-23-101 (for Surbhi and Gagan)
+192.12.185.252   neu-5-7 (for Surbhi and Gagan)
 192.12.185.253   bu-23-111 (for Surbhi and Gagan)
 192.12.185.254   ov3.massopen.cloud (though this name resolves to 129.10.5.103)
 ```
