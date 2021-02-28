@@ -130,14 +130,19 @@ IP Address       Hostname/Description
 192.12.185.159   openshift-worker-1.ocp.massopen.cloud (neu-15-4)
 192.12.185.160   openshift-worker-2-gpu.ocp.massopen.cloud (neu-17-12)
 
+192.12.185.170   provisioner.crc.massopen.cloud (neu-15-29)
+192.12.185.171   api.crc.massopen.cloud
+192.12.185.172   ns1.crc.massopen.cloud
+192.12.185.173   lb.crc.massopen.cloud
+192.12.185.174   bootstrap.crc.massopen.cloud
+192.12.185.175   openshift-master-0.crc.massopen.cloud (bu-23-101)
+192.12.185.176   openshift-master-1.crc.massopen.cloud (bu-23-111)
+192.12.185.177   openshift-master-2.crc.massopen.cloud (neu-5-7)
 
 192.12.185.179   my router (so OCP workers can reach nvcr.io)
-192.12.185.180   metallb range start
-192.12.185.250   metallb range stop
+192.12.185.180   production OCP metallb range start
+192.12.185.250   production OCP metallb range stop
 
-192.12.185.251   bu-23-101 (for Surbhi and Gagan)
-192.12.185.252   neu-5-7 (for Surbhi and Gagan)
-192.12.185.253   bu-23-111 (for Surbhi and Gagan)
 192.12.185.254   ov3.massopen.cloud (though this name resolves to 129.10.5.103)
 ```
 
