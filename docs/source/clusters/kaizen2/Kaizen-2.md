@@ -72,6 +72,7 @@ IP Address       Hostname/Description
 129.10.5.142     esi-controller-1.massopen.cloud
 129.10.5.143     esi-controller-2.massopen.cloud
 129.10.5.144     rubicone-foreman.massopen.cloud
+129.10.5.145     esi-vip-external.massopen.cloud
 ```
 
 ## Public BU (VLAN 105)
@@ -81,6 +82,8 @@ IP Address       Hostname/Description
 ```
 IP Address       Hostname/Description
 192.12.185.1     default gateway
+192.12.185.21    api.ocp4-aio.cnv2.massopen.cloud
+192.12.185.22    *.apps.ocp4-aio.cnv2.massopen.cloud
 192.12.185.32    start cnv loadbalancer range (192.12.185.32/27)
 192.12.185.63    end cnv loadbalancer range
 192.12.185.64    general dynamic range start
