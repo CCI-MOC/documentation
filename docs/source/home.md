@@ -41,6 +41,7 @@ for complete details of current projects.
 ### Clusters
  -  [Kaizen OpenStack](clusters/kaizen/Kaizen-OpenStack.html)
  -  [MOC VLAN Distribution](clusters/MOC-VLAN-Distribution.html)
+ -  [MOC Public Network Providers](cluster/public-network-providers.md)
  -  [Kaizen Bare Metal](clusters/kaizen/Kaizen-Bare-Metal.html)
  -  [Kaizen 2 networking](clusters/kaizen2/Kaizen-2.html)
  -  [BU PRB Cluster](clusters/prb/BU-PRB-Cluster.html)
