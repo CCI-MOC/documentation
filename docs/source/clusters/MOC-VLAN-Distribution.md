@@ -76,7 +76,8 @@ Below is the detailed distribution of the VLANs.
 | 207  | For OCT/UMass Switch Management                         | 10.1.0.0/24    |
 | 208  | ESI control plane                                       | --             |
 | 209  | Openshift Internal (Baremetal 4.x)                      | --             |
-| 249  | Ceph Cluster (internal)                                 |192.168.40.0/23 |             |
+| 210  | NFS for zero cluster                                    | 10.253.0.0/23  |
+| 249  | Ceph Cluster (internal)                                 |192.168.40.0/23 |  
 | 250  | Ceph public (for clients)                               | 192.168.0.0/19 |
 | 259  | Staging - Foreman                                       | 172.17.0.0/19  |
 | 270  | Staging - Internal API                                  | To be decided  |
