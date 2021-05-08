@@ -2,7 +2,7 @@
 
 ## Overview
 
-We repurposed a recently retired Fujitsu server, `10.0.17.8`, to
+We repurposed a recently retired Fujitsu server, `10.0.5.17`, to
 use as temporary storage to relieve storage capacity issues on the
 [Zero cluster][].
 
@@ -61,10 +61,34 @@ ix0: flags=8943<UP,BROADCAST,RUNNING,PROMISC,SIMPLEX,MULTICAST> metric 0 mtu 150
 
 The system has 39 838GB drives.
 
-The drives are configured as a set of four RAIDZ2 vdevs with two hot
-spares.
+The drives are configured as:
+
+- two drives in a mirrored boot pool
+- a set of four RAIDZ2 vdevs for the main data pool
+- one hot spare
+
+### boot pool
 
 ```
+root@truenas[~]# zpool status boot-pool
+  pool: boot-pool
+ state: ONLINE
+  scan: resilvered 1.19G in 00:00:10 with 0 errors on Sat May  8 09:49:54 2021
+config:
+
+        NAME        STATE     READ WRITE CKSUM
+        boot-pool   ONLINE       0     0     0
+          mirror-0  ONLINE       0     0     0
+            da0p2   ONLINE       0     0     0
+            da37p2  ONLINE       0     0     0
+
+errors: No known data errors
+```
+
+### data pool
+
+```
+root@truenas[~]# zpool status pool0
   pool: pool0
  state: ONLINE
 config:
@@ -112,8 +136,9 @@ config:
             gptid/ffcb2138-adb7-11eb-b057-901b0e42a41b  ONLINE       0     0     0
             gptid/000b03bb-adb8-11eb-b057-901b0e42a41b  ONLINE       0     0     0
         spares
-          gptid/001d8210-adb8-11eb-b057-901b0e42a41b    AVAIL
           gptid/0024cda9-adb8-11eb-b057-901b0e42a41b    AVAIL
+
+errors: No known data errors
 ```
 
 ## dnsmasq configuration
