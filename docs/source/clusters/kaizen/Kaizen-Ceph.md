@@ -2,7 +2,7 @@ This document describes the strucutre of our ceph cluster as of May 12, 2021.
 
 ## Ceph
 
-The ceph cluster used for our openstack and baremetal environments is made up of 10 OSD servers and 3 monitors.
+The ceph cluster used for our OpenStack, OpenShift and baremetal environments is made up of 10 OSD servers and 3 monitors.
 
 Each OSD server has 10 HDDs and 1 nVme drive. The HDDs make up the "size" root, while the nVme drives make the "performance" root.
 
@@ -12,7 +12,7 @@ Everything is triple replicated except RGW storage pools.
 
 1. Login to the monitors over the foreman network (172.16.0.0/19)
 
-This works if you have access to the MOC VPN or some gateway.
+This works if you have access to the MOC VPN or a gateway like `kzn-ipmi-gw.infra.massopen.cloud`.
 
 | Host | IP Address |
 | ---- | ---------- |
@@ -354,4 +354,29 @@ The first pair, `kzn-rgw1` and `kzn-rgw2`, are used for OpenStack Swift and as s
 
 The second pair, `kzn-rgw-j-01` and `kzn-rgw-j-02`, are used by the baremetal OpenShift 4.X cluster with the OCS operator. These hosts do not have a public IP since it's not required.
 
-Both pairs of RGWs have a virtual IP that is managed by `corosync`, `pcs`, and `pacemaker` for high availibilty.
+Both pairs of RGWs have a virtual IP that is managed by `corosync`, `pcs`, and `pacemaker` for high availibilty. To check that status of the cluster, run `pcs status` or `crm_mon`
+
+```
+[root@kzn-rgw-j-01 ~]# pcs status
+Cluster name: openshift_rgws
+Stack: corosync
+Current DC: kzn-rgw-j-02 (version 1.1.23-1.el7_9.1-9acf116022) - partition with quorum
+Last updated: Fri May 14 10:41:42 2021
+Last change: Fri May 14 10:41:35 2021 by hacluster via crmd on kzn-rgw-j-01
+
+2 nodes configured
+1 resource instance configured
+
+Online: [ kzn-rgw-j-01 kzn-rgw-j-02 ]
+
+Full list of resources:
+
+ virtual_ip (ocf::heartbeat:IPaddr2): Started kzn-rgw-j-01
+
+Daemon Status:
+  corosync: active/disabled
+  pacemaker: active/disabled
+  pcsd: active/enabled
+```
+
+You can notice that there are 2 hosts that are online and that the `virtual_ip` is currently assigned to host `kzn-rgw-j-01`.
