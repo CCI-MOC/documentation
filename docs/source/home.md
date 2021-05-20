@@ -40,6 +40,7 @@ for complete details of current projects.
 
 ### Clusters
  -  [Kaizen OpenStack](clusters/kaizen/Kaizen-OpenStack.html)
+ -  [Kaizen Ceph](clusters/kaizen/Kaizen-Ceph.html)
  -  [MOC VLAN Distribution](clusters/MOC-VLAN-Distribution.html)
  -  [MOC Public Network Providers](cluster/public-network-providers.md)
  -  [Kaizen Bare Metal](clusters/kaizen/Kaizen-Bare-Metal.html)
