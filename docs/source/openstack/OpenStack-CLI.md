@@ -6,34 +6,24 @@ The OpenStack CLI is designed for interactive use.
 It's also possible to call it from a bash script or similar, but typically it is too slow for heavy scripting use.
 
 ### Command Line setup
-To use CLI, you must set some environmental variables.
+To use the CLI, you must create an application credentials and set the appropriate environment variables.
 
-The easiest way to do this is to run the OpenStack RC script you downloaded earlier.
+The easiest way to do this is to go to https://onboarding.massopen.cloud and log in. Then navigate to `Identity > Application Credentials` on the sidebar.
 
-Find the file (by default it will be named `project-openrc.sh` where project is the name of your OpenStack project).
+Click on `Create Application Credential` and provide a **name** and **role** for the application credential. All other fields are optional and leaving the secret field empty will set it to autogenerate (recommended).
+
+After clicking Create, the **ID** and **Secret** will be displayed and you will be prompted to `Download the openrc file`.
+
+Please note that an application credential is only valid for a single project, and to access multiple projects you need to create an application credential for each. You can switch projects by clicking on the project name at the top left corner and choosing from the dropdown.
+
+Find the file (by default it will be named  the same as the application credential name with the suffic`-openrc.sh` where project is the name of your OpenStack project).
 
 Source the file:
 ```shell
     [kamfonik@ezio ~]$ source tutorial_project-openrc.sh
-    Please enter your OpenStack Password:
 ```
-You will be prompted for the password to your OpenStack account.
 
-Note that this just stores your entry into the environment variable - there's no validation at this stage.
-
-If you have trouble authenticating later, try running the script again and re-enter your password, in case you made a typo.
-
-What this script does is set the following environment variables:
-```shell
-    OS_AUTH_URL       # the URL endpoint to interact with Keystone
-    OS_TENANT_ID      # the ID of your OpenStack project
-    OS_TENANT_NAME    # the name of your OpenStack project
-    OS_PROJECT_NAME   # the name of your OpenStack project
-    OS_USERNAME       # your username
-    OS_PASSWORD       # your password
-    OS_REGION_NAME    # OpenStack region name, which in our case is 'MOC_Kaizen'
-```
-Note that "project" and "tenant" both refer to the same thing, your OpenStack project.
+Note that this just stores your entry into the environment variable - there's no validation at this stage. You can inspect the downloaded file to retrieve the ID and Secret if necessary and see what other environment variables are set.
 
 ### OpenStack Hello World
 To test that you have everything configured, try out some commands.  The following command lists all the images available to your project:
