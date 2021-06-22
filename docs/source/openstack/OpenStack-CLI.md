@@ -12,11 +12,12 @@ The easiest way to do this is to go to https://onboarding.massopen.cloud and log
 
 Click on `Create Application Credential` and provide a **name** and **role** for the application credential. All other fields are optional and leaving the secret field empty will set it to autogenerate (recommended).
 
-After clicking Create, the **ID** and **Secret** will be displayed and you will be prompted to `Download the openrc file`.
-
 Please note that an application credential is only valid for a single project, and to access multiple projects you need to create an application credential for each. You can switch projects by clicking on the project name at the top left corner and choosing from the dropdown.
 
-Find the file (by default it will be named  the same as the application credential name with the suffic`-openrc.sh` where project is the name of your OpenStack project).
+After clicking Create, the **ID** and **Secret** will be displayed and you will be prompted to `Download the openrc file` or to `Download clouds.yaml`. Both of these are different methods of configuring the client for CLI access.
+
+#### OpenRC File
+Find the file (by default it will be named  the same as the application credential name with the suffix `-openrc.sh` where project is the name of your OpenStack project).
 
 Source the file:
 ```shell
@@ -24,6 +25,10 @@ Source the file:
 ```
 
 Note that this just stores your entry into the environment variable - there's no validation at this stage. You can inspect the downloaded file to retrieve the ID and Secret if necessary and see what other environment variables are set.
+
+#### Clouds.yaml
+For more information on configuring the OpenStack Client with `clouds.yaml` please see the [OpenStack documentation](
+https://docs.openstack.org/python-openstackclient/wallaby/configuration/index.html#clouds-yaml)
 
 ### OpenStack Hello World
 To test that you have everything configured, try out some commands.  The following command lists all the images available to your project:
