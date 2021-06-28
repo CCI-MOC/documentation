@@ -45,6 +45,7 @@ for complete details of current projects.
  -  [MOC Public Network Providers](cluster/public-network-providers.md)
  -  [Kaizen Bare Metal](clusters/kaizen/Kaizen-Bare-Metal.html)
  -  [Kaizen 2 networking](clusters/kaizen2/Kaizen-2.html)
+ -  [OCT Nodes](clusters/OCT-nodes.html)
  -  [BU PRB Cluster](clusters/prb/BU-PRB-Cluster.html)
  -  [Engage1 Cluster](clusters/engage1/Engage1-Cluster.html)
  -  [Kumo Cluster](clusters/kumo/Kumo-Cluster.html)
