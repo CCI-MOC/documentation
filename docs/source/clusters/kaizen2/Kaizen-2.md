@@ -174,25 +174,114 @@ IP Address       Hostname/Description
 10.0.15.140      ov1.massopen.cloud
 ```
 
-## IPMI network (for accessing OCT/Umass nodes): 10.2.0.0/24 (VLAN 2 on 1G network, untagged)
+## IPMI network (VLAN 911, for accessing OCT/Umass nodes): 10.2.0.0/19
 
 There's dnsmasq on `kzn-ipmi-gw.infra.massopen.cloud` to serve IPs to UMass nodes' BMCs.
 
 ```
 IP Address       Hostname/Description
 10.2.0.1         kzn-ipmi-gw.infra.massopen.cloud
-10.2.0.2         kzn-ipmi-gw2.infra.massopen.cloud
+
+10.2.0.3         maas.massopen.cloud
+10.2.0.4         kzn-zabbix
+
+10.2.0.41        INTEL-1
+10.2.0.43        INTEL-2
+10.2.0.45        INTEL-3
+
+10.2.0.50        Dynamic Range Start
+10.2.0.100       Dynamic Range Stop
+
+10.2.4.0        OCT4-00
+10.2.4.1        OCT4-01
+10.2.4.2        OCT4-02
+10.2.4.3        OCT4-03
+10.2.4.4        OCT4-04
+10.2.4.5        OCT4-05
+10.2.4.6        OCT4-06
+10.2.4.7        OCT4-07
+10.2.4.8        OCT4-08
+10.2.4.9        OCT4-09
+10.2.4.10       OCT4-10
+10.2.4.11       OCT4-11
+10.2.4.12       OCT4-12
+10.2.4.13       OCT4-13
+10.2.4.14       OCT4-14
+10.2.4.15       OCT4-15
+10.2.4.16       OCT4-16
+10.2.4.17       OCT4-17
+```
+
+## IPMI network (VLAN 912, for accessing OCT/Umass nodes for operatre first): 10.3.0.0/19
+
+There's dnsmasq on `kzn-ipmi-gw.infra.massopen.cloud` to serve IPs to UMass nodes' BMCs.
+
+```
+IP Address       Hostname/Description
+10.3.0.1         kzn-ipmi-gw.infra.massopen.cloud
+
+10.3.0.3         maas.massopen.cloud
+
+10.3.0.50        Dynamic Range Start
+10.3.0.100       Dynamic Range Stop
+
+10.3.3.0         OCT3-00
+10.3.3.1         OCT3-01
+10.3.3.2         OCT3-02
+10.3.3.3         OCT3-03
+10.3.3.4         OCT3-04
+10.3.3.5         OCT3-05
+10.3.3.6         OCT3-06
+10.3.3.7         OCT3-07
+10.3.3.8         OCT3-08
+10.3.3.9         OCT3-09
+10.3.3.10        OCT3-10
+10.3.3.11        OCT3-11
+10.3.3.12        OCT3-12
+10.3.3.13        OCT3-13
+10.3.3.14        OCT3-14
+10.3.3.15        OCT3-15
+10.3.3.16        OCT3-16
+10.3.3.17        OCT3-17
+10.3.3.18        OCT3-18
+10.3.3.19        OCT3-19
+10.3.3.20        OCT3-20
+10.3.3.21        OCT3-21
+10.3.3.22        OCT3-22
+10.3.3.23        OCT3-23
+10.3.3.24        OCT3-24
+10.3.3.25        OCT3-25
+10.3.3.26        OCT3-26
+10.3.3.27        OCT3-27
+10.3.3.28        OCT3-28
+10.3.3.29        OCT3-29
+10.3.3.30        OCT3-30
+10.3.3.31        OCT3-31
+
+10.3.10.0        OPF-MGMT1
+10.3.10.1        OPF-DELL1
+10.3.10.2        OPF-DELL2
+10.3.10.3        OPF-DELL3
+10.3.10.4        OPF-DELL4
+10.3.10.5        OPF-DELL5
+10.3.10.6        OPF-DELL6
 ```
 
 ## OCT/Umass Switch Management (VLAN 207): 10.1.0.0/24
 
 ```
 IP Address       Hostname/Description
-10.1.0.1         kzn-hil-server.infra.massopen.cloud
-10.1.0.11         OCT1 10G switch (Dell S40480-ON)
-10.1.0.12         OCT2 10G switch (Dell S40480-ON)
-10.1.0.13         OCT3 10G switch (Dell S40480-ON)
-10.1.0.14         OCT4 10G switch (Dell S40480-ON)
+10.1.0.1         kzn-ipmi-gw
+
+10.1.0.11        OCT1 10G switch (Dell S40480-ON)
+10.1.0.12        OCT2 10G switch (Dell S40480-ON)
+10.1.0.13        OCT3 10G switch (Dell S40480-ON)
+10.1.0.14        OCT4 10G switch (Dell S40480-ON)
+
+10.1.0.101       oct-hub-1 (Dell Z9100-ON, R6-PB-C02)
+10.1.0.102       oct-hub-2 (Dell Z9100-ON, R6-PB-C02)
+10.1.0.103       oct-hub-3 (Dell Z9100-ON, R1-PC-C12)
+10.1.0.104       OCT-OPF-MGMT-SW1 (Dell S3048-ON, R6-PB-C02)
 ```
 
 ## Ceph cluster/replication (VLAN 248)
