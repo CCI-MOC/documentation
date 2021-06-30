@@ -84,6 +84,8 @@ Below is the detailed distribution of the VLANs.
 | 271  | Staging - Tenant Network                                | To be decided  |
 | 272  | Staging - Public Network                                | To be decided  |
 | 273  | Staging - OS Stack isolation for trunk only ports       | To be decided  |
+| 911  | For OCT/UMass nodes IPMI                                | 10.2.0.0/19    |
+| 912  | For OCT/UMass nodes IPMI for operate first              | 10.3.0.0/19    |
 | 3802 | OpenStack Tenant Floating IPs                           | 128.31.24.0/22 |
 
 IPs in VLAN 204 will be assigned based on rack and unit number, rest will be regular DHCP.
@@ -173,7 +175,11 @@ Cloudlab side's dataplane is fully dynamic, they'd block out MOC vlans to avoid 
 
 ### MOC connections to OCT/Umass
 
-| Description                         | MOC switchport                                          | OCT/Umass switchport |
-| ----------------------------------- | ------------------------------------------------------- | -------------------- |
-| 40G cable for data plane            | Cage 15 Unit 43 Brocade (Fo 2/0/52) (Port Channel 1)    |         -            |
-| 1G cable for IPMI network           | Cage 15 Unit 44 port 45                                 |         -            |
+| Description                         | MOC switchport                                          | OCT/Umass switchport                   |
+| ----------------------------------- | ------------------------------------------------------- | -------------------------------------- |
+| 40G cable for data plane            | Cage 15 Unit 43 Brocade (Fo 2/0/52) (Port Channel 2)    | OCT-HUB-2 (Port Channel 11, Fo 1/27/1) |
+| 40G cable for data plane            | Cage 15 Unit 42 Brocade (Fo 1/0/52) (Port Channel 2)    | OCT-HUB-1 (Port Channel 11, Fo 1/27/1) |
+| 1G cable for IPMI network (disabled)| Cage 15 Unit 44 port 45                                 |         -                              |
+
+
+While the 1G connection still exists, we have disabled it since we can reach the OCT IPMI network over out data network.
