@@ -17,7 +17,7 @@ Each OCT3 node has a single connection to the OCT3 10G Switch.
 
 ## OCT10
 
-This rack has the newer dell hardware to be used as controlelrs for the operate first cluster. The node's IPMI is on VLAN 912.
+This rack has the newer dell hardware to be used as controllers for the operate first cluster. The node's IPMI is on VLAN 912.
 
 Nodes have dual 25G connections to a DellZ9100-ON. See the google sheet on top for details about switchports.
 
