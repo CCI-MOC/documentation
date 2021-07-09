@@ -203,7 +203,7 @@ IP Address       Hostname/Description
 10.2.4.8        OCT4-08
 10.2.4.9        OCT4-09
 10.2.4.10       OCT4-10
-10.2.4.11       OCT4-11
+10.2.4.11       OCT4-11 (NODE BROKEN)
 10.2.4.12       OCT4-12
 10.2.4.13       OCT4-13
 10.2.4.14       OCT4-14
@@ -243,7 +243,7 @@ IP Address       Hostname/Description
 10.3.3.15        OCT3-15
 10.3.3.16        OCT3-16
 10.3.3.17        OCT3-17
-10.3.3.18        OCT3-18
+10.3.3.18        OCT3-18 (NODE BROKEN)
 10.3.3.19        OCT3-19
 10.3.3.20        OCT3-20
 10.3.3.21        OCT3-21
@@ -255,7 +255,7 @@ IP Address       Hostname/Description
 10.3.3.27        OCT3-27
 10.3.3.28        OCT3-28
 10.3.3.29        OCT3-29
-10.3.3.30        OCT3-30
+10.3.3.30        OCT3-30 (NODE BROKEN)
 10.3.3.31        OCT3-31
 
 10.3.10.0        OPF-MGMT1
