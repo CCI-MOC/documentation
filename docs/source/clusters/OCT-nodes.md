@@ -2,9 +2,9 @@
 
 The MOC has access to nodes in the OCT racks.
 
-We have 2 IPMI VLANs (911, 912), and a VLAN (207) for switch management. Please see https://docs.massopen.cloud/en/latest/clusters/kaizen2/Kaizen-2.html for more detailed network breakdown.
+We have 2 IPMI VLANs (911, 912), and a VLAN (207) for switch management. Please see [Kaizen Networks](https://docs.massopen.cloud/en/latest/clusters/kaizen2/Kaizen-2.html) for more detailed network breakdown.
 
-Details about OCT nodes are here: https://docs.google.com/spreadsheets/d/1V4_24MEQvpQaEIWOY9CT3zMeu_7llBagkYRxAIsJ1a4/edit#gid=26142192
+Details about OCT nodes are [in this spreadsheet](https://docs.google.com/spreadsheets/d/1V4_24MEQvpQaEIWOY9CT3zMeu_7llBagkYRxAIsJ1a4/edit#gid=26142192).
 
 
 ## OCT3
