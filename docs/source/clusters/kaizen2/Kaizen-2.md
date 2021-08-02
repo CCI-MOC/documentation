@@ -258,13 +258,13 @@ IP Address       Hostname/Description
 10.3.3.30        OCT3-30 (NODE BROKEN)
 10.3.3.31        OCT3-31
 
-10.3.10.0        OPF-MGMT1
-10.3.10.1        OPF-DELL1
-10.3.10.2        OPF-DELL2
-10.3.10.3        OPF-DELL3
-10.3.10.4        OPF-DELL4
-10.3.10.5        OPF-DELL5
-10.3.10.6        OPF-DELL6
+10.3.10.0        OCT10-00
+10.3.10.1        OCT10-01
+10.3.10.2        OCT10-02
+10.3.10.3        OCT10-03
+10.3.10.4        OCT10-04
+10.3.10.5        OCT10-05
+10.3.10.6        OCT10-06
 ```
 
 ## OCT/Umass Switch Management (VLAN 207): 10.1.0.0/24
