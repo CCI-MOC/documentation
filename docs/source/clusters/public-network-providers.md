@@ -13,6 +13,7 @@ Subnet: 128.52.60.0/22
 
 We used this for infrastructure in engage1 but we have to use CSAIL's DHCP since
 they like to control this network, which makes this less desirable.
+As of 8/12/2021, the DHCP range on this network is 128.52.62.128/25.
 
 Our brocade switches in BU cages 2 and 4 connect to the CSAIL switch to access
 this network.
