@@ -149,6 +149,31 @@ IP Address       Hostname/Description
 192.12.185.254   ov3.massopen.cloud (though this name resolves to 129.10.5.103)
 ```
 
+## CSAIL-10 (VLAN 10)
+
+-  Subnet: 128.52.60.0/22
+
+```
+IP Address       Hostname/Description
+128.52.60.1      default gateway
+128.52.60.2      Start: MOC Infrastrucure reserved
+128.52.60.10     End: MOC Infrastrucure reserved
+
+128.52.60.11     Smaug openshift cluster: API Virtual IP
+128.52.60.12     Smaug openshift cluster: Ingress Virtual IP
+128.52.60.13     CSAIL's `phoenix.csail.mit.edu`
+128.52.60.14     ocp-prod cluster: API Virtual IP
+128.52.60.15     ocp-prod cluster: Ingress Virtual IP
+
+128.52.61.0      Start: Smaug openshift cluster Tenant IP (128.52.61.0/25)
+128.52.61.127    End: Smaug openshift cluster Tenant IP (128.52.61.0/25)
+128.52.61.128    Start: OCP-PROD openshift cluster Tenant IP (128.52.61.128/25)
+128.52.61.255    End: OCP-PROD openshift cluster Tenant IP (128.52.61.128/25)
+
+128.52.62.128    Start: CSAIL DHCP (128.52.62.128/25)
+128.52.62.255    End: CSAIL DHCP (128.52.62.128/25)
+```
+
 ## IPMI network: 10.0.0.0/19 (VLAN 1 on 1G network, untagged)
 
  -  IP assignment: 10.0.rack-number.u(nit)-number, servers bigger than 1 U get the lowest U number,
