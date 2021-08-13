@@ -165,10 +165,10 @@ IP Address       Hostname/Description
 128.52.60.14     ocp-prod cluster: API Virtual IP
 128.52.60.15     ocp-prod cluster: Ingress Virtual IP
 
-128.52.61.0      Start: Smaug openshift cluster Tenant IP
-128.52.61.127    End: Smaug openshift cluster Tenant IP
-128.52.61.128    Start: OCP-PROD openshift cluster Tenant IP
-128.52.61.255    End: OCP-PROD openshift cluster Tenant IP
+128.52.61.0      Start: Smaug openshift cluster Tenant IP (128.52.61.0/25)
+128.52.61.127    End: Smaug openshift cluster Tenant IP (128.52.61.0/25)
+128.52.61.128    Start: OCP-PROD openshift cluster Tenant IP (128.52.61.128/25)
+128.52.61.255    End: OCP-PROD openshift cluster Tenant IP (128.52.61.128/25)
 
 128.52.62.128    Start: CSAIL DHCP (128.52.62.128/25)
 128.52.62.255    End: CSAIL DHCP (128.52.62.128/25)
