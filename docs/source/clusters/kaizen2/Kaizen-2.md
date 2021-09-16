@@ -309,6 +309,25 @@ IP Address       Hostname/Description
 10.1.0.104       OCT-OPF-MGMT-SW1 (Dell S3048-ON, R6-PB-C02)
 ```
 
+## New England Storage Exchange (NESE) (VLAN 211): 10.0.120.0/22
+
+Note: In order to connect to NESE, add the following routes.
+```
+- to: 10.255.116.0/23
+  via: 10.0.120.1
+- to: 10.247.236.0/25
+  via: 10.0.120.1
+- to: 140.247.236.0/25
+  via: 10.0.120.1
+```
+
+```
+IP Address       Hostname/Description
+10.0.120.1       NESE gateway
+```
+
+
+
 ## Ceph cluster/replication (VLAN 248)
 
  -  Subnet: 192.168.255.0/24
