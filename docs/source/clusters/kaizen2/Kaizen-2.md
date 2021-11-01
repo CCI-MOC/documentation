@@ -167,6 +167,8 @@ IP Address       Hostname/Description
 128.52.60.32     Smaug openshift cluster: Ingress Virtual IP
 128.52.60.33     ocp-prod cluster: API Virtual IP
 128.52.60.34     ocp-prod cluster: Ingress Virtual IP
+128.52.60.35     ocp-staging cluster: API Virtual IP
+128.52.60.36     ocp-staging cluster: Ingress Virtual IP
 
 128.52.61.0      Start: Smaug openshift cluster Tenant IP (128.52.61.0/25)
 128.52.61.127    End: Smaug openshift cluster Tenant IP (128.52.61.0/25)
