@@ -170,6 +170,9 @@ IP Address       Hostname/Description
 128.52.60.35     ocp-staging cluster: API Virtual IP
 128.52.60.36     ocp-staging cluster: Ingress Virtual IP
 
+128.52.60.50     Start: ocp-staging openshift cluster tentant IP
+128.52.60.60     End: ocp-staging openshift cluster tentant IP
+
 128.52.61.0      Start: Smaug openshift cluster Tenant IP (128.52.61.0/25)
 128.52.61.127    End: Smaug openshift cluster Tenant IP (128.52.61.0/25)
 128.52.61.128    Start: OCP-PROD openshift cluster Tenant IP (128.52.61.128/25)
