@@ -306,10 +306,13 @@ IP Address       Hostname/Description
 IP Address       Hostname/Description
 10.1.0.1         kzn-ipmi-gw
 
-10.1.0.11        OCT1 10G switch (Dell S40480-ON)
-10.1.0.12        OCT2 10G switch (Dell S40480-ON)
-10.1.0.13        OCT3 10G switch (Dell S40480-ON)
-10.1.0.14        OCT4 10G switch (Dell S40480-ON)
+10.1.0.11        OCT1 10G switch (Dell S4048-ON)
+10.1.0.12        OCT2 10G switch (Dell S4048-ON)
+10.1.0.13        OCT3 10G switch (Dell S4048-ON)
+10.1.0.14        OCT4 10G switch (Dell S4048-ON)
+10.1.0.15        OCT5 25G switch (Dell S5048F-ON)
+
+10.1.0.55        OCT5 1G Management Switch (Dell S3048-ON)
 
 10.1.0.101       oct-hub-1 (Dell Z9100-ON, R6-PB-C02)
 10.1.0.102       oct-hub-2 (Dell Z9100-ON, R6-PB-C02)
