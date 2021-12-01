@@ -468,6 +468,20 @@ IP Address       Hostname/Description
 
 This network is managed by our [MaaS instance][maas].
 
+Statically assigned IPs on this network are:
+
+```
+IP Address       Hostname/Description
+128.31.28.9      zabbix
+128.31.28.10     kzn-ipmi-gw
+128.31.28.11     sso1.massopen.cloud
+128.31.28.12     sso2.massopen.cloud
+128.31.28.13     sso.massopen.cloud (shared by sso1 and sso2)
+128.31.28.14     freeipa2.maas.massopen.cloud
+
+128.31.28.16     maas.massopen.cloud
+```
+
 [maas]: https://maas.massopen.cloud/MAAS/#/subnet/1
 
 ## Research Ceph (VLAN 252)
