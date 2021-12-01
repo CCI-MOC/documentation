@@ -466,16 +466,9 @@ IP Address       Hostname/Description
 
 ## CSAIL-3803 Public IPs: 128.31.28.0/24 (VLAN 3803)
 
-```
-IP Address       Hostname/Description
-128.31.28.1      gateway
-128.31.28.248    openshift (Rob)
-128.31.28.249    openshift (Rob)
-128.31.28.251    openshift (Rob)
-128.31.28.252    openshift (Rob)
-128.31.28.253    openshift (Rob)
-128.31.28.254    openshift (Rob)
-```
+This network is managed by our [MaaS instance][maas].
+
+[maas]: https://maas.massopen.cloud/MAAS/#/subnet/1
 
 ## Research Ceph (VLAN 252)
 
