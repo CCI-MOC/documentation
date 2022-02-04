@@ -464,6 +464,24 @@ IP Address       Hostname/Description
 10.254.0.255     kzn-cacti
 ```
 
+## CSAIL-3801 Public IPs; 128.31.20.0/22 (VLAN 3801)
+
+We get this VLAN the same way we get CSAIL-10, i.e., from engage1 switches
+and those are directly connected to CSAIL switches.
+
+Statically assigned IPs on this network are:
+
+```
+IP Address       Hostname/Description
+128.31.20.1      gateway
+
+128.31.20.2      Start: MOC Infrastructure reserved
+128.31.20.20     End: MOC Infrastructure reserved
+
+128.31.20.21     Start: ESI floating IP
+128.31.20.255    End: ESI floating IP
+```
+
 ## CSAIL-3803 Public IPs: 128.31.28.0/24 (VLAN 3803)
 
 This network is managed by our [MaaS instance][maas].
