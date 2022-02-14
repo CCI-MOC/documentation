@@ -1,5 +1,5 @@
 ## People
-Please visit [MOC official website](https://massopen.cloud/team/) for the more up-to-date team list. 
+Please visit [MOC official website](https://massopen.cloud/people/) for the more up-to-date team list. 
 
 ### Boston University
  -  [Orran Krieger:](http://okrieg.github.io) okrieg@bu.edu, 617-901-5483 (cell)
