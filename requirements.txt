@@ -1,3 +1,4 @@
 sphinx
 sphinx-markdown-tables
+markdown-it-py[linkify]
 myst-parser

@@ -32,6 +32,12 @@ extensions = [
     "myst_parser",
 ]
 
+myst_enable_extensions = [
+    "linkify",
+]
+myst_linkify_fuzzy_links = False
+myst_heading_anchors = 3
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
 
