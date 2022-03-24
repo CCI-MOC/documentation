@@ -1,4 +1,0 @@
-#!/bin/bash
-
-find docs/source -maxdepth 2 -mindepth 2 -name "*.md" | xargs sed -i 's/(_static/(..\/_static/g'
-find docs/source -maxdepth 3 -mindepth 3 -name "*.md" | xargs sed -i 's/(_static/(..\/..\/_static/g'
