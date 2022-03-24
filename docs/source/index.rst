@@ -9,7 +9,7 @@ Welcome to Mass Open Cloud's documentation!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-  
+
    home
 
 

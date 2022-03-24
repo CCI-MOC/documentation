@@ -38,17 +38,16 @@ You can install remark link on your own machine by following [these instructions
 
 ## How Paths Work
 
-MOC Docs are built with Sphinx using markdown parsing plugin called [recommonmark](https://recommonmark.readthedocs.io/en/latest/). 
+MOC Docs are built with Sphinx using markdown parsing plugin called [recommonmark](https://recommonmark.readthedocs.io/en/latest/).
 
 One component of recommonmark is AutoStructify which converts references in markdown files to other markdown files into url references when the markdown files are converted to html.
 
 This allows the correct link to be generated when the base url is changed (eg. building docs for a different version)
 
-The url resolver can't parse extensions other than `.html`, so a link should be the relative path to the markdown file with the '.md` extention replaced with `.html`. 
+The url resolver can't parse extensions other than `.html`, so a link should be the relative path to the markdown file with the '.md` extention replaced with `.html`.
 
-For example, to reference `contacts/MOC-Developers-Contact-Information.md` in home.md, use a markdown link to `contacts/MOC-Developers-Contact-Information.html`. 
+For example, to reference `contacts/MOC-Developers-Contact-Information.md` in home.md, use a markdown link to `contacts/MOC-Developers-Contact-Information.html`.
 
 This will have the url `https://moc-documents.readthedocs.io/en/latest/contacts/MOC-Developers-Contact-Information.html` when the docs are built.
 
 Paths used as links must be **relative to the file where the link is**. For example to link to an image in `contacts/MOC-Developers-Contact-Information.md` the correct path would be `../_static/img/<img_name>`
-
