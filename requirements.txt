@@ -1,3 +1,4 @@
 sphinx
 sphinx-markdown-tables
-git+https://github.com/rtfd/recommonmark
+markdown-it-py[linkify]
+myst-parser
