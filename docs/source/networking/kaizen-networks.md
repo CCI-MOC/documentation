@@ -337,7 +337,13 @@ IP Address       Hostname/Description
 10.0.120.1       NESE gateway
 ```
 
+## Production Ceph Cluster iSCSI (VLAN 213): 10.21.0.0/22
 
+```
+IP Address  Hostname/Description
+10.21.3.1   neu-5-30-iscsi1
+10.21.3.2   neu-3-30-vm-iscsi2
+```
 
 ## Ceph cluster/replication (VLAN 248)
 

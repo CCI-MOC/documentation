@@ -79,6 +79,7 @@ Below is the detailed distribution of the VLANs.
 | 210  | NFS for zero cluster                                    | 10.253.0.0/23  |
 | 211  | New England Storage Exchange (NESE)                     | 10.120.0.0/22  |
 | 212  | Openshift Staging Internal (`ocp-staging`)              | --             |
+| 213  | Ceph Cluster iSCSI                                      | 10.21.0.0/22   |
 | 249  | Ceph Cluster (internal)                                 |192.168.40.0/23 |
 | 250  | Ceph public (for clients)                               | 192.168.0.0/19 |
 | 259  | Staging - Foreman                                       | 172.17.0.0/19  |
