@@ -9,5 +9,6 @@ Welcome to Mass Open Cloud's documentation!
 .. toctree::
    :maxdepth: 2
 
-   networking/index.rst
    hardware/index.rst
+   networking/index.rst
+   openstack/index.rst
