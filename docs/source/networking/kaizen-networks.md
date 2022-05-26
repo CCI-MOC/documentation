@@ -73,6 +73,9 @@ IP Address       Hostname/Description
 129.10.5.143     esi-controller-2.massopen.cloud
 129.10.5.144     rubicone-foreman.massopen.cloud
 129.10.5.145     esi-vip-external.massopen.cloud
+129.10.5.146     sso1.massopen.cloud (name resolves to CSAIL address)
+129.10.5.147     sso2.massopen.cloud (name resolves to CSAIL address)
+129.10.5.148    sso.massopen.cloud (VIP)
 ```
 
 ## Public BU (VLAN 105)
@@ -145,6 +148,7 @@ IP Address       Hostname/Description
 192.12.185.179   my router (so OCP workers can reach nvcr.io)
 192.12.185.180   production OCP metallb range start
 192.12.185.250   production OCP metallb range stop
+192.12.185.251   bu-21-9.massopen.cloud
 
 192.12.185.254   ov3.massopen.cloud (though this name resolves to 129.10.5.103)
 ```
