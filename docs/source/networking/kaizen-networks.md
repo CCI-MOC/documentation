@@ -71,8 +71,8 @@ IP Address       Hostname/Description
 129.10.5.141     esi-controller-0.massopen.cloud
 129.10.5.142     esi-controller-1.massopen.cloud
 129.10.5.143     esi-controller-2.massopen.cloud
-129.10.5.144     rubicone-foreman.massopen.cloud
-129.10.5.145     esi-vip-external.massopen.cloud
+129.10.5.144     esi-vip
+
 129.10.5.146     sso1.massopen.cloud (name resolves to CSAIL address)
 129.10.5.147     sso2.massopen.cloud (name resolves to CSAIL address)
 129.10.5.148    sso.massopen.cloud (VIP)
