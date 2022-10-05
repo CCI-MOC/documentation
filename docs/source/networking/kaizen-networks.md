@@ -321,7 +321,7 @@ IP Address       Hostname/Description
 10.1.0.101       oct-hub-1 (Dell Z9100-ON, R6-PB-C02)
 10.1.0.102       oct-hub-2 (Dell Z9100-ON, R6-PB-C02)
 10.1.0.103       oct-hub-3 (Dell Z9100-ON, R1-PC-C12)
-10.1.0.104       OCT-OPF-MGMT-SW1 (Dell S3048-ON, R6-PB-C02)
+10.1.0.104       oct-hub-4 (Dell Z9100-ON, R1-PC-C12)
 ```
 
 ## New England Storage Exchange (NESE) (VLAN 211): 10.0.120.0/22
