@@ -89,6 +89,7 @@ Below is the detailed distribution of the VLANs.
 | 273  | Staging - OS Stack isolation for trunk only ports       | To be decided  |
 | 911  | For OCT/UMass nodes IPMI                                | 10.2.0.0/19    |
 | 912  | For OCT/UMass nodes IPMI for operate first              | 10.3.0.0/19    |
+| 913  | For OKD nodes in OCT4 IPMI                              | 10.4.0.0/19    |
 | 3802 | OpenStack Tenant Floating IPs                           | 128.31.24.0/22 |
 
 IPs in VLAN 204 will be assigned based on rack and unit number, rest will be regular DHCP.
