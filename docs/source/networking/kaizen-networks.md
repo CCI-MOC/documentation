@@ -186,6 +186,7 @@ IP Address       Hostname/Description
 128.52.62.255    End: CSAIL DHCP (128.52.62.128/25)
 
 128.52.63.0      Alan Liu Network Research Machine (liu-netmon.massopen.cloud)
+128.52.63.[1-16] Allocated for OKD cluster in OCT4
 ```
 
 ## IPMI network: 10.0.0.0/19 (VLAN 1 on 1G network, untagged)
