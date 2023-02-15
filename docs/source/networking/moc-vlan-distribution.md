@@ -87,6 +87,7 @@ Below is the detailed distribution of the VLANs.
 | 271  | Staging - Tenant Network                                | To be decided  |
 | 272  | Staging - Public Network                                | To be decided  |
 | 273  | Staging - OS Stack isolation for trunk only ports       | To be decided  |
+| 290  | OKD internal network                                    | 10.5.0.0/24    |
 | 911  | For OCT/UMass nodes IPMI                                | 10.2.0.0/19    |
 | 912  | For OCT/UMass nodes IPMI for operate first              | 10.3.0.0/19    |
 | 913  | For OKD nodes in OCT4 IPMI                              | 10.4.0.0/19    |
