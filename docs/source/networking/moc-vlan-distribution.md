@@ -22,18 +22,14 @@ All these services are highly available VMs.
  1. FreeIPA server (one will be duplicated at BU),
  1. Foreman (might be multiple for different env)
  1. RHEL repo server, just 1 for all environemtns. Public IP with limited access.
- 1. HIL server (maybe multiple for different environments)
- 1. Gateway/router for HIL/BMI services (again, could be multiple)
- 1. HIL client (again, could be multiple)
- 1. DNS servers for massopen.cloud, openapp.cloud, mocapps.cloud
+ 1. Gateway/routers
+ 1. DNS servers for massopen.cloud
     - 1 Management instance and 2 DNS servers for massopen.cloud
     - same thing for the other 2 domains.
     - a total of 6 VMs
  1. Additional internal DNS
  1. Kaizen's RadosGW will be here.
- 1. cacti - for statistics
  1. Nagios - for monitoring.
- 1. Other ssh gateways.
  1. IPMI gateways.
 
 Each environment gets around 300 to 400 VLANs which will leave room for expansion for more environments. \
@@ -49,15 +45,10 @@ Below is the detailed distribution of the VLANs.
 | 3800      | For connecting environments, but we don't know about bandwidth, or the route | -               |
 | 3801-3803 | CSAIL Floating IPs                                                           | 128.31.XX.YY/22 |
 
-## Kaizen
+## Kaizen (R4-PA-C02 and C04)
 **Hardware Summary**
- -  25 openstack computes (Dell IBs)
  -  3 oVirt nodes (Dell IBs)
- -  48 Cisco nodes. (Will be available for Elastic HW)
- -  3+2 openstack controllers (Dell SBs)
- -  8 ceph OSDs (right now, we can change this).
- -  64 Dell SB nodes that can be elastic with 2 drives each which we can redistribute. Extra 5 drives for spares.
- Total Elastic Nodes = 48 Cisco + 64 Dell SB  = 112 nodes.
+ -  10 ceph OSD servers (right now, we can change this).
 
 **VLANs**
  -  VLAN range : 201 to 700 (total 399 VLANs)
@@ -68,93 +59,39 @@ Below is the detailed distribution of the VLANs.
 | ---- | ------------------------------------------------------- | -------------- |
 | 127  | Openstack public facing services (horizon, keystone)    | 129.10.5.0/24  |
 | 201  | Foreman Provisioning. SNMP for OpenStack and Ceph       | 172.16.0.0/19  |
-| 202  | OpenStack internal API)                                 | 172.16.32.0/19 |
-| 203  | OpenStack tenant network                                | 172.16.64.0/19 |
 | 204  | Intranet (routable to internet). SNMP for client nodes. | 172.16.96.0/19 |
 | 205  | Gluster/VM migration - oVirt                            | 192.168.0.0/24 |
-| 206  | OStack isolation native vlan for trunk only ports       | N/A            |
 | 207  | For OCT/UMass Switch Management                         | 10.1.0.0/24    |
 | 208  | ESI control plane                                       | --             |
-| 209  | Openshift Internal (Baremetal 4.x)                      | --             |
-| 210  | NFS for zero cluster                                    | 10.253.0.0/23  |
 | 211  | New England Storage Exchange (NESE)                     | 10.120.0.0/22  |
-| 212  | Openshift Staging Internal (`ocp-staging`)              | --             |
 | 213  | Ceph Cluster iSCSI                                      | 10.21.0.0/22   |
 | 249  | Ceph Cluster (internal)                                 |192.168.40.0/23 |
 | 250  | Ceph public (for clients)                               | 192.168.0.0/19 |
-| 259  | Staging - Foreman                                       | 172.17.0.0/19  |
-| 270  | Staging - Internal API                                  | To be decided  |
-| 271  | Staging - Tenant Network                                | To be decided  |
-| 272  | Staging - Public Network                                | To be decided  |
-| 273  | Staging - OS Stack isolation for trunk only ports       | To be decided  |
 | 290  | OKD internal network                                    | 10.5.0.0/24    |
 | 911  | For OCT/UMass nodes IPMI                                | 10.2.0.0/19    |
 | 912  | For OCT/UMass nodes IPMI for operate first              | 10.3.0.0/19    |
 | 913  | For OKD nodes in OCT4 IPMI                              | 10.4.0.0/19    |
 | 3802 | OpenStack Tenant Floating IPs                           | 128.31.24.0/22 |
+| 3801 | ESI Tenant Floating IPs                           | 128.31.20.0/22                 |
 
-IPs in VLAN 204 will be assigned based on rack and unit number, rest will be regular DHCP.
-Eg; a node in cage 3 unit 20 will get an ip like 172.16.96+3.20
 
-VLANs 251 to 600 will be reserved for HIL and BMI. If each tenant needs at least 5 VLANs for their project in HIL,
-then with approximately 350 VLANs we can support a decent number of tenants with room for expansion.
+VLANs 251 to 600 will be reserved for ESI.
 
-Kaizen Floating IP Split:
- -  3802 (Kzn) is 128.31.24.0/22 (i.e., 2K IP)
- -  Start 128.31.24.129 - End 128.31.27.254
 
-Kzn split
- -  Old: 128.31.24.129,128.31.25.255
- -  New: 128.31.26.0,128.31.27.254
-
-## Engage1
-**Hardware Summary**
- -  12 OpenStack computes right now. 3 nodes with GPUs will be moved to Kaizen so we'll have 9 OpenStack computes.
- -  2 OpenStack Controllers
- -  3 monitors and 10 OSDs.
- -  4 services nodes. And some more extra nodes.
-
-**VLANs**
- -  VLAN Range: 701 to 1000 (total 299 VLANs)
- -  701 to 900 - 10G networks.
- -  901 to 1000 for IPMI/management on 1G networks.
-
-| VLAN | Description                                             | Subnet                         |
-| ---- | ------------------------------------------------------- | ------------------------------ |
-| 10   | Openstack public facing services (horizon, keystone)    | DHCP from CSAIL 128.52.60.0/22 |
-| 701  | Foreman Provisioning. SNMP for OpenStack and Ceph       | 172.17.0.0/19                  |
-| 702  | OpenStack internal API)                                 | 172.17.32.0/19                 |
-| 703  | OpenStack tenant network                                | 172.17.64.0/19                 |
-| 704  | Intranet (routable to internet). SNMP for client nodes. | 172.17.96.0/19                 |
-| 749  | Ceph Cluster (internal)                                 | --                             |
-| 750  | Ceph public (for clients)                               | --                             |
-| 3801 | OpenStack Tenant Floating IPs                           | 128.31.20.0/22                 |
-
-VLAN 751 to 1000 will be reserved for HIL and BMI.
-
-## Kumo
+## Kumo (R4-PA-C23)
 **Hardware Summary**
  -  16 Dell Blades
  -  1 kumo-storage hosting all services.
  -  1 kumo-services, and 1 kumo-emergency.
 
 **VLANs**
- -  VLAN Range: 1001 to 1300 (total 299 VLANs)
- -  1001 to 1200 for 10G stuff
- -  1201 to 1300 for IPMI/Management on 1G networks.
-
 | VLAN | Description                                             | Subnet          |
 | ---- | ------------------------------------------------------- | --------------- |
 | 105  | Public IPs from BU                                      | 192.12.185.0/24 |
-| 1004 | Intranet (routable to internet). SNMP for client nodes. | 172.18.0.0/19   |
-| 3808 | Public IPs                                              | 128.31.28.0/24  |
-
- -  Rest of the VLANs will be reserved for HIL in this environment.
- -  This leaves us with VLANs 1300 to 4094 for expansion in the future
+| 3803 | Public IPs                                              | 128.31.28.0/24  |
 
 
 ## NERC
-
 
 | VLAN | Description                                             | Subnet          |
 | ---- | ------------------------------------------------------- | --------------- |

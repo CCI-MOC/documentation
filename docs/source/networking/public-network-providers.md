@@ -11,20 +11,17 @@ There are 4 networks we use from CSAIL. For help, we should contact help@csail.m
 
 Subnet: 128.52.60.0/22
 
-We used this for infrastructure in engage1 but we have to use CSAIL's DHCP since
-they like to control this network, which makes this less desirable.
+This was used for various openshift clusters but should be free soon.
+
 As of 8/12/2021, the DHCP range on this network is 128.52.62.128/25.
 
-Our brocade switches in BU cages 2 and 4 connect to the CSAIL switch to access
-this network.
-
+This network is temporarily on the OCT-CORE switches.
 
 **VLAN 3801**
 
 Subnet: 128.31.20.0/22
 
-We used this for engage1. Our brocade switches in BU cages 2 and 4 connect to
-the CSAIL switch to access this network.
+This has been assigned to ESI pilot. We get this vlan from the OCT-CORE switches.
 
 
 **VLAN 3802**
@@ -42,14 +39,6 @@ Subnet: 128.31.28.0/24
 This is used for MaaS services and hosts, and some infrastructure VMs.
 Our Cisco switch in Kumo (Row 4 Pod A Cage) connects to a BU switch which
 carries this VLAN in addition to BU's public network (VLAN 105, 192.12.185.0/24).
-
-**Note**
-
-We have no servers racked in MIT space.
-The cluster we call enage1 at MOC is racked in BU cages 2 and 4 (Row 4 Pod A).
-We have 4 brocade switches racked in those cages and they are part of a brocade fabric
-where the rest of the brocade switches (5) are racked in MIT cages. We should figure who
-gets dibs on those switches. The brocade switches that connect to CSAIL are in our cages so that's good.
 
 
 ## BU
