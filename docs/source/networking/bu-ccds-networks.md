@@ -16,7 +16,8 @@ Cisco APIC Application Profile: `moc-public`
 ```
 IP Address       Hostname/Description
 128.197.248.9      Gateway
-128.197.248.10     arm-server-rh.massopen.cloud
+
+128.197.248.11     arm-server-rh.massopen.cloud
 ```
 
 Note that 128.197.248.15 is the broadcast address for this subnet so that's not usable.
