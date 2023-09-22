@@ -60,6 +60,12 @@ IP Address       Hostname/Description
 129.10.5.146     sso1.massopen.cloud (name resolves to CSAIL address)
 129.10.5.147     sso2.massopen.cloud (name resolves to CSAIL address)
 129.10.5.148    sso.massopen.cloud (VIP)
+
+129.10.5.149     new-esi-undercloud.massopen.cloud
+129.10.5.150     new-esi-controller-0.massopen.cloud
+129.10.5.151     new-esi-controller-1.massopen.cloud
+129.10.5.152     new-esi-controller-2.massopen.cloud
+129.10.5.153     new-esi-vip
 ```
 
 ## Public BU (VLAN 105)
