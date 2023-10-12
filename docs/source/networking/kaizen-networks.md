@@ -31,6 +31,7 @@ IP Address       Hostname/Description
 129.10.5.114     wl.massopen.cloud (to be deleted)
 129.10.5.115     tld.massopen.cloud
 129.10.5.116     freeipa.infra.massopen.cloud
+129.10.5.117     netbox.massopen.cloud
 
 129.10.5.119     dns.massopen.cloud
 129.10.5.120     helpdeskvm.massopen.cloud (to be deleted)
