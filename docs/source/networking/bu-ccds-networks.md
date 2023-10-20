@@ -16,7 +16,7 @@ Cisco APIC Application Profile: `moc-public`
 ```
 IP Address       Hostname/Description
 128.197.248.9      Gateway
-
+128.197.248.10     ccds-intel-rh.massopen.cloud
 128.197.248.11     arm-server-rh.massopen.cloud
 ```
 
