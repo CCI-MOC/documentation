@@ -18,6 +18,7 @@ IP Address       Hostname/Description
 128.197.248.9      Gateway
 128.197.248.10     ccds-intel-rh.massopen.cloud
 128.197.248.11     arm-server-rh.massopen.cloud
+128.197.248.12     fedora-riscv (Ahmed/Isaiah)
 ```
 
 Note that 128.197.248.15 is the broadcast address for this subnet so that's not usable.
