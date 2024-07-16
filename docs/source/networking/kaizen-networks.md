@@ -222,26 +222,6 @@ IP Address       Hostname/Description
 10.3.10.6        OCT10-06
 ```
 
-## OCT/Umass Switch Management (VLAN 207): 10.1.0.0/24
-
-```
-IP Address       Hostname/Description
-10.1.0.1         kzn-ipmi-gw
-
-10.1.0.11        OCT1 10G switch (Dell S4048-ON)
-10.1.0.12        OCT2 10G switch (Dell S4048-ON)
-10.1.0.13        OCT3 10G switch (Dell S4048-ON)
-10.1.0.14        OCT4 10G switch (Dell S4048-ON)
-10.1.0.15        OCT5 25G switch (Dell S5048F-ON)
-
-10.1.0.55        OCT5 1G Management Switch (Dell S3048-ON)
-
-10.1.0.101       oct-hub-1 (Dell Z9100-ON, R6-PB-C02)
-10.1.0.102       oct-hub-2 (Dell Z9100-ON, R6-PB-C02)
-10.1.0.103       oct-hub-3 (Dell Z9100-ON, R1-PC-C12)
-10.1.0.104       oct-hub-4 (Dell Z9100-ON, R1-PC-C12)
-```
-
 ## New England Storage Exchange (NESE) (VLAN 211): 10.0.120.0/22
 
 Note: In order to connect to NESE, add the following routes.

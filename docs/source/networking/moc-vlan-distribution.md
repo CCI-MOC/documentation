@@ -61,7 +61,6 @@ Below is the detailed distribution of the VLANs.
 | 201  | Foreman Provisioning. SNMP for OpenStack and Ceph       | 172.16.0.0/19  |
 | 204  | Intranet (routable to internet). SNMP for client nodes. | 172.16.96.0/19 |
 | 205  | Gluster/VM migration - oVirt                            | 192.168.0.0/24 |
-| 207  | For OCT/UMass Switch Management                         | 10.1.0.0/24    |
 | 208  | ESI control plane                                       | --             |
 | 211  | New England Storage Exchange (NESE)                     | 10.120.0.0/22  |
 | 213  | Ceph Cluster iSCSI                                      | 10.21.0.0/22   |
