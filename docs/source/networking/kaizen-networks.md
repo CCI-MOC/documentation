@@ -81,32 +81,6 @@ IP Address       Hostname/Description
 192.12.185.254   ov3.massopen.cloud (though this name resolves to 129.10.5.103)
 ```
 
-## CSAIL-10 (VLAN 10)
-
--  Subnet: 128.52.60.0/22
-
-```
-IP Address       Hostname/Description
-128.52.60.1      default gateway
-
-128.52.60.2      Start: CSAIL Reserved
-128.52.60.20     End: CSAIL Reserved
-128.52.60.21     Start: MOC Infrastructure reserved
-128.52.60.30     End: MOC Infrastructure reserved
-
-128.52.60.33     ocp-prod cluster: API Virtual IP
-128.52.60.34     ocp-prod cluster: Ingress Virtual IP
-
-128.52.61.128    Start: OCP-PROD openshift cluster Tenant IP (128.52.61.128/25)
-128.52.61.255    End: OCP-PROD openshift cluster Tenant IP (128.52.61.128/25)
-
-128.52.62.128    Start: CSAIL DHCP (128.52.62.128/25)
-128.52.62.255    End: CSAIL DHCP (128.52.62.128/25)
-
-128.52.63.0      Alan Liu Network Research Machine (liu-netmon.massopen.cloud)
-128.52.63.[1-16] Allocated for OKD cluster in OCT4
-```
-
 ## IPMI network: 10.0.0.0/19 (VLAN 1 on 1G network, untagged)
 
  -  IP assignment: 10.0.rack-number.u(nit)-number, servers bigger than 1 U get the lowest U number,
@@ -220,26 +194,6 @@ IP Address       Hostname/Description
 10.3.10.4        OCT10-04
 10.3.10.5        OCT10-05
 10.3.10.6        OCT10-06
-```
-
-## OCT/Umass Switch Management (VLAN 207): 10.1.0.0/24
-
-```
-IP Address       Hostname/Description
-10.1.0.1         kzn-ipmi-gw
-
-10.1.0.11        OCT1 10G switch (Dell S4048-ON)
-10.1.0.12        OCT2 10G switch (Dell S4048-ON)
-10.1.0.13        OCT3 10G switch (Dell S4048-ON)
-10.1.0.14        OCT4 10G switch (Dell S4048-ON)
-10.1.0.15        OCT5 25G switch (Dell S5048F-ON)
-
-10.1.0.55        OCT5 1G Management Switch (Dell S3048-ON)
-
-10.1.0.101       oct-hub-1 (Dell Z9100-ON, R6-PB-C02)
-10.1.0.102       oct-hub-2 (Dell Z9100-ON, R6-PB-C02)
-10.1.0.103       oct-hub-3 (Dell Z9100-ON, R1-PC-C12)
-10.1.0.104       oct-hub-4 (Dell Z9100-ON, R1-PC-C12)
 ```
 
 ## New England Storage Exchange (NESE) (VLAN 211): 10.0.120.0/22
@@ -395,26 +349,6 @@ IP Address       Hostname/Description
 128.31.20.21     Start: ESI floating IP
 128.31.20.255    End: ESI floating IP
 ```
-
-## CSAIL-3803 Public IPs: 128.31.28.0/24 (VLAN 3803)
-
-This network is managed by our [MaaS instance][maas].
-
-Statically assigned IPs on this network are:
-
-```
-IP Address       Hostname/Description
-128.31.28.9      zabbix
-128.31.28.10     kzn-ipmi-gw
-128.31.28.11     sso1.massopen.cloud
-128.31.28.12     sso2.massopen.cloud
-128.31.28.13     sso.massopen.cloud (shared by sso1 and sso2)
-128.31.28.14     freeipa2.maas.massopen.cloud
-
-128.31.28.16     maas.massopen.cloud
-```
-
-[maas]: https://maas.massopen.cloud/MAAS/#/subnet/1
 
 ## Research Ceph (VLAN 252)
 

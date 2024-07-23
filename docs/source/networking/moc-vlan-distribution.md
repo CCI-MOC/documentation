@@ -42,8 +42,7 @@ Below is the detailed distribution of the VLANs.
 | --------- | ---------------------------------------------------------------------------- | --------------- |
 | 1 to 200  | Reserved by University's IS&T for providing public IPs                       | -               |
 | 127       | NEU Public IP for infrastructure                                             | 129.10.5.0/24   |
-| 3800      | For connecting environments, but we don't know about bandwidth, or the route | -               |
-| 3801-3803 | CSAIL Floating IPs                                                           | 128.31.XX.YY/22 |
+| 3801      | CSAIL Floating IPs                                                           | 128.31.20.0/22  |
 
 ## Kaizen (R4-PA-C02 and C04)
 **Hardware Summary**
@@ -61,7 +60,6 @@ Below is the detailed distribution of the VLANs.
 | 201  | Foreman Provisioning. SNMP for OpenStack and Ceph       | 172.16.0.0/19  |
 | 204  | Intranet (routable to internet). SNMP for client nodes. | 172.16.96.0/19 |
 | 205  | Gluster/VM migration - oVirt                            | 192.168.0.0/24 |
-| 207  | For OCT/UMass Switch Management                         | 10.1.0.0/24    |
 | 208  | ESI control plane                                       | --             |
 | 211  | New England Storage Exchange (NESE)                     | 10.120.0.0/22  |
 | 213  | Ceph Cluster iSCSI                                      | 10.21.0.0/22   |
@@ -71,8 +69,7 @@ Below is the detailed distribution of the VLANs.
 | 911  | For OCT/UMass nodes IPMI                                | 10.2.0.0/19    |
 | 912  | For OCT/UMass nodes IPMI for operate first              | 10.3.0.0/19    |
 | 913  | For OKD nodes in OCT4 IPMI                              | 10.4.0.0/19    |
-| 3802 | OpenStack Tenant Floating IPs                           | 128.31.24.0/22 |
-| 3801 | ESI Tenant Floating IPs                           | 128.31.20.0/22                 |
+| 3801 | ESI Tenant Floating IPs                                 | 128.31.20.0/22 |
 
 
 VLANs 251 to 600 will be reserved for ESI.
@@ -88,7 +85,6 @@ VLANs 251 to 600 will be reserved for ESI.
 | VLAN | Description                                             | Subnet          |
 | ---- | ------------------------------------------------------- | --------------- |
 | 105  | Public IPs from BU                                      | 192.12.185.0/24 |
-| 3803 | Public IPs                                              | 128.31.28.0/24  |
 
 
 ## NERC
