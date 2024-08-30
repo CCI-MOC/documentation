@@ -9,13 +9,8 @@ IP Address       Hostname/Description
 129.10.5.1       Router IP (on cisco switch) (Highly Available)
 129.10.5.2       Router IP (on cisco switch)
 129.10.5.3       Router IP (on cisco switch)
-129.10.5.4       kzn-hil-client.infra.massopen.cloud
 
-129.10.5.40      dns server for openshift subdomains (openapp.cloud, mocapps.cloud, massopen.cloud test subdomains)
-129.10.5.41      dns server for massopen.cloud
-
-129.10.5.55      dhcp1.cnv.massopen.cloud
-129.10.5.56      dhcp2.cnv.massopen.cloud
+129.10.5.41      ns2.massopen.cloud (dns server for massopen.cloud)
 
 129.10.5.101     ov1.massopen.cloud
 129.10.5.102     ov2.massopen.cloud
@@ -23,50 +18,29 @@ IP Address       Hostname/Description
 129.10.5.104     ovirt.massopen.cloud (Web interface)
 129.10.5.105     kzn-ipmi-gw.infra.massopen.cloud
 129.10.5.106     kzn-rtr.infra.massopen.cloud (for all subnets)
-129.10.5.107     kzn-ssh.infra.massopen.cloud
-129.10.5.108     mochat.infra.massopen.cloud (shared repo server)
-129.10.5.109     kzn-nagios.infra.massopen.cloud
-129.10.5.110     rhel-6-repomirror.massopen.cloud
 
-129.10.5.114     wl.massopen.cloud (to be deleted)
 129.10.5.115     tld.massopen.cloud
 129.10.5.116     freeipa.infra.massopen.cloud
-129.10.5.117     netbox.massopen.cloud
+
 129.10.5.118     techsquare.massopen.cloud
 129.10.5.119     dns.massopen.cloud
-129.10.5.120     helpdeskvm.massopen.cloud (to be deleted)
-129.10.5.121     massopen.cloud
-129.10.5.123     reports.infra.massopen.cloud (to be deleted)
-129.10.5.124     kzn-ipmi2-gw.infra.massopen.cloud
-
-129.10.5.127     kzn-hil.massopen.cloud (to be deleted)
-129.10.5.128     kzn-ovpn.massopen.cloud
 
 129.10.5.132     zabbix.massopen.cloud
 
-129.10.5.133     rz.massopen.cloud (Research Zabbix, to be deleted)
-129.10.5.134     mondata.massopen.cloud (to be deleted)
-
-129.10.5.136     elk.massopen.cloud (powered off, so ping won't respond)
-129.10.5.137     promtest.infra.massopen.cloud (to be deleted)
-
 129.10.5.139     kumo-hil-client.infra.massopen.cloud (because BU network is down).
-
 129.10.5.140     esi-undercloud.massopen.cloud
 129.10.5.141     esi-controller-0.massopen.cloud
 129.10.5.142     esi-controller-1.massopen.cloud
 129.10.5.143     esi-controller-2.massopen.cloud
 129.10.5.144     esi-vip
 
-129.10.5.146     sso1.massopen.cloud (name resolves to CSAIL address)
-129.10.5.147     sso2.massopen.cloud (name resolves to CSAIL address)
-129.10.5.148    sso.massopen.cloud (VIP)
-
 129.10.5.149     new-esi-undercloud.massopen.cloud
 129.10.5.150     new-esi-controller-0.massopen.cloud
 129.10.5.151     new-esi-controller-1.massopen.cloud
 129.10.5.152     new-esi-controller-2.massopen.cloud
 129.10.5.153     new-esi-vip
+129.10.5.154     oct4-7.massopen.cloud (Emmanuel/Hakan)
+129.10.5.155     rceph-bastion.massopen.cloud
 ```
 
 ## Public BU (VLAN 105)
@@ -90,14 +64,9 @@ IP Address       Hostname/Description
 ```
 IP Address       Hostname/Description
 10.0.0.1         kzn-ipmi-gw.infra.massopen.cloud
-10.0.0.2         kzn-cacti
-10.0.0.3         kzn-hil-server.infra.massopen.cloud
-10.0.0.4         kzn-nagios.infra.massopen.cloud
+
 10.0.0.5         zabbix.massopen.cloud
-10.0.0.6         kzn-ipmi2-gw.infra.massopen.cloud ***ON 1GB VLAN 2 TAGGED ***
-10.0.0.7         switchback.massopen.cloud (The host that backs up switch configurations).
-10.0.0.8         promtest.massopen.cloud (Test promotheus instance. Talk to Lars/Naved about it).
-10.0.0.255       kzn-h.infra.massopen.cloud
+
 10.0.3.140       ov3.massopen.cloud/kzn-e.massopen.cloud over BU public IPs from Kumo
 10.0.5.140       ov2.massopen.cloud
 10.0.15.140      ov1.massopen.cloud
@@ -350,30 +319,9 @@ IP Address       Hostname/Description
 128.31.20.255    End: ESI floating IP
 ```
 
-## Research Ceph (VLAN 252)
-
-```
-IP Address       Hostname/Description
-192.168.32.1     kzn-rmon1 kzn-rmon1.infra.massopen.cloud
-192.168.32.2     kzn-rmon2 kzn-rmon2.infra.massopen.cloud
-192.168.32.3     kzn-rmon3 kzn-rmon3.infra.massopen.cloud
-192.168.32.5     kzn-rtr.infra.massopen.cloud
-192.168.32.6     kzn-zabbix
-
-```
-
-## VPN range
-
-172.31.224.0/19
-
 ## Network connections
 
 For 1 GB U number goes to the same port number.
 
 For 10GB U1 goes to ports 1 and 2 on lower Brocade switch, U2 - ports 3,4 up to U20.
 U21 goes to ports 1,2 on upper switch and so on.
-
-## Lenovo Ceph - for IBM Power9 (VLAN 210 and 211)
-
-VLAN 210 -  192.168.96.0/19
-VLAN 211 -  192.168.128.0/19
