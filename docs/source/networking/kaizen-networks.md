@@ -1,6 +1,6 @@
 # MOC Networks
 
-This documents lists out networks on MOC. This list is NOT COMPLETE.
+This document lists out networks on MOC. This list is NOT COMPLETE.
 
 ## Public Neu (VLAN 127)
 
@@ -30,8 +30,8 @@ IP Address       Hostname/Description
 ```
 IP Address       Hostname/Description
 10.2.0.1         firewall-vip
-10.2.0.1         fw1
-10.2.0.1         fw2
+10.2.0.2         fw1
+10.2.0.3         fw2
 
 10.2.0.41        INTEL-1
 10.2.0.43        INTEL-2
@@ -66,8 +66,8 @@ IP Address       Hostname/Description
 ```
 IP Address       Hostname/Description
 10.3.0.1         firewalls
-10.3.0.1         fw1
-10.3.0.1         fw2
+10.3.0.2         fw1
+10.3.0.3         fw2
 
 10.3.10.114      oac-prod-infra-1
 10.3.10.115      oac-prod-infra-2
