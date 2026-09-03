@@ -12,4 +12,3 @@ Welcome to Mass Open Cloud's documentation!
    hardware/index.rst
    networking/index.rst
    openshift/index.rst
-   openstack/index.rst
