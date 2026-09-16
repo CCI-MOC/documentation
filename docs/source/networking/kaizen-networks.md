@@ -12,8 +12,11 @@ IP Address       Hostname/Description
 129.10.5.3       fw2 IP
 129.10.5.4       NAT IP on firewalls
 
-129.10.5.101     oac-dev-workload
-129.10.5.102     oac-dev-workload-oauth
+129.10.5.101     oac-dev-workload0
+129.10.5.102     oac-dev-workload0-oauth
+129.10.5.104     oac-prod-workload0
+129.10.5.105     oac-dev-workload1
+129.10.5.106     oac-dev-workload1-oauth
 
 129.10.5.118     techsquare.massopen.cloud
 
@@ -22,7 +25,6 @@ IP Address       Hostname/Description
 129.10.5.142     esi-controller-1.massopen.cloud
 129.10.5.143     esi-controller-2.massopen.cloud
 129.10.5.144     esi-vip
-
 ```
 
 ## IPMI network (VLAN 911, ESI VLAN): 10.2.0.0/19
