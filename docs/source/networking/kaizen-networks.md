@@ -19,6 +19,7 @@ IP Address       Hostname/Description
 129.10.5.105     oac-dev-workload1
 129.10.5.106     oac-dev-workload1-oauth
 129.10.5.107     dizzy-ext hcp router
+129.10.5.108     ark-1
 
 129.10.5.118     techsquare.massopen.cloud
 
