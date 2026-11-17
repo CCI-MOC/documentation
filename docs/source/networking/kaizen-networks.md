@@ -22,6 +22,8 @@ IP Address       Hostname/Description
 129.10.5.108     ark-1
 
 129.10.5.110     Jonathan Appavoo Class
+129.10.5.111     bu-ist-demo-workload0
+129.10.5.112     bu-ist-demo-workload0-oauth
 
 129.10.5.118     techsquare.massopen.cloud
 
